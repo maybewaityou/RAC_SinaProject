@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		602DFA871B8E650C009A1C8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 602DFA861B8E650C009A1C8E /* main.m */; };
-		602DFA8A1B8E650C009A1C8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 602DFA891B8E650C009A1C8E /* AppDelegate.m */; };
-		602DFA8D1B8E650C009A1C8E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602DFA8C1B8E650C009A1C8E /* ViewController.m */; };
 		602DFA901B8E650C009A1C8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602DFA8E1B8E650C009A1C8E /* Main.storyboard */; };
 		602DFA921B8E650C009A1C8E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602DFA911B8E650C009A1C8E /* Images.xcassets */; };
 		602DFA951B8E650C009A1C8E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602DFA931B8E650C009A1C8E /* LaunchScreen.xib */; };
@@ -32,10 +30,6 @@
 		602DFA811B8E650C009A1C8E /* RAC_SinaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RAC_SinaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		602DFA851B8E650C009A1C8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		602DFA861B8E650C009A1C8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		602DFA881B8E650C009A1C8E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		602DFA891B8E650C009A1C8E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		602DFA8B1B8E650C009A1C8E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		602DFA8C1B8E650C009A1C8E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		602DFA8F1B8E650C009A1C8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		602DFA911B8E650C009A1C8E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		602DFA941B8E650C009A1C8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -96,10 +90,6 @@
 		602DFA831B8E650C009A1C8E /* RAC_SinaProject */ = {
 			isa = PBXGroup;
 			children = (
-				602DFA881B8E650C009A1C8E /* AppDelegate.h */,
-				602DFA891B8E650C009A1C8E /* AppDelegate.m */,
-				602DFA8B1B8E650C009A1C8E /* ViewController.h */,
-				602DFA8C1B8E650C009A1C8E /* ViewController.m */,
 				602DFA8E1B8E650C009A1C8E /* Main.storyboard */,
 				602DFA911B8E650C009A1C8E /* Images.xcassets */,
 				602DFA931B8E650C009A1C8E /* LaunchScreen.xib */,
@@ -278,8 +268,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				602DFA8D1B8E650C009A1C8E /* ViewController.m in Sources */,
-				602DFA8A1B8E650C009A1C8E /* AppDelegate.m in Sources */,
 				602DFA871B8E650C009A1C8E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
