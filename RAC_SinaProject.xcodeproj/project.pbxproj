@@ -14,6 +14,9 @@
 		602DFAA11B8E650C009A1C8E /* RAC_SinaProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 602DFAA01B8E650C009A1C8E /* RAC_SinaProjectTests.m */; };
 		6072F93C1B8E730700D47790 /* MPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F9371B8E730700D47790 /* MPHomeViewController.m */; };
 		6072F93D1B8E730700D47790 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F93B1B8E730700D47790 /* AppDelegate.m */; };
+		6072F9411B8E754D00D47790 /* MPDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F9401B8E754D00D47790 /* MPDiscoverViewController.m */; };
+		6072F9451B8E759400D47790 /* MPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F9441B8E759400D47790 /* MPProfileViewController.m */; };
+		6072F9491B8E75C900D47790 /* MPMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F9481B8E75C900D47790 /* MPMessageCenterViewController.m */; };
 		ED0A10412877A6135D22ADF4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C38D7A5BD1189B3D00AF55A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +45,12 @@
 		6072F9371B8E730700D47790 /* MPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeViewController.m; sourceTree = "<group>"; };
 		6072F93A1B8E730700D47790 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6072F93B1B8E730700D47790 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6072F93F1B8E754D00D47790 /* MPDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPDiscoverViewController.h; sourceTree = "<group>"; };
+		6072F9401B8E754D00D47790 /* MPDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPDiscoverViewController.m; sourceTree = "<group>"; };
+		6072F9431B8E759400D47790 /* MPProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPProfileViewController.h; sourceTree = "<group>"; };
+		6072F9441B8E759400D47790 /* MPProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPProfileViewController.m; sourceTree = "<group>"; };
+		6072F9471B8E75C900D47790 /* MPMessageCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMessageCenterViewController.h; sourceTree = "<group>"; };
+		6072F9481B8E75C900D47790 /* MPMessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMessageCenterViewController.m; sourceTree = "<group>"; };
 		94A2777195F0056108B20C2E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EDA20434B8364C3915FAAD33 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				6072F9341B8E730700D47790 /* Home(首页) */,
+				6072F9461B8E75AA00D47790 /* MessageCenter(消息) */,
+				6072F9421B8E757900D47790 /* Profile(我) */,
+				6072F93E1B8E751A00D47790 /* Discover(发现) */,
 				6072F9381B8E730700D47790 /* Main(主要) */,
 			);
 			path = Classes;
@@ -172,6 +184,33 @@
 				6072F93B1B8E730700D47790 /* AppDelegate.m */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		6072F93E1B8E751A00D47790 /* Discover(发现) */ = {
+			isa = PBXGroup;
+			children = (
+				6072F93F1B8E754D00D47790 /* MPDiscoverViewController.h */,
+				6072F9401B8E754D00D47790 /* MPDiscoverViewController.m */,
+			);
+			path = "Discover(发现)";
+			sourceTree = "<group>";
+		};
+		6072F9421B8E757900D47790 /* Profile(我) */ = {
+			isa = PBXGroup;
+			children = (
+				6072F9431B8E759400D47790 /* MPProfileViewController.h */,
+				6072F9441B8E759400D47790 /* MPProfileViewController.m */,
+			);
+			path = "Profile(我)";
+			sourceTree = "<group>";
+		};
+		6072F9461B8E75AA00D47790 /* MessageCenter(消息) */ = {
+			isa = PBXGroup;
+			children = (
+				6072F9471B8E75C900D47790 /* MPMessageCenterViewController.h */,
+				6072F9481B8E75C900D47790 /* MPMessageCenterViewController.m */,
+			);
+			path = "MessageCenter(消息)";
 			sourceTree = "<group>";
 		};
 		9B65F92342EA611443C66882 /* Pods */ = {
@@ -318,7 +357,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6072F9411B8E754D00D47790 /* MPDiscoverViewController.m in Sources */,
 				6072F93C1B8E730700D47790 /* MPHomeViewController.m in Sources */,
+				6072F9491B8E75C900D47790 /* MPMessageCenterViewController.m in Sources */,
+				6072F9451B8E759400D47790 /* MPProfileViewController.m in Sources */,
 				602DFA871B8E650C009A1C8E /* main.m in Sources */,
 				6072F93D1B8E730700D47790 /* AppDelegate.m in Sources */,
 			);
