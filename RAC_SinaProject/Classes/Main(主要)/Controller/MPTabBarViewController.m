@@ -37,7 +37,7 @@
     [self setupController:homeController title:@"首页" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
     [self setupController:messageController title:@"消息" image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected"];
     [self setupController:discoverController title:@"发现" image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected"];
-    [self setupController:profileController title:@"我的" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
+    [self setupController:profileController title:@"我" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
 }
 
 - (void)setupController:(UIViewController *)controller title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
