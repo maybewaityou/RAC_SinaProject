@@ -12,6 +12,7 @@
 		602DFA921B8E650C009A1C8E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602DFA911B8E650C009A1C8E /* Images.xcassets */; };
 		602DFA951B8E650C009A1C8E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602DFA931B8E650C009A1C8E /* LaunchScreen.xib */; };
 		602DFAA11B8E650C009A1C8E /* RAC_SinaProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 602DFAA01B8E650C009A1C8E /* RAC_SinaProjectTests.m */; };
+		6050F8151B8E9AC5006C5F45 /* MPTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F8141B8E9AC5006C5F45 /* MPTabBarViewController.m */; };
 		6072F93C1B8E730700D47790 /* MPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F9371B8E730700D47790 /* MPHomeViewController.m */; };
 		6072F93D1B8E730700D47790 /* MPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F93B1B8E730700D47790 /* MPAppDelegate.m */; };
 		6072F9411B8E754D00D47790 /* MPDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F9401B8E754D00D47790 /* MPDiscoverViewController.m */; };
@@ -42,6 +43,8 @@
 		602DFA9A1B8E650C009A1C8E /* RAC_SinaProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RAC_SinaProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		602DFA9F1B8E650C009A1C8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		602DFAA01B8E650C009A1C8E /* RAC_SinaProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RAC_SinaProjectTests.m; sourceTree = "<group>"; };
+		6050F8131B8E9AC5006C5F45 /* MPTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTabBarViewController.h; sourceTree = "<group>"; };
+		6050F8141B8E9AC5006C5F45 /* MPTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTabBarViewController.m; sourceTree = "<group>"; };
 		6072F9361B8E730700D47790 /* MPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeViewController.h; sourceTree = "<group>"; };
 		6072F9371B8E730700D47790 /* MPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeViewController.m; sourceTree = "<group>"; };
 		6072F93A1B8E730700D47790 /* MPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPAppDelegate.h; sourceTree = "<group>"; };
@@ -143,6 +146,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6050F8111B8E9A7F006C5F45 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6050F8131B8E9AC5006C5F45 /* MPTabBarViewController.h */,
+				6050F8141B8E9AC5006C5F45 /* MPTabBarViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6050F8121B8E9A87006C5F45 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
 		6072F9331B8E730700D47790 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +194,8 @@
 		6072F9381B8E730700D47790 /* Main(主要) */ = {
 			isa = PBXGroup;
 			children = (
+				6050F8111B8E9A7F006C5F45 /* Controller */,
+				6050F8121B8E9A87006C5F45 /* Lib */,
 				6072F94A1B8E7A8100D47790 /* Category */,
 				6072F9391B8E730700D47790 /* Other */,
 			);
@@ -373,6 +394,7 @@
 				6072F9411B8E754D00D47790 /* MPDiscoverViewController.m in Sources */,
 				6072F93C1B8E730700D47790 /* MPHomeViewController.m in Sources */,
 				6072F9491B8E75C900D47790 /* MPMessageCenterViewController.m in Sources */,
+				6050F8151B8E9AC5006C5F45 /* MPTabBarViewController.m in Sources */,
 				6072F94D1B8E7ABE00D47790 /* UIColor+Extension.m in Sources */,
 				6072F9451B8E759400D47790 /* MPProfileViewController.m in Sources */,
 				602DFA871B8E650C009A1C8E /* main.m in Sources */,
