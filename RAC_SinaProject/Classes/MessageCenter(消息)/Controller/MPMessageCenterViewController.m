@@ -7,6 +7,7 @@
 //
 
 #import "MPMessageCenterViewController.h"
+#import "ReactiveCocoa.h"
 
 @interface MPMessageCenterViewController ()
 
@@ -16,22 +17,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    [self setupTitle];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupTitle
+{
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] init];
+    item.title = @"写私信";
+    item.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        NSLog(@"===>>> 写私信");
+        return [RACSignal empty];
+    }];
+    self.navigationItem.rightBarButtonItem = item;
+
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewWillAppear:(BOOL)animated
+{
+//    self.navigationItem.rightBarButtonItem.enabled = NO;
 }
-*/
 
 @end

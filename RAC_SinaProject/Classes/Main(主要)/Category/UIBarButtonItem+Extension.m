@@ -14,7 +14,7 @@
 
 + (UIBarButtonItem *)itemWithImage:(NSString *)image highImage:(NSString *)highImage onClickListener:(onClickListener) onClickListener;
 {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setBackgroundImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
     [button setBackgroundImage:[UIImage imageNamed:highImage] forState:UIControlStateHighlighted];
     [[button rac_signalForControlEvents:UIControlEventTouchUpInside]

@@ -8,6 +8,7 @@
 
 #import "MPHomeViewController.h"
 #import "TestViewController01.h"
+#import "UIBarButtonItem+Extension.h"
 
 
 @interface MPHomeViewController ()
@@ -19,7 +20,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
+    [self setupTitle];
+}
+
+- (void)setupTitle
+{
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_friendsearch" highImage:@"navigationbar_friendsearch_highlighted" onClickListener:^(UIView *view) {
+        NSLog(@"===>>> friend search");
+    }];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted" onClickListener:^(UIView *view) {
+        NSLog(@"===>>> scan QRCode");
+    }];
 }
 
 @end
