@@ -9,6 +9,7 @@
 #import "MPAppDelegate.h"
 #import "MPTabBarViewController.h"
 #import "MPNewfeatureViewController.h"
+#import "MPOAuthViewController.h"
 
 @interface MPAppDelegate ()
 
@@ -24,8 +25,12 @@
 //    MPTabBarViewController *rootController = [[MPTabBarViewController alloc] init];
 //    self.window.rootViewController = rootController;
     
-    MPNewfeatureViewController *controller = [[MPNewfeatureViewController alloc] init];
+//    MPNewfeatureViewController *controller = [[MPNewfeatureViewController alloc] init];
+//    self.window.rootViewController = controller;
+    
+    MPOAuthViewController *controller = [[MPOAuthViewController alloc] init];
     self.window.rootViewController = controller;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyWindow];
     

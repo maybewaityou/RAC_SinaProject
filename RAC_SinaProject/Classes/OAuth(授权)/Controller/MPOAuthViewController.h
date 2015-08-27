@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  MPOAuthViewController.h
 //  RAC_SinaProject
 //
 //  Created by ChunNan on 15/8/27.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MPAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface MPOAuthViewController : UIViewController
 
 @end
-

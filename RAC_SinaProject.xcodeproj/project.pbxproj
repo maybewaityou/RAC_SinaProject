@@ -11,6 +11,9 @@
 		60243B5C1B8EE9D000FD62A7 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60243B5B1B8EE9D000FD62A7 /* Reveal.framework */; };
 		60243B851B8EFB0A00FD62A7 /* MPNetworkApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B7A1B8EFB0A00FD62A7 /* MPNetworkApi.m */; };
 		60243B8E1B8EFC2200FD62A7 /* MaterialProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B8D1B8EFC2200FD62A7 /* MaterialProgress.m */; };
+		60243B9A1B8F00F500FD62A7 /* RVMViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B991B8F00F500FD62A7 /* RVMViewModel.m */; };
+		60243B9F1B8F043C00FD62A7 /* MPOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B9E1B8F043C00FD62A7 /* MPOAuthViewController.m */; };
+		60243BAB1B8F153400FD62A7 /* MPNetworkServicesImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243BAA1B8F153400FD62A7 /* MPNetworkServicesImpl.m */; };
 		602DFA871B8E650C009A1C8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 602DFA861B8E650C009A1C8E /* main.m */; };
 		602DFA901B8E650C009A1C8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602DFA8E1B8E650C009A1C8E /* Main.storyboard */; };
 		602DFA921B8E650C009A1C8E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602DFA911B8E650C009A1C8E /* Images.xcassets */; };
@@ -54,6 +57,16 @@
 		60243B8C1B8EFC2200FD62A7 /* MaterialProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialProgress.h; sourceTree = "<group>"; };
 		60243B8D1B8EFC2200FD62A7 /* MaterialProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialProgress.m; sourceTree = "<group>"; };
 		60243B901B8EFD9F00FD62A7 /* MPNMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNMacros.h; sourceTree = "<group>"; };
+		60243B971B8F00F500FD62A7 /* ReactiveViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactiveViewModel.h; sourceTree = "<group>"; };
+		60243B981B8F00F500FD62A7 /* RVMViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RVMViewModel.h; sourceTree = "<group>"; };
+		60243B991B8F00F500FD62A7 /* RVMViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVMViewModel.m; sourceTree = "<group>"; };
+		60243B9D1B8F043C00FD62A7 /* MPOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPOAuthViewController.h; sourceTree = "<group>"; };
+		60243B9E1B8F043C00FD62A7 /* MPOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPOAuthViewController.m; sourceTree = "<group>"; };
+		60243BA21B8F10F500FD62A7 /* ModelServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelServices.h; sourceTree = "<group>"; };
+		60243BA41B8F115500FD62A7 /* MPReactiveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPReactiveView.h; sourceTree = "<group>"; };
+		60243BA81B8F12A500FD62A7 /* ModelNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelNetwork.h; sourceTree = "<group>"; };
+		60243BA91B8F153400FD62A7 /* MPNetworkServicesImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPNetworkServicesImpl.h; path = ../ViewModel/MPNetworkServicesImpl.h; sourceTree = "<group>"; };
+		60243BAA1B8F153400FD62A7 /* MPNetworkServicesImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPNetworkServicesImpl.m; path = ../ViewModel/MPNetworkServicesImpl.m; sourceTree = "<group>"; };
 		602DFA811B8E650C009A1C8E /* RAC_SinaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RAC_SinaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		602DFA851B8E650C009A1C8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		602DFA861B8E650C009A1C8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -185,6 +198,7 @@
 		60243B8A1B8EFC0400FD62A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				60243BA31B8F115500FD62A7 /* Protocol */,
 				60243B8B1B8EFC2200FD62A7 /* Progress */,
 			);
 			path = View;
@@ -197,6 +211,67 @@
 				60243B8D1B8EFC2200FD62A7 /* MaterialProgress.m */,
 			);
 			path = Progress;
+			sourceTree = "<group>";
+		};
+		60243B961B8F00F500FD62A7 /* ReactiveViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				60243B971B8F00F500FD62A7 /* ReactiveViewModel.h */,
+				60243B981B8F00F500FD62A7 /* RVMViewModel.h */,
+				60243B991B8F00F500FD62A7 /* RVMViewModel.m */,
+			);
+			path = ReactiveViewModel;
+			sourceTree = "<group>";
+		};
+		60243B9B1B8F041B00FD62A7 /* OAuth(授权) */ = {
+			isa = PBXGroup;
+			children = (
+				60243B9C1B8F041B00FD62A7 /* Controller */,
+			);
+			path = "OAuth(授权)";
+			sourceTree = "<group>";
+		};
+		60243B9C1B8F041B00FD62A7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				60243B9D1B8F043C00FD62A7 /* MPOAuthViewController.h */,
+				60243B9E1B8F043C00FD62A7 /* MPOAuthViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		60243BA01B8F10F500FD62A7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				60243BA11B8F10F500FD62A7 /* Protocol */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		60243BA11B8F10F500FD62A7 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				60243BA81B8F12A500FD62A7 /* ModelNetwork.h */,
+				60243BA21B8F10F500FD62A7 /* ModelServices.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		60243BA31B8F115500FD62A7 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				60243BA41B8F115500FD62A7 /* MPReactiveView.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		60243BAC1B8F155800FD62A7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				60243BA91B8F153400FD62A7 /* MPNetworkServicesImpl.h */,
+				60243BAA1B8F153400FD62A7 /* MPNetworkServicesImpl.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		602DFA781B8E650C009A1C8E = {
@@ -272,6 +347,7 @@
 		6050F8121B8E9A87006C5F45 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				60243B961B8F00F500FD62A7 /* ReactiveViewModel */,
 				60243B5D1B8EFB0A00FD62A7 /* Networking */,
 			);
 			path = Lib;
@@ -406,6 +482,7 @@
 		6072F9331B8E730700D47790 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				60243B9B1B8F041B00FD62A7 /* OAuth(授权) */,
 				60243B531B8EDF0D00FD62A7 /* Newfeature(新特性) */,
 				6072F9341B8E730700D47790 /* Home(首页) */,
 				6072F9461B8E75AA00D47790 /* MessageCenter(消息) */,
@@ -445,6 +522,8 @@
 				6072F94A1B8E7A8100D47790 /* Category */,
 				6072F9391B8E730700D47790 /* Other */,
 				6050F8121B8E9A87006C5F45 /* Lib */,
+				60243BAC1B8F155800FD62A7 /* Model */,
+				60243BA01B8F10F500FD62A7 /* ViewModel */,
 				60243B8A1B8EFC0400FD62A7 /* View */,
 			);
 			path = "Main(主要)";
@@ -651,6 +730,7 @@
 			files = (
 				6050F8251B8EAA9E006C5F45 /* TestViewController01.m in Sources */,
 				60243B8E1B8EFC2200FD62A7 /* MaterialProgress.m in Sources */,
+				60243B9A1B8F00F500FD62A7 /* RVMViewModel.m in Sources */,
 				6050F8181B8E9F1B006C5F45 /* UIView+Extension.m in Sources */,
 				6050F83C1B8EB7E6006C5F45 /* MPProfileViewController.m in Sources */,
 				6072F93C1B8E730700D47790 /* MPHomeViewController.m in Sources */,
@@ -661,12 +741,14 @@
 				6050F8281B8EAAAF006C5F45 /* TestViewController02.m in Sources */,
 				60243B5A1B8EDF3300FD62A7 /* MPNewfeatureViewController.m in Sources */,
 				6050F8221B8EAA89006C5F45 /* TestViewController00.m in Sources */,
+				60243BAB1B8F153400FD62A7 /* MPNetworkServicesImpl.m in Sources */,
 				60243B851B8EFB0A00FD62A7 /* MPNetworkApi.m in Sources */,
 				6050F82B1B8EAEC6006C5F45 /* TestViewController03.m in Sources */,
 				602DFA871B8E650C009A1C8E /* main.m in Sources */,
 				6050F81B1B8EA24C006C5F45 /* MPNavigationController.m in Sources */,
 				6072F93D1B8E730700D47790 /* MPAppDelegate.m in Sources */,
 				6050F8401B8EB80C006C5F45 /* MPMessageCenterViewController.m in Sources */,
+				60243B9F1B8F043C00FD62A7 /* MPOAuthViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
