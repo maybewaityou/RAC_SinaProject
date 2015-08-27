@@ -8,6 +8,7 @@
 
 #import "MPAppDelegate.h"
 #import "MPTabBarViewController.h"
+#import "MPNewfeatureViewController.h"
 
 @interface MPAppDelegate ()
 
@@ -19,8 +20,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    MPTabBarViewController *rootController = [[MPTabBarViewController alloc] init];
-    self.window.rootViewController = rootController;
+    
+//    MPTabBarViewController *rootController = [[MPTabBarViewController alloc] init];
+//    self.window.rootViewController = rootController;
+    
+    MPNewfeatureViewController *controller = [[MPNewfeatureViewController alloc] init];
+    self.window.rootViewController = controller;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyWindow];
     

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60243B5A1B8EDF3300FD62A7 /* MPNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B591B8EDF3300FD62A7 /* MPNewfeatureViewController.m */; };
+		60243B5C1B8EE9D000FD62A7 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60243B5B1B8EE9D000FD62A7 /* Reveal.framework */; };
+		60243B851B8EFB0A00FD62A7 /* MPNetworkApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B7A1B8EFB0A00FD62A7 /* MPNetworkApi.m */; };
+		60243B8E1B8EFC2200FD62A7 /* MaterialProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B8D1B8EFC2200FD62A7 /* MaterialProgress.m */; };
 		602DFA871B8E650C009A1C8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 602DFA861B8E650C009A1C8E /* main.m */; };
 		602DFA901B8E650C009A1C8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602DFA8E1B8E650C009A1C8E /* Main.storyboard */; };
 		602DFA921B8E650C009A1C8E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602DFA911B8E650C009A1C8E /* Images.xcassets */; };
@@ -41,6 +45,15 @@
 
 /* Begin PBXFileReference section */
 		0C38D7A5BD1189B3D00AF55A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		60243B581B8EDF3300FD62A7 /* MPNewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNewfeatureViewController.h; sourceTree = "<group>"; };
+		60243B591B8EDF3300FD62A7 /* MPNewfeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNewfeatureViewController.m; sourceTree = "<group>"; };
+		60243B5B1B8EE9D000FD62A7 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		60243B791B8EFB0A00FD62A7 /* MPNetworkApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNetworkApi.h; sourceTree = "<group>"; };
+		60243B7A1B8EFB0A00FD62A7 /* MPNetworkApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNetworkApi.m; sourceTree = "<group>"; };
+		60243B871B8EFB9600FD62A7 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		60243B8C1B8EFC2200FD62A7 /* MaterialProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialProgress.h; sourceTree = "<group>"; };
+		60243B8D1B8EFC2200FD62A7 /* MaterialProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialProgress.m; sourceTree = "<group>"; };
+		60243B901B8EFD9F00FD62A7 /* MPNMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNMacros.h; sourceTree = "<group>"; };
 		602DFA811B8E650C009A1C8E /* RAC_SinaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RAC_SinaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		602DFA851B8E650C009A1C8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		602DFA861B8E650C009A1C8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -88,6 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED0A10412877A6135D22ADF4 /* libPods.a in Frameworks */,
+				60243B5C1B8EE9D000FD62A7 /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,9 +123,86 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		60243B531B8EDF0D00FD62A7 /* Newfeature(新特性) */ = {
+			isa = PBXGroup;
+			children = (
+				60243B541B8EDF0D00FD62A7 /* Controller */,
+				60243B551B8EDF0D00FD62A7 /* Model */,
+				60243B561B8EDF0D00FD62A7 /* VIew */,
+				60243B571B8EDF0D00FD62A7 /* ViewModel */,
+			);
+			path = "Newfeature(新特性)";
+			sourceTree = "<group>";
+		};
+		60243B541B8EDF0D00FD62A7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				60243B581B8EDF3300FD62A7 /* MPNewfeatureViewController.h */,
+				60243B591B8EDF3300FD62A7 /* MPNewfeatureViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		60243B551B8EDF0D00FD62A7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		60243B561B8EDF0D00FD62A7 /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VIew;
+			sourceTree = "<group>";
+		};
+		60243B571B8EDF0D00FD62A7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		60243B5D1B8EFB0A00FD62A7 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				60243B791B8EFB0A00FD62A7 /* MPNetworkApi.h */,
+				60243B7A1B8EFB0A00FD62A7 /* MPNetworkApi.m */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		60243B861B8EFB7C00FD62A7 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				60243B901B8EFD9F00FD62A7 /* MPNMacros.h */,
+				60243B871B8EFB9600FD62A7 /* Constant.h */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		60243B8A1B8EFC0400FD62A7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				60243B8B1B8EFC2200FD62A7 /* Progress */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		60243B8B1B8EFC2200FD62A7 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				60243B8C1B8EFC2200FD62A7 /* MaterialProgress.h */,
+				60243B8D1B8EFC2200FD62A7 /* MaterialProgress.m */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
 		602DFA781B8E650C009A1C8E = {
 			isa = PBXGroup;
 			children = (
+				60243B5B1B8EE9D000FD62A7 /* Reveal.framework */,
 				602DFA831B8E650C009A1C8E /* RAC_SinaProject */,
 				602DFA9D1B8E650C009A1C8E /* RAC_SinaProjectTests */,
 				602DFA821B8E650C009A1C8E /* Products */,
@@ -181,6 +272,7 @@
 		6050F8121B8E9A87006C5F45 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				60243B5D1B8EFB0A00FD62A7 /* Networking */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -314,6 +406,7 @@
 		6072F9331B8E730700D47790 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				60243B531B8EDF0D00FD62A7 /* Newfeature(新特性) */,
 				6072F9341B8E730700D47790 /* Home(首页) */,
 				6072F9461B8E75AA00D47790 /* MessageCenter(消息) */,
 				6072F9421B8E757900D47790 /* Profile(我) */,
@@ -347,10 +440,12 @@
 		6072F9381B8E730700D47790 /* Main(主要) */ = {
 			isa = PBXGroup;
 			children = (
+				60243B861B8EFB7C00FD62A7 /* Constant */,
 				6050F8111B8E9A7F006C5F45 /* Controller */,
-				6050F8121B8E9A87006C5F45 /* Lib */,
 				6072F94A1B8E7A8100D47790 /* Category */,
 				6072F9391B8E730700D47790 /* Other */,
+				6050F8121B8E9A87006C5F45 /* Lib */,
+				60243B8A1B8EFC0400FD62A7 /* View */,
 			);
 			path = "Main(主要)";
 			sourceTree = "<group>";
@@ -555,6 +650,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6050F8251B8EAA9E006C5F45 /* TestViewController01.m in Sources */,
+				60243B8E1B8EFC2200FD62A7 /* MaterialProgress.m in Sources */,
 				6050F8181B8E9F1B006C5F45 /* UIView+Extension.m in Sources */,
 				6050F83C1B8EB7E6006C5F45 /* MPProfileViewController.m in Sources */,
 				6072F93C1B8E730700D47790 /* MPHomeViewController.m in Sources */,
@@ -563,7 +659,9 @@
 				6072F94D1B8E7ABE00D47790 /* UIColor+Extension.m in Sources */,
 				6050F81E1B8EA71C006C5F45 /* UIBarButtonItem+Extension.m in Sources */,
 				6050F8281B8EAAAF006C5F45 /* TestViewController02.m in Sources */,
+				60243B5A1B8EDF3300FD62A7 /* MPNewfeatureViewController.m in Sources */,
 				6050F8221B8EAA89006C5F45 /* TestViewController00.m in Sources */,
+				60243B851B8EFB0A00FD62A7 /* MPNetworkApi.m in Sources */,
 				6050F82B1B8EAEC6006C5F45 /* TestViewController03.m in Sources */,
 				602DFA871B8E650C009A1C8E /* main.m in Sources */,
 				6050F81B1B8EA24C006C5F45 /* MPNavigationController.m in Sources */,
@@ -695,8 +793,49 @@
 			baseConfigurationReference = 94A2777195F0056108B20C2E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = RAC_SinaProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Pods-AFNetworking\"",
+					"-l\"Pods-AsyncDisplayKit\"",
+					"-l\"Pods-BlocksKit\"",
+					"-l\"Pods-MJExtension\"",
+					"-l\"Pods-MJRefresh\"",
+					"-l\"Pods-Masonry\"",
+					"-l\"Pods-ReactiveCocoa\"",
+					"-l\"Pods-SDWebImage\"",
+					"-l\"c++\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"Photos\"",
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -706,8 +845,49 @@
 			baseConfigurationReference = EDA20434B8364C3915FAAD33 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = RAC_SinaProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Pods-AFNetworking\"",
+					"-l\"Pods-AsyncDisplayKit\"",
+					"-l\"Pods-BlocksKit\"",
+					"-l\"Pods-MJExtension\"",
+					"-l\"Pods-MJRefresh\"",
+					"-l\"Pods-Masonry\"",
+					"-l\"Pods-ReactiveCocoa\"",
+					"-l\"Pods-SDWebImage\"",
+					"-l\"c++\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"Photos\"",
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
