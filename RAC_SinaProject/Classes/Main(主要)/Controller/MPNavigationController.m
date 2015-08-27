@@ -8,6 +8,7 @@
 
 #import "MPNavigationController.h"
 #import "UIBarButtonItem+Extension.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
 
 @interface MPNavigationController ()
 
@@ -28,6 +29,13 @@
     [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     [item setTitleTextAttributes:disableAttrs forState:UIControlStateDisabled];
     
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.fd_fullscreenPopGestureRecognizer.enabled = YES;
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated

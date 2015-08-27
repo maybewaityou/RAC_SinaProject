@@ -10,6 +10,8 @@
 #import "Masonry.h"
 #import "ReactiveCocoa.h"
 #import "Constant.h"
+#import "AFNetworking.h"
+#import "MPAccount.h"
 
 @interface MPOAuthViewController ()<UIWebViewDelegate>
 
@@ -61,6 +63,24 @@
 
 - (void)fetchAccessToken:(NSString *)code
 {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"client_id"] = @"2287771596";
+    params[@"client_secret"] = @"ace05cd07ee20f4704292c286c887d51";
+    params[@"grant_type"] = @"authorization_code";
+    params[@"redirect_uri"] = @"http://";
+    params[@"code"] = code;
+    
+    [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^void(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        NSString *path = [doc stringByAppendingPathComponent:@"account.archive"];
+        MPAccount *account = [MPAccount accountWithDictionary:responseObject];
+        [NSKeyedArchiver archiveRootObject:account toFile:path];
+        
+    } failure:^void(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"===>>> %@",error.localizedDescription);
+    }];
 }
 @end
