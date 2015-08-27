@@ -8,6 +8,9 @@
 
 #import "MPAppDelegate.h"
 #import "MPTabBarViewController.h"
+#import "TestViewController00.h"
+#import "TestViewController01.h"
+
 
 @interface MPAppDelegate ()
 
@@ -20,9 +23,11 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    MPTabBarViewController *rootController = [[MPTabBarViewController alloc] init];
-    self.window.rootViewController = rootController;
+//    MPTabBarViewController *rootController = [[MPTabBarViewController alloc] init];
+//    self.window.rootViewController = rootController;
     
+    TestViewController00 *controller = [[TestViewController00 alloc] initWithRootViewController:[[TestViewController01 alloc] init]];
+    self.window.rootViewController = controller;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyWindow];
     

@@ -7,8 +7,7 @@
 //
 
 #import "MPNavigationController.h"
-#import "ReactiveCocoa.h"
-#import "UIView+Extension.h"
+#import "UIBarButtonItem+Extension.h"
 
 @interface MPNavigationController ()
 
@@ -18,31 +17,17 @@
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    if (self.viewControllers.count <= 0) {
-        return;
+    if (self.viewControllers.count > 0) {
+        UIBarButtonItem *backItem = [UIBarButtonItem itemWithImage:@"navigationbar_back" highImage:@"navigationbar_back_highlighted" onClickListener:^(UIView *view) {
+            [self popViewControllerAnimated:YES];
+        }];
+        UIBarButtonItem *moreItem = [UIBarButtonItem itemWithImage:@"navigationbar_more" highImage:@"navigationbar_more_highlighted" onClickListener:^(UIView *view) {
+            [self popToRootViewControllerAnimated:YES];
+        }];
+        
+        viewController.navigationItem.leftBarButtonItem = backItem;
+        viewController.navigationItem.rightBarButtonItem = moreItem;
     }
-    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIButton *moreButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [backButton setImage:[UIImage imageNamed:@"navigationbar_back"] forState:UIControlStateNormal];
-    [backButton setImage:[UIImage imageNamed:@"navigationbar_back_highlighted"] forState:UIControlStateHighlighted];
-    [moreButton setImage:[UIImage imageNamed:@"navigationbar_more"] forState:UIControlStateNormal];
-    [moreButton setImage:[UIImage imageNamed:@"navigationbar_more_highlighted"] forState:UIControlStateHighlighted];
-    
-    backButton.size = backButton.currentBackgroundImage.size;
-    moreButton.size = moreButton.currentBackgroundImage.size;
-    
-    [[backButton rac_signalForControlEvents:UIControlEventTouchUpInside]
-     subscribeNext:^(id x) {
-         [self popViewControllerAnimated:YES];
-    }];
-    
-    [[moreButton rac_signalForControlEvents:UIControlEventTouchUpInside]
-     subscribeNext:^(id x) {
-         [self popToRootViewControllerAnimated:YES];
-    }];
-    
-    viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    viewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
     
     [super pushViewController:viewController animated:animated];
 }
