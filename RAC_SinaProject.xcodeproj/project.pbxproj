@@ -20,11 +20,11 @@
 		6050F8251B8EAA9E006C5F45 /* TestViewController01.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F8241B8EAA9E006C5F45 /* TestViewController01.m */; };
 		6050F8281B8EAAAF006C5F45 /* TestViewController02.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F8271B8EAAAF006C5F45 /* TestViewController02.m */; };
 		6050F82B1B8EAEC6006C5F45 /* TestViewController03.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F82A1B8EAEC6006C5F45 /* TestViewController03.m */; };
+		6050F8351B8EB7B3006C5F45 /* MPDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F8341B8EB7B3006C5F45 /* MPDiscoverViewController.m */; };
+		6050F83C1B8EB7E6006C5F45 /* MPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F8381B8EB7E6006C5F45 /* MPProfileViewController.m */; };
+		6050F8401B8EB80C006C5F45 /* MPMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F83F1B8EB80C006C5F45 /* MPMessageCenterViewController.m */; };
 		6072F93C1B8E730700D47790 /* MPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F9371B8E730700D47790 /* MPHomeViewController.m */; };
 		6072F93D1B8E730700D47790 /* MPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F93B1B8E730700D47790 /* MPAppDelegate.m */; };
-		6072F9411B8E754D00D47790 /* MPDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F9401B8E754D00D47790 /* MPDiscoverViewController.m */; };
-		6072F9451B8E759400D47790 /* MPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F9441B8E759400D47790 /* MPProfileViewController.m */; };
-		6072F9491B8E75C900D47790 /* MPMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F9481B8E75C900D47790 /* MPMessageCenterViewController.m */; };
 		6072F94D1B8E7ABE00D47790 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F94C1B8E7ABE00D47790 /* UIColor+Extension.m */; };
 		ED0A10412877A6135D22ADF4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C38D7A5BD1189B3D00AF55A /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -66,16 +66,16 @@
 		6050F8271B8EAAAF006C5F45 /* TestViewController02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController02.m; sourceTree = "<group>"; };
 		6050F8291B8EAEC6006C5F45 /* TestViewController03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController03.h; sourceTree = "<group>"; };
 		6050F82A1B8EAEC6006C5F45 /* TestViewController03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController03.m; sourceTree = "<group>"; };
+		6050F8331B8EB7B3006C5F45 /* MPDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPDiscoverViewController.h; sourceTree = "<group>"; };
+		6050F8341B8EB7B3006C5F45 /* MPDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPDiscoverViewController.m; sourceTree = "<group>"; };
+		6050F8371B8EB7E6006C5F45 /* MPProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPProfileViewController.h; sourceTree = "<group>"; };
+		6050F8381B8EB7E6006C5F45 /* MPProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPProfileViewController.m; sourceTree = "<group>"; };
+		6050F83E1B8EB80C006C5F45 /* MPMessageCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMessageCenterViewController.h; sourceTree = "<group>"; };
+		6050F83F1B8EB80C006C5F45 /* MPMessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMessageCenterViewController.m; sourceTree = "<group>"; };
 		6072F9361B8E730700D47790 /* MPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeViewController.h; sourceTree = "<group>"; };
 		6072F9371B8E730700D47790 /* MPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeViewController.m; sourceTree = "<group>"; };
 		6072F93A1B8E730700D47790 /* MPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPAppDelegate.h; sourceTree = "<group>"; };
 		6072F93B1B8E730700D47790 /* MPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPAppDelegate.m; sourceTree = "<group>"; };
-		6072F93F1B8E754D00D47790 /* MPDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPDiscoverViewController.h; sourceTree = "<group>"; };
-		6072F9401B8E754D00D47790 /* MPDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPDiscoverViewController.m; sourceTree = "<group>"; };
-		6072F9431B8E759400D47790 /* MPProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPProfileViewController.h; sourceTree = "<group>"; };
-		6072F9441B8E759400D47790 /* MPProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPProfileViewController.m; sourceTree = "<group>"; };
-		6072F9471B8E75C900D47790 /* MPMessageCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMessageCenterViewController.h; sourceTree = "<group>"; };
-		6072F9481B8E75C900D47790 /* MPMessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMessageCenterViewController.m; sourceTree = "<group>"; };
 		6072F94B1B8E7ABE00D47790 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
 		6072F94C1B8E7ABE00D47790 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 		94A2777195F0056108B20C2E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +200,117 @@
 			path = "Temp(临时)";
 			sourceTree = "<group>";
 		};
+		6050F82C1B8EB77E006C5F45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6050F82D1B8EB77E006C5F45 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6050F82E1B8EB77E006C5F45 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6050F82F1B8EB798006C5F45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6050F8301B8EB798006C5F45 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6050F8311B8EB798006C5F45 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6050F8321B8EB7B3006C5F45 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6050F8331B8EB7B3006C5F45 /* MPDiscoverViewController.h */,
+				6050F8341B8EB7B3006C5F45 /* MPDiscoverViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6050F8361B8EB7E6006C5F45 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6050F8371B8EB7E6006C5F45 /* MPProfileViewController.h */,
+				6050F8381B8EB7E6006C5F45 /* MPProfileViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6050F8391B8EB7E6006C5F45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6050F83A1B8EB7E6006C5F45 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6050F83B1B8EB7E6006C5F45 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6050F83D1B8EB80C006C5F45 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6050F83E1B8EB80C006C5F45 /* MPMessageCenterViewController.h */,
+				6050F83F1B8EB80C006C5F45 /* MPMessageCenterViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6050F8411B8EB816006C5F45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6050F8421B8EB816006C5F45 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6050F8431B8EB816006C5F45 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		6072F9331B8E730700D47790 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +327,9 @@
 		6072F9341B8E730700D47790 /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
+				6050F82C1B8EB77E006C5F45 /* Model */,
+				6050F82D1B8EB77E006C5F45 /* View */,
+				6050F82E1B8EB77E006C5F45 /* ViewModel */,
 				6072F9351B8E730700D47790 /* Controller */,
 			);
 			path = "Home(首页)";
@@ -253,8 +367,10 @@
 		6072F93E1B8E751A00D47790 /* Discover(发现) */ = {
 			isa = PBXGroup;
 			children = (
-				6072F93F1B8E754D00D47790 /* MPDiscoverViewController.h */,
-				6072F9401B8E754D00D47790 /* MPDiscoverViewController.m */,
+				6050F82F1B8EB798006C5F45 /* Model */,
+				6050F8301B8EB798006C5F45 /* View */,
+				6050F8311B8EB798006C5F45 /* ViewModel */,
+				6050F8321B8EB7B3006C5F45 /* Controller */,
 			);
 			path = "Discover(发现)";
 			sourceTree = "<group>";
@@ -262,8 +378,10 @@
 		6072F9421B8E757900D47790 /* Profile(我) */ = {
 			isa = PBXGroup;
 			children = (
-				6072F9431B8E759400D47790 /* MPProfileViewController.h */,
-				6072F9441B8E759400D47790 /* MPProfileViewController.m */,
+				6050F8391B8EB7E6006C5F45 /* Model */,
+				6050F83A1B8EB7E6006C5F45 /* View */,
+				6050F83B1B8EB7E6006C5F45 /* ViewModel */,
+				6050F8361B8EB7E6006C5F45 /* Controller */,
 			);
 			path = "Profile(我)";
 			sourceTree = "<group>";
@@ -271,8 +389,10 @@
 		6072F9461B8E75AA00D47790 /* MessageCenter(消息) */ = {
 			isa = PBXGroup;
 			children = (
-				6072F9471B8E75C900D47790 /* MPMessageCenterViewController.h */,
-				6072F9481B8E75C900D47790 /* MPMessageCenterViewController.m */,
+				6050F8411B8EB816006C5F45 /* Model */,
+				6050F8421B8EB816006C5F45 /* View */,
+				6050F8431B8EB816006C5F45 /* ViewModel */,
+				6050F83D1B8EB80C006C5F45 /* Controller */,
 			);
 			path = "MessageCenter(消息)";
 			sourceTree = "<group>";
@@ -436,19 +556,19 @@
 			files = (
 				6050F8251B8EAA9E006C5F45 /* TestViewController01.m in Sources */,
 				6050F8181B8E9F1B006C5F45 /* UIView+Extension.m in Sources */,
-				6072F9411B8E754D00D47790 /* MPDiscoverViewController.m in Sources */,
+				6050F83C1B8EB7E6006C5F45 /* MPProfileViewController.m in Sources */,
 				6072F93C1B8E730700D47790 /* MPHomeViewController.m in Sources */,
-				6072F9491B8E75C900D47790 /* MPMessageCenterViewController.m in Sources */,
+				6050F8351B8EB7B3006C5F45 /* MPDiscoverViewController.m in Sources */,
 				6050F8151B8E9AC5006C5F45 /* MPTabBarViewController.m in Sources */,
 				6072F94D1B8E7ABE00D47790 /* UIColor+Extension.m in Sources */,
 				6050F81E1B8EA71C006C5F45 /* UIBarButtonItem+Extension.m in Sources */,
 				6050F8281B8EAAAF006C5F45 /* TestViewController02.m in Sources */,
-				6072F9451B8E759400D47790 /* MPProfileViewController.m in Sources */,
 				6050F8221B8EAA89006C5F45 /* TestViewController00.m in Sources */,
 				6050F82B1B8EAEC6006C5F45 /* TestViewController03.m in Sources */,
 				602DFA871B8E650C009A1C8E /* main.m in Sources */,
 				6050F81B1B8EA24C006C5F45 /* MPNavigationController.m in Sources */,
 				6072F93D1B8E730700D47790 /* MPAppDelegate.m in Sources */,
+				6050F8401B8EB80C006C5F45 /* MPMessageCenterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
