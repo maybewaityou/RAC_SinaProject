@@ -23,7 +23,6 @@
     }];
     
     button.size = button.currentBackgroundImage.size;
-    button.backgroundColor = [UIColor redColor];
     
     return [[UIBarButtonItem alloc] initWithCustomView:button];
 }

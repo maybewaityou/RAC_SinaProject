@@ -12,6 +12,8 @@
 #import "MPDiscoverViewController.h"
 #import "MPMessageCenterViewController.h"
 #import "MPProfileViewController.h"
+#import "MPNavigationController.h"
+
 
 @interface MPTabBarViewController ()
 
@@ -36,16 +38,12 @@
     [self setupController:messageController title:@"消息" image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected"];
     [self setupController:discoverController title:@"发现" image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected"];
     [self setupController:profileController title:@"我的" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
-    
-    
-    [self addChildViewController:homeController];
-    [self addChildViewController:messageController];
-    [self addChildViewController:discoverController];
-    [self addChildViewController:profileController];
 }
 
 - (void)setupController:(UIViewController *)controller title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
 {
+    controller.title = title;
+    
     controller.tabBarItem.title = title;
     controller.tabBarItem.image = [UIImage imageNamed:image];
     controller.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -59,6 +57,8 @@
     
     controller.view.backgroundColor = [UIColor MPRandomColor];
     
+    MPNavigationController *navController = [[MPNavigationController alloc] initWithRootViewController:controller];
+    [self addChildViewController:navController];
 }
 
 @end

@@ -15,6 +15,21 @@
 
 @implementation MPNavigationController
 
++ (void)initialize
+{
+    UIBarButtonItem *item = [UIBarButtonItem appearance];
+    
+    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+    textAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:13.0];
+    NSMutableDictionary *disableAttrs = [NSMutableDictionary dictionary];
+    disableAttrs[NSForegroundColorAttributeName] = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.7];
+    disableAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:13.0];
+    [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
+    [item setTitleTextAttributes:disableAttrs forState:UIControlStateDisabled];
+    
+}
+
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     if (self.viewControllers.count > 0) {
