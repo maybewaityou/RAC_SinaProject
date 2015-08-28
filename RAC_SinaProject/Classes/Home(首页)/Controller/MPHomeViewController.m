@@ -13,6 +13,7 @@
 #import "Masonry.h"
 #import "MPTableViewBindingHelper.h"
 #import "MPHomeStatusCell.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 
 
 @interface MPHomeViewController ()
@@ -62,6 +63,11 @@
 - (void)setupViews
 {
     UITableView *tableView = [[UITableView alloc] init];
+    tableView.showsVerticalScrollIndicator = NO;
+    tableView.showsHorizontalScrollIndicator = NO;
+    tableView.estimatedRowHeight = 100;
+    tableView.fd_debugLogEnabled = YES;
+//    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:tableView];
     self.tableView = tableView;
     @weakify(self);

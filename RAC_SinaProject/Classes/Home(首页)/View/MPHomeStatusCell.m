@@ -14,13 +14,83 @@
 
 @interface MPHomeStatusCell ()
 
-@property (nonatomic, strong)UILabel *nameLabel;
-@property (nonatomic, strong)UILabel *statusLabel;
-@property (nonatomic, strong)UIImageView *userImageView;
+@property (nonatomic, weak)UILabel *nameLabel;
+@property (nonatomic, weak)UILabel *statusLabel;
+@property (nonatomic, weak)UIImageView *userImageView;
+//@property (nonatomic, weak)UIView *line;
 
 @end
 
 @implementation MPHomeStatusCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self initViews];
+        [self setupViews];
+    }
+    return self;
+}
+
+- (void)initViews
+{
+    UILabel *nameLabel = [[UILabel alloc] init];
+    [self addSubview:nameLabel];
+    self.nameLabel = nameLabel;
+
+    UILabel *statusLabel = [[UILabel alloc] init];
+    [self addSubview:statusLabel];
+    self.statusLabel = statusLabel;
+    
+    UIImage *image = [UIImage imageNamed:@"avatar_default"];
+    UIImageView *userImageView = [[UIImageView alloc] initWithImage:image];
+    [self addSubview:userImageView];
+    self.userImageView = userImageView;
+    
+//    UIView *line = [[UIView alloc] init];
+//    [self addSubview:line];
+//    self.line = line;
+}
+
+- (void)setupViews
+{
+    NSInteger margin10 = 10;
+    NSInteger margin20 = 20;
+    NSInteger defaultW = 44;
+    NSInteger defaultH = 44;
+    
+    @weakify(self);
+    self.nameLabel.numberOfLines = 0;
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self).offset(margin20);
+        make.left.equalTo(self.userImageView.mas_right).offset(margin10);
+        make.right.equalTo(self).offset(-margin10);
+    }];
+    self.statusLabel.numberOfLines = 0;
+    self.statusLabel.font = [UIFont systemFontOfSize:13.0];
+    [self.statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self.nameLabel).offset(margin10);
+        make.left.equalTo(self.nameLabel);
+        make.right.equalTo(self).offset(-margin10);
+        make.bottom.equalTo(self);
+    }];
+    [self.userImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self).offset(margin20);
+        make.left.equalTo(self).offset(margin10);
+        make.width.equalTo(@(defaultW));
+        make.height.equalTo(@(defaultH));
+    }];
+//    self.line.backgroundColor = [UIColor grayColor];
+//    [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.equalTo(self);
+//        make.left.equalTo(self).offset(margin10);
+//        make.right.equalTo(self);
+//        make.height.equalTo(@(1));
+//    }];
+}
 
 - (void)bindViewModel:(id)viewModel
 {
@@ -30,55 +100,19 @@
     [self.userImageView sd_setImageWithURL:[NSURL URLWithString:status.user.profile_image_url]];
 }
 
-- (UILabel *)nameLabel
+#if 1
+
+// If you are not using auto layout, override this method
+- (CGSize)sizeThatFits:(CGSize)size
 {
-    if (!_nameLabel) {
-        _nameLabel = [[UILabel alloc] init];
-        [self addSubview:_nameLabel];
-        @weakify(self);
-        [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            @strongify(self);
-            make.top.equalTo(self.userImageView);
-            make.left.equalTo(self.userImageView).offset(10);
-            make.right.equalTo(self);
-        }];
-    }
-    return _nameLabel;
+    CGFloat totalHeight = 0;
+    totalHeight += [self.nameLabel sizeThatFits:size].height;
+    totalHeight += [self.statusLabel sizeThatFits:size].height;
+    totalHeight += [self.userImageView sizeThatFits:size].height;
+    totalHeight += 0; // margins
+    return CGSizeMake(size.width, totalHeight);
 }
 
-- (UILabel *)statusLabel
-{
-    if (!_statusLabel) {
-        _statusLabel = [[UILabel alloc] init];
-        [self addSubview:_statusLabel];
-        @weakify(self);
-        [_statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            @strongify(self);
-            make.top.equalTo(self.nameLabel);
-            make.left.equalTo(self.nameLabel);
-            make.right.equalTo(self);
-            make.bottom.equalTo(self);
-        }];
-    }
-    return  _statusLabel;
-}
-
-- (UIImageView *)userImageView
-{
-    if (!_userImageView) {
-        UIImage *image = [UIImage imageNamed:@"avatar_default"];
-        _userImageView = [[UIImageView alloc] initWithImage:image];
-        [self addSubview:_userImageView];
-        @weakify(self);
-        [_userImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            @strongify(self);
-            make.left.equalTo(self).offset(10);
-            make.centerY.equalTo(self);
-            make.width.equalTo(@(30));
-            make.height.equalTo(@(30));
-        }];
-    }
-    return _userImageView;
-}
+#endif
 
 @end

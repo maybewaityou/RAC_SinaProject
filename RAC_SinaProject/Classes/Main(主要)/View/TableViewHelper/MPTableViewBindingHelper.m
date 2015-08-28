@@ -8,6 +8,7 @@
 
 #import "MPTableViewBindingHelper.h"
 #import "MPReactiveView.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 
 @interface MPTableViewBindingHelper () <UITableViewDataSource,UITableViewDelegate>
 {
@@ -16,6 +17,8 @@
     UITableViewCell *_templateCell;
     RACCommand *_selection;
 }
+
+@property (nonatomic, assign)BOOL cellHeightCacheEnabled;
 
 @end
 
@@ -48,6 +51,9 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.separatorInset = UIEdgeInsetsZero;
+        
+        // 计算cell的高度，允许使用缓存
+        self.cellHeightCacheEnabled = NO;
     }
     return self;
 }
@@ -69,9 +75,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    id<MPReactiveView> cell = [tableView
+     UITableViewCell *cell = [tableView
                                dequeueReusableCellWithIdentifier:@"cell"];
-    [cell bindViewModel:_data[indexPath.row]];
+    cell.fd_enforceFrameLayout = NO;
+    [(id<MPReactiveView>)cell bindViewModel:_data[indexPath.row]];
     return (UITableViewCell *)cell;
 }
 
@@ -80,6 +87,27 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [_selection execute:_data[indexPath.row]];
+}
+
+#pragma mark - 
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    cell.fd_enforceFrameLayout = NO; // Enable to use "-sizeThatFits:"
+    [(id<MPReactiveView>)cell bindViewModel:_data[indexPath.row]];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.cellHeightCacheEnabled) {
+        return [tableView fd_heightForCellWithIdentifier:@"cell" cacheByIndexPath:indexPath configuration:^(UITableViewCell *cell) {
+            [self configureCell:cell atIndexPath:indexPath];
+        }];
+    } else {
+        return [tableView fd_heightForCellWithIdentifier:@"cell" configuration:^(UITableViewCell *cell) {
+            [self configureCell:cell atIndexPath:indexPath];
+        }];
+    }
+    
 }
 
 @end
