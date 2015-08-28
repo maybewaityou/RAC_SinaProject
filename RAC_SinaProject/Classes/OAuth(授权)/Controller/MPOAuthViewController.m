@@ -12,6 +12,8 @@
 #import "Constant.h"
 #import "AFNetworking.h"
 #import "MPAccount.h"
+#import "MPAccountTool.h"
+#import "UIWindow+Extension.h"
 
 @interface MPOAuthViewController ()<UIWebViewDelegate>
 
@@ -73,14 +75,19 @@
     params[@"code"] = code;
     
     [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^void(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *path = [doc stringByAppendingPathComponent:@"account.archive"];
         MPAccount *account = [MPAccount accountWithDictionary:responseObject];
-        [NSKeyedArchiver archiveRootObject:account toFile:path];
+        [MPAccountTool saveAccount:account];
         
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        [window switchRootController];
     } failure:^void(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"===>>> %@",error.localizedDescription);
     }];
 }
+
+- (void)dealloc
+{
+    NSLog(@"===>>> %@ dealloc",self);
+}
+
 @end

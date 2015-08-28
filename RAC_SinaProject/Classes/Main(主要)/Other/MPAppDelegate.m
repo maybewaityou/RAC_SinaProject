@@ -7,12 +7,10 @@
 //
 
 #import "MPAppDelegate.h"
-#import "MPTabBarViewController.h"
-#import "MPNewfeatureViewController.h"
 #import "MPOAuthViewController.h"
-#import "TestViewController01.h"
-#import "TestViewController00.h"
 #import "MPAccount.h"
+#import "MPAccountTool.h"
+#import "UIWindow+Extension.h"
 
 @interface MPAppDelegate ()
 
@@ -25,24 +23,14 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
+    MPAccount *account = [MPAccountTool account];
     
-    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [doc stringByAppendingPathComponent:@"account.archive"];
-    MPAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
     if (account) {
-    //    MPTabBarViewController *rootController = [[MPTabBarViewController alloc] init];
-    //    self.window.rootViewController = rootController;
-        
-        MPNewfeatureViewController *controller = [[MPNewfeatureViewController alloc] init];
-        self.window.rootViewController = controller;
+        [self.window switchRootController];
     } else {
         MPOAuthViewController *controller = [[MPOAuthViewController alloc] init];
         self.window.rootViewController = controller;
     }
-
-//    TestViewController01 *controller = [[TestViewController01 alloc] init];
-//    TestViewController00 *root = [[TestViewController00 alloc] initWithRootViewController:controller];
-//    self.window.rootViewController = root;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyWindow];

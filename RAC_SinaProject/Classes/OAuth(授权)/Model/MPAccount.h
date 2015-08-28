@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface MPAccount : NSObject<NSCoding>
+
 //"access_token" = "2.00bWzrkFstPpUC35fbddb9fbdkVQaD";
 //"expires_in" = 157679999;
 //"remind_in" = 157679999;
@@ -20,6 +21,8 @@
 @property (nonatomic, copy)NSString *access_token;
 /**　string	access_token的生命周期，单位是秒数。*/
 @property (nonatomic, copy)NSNumber *expires_in;
+
+@property (nonatomic, strong)NSDate *created_date;
 
 + (MPAccount *)accountWithDictionary:(NSDictionary *)dictionary;
 

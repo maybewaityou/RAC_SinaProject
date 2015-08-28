@@ -18,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSLog(@"===>>> TestViewController02");
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
@@ -26,6 +25,11 @@
 {
     TestViewController03 *controller = [[TestViewController03 alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)dealloc
+{
+    NSLog(@"===>>> %@ dealloc",self);
 }
 
 @end

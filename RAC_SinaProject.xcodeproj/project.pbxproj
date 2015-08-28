@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6006EC021B8FEDED00DFD4D0 /* MPAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC011B8FEDED00DFD4D0 /* MPAccountTool.m */; };
+		6006EC051B8FF54E00DFD4D0 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC041B8FF54E00DFD4D0 /* UIWindow+Extension.m */; };
 		60243B5A1B8EDF3300FD62A7 /* MPNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B591B8EDF3300FD62A7 /* MPNewfeatureViewController.m */; };
 		60243B5C1B8EE9D000FD62A7 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60243B5B1B8EE9D000FD62A7 /* Reveal.framework */; };
 		60243B851B8EFB0A00FD62A7 /* MPNetworkApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B7A1B8EFB0A00FD62A7 /* MPNetworkApi.m */; };
@@ -49,6 +51,10 @@
 
 /* Begin PBXFileReference section */
 		0C38D7A5BD1189B3D00AF55A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6006EC001B8FEDED00DFD4D0 /* MPAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPAccountTool.h; sourceTree = "<group>"; };
+		6006EC011B8FEDED00DFD4D0 /* MPAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPAccountTool.m; sourceTree = "<group>"; };
+		6006EC031B8FF54E00DFD4D0 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
+		6006EC041B8FF54E00DFD4D0 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
 		60243B581B8EDF3300FD62A7 /* MPNewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNewfeatureViewController.h; sourceTree = "<group>"; };
 		60243B591B8EDF3300FD62A7 /* MPNewfeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNewfeatureViewController.m; sourceTree = "<group>"; };
 		60243B5B1B8EE9D000FD62A7 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
@@ -137,6 +143,15 @@
 				0C38D7A5BD1189B3D00AF55A /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6006EBFF1B8FEDD600DFD4D0 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				6006EC001B8FEDED00DFD4D0 /* MPAccountTool.h */,
+				6006EC011B8FEDED00DFD4D0 /* MPAccountTool.m */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		60243B531B8EDF0D00FD62A7 /* Newfeature(新特性) */ = {
@@ -231,6 +246,7 @@
 			children = (
 				60243B9C1B8F041B00FD62A7 /* Controller */,
 				6050FFCB1B8FCB600033733B /* Model */,
+				6006EBFF1B8FEDD600DFD4D0 /* Tools */,
 			);
 			path = "OAuth(授权)";
 			sourceTree = "<group>";
@@ -593,6 +609,8 @@
 				6050F8171B8E9F1B006C5F45 /* UIView+Extension.m */,
 				6050F81C1B8EA71C006C5F45 /* UIBarButtonItem+Extension.h */,
 				6050F81D1B8EA71C006C5F45 /* UIBarButtonItem+Extension.m */,
+				6006EC031B8FF54E00DFD4D0 /* UIWindow+Extension.h */,
+				6006EC041B8FF54E00DFD4D0 /* UIWindow+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -754,10 +772,12 @@
 				6050F81E1B8EA71C006C5F45 /* UIBarButtonItem+Extension.m in Sources */,
 				6050F8281B8EAAAF006C5F45 /* TestViewController02.m in Sources */,
 				60243B5A1B8EDF3300FD62A7 /* MPNewfeatureViewController.m in Sources */,
+				6006EC051B8FF54E00DFD4D0 /* UIWindow+Extension.m in Sources */,
 				6050F8221B8EAA89006C5F45 /* TestViewController00.m in Sources */,
 				60243BAB1B8F153400FD62A7 /* MPNetworkServicesImpl.m in Sources */,
 				60243B851B8EFB0A00FD62A7 /* MPNetworkApi.m in Sources */,
 				6050F82B1B8EAEC6006C5F45 /* TestViewController03.m in Sources */,
+				6006EC021B8FEDED00DFD4D0 /* MPAccountTool.m in Sources */,
 				602DFA871B8E650C009A1C8E /* main.m in Sources */,
 				6050F81B1B8EA24C006C5F45 /* MPNavigationController.m in Sources */,
 				6072F93D1B8E730700D47790 /* MPAppDelegate.m in Sources */,

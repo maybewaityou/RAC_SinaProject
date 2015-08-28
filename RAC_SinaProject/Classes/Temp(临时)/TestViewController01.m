@@ -29,4 +29,9 @@
     [self.navigationController pushViewController:controller animated:YES];
 }
 
+- (void)dealloc
+{
+    NSLog(@"===>>> %@ dealloc",self);
+}
+
 @end
