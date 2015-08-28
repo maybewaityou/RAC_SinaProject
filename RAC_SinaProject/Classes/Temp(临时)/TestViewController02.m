@@ -8,6 +8,7 @@
 
 #import "TestViewController02.h"
 #import "TestViewController03.h"
+#import "MPHomeViewController.h"
 
 @interface TestViewController02 ()
 
@@ -23,7 +24,8 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    TestViewController03 *controller = [[TestViewController03 alloc] init];
+//    TestViewController03 *controller = [[TestViewController03 alloc] init];
+    MPHomeViewController *controller = [[MPHomeViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

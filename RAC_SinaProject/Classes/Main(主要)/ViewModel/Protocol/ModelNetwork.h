@@ -12,4 +12,6 @@
 
 - (RACSignal *)signalWithMethod:(NSString *)method parameter:(NSDictionary *)dic;
 
+- (RACSignal *)signalWithType:(NSString *)type url:(NSString *)url parameter:(NSDictionary *)dic;
+
 @end

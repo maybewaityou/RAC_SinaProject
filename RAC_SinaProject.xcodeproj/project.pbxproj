@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6006EC021B8FEDED00DFD4D0 /* MPAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC011B8FEDED00DFD4D0 /* MPAccountTool.m */; };
 		6006EC051B8FF54E00DFD4D0 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC041B8FF54E00DFD4D0 /* UIWindow+Extension.m */; };
+		6006EC081B8FFBFA00DFD4D0 /* MPHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC071B8FFBFA00DFD4D0 /* MPHomeViewModel.m */; };
+		6006EC0C1B900C9100DFD4D0 /* MPHomeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC0B1B900C9100DFD4D0 /* MPHomeService.m */; };
 		60243B5A1B8EDF3300FD62A7 /* MPNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B591B8EDF3300FD62A7 /* MPNewfeatureViewController.m */; };
 		60243B5C1B8EE9D000FD62A7 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60243B5B1B8EE9D000FD62A7 /* Reveal.framework */; };
 		60243B851B8EFB0A00FD62A7 /* MPNetworkApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B7A1B8EFB0A00FD62A7 /* MPNetworkApi.m */; };
@@ -55,6 +57,10 @@
 		6006EC011B8FEDED00DFD4D0 /* MPAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPAccountTool.m; sourceTree = "<group>"; };
 		6006EC031B8FF54E00DFD4D0 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
 		6006EC041B8FF54E00DFD4D0 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
+		6006EC061B8FFBFA00DFD4D0 /* MPHomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeViewModel.h; sourceTree = "<group>"; };
+		6006EC071B8FFBFA00DFD4D0 /* MPHomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeViewModel.m; sourceTree = "<group>"; };
+		6006EC0A1B900C9100DFD4D0 /* MPHomeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeService.h; sourceTree = "<group>"; };
+		6006EC0B1B900C9100DFD4D0 /* MPHomeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeService.m; sourceTree = "<group>"; };
 		60243B581B8EDF3300FD62A7 /* MPNewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNewfeatureViewController.h; sourceTree = "<group>"; };
 		60243B591B8EDF3300FD62A7 /* MPNewfeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNewfeatureViewController.m; sourceTree = "<group>"; };
 		60243B5B1B8EE9D000FD62A7 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
@@ -152,6 +158,15 @@
 				6006EC011B8FEDED00DFD4D0 /* MPAccountTool.m */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		6006EC091B900C5500DFD4D0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				6006EC0A1B900C9100DFD4D0 /* MPHomeService.h */,
+				6006EC0B1B900C9100DFD4D0 /* MPHomeService.m */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		60243B531B8EDF0D00FD62A7 /* Newfeature(新特性) */ = {
@@ -405,6 +420,8 @@
 		6050F82E1B8EB77E006C5F45 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				6006EC061B8FFBFA00DFD4D0 /* MPHomeViewModel.h */,
+				6006EC071B8FFBFA00DFD4D0 /* MPHomeViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -528,6 +545,7 @@
 			children = (
 				6050F82C1B8EB77E006C5F45 /* Model */,
 				6050F82D1B8EB77E006C5F45 /* View */,
+				6006EC091B900C5500DFD4D0 /* Service */,
 				6050F82E1B8EB77E006C5F45 /* ViewModel */,
 				6072F9351B8E730700D47790 /* Controller */,
 			);
@@ -763,6 +781,7 @@
 				60243B8E1B8EFC2200FD62A7 /* MaterialProgress.m in Sources */,
 				6050FFCE1B8FCB7D0033733B /* MPAccount.m in Sources */,
 				60243B9A1B8F00F500FD62A7 /* RVMViewModel.m in Sources */,
+				6006EC081B8FFBFA00DFD4D0 /* MPHomeViewModel.m in Sources */,
 				6050F8181B8E9F1B006C5F45 /* UIView+Extension.m in Sources */,
 				6050F83C1B8EB7E6006C5F45 /* MPProfileViewController.m in Sources */,
 				6072F93C1B8E730700D47790 /* MPHomeViewController.m in Sources */,
@@ -775,6 +794,7 @@
 				6006EC051B8FF54E00DFD4D0 /* UIWindow+Extension.m in Sources */,
 				6050F8221B8EAA89006C5F45 /* TestViewController00.m in Sources */,
 				60243BAB1B8F153400FD62A7 /* MPNetworkServicesImpl.m in Sources */,
+				6006EC0C1B900C9100DFD4D0 /* MPHomeService.m in Sources */,
 				60243B851B8EFB0A00FD62A7 /* MPNetworkApi.m in Sources */,
 				6050F82B1B8EAEC6006C5F45 /* TestViewController03.m in Sources */,
 				6006EC021B8FEDED00DFD4D0 /* MPAccountTool.m in Sources */,

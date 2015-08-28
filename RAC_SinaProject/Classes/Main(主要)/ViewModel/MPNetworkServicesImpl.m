@@ -16,4 +16,9 @@
     return [MPNetworkApi signalFromNetworkWithMethod:method arguments:dic];
 }
 
+- (RACSignal *)signalWithType:(NSString *)type url:(NSString *)url parameter:(NSDictionary *)dic
+{
+    return [MPNetworkApi signalFromNetworkWithType:type url:url arguments:dic];
+}
+
 @end

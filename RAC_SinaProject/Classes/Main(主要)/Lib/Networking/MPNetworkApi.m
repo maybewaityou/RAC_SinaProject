@@ -287,4 +287,35 @@
     }];
 }
 
+#pragma mark - 微博方法
++ (void)fetchJSONWithType:(NSString *)requestType url:(NSString *)urlStr parameters:(id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))fail
+{
+    [[MaterialProgress sharedMaterialProgress] show];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    if ([requestType isEqualToString:@"get"]) {
+        [manager GET:urlStr parameters:parameters success:success failure:fail];
+    }else{
+        [manager POST:urlStr parameters:parameters success:success failure:fail];
+    }
+}
+
++ (RACSignal *)signalFromNetworkWithType:(NSString *)type url:(NSString *)url arguments:(NSDictionary *)args
+{
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [MPNetworkApi fetchJSONWithType:type url:url parameters:args success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [[MaterialProgress sharedMaterialProgress] dismiss];
+            if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                [subscriber sendNext:responseObject];
+                [subscriber sendCompleted];
+            }
+        } fail:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [[MaterialProgress sharedMaterialProgress] dismiss];
+            [subscriber sendError:error];
+        }];
+       return [RACDisposable disposableWithBlock:^{
+       }];
+    }];
+}
+
 @end

@@ -38,4 +38,7 @@
 // 支持RAC访问网络
 + (RACSignal *)signalFromNetworkWithMethod:(NSString *)method arguments:(NSDictionary *)args;
 
+// 微博访问
++ (RACSignal *)signalFromNetworkWithType:(NSString *)type url:(NSString *)urlStr arguments:(NSDictionary *)args;
+
 @end

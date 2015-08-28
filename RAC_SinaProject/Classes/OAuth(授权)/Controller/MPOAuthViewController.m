@@ -10,10 +10,11 @@
 #import "Masonry.h"
 #import "ReactiveCocoa.h"
 #import "Constant.h"
-#import "AFNetworking.h"
 #import "MPAccount.h"
 #import "MPAccountTool.h"
 #import "UIWindow+Extension.h"
+#import "MaterialProgress.h"
+#import "MPNetworkApi.h"
 
 @interface MPOAuthViewController ()<UIWebViewDelegate>
 
@@ -41,12 +42,17 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-//    NSLog(@"===>>> webViewDidStartLoad");
+    [[MaterialProgress sharedMaterialProgress] show];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-//    NSLog(@"===>>> webViewDidFinishLoad");
+    [[MaterialProgress sharedMaterialProgress] dismiss];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [[MaterialProgress sharedMaterialProgress] dismiss];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
@@ -65,23 +71,19 @@
 
 - (void)fetchAccessToken:(NSString *)code
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"client_id"] = @"2287771596";
-    params[@"client_secret"] = @"ace05cd07ee20f4704292c286c887d51";
-    params[@"grant_type"] = @"authorization_code";
-    params[@"redirect_uri"] = @"http://";
-    params[@"code"] = code;
-    
-    [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^void(AFHTTPRequestOperation *operation, id responseObject) {
+    [[MPNetworkApi signalFromNetworkWithType:@"" url:@"https://api.weibo.com/oauth2/access_token" arguments:@{
+            @"client_id" : @"2287771596",
+            @"client_secret" : @"ace05cd07ee20f4704292c286c887d51",
+            @"grant_type" : @"authorization_code",
+            @"redirect_uri" : @"http://",
+            @"code" : code
+        }
+      ] subscribeNext:^(id responseObject) {
         MPAccount *account = [MPAccount accountWithDictionary:responseObject];
         [MPAccountTool saveAccount:account];
-        
+
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
         [window switchRootController];
-    } failure:^void(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"===>>> %@",error.localizedDescription);
     }];
 }
 
