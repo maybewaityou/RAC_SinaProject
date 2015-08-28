@@ -11,10 +11,14 @@
 #import "ModelNetwork.h"
 #import "MPAccount.h"
 #import "MPAccountTool.h"
+#import "Constant.h"
+#import "StatusResult.h"
+#import "MJExtension.h"
 
 @interface MPHomeViewModel ()
 
 @property (nonatomic, strong)MPHomeService *service;
+@property (nonatomic, strong)MPAccount *account;
 
 @end
 
@@ -31,20 +35,43 @@
 
 - (void)initialize
 {
-    
+    self.title = @"首页";
+    self.selectionCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        NSLog(@"===>>> %@",input);
+        return [RACSignal empty];
+    }];
 }
 
 - (void)requestUserInfo
 {
-    MPAccount *account = [MPAccountTool account];
-    [[[self.service getNetworkService] signalWithType:@"get" url:@"https://api.weibo.com/2/users/show.json"
+    [[[self.service getNetworkService] signalWithType:@"get" url:USER_INFO_URL
                                            parameter:@{
-                                                        @"access_token":account.access_token,
-                                                        @"uid":account.uid
+                                                       @"access_token" : self.account.access_token,
+                                                       @"uid" : self.account.uid
                                                       }]
-     subscribeNext:^(id x) {
-         NSLog(@"== xxx =>>> %@",x);
+     subscribeNext:^(id response) {
+         NSLog(@"== xxx =>>> %@",response);
+         self.title = response[@"name"];
     }];
+}
+
+- (void)loadNewStatus
+{
+    [[[self.service getNetworkService] signalWithType:@"get" url:NEW_STATUS_URL
+                                           parameter:@{
+                                                       @"access_token" : self.account.access_token
+                                                       }]
+    subscribeNext:^(id response) {
+        self.statuses = [StatusResult objectWithKeyValues:response];
+    }];
+}
+
+- (MPAccount *)account
+{
+    if (_account == nil) {
+        _account = [MPAccountTool account];
+    }
+    return _account;
 }
 
 - (void)dealloc
