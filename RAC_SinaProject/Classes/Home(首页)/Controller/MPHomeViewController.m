@@ -15,7 +15,6 @@
 #import "MPHomeStatusCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 
-
 @interface MPHomeViewController ()
 
 @property (nonatomic, weak)UITableView *tableView;

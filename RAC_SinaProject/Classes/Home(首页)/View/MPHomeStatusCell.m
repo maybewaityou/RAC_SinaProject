@@ -11,12 +11,15 @@
 #import "Masonry.h"
 #import "UIImageView+WebCache.h"
 #import "ReactiveCocoa.h"
+#import "MPHomeCellViewModel.h"
 
 @interface MPHomeStatusCell ()
 
 @property (nonatomic, weak)UILabel *nameLabel;
 @property (nonatomic, weak)UILabel *statusLabel;
 @property (nonatomic, weak)UIImageView *userImageView;
+
+@property (nonatomic, strong)MPHomeCellViewModel *viewModel;
 
 @end
 
@@ -90,9 +93,26 @@
 - (void)bindViewModel:(id)viewModel
 {
     Status *status = (Status *)viewModel;
-    self.nameLabel.text = status.user.name;
-    self.statusLabel.text = status.text;
-    [self.userImageView sd_setImageWithURL:[NSURL URLWithString:status.user.profile_image_url]];
+    self.viewModel.status = status;
+    self.nameLabel.text = self.viewModel.status.user.name;
+    self.statusLabel.text = self.viewModel.status.text;
+    [self.userImageView sd_setImageWithURL:[NSURL URLWithString:self.viewModel.status.user.profile_image_url]];
+    
+//    [[RACObserve(self.viewModel, status) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(Status *status) {
+//        NSLog(@"===>>> %@",status.user.name);
+//    }];
+    
+    [self.rac_prepareForReuseSignal subscribeNext:^(id x) {
+        self.viewModel = nil;
+    }];
+}
+
+- (MPHomeCellViewModel *)viewModel
+{
+    if (!_viewModel) {
+        _viewModel = [[MPHomeCellViewModel alloc] init];
+    }
+    return _viewModel;
 }
 
 #if 0

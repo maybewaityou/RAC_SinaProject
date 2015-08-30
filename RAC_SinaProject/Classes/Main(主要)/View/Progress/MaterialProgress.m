@@ -11,8 +11,10 @@
 #import "ReactiveCocoa.h"
 #import "MPNMacros.h"
 #import "UIColor+Extension.h"
+#import "UIView+Extension.h"
 
 @interface MaterialProgress ()
+
 @property (strong, nonatomic) UIButton *blur;
 @property (strong, nonatomic) MMMaterialDesignSpinner *spinner;
 @property (strong, nonatomic) UIView *spinnerBackgroundView;
@@ -37,12 +39,11 @@
 - (UIView *)spinnerBackgroundView
 {
     if (!_spinnerBackgroundView) {
-        _spinnerBackgroundView                 = [[UIView alloc] init];
-        _spinnerBackgroundView.center          = CGPointMake(SCREEN_WIDTH/2.0f, SCREEN_HEIGHT/2.0f);
-        _spinnerBackgroundView.bounds          = CGRectMake(0, 0, SCREEN_WIDTH/2.0f, SCREEN_HEIGHT/5.0f);
+        _spinnerBackgroundView = [[UIView alloc] init];
+        _spinnerBackgroundView.center = CGPointMake(SCREEN_WIDTH/2.0f, SCREEN_HEIGHT/2.0f);
+        _spinnerBackgroundView.bounds = CGRectMake(0, 0, SCREEN_WIDTH/2.0f, SCREEN_HEIGHT/5.0f);
         _spinnerBackgroundView.backgroundColor = [UIColor blackColor];
-        _spinnerBackgroundView.alpha           = 0.0f;
-        
+        _spinnerBackgroundView.alpha = 0.0f;
     }
     return _spinnerBackgroundView;
 }
@@ -51,11 +52,11 @@
 {
     if (!_spinner) {
         _spinner = [[MMMaterialDesignSpinner alloc] init];
-        _spinner.lineWidth                = 4;
-        _spinner.alpha                    = 0.0f;
-        _spinner.bounds                   = CGRectMake(0, 0,self.spinnerBackgroundView.bounds.size.height/2.5f, self.spinnerBackgroundView.bounds.size.height/2.5f);
-        _spinner.center                   = CGPointMake(SCREEN_WIDTH/2.0f, SCREEN_HEIGHT/2.0f);
-        _spinner.tintColor                = [UIColor colorWithHexString:@"#FF9200"];
+        _spinner.lineWidth = 4;
+        _spinner.alpha = 0.0f;
+        _spinner.bounds = CGRectMake(0, 0,self.spinnerBackgroundView.height/2.5f, self.spinnerBackgroundView.height/2.5f);
+        _spinner.center = CGPointMake(SCREEN_WIDTH/2.0f, SCREEN_HEIGHT/2.0f);
+        _spinner.tintColor = [UIColor colorWithHexString:@"#FF9200"];
     }
     return _spinner;
 }
@@ -118,6 +119,7 @@
     __strong static MaterialProgress *instance = nil;
     dispatch_once(&onceToken, ^{
         instance = [[self alloc] initWithFrame:[UIScreen mainScreen].bounds];
+
     });
     return instance;
 }
