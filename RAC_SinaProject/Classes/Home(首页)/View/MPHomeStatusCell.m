@@ -17,7 +17,6 @@
 @property (nonatomic, weak)UILabel *nameLabel;
 @property (nonatomic, weak)UILabel *statusLabel;
 @property (nonatomic, weak)UIImageView *userImageView;
-//@property (nonatomic, weak)UIView *line;
 
 @end
 
@@ -35,61 +34,57 @@
 - (void)initViews
 {
     UILabel *nameLabel = [[UILabel alloc] init];
-    [self addSubview:nameLabel];
+    [self.contentView addSubview:nameLabel];
     self.nameLabel = nameLabel;
 
     UILabel *statusLabel = [[UILabel alloc] init];
-    [self addSubview:statusLabel];
+    statusLabel.numberOfLines = 0;
+    statusLabel.font = [UIFont systemFontOfSize:13.0];
+    [self.contentView addSubview:statusLabel];
     self.statusLabel = statusLabel;
     
     UIImage *image = [UIImage imageNamed:@"avatar_default"];
     UIImageView *userImageView = [[UIImageView alloc] initWithImage:image];
-    [self addSubview:userImageView];
+    [self.contentView addSubview:userImageView];
     self.userImageView = userImageView;
     
-//    UIView *line = [[UIView alloc] init];
-//    [self addSubview:line];
-//    self.line = line;
 }
 
 - (void)setupViews
 {
+    NSInteger margin5 = 5;
     NSInteger margin10 = 10;
-    NSInteger margin20 = 20;
     NSInteger defaultW = 44;
     NSInteger defaultH = 44;
     
     @weakify(self);
-    self.nameLabel.numberOfLines = 0;
-    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        @strongify(self);
-        make.top.equalTo(self).offset(margin20);
-        make.left.equalTo(self.userImageView.mas_right).offset(margin10);
-        make.right.equalTo(self).offset(-margin10);
-    }];
-    self.statusLabel.numberOfLines = 0;
-    self.statusLabel.font = [UIFont systemFontOfSize:13.0];
-    [self.statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        @strongify(self);
-        make.top.equalTo(self.nameLabel).offset(margin10);
-        make.left.equalTo(self.nameLabel);
-        make.right.equalTo(self).offset(-margin10);
-        make.bottom.equalTo(self);
-    }];
     [self.userImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
-        make.top.equalTo(self).offset(margin20);
-        make.left.equalTo(self).offset(margin10);
+        make.top.equalTo(self.contentView).offset(margin10);
+        make.left.equalTo(self.contentView).offset(margin10);
         make.width.equalTo(@(defaultW));
         make.height.equalTo(@(defaultH));
     }];
-//    self.line.backgroundColor = [UIColor grayColor];
-//    [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.equalTo(self);
-//        make.left.equalTo(self).offset(margin10);
-//        make.right.equalTo(self);
-//        make.height.equalTo(@(1));
-//    }];
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self.userImageView);
+        make.left.equalTo(self.userImageView.mas_right).offset(margin10);
+        make.right.equalTo(self.contentView).offset(-margin10);
+    }];
+    [self.statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self.nameLabel.mas_bottom).offset(margin5);
+        make.left.equalTo(self.userImageView.mas_right).offset(margin10);
+        make.right.equalTo(self.nameLabel);
+    }];
+
+    [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self.userImageView).offset(-margin10);
+        make.left.equalTo(self.userImageView).offset(-margin10);
+        make.bottom.equalTo(self.statusLabel).offset(margin10);
+        make.width.equalTo(self.mas_width);
+    }];
 }
 
 - (void)bindViewModel:(id)viewModel
@@ -100,7 +95,7 @@
     [self.userImageView sd_setImageWithURL:[NSURL URLWithString:status.user.profile_image_url]];
 }
 
-#if 1
+#if 0
 
 // If you are not using auto layout, override this method
 - (CGSize)sizeThatFits:(CGSize)size
@@ -109,7 +104,7 @@
     totalHeight += [self.nameLabel sizeThatFits:size].height;
     totalHeight += [self.statusLabel sizeThatFits:size].height;
     totalHeight += [self.userImageView sizeThatFits:size].height;
-    totalHeight += 0; // margins
+    totalHeight += 40; // margins
     return CGSizeMake(size.width, totalHeight);
 }
 

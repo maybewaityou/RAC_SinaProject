@@ -66,8 +66,8 @@
     tableView.showsVerticalScrollIndicator = NO;
     tableView.showsHorizontalScrollIndicator = NO;
     tableView.estimatedRowHeight = 100;
+    tableView.rowHeight = UITableViewAutomaticDimension;
     tableView.fd_debugLogEnabled = YES;
-//    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:tableView];
     self.tableView = tableView;
     @weakify(self);
