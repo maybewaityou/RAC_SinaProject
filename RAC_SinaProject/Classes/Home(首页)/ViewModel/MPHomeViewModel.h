@@ -16,6 +16,7 @@
 @property (nonatomic, copy)NSString *title;
 @property (nonatomic, strong)StatusResult *statuses;
 @property (nonatomic, assign)BOOL isLoadFinished;
+@property (nonatomic, assign)NSUInteger newStatusCount;
 
 @property (nonatomic, strong)RACCommand *selectionCommand;
 

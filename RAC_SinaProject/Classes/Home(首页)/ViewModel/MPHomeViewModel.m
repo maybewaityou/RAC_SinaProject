@@ -94,6 +94,7 @@
          [self.tempStatus insertObjects:newStatuses.statuses atIndexes:indexSet];
          self.statuses.statuses = [self.tempStatus copy];
          self.isLoadFinished = YES;
+         self.newStatusCount = newStatuses.statuses.count;
      }];
 }
 

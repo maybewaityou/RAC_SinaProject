@@ -16,6 +16,8 @@
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "MJRefresh.h"
 #import "Status.h"
+#import "MPNewStatusNoticeView.h"
+#import "UIView+Extension.h"
 
 @interface MPHomeViewController ()
 
@@ -44,6 +46,8 @@
             self.viewModel.isLoadFinished = NO;
             [self.tableView.header endRefreshing];
             [self.tableView reloadData];
+
+            [self showNewStatusCount:self.viewModel.newStatusCount];
         }
     }];
     
@@ -90,7 +94,38 @@
     self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [self.viewModel loadMoreStatus];
     }];
+}
+
+- (void)showNewStatusCount:(NSUInteger)count
+{
+    UILabel *label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
+    label.width = [UIScreen mainScreen].bounds.size.width;
+    label.height = 35;
     
+    if (count == 0) {
+        label.text = @"没有新的微博数据，稍后再试";
+    } else {
+        label.text = [NSString stringWithFormat:@"共有%zd条新的微博数据", count];
+    }
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont systemFontOfSize:16];
+    
+    label.y = 64 - label.height;
+    [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
+    
+    CGFloat duration = 1.0;
+    [UIView animateWithDuration:duration animations:^{
+        label.transform = CGAffineTransformMakeTranslation(0, label.height);
+    } completion:^(BOOL finished) {
+        CGFloat delay = 1.0;
+        [UIView animateWithDuration:duration delay:delay options:UIViewAnimationOptionCurveLinear animations:^{
+            label.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            [label removeFromSuperview];
+        }];
+    }];
 }
 
 - (void)dealloc
