@@ -16,7 +16,6 @@
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "MJRefresh.h"
 #import "Status.h"
-#import "MPNewStatusNoticeView.h"
 #import "UIView+Extension.h"
 
 @interface MPHomeViewController ()
@@ -43,11 +42,13 @@
     
     [RACObserve(self.viewModel, isLoadFinished) subscribeNext:^(id x) {
         if ([x boolValue]) {
+            
+            [self showNewStatusCount:self.viewModel.newStatusCount];
+            self.viewModel.newStatusCount = 0;
             self.viewModel.isLoadFinished = NO;
             [self.tableView.header endRefreshing];
             [self.tableView reloadData];
-
-            [self showNewStatusCount:self.viewModel.newStatusCount];
+            
         }
     }];
     
@@ -81,6 +82,7 @@
     tableView.estimatedRowHeight = 100;
     tableView.rowHeight = UITableViewAutomaticDimension;
     tableView.fd_debugLogEnabled = YES;
+    tableView.fd_debugLogEnabled = NO;
     [self.view addSubview:tableView];
     self.tableView = tableView;
     @weakify(self);
