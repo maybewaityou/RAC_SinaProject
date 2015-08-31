@@ -80,7 +80,6 @@
         make.left.equalTo(self.userImageView.mas_right).offset(margin10);
         make.right.equalTo(self.nameLabel);
     }];
-
     [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.equalTo(self.userImageView).offset(-margin10);
