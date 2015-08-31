@@ -14,7 +14,7 @@
 //"created_at": "Tue May 31 17:46:55 +0800 2011",
 @property (nonatomic, copy)NSString *created_at;
 //"id": 11488058246,
-@property (nonatomic, copy)NSString *idStr;
+@property (nonatomic, copy)NSString *idstr;
 //"text": "求关注。",
 @property (nonatomic, copy)NSString *text;
 //"favorited": false,

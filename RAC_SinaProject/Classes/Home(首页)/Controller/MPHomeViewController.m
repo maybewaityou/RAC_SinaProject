@@ -14,6 +14,8 @@
 #import "MPTableViewBindingHelper.h"
 #import "MPHomeStatusCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "MJRefresh.h"
+#import "Status.h"
 
 @interface MPHomeViewController ()
 
@@ -37,6 +39,14 @@
 {
     RAC(self.navigationItem, title) = RACObserve(self.viewModel, title);
     
+    [RACObserve(self.viewModel, isLoadFinished) subscribeNext:^(id x) {
+        if ([x boolValue]) {
+            self.viewModel.isLoadFinished = NO;
+            [self.tableView.header endRefreshing];
+            [self.tableView reloadData];
+        }
+    }];
+    
     [MPTableViewBindingHelper bindingHelpWithTableView:self.tableView sourceSignal:RACObserve(self.viewModel, statuses.statuses) selectionCommand:self.viewModel.selectionCommand templateCellClass:[MPHomeStatusCell class]];
 }
 
@@ -46,7 +56,7 @@
     self.viewModel = viewModel;
     
     [viewModel requestUserInfo];
-    [viewModel loadNewStatus];
+    [viewModel loadStatus];
 }
 
 - (void)setupTitle
@@ -70,9 +80,15 @@
     [self.view addSubview:tableView];
     self.tableView = tableView;
     @weakify(self);
-    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.edges.equalTo(self.view);
+    }];
+    self.tableView.header = [MJRefreshHeader headerWithRefreshingBlock:^{
+        [self.viewModel loadNewStatus];
+    }];
+    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self.viewModel loadMoreStatus];
     }];
     
 }

@@ -15,11 +15,14 @@
 
 @property (nonatomic, copy)NSString *title;
 @property (nonatomic, strong)StatusResult *statuses;
+@property (nonatomic, assign)BOOL isLoadFinished;
 
 @property (nonatomic, strong)RACCommand *selectionCommand;
 
 - (instancetype)initWithNavController:(UIViewController *)controller;
 - (void)requestUserInfo;
+- (void)loadStatus;
 - (void)loadNewStatus;
+- (void)loadMoreStatus;
 
 @end

@@ -14,11 +14,14 @@
 #import "Constant.h"
 #import "StatusResult.h"
 #import "MJExtension.h"
+#import "Status.h"
 
 @interface MPHomeViewModel ()
 
 @property (nonatomic, strong)MPHomeService *service;
 @property (nonatomic, strong)MPAccount *account;
+
+@property (nonatomic, copy)NSMutableArray *tempStatus;
 
 @end
 
@@ -44,26 +47,68 @@
 
 - (void)requestUserInfo
 {
+    @weakify(self);
     [[[self.service getNetworkService] signalWithType:@"get" url:USER_INFO_URL
                                            parameter:@{
                                                        @"access_token" : self.account.access_token,
                                                        @"uid" : self.account.uid
                                                       }]
      subscribeNext:^(id response) {
-         NSLog(@"== xxx =>>> %@",response);
+         @strongify(self);
          self.title = response[@"name"];
     }];
 }
 
+- (void)loadStatus
+{
+    @weakify(self);
+    [[[self.service getNetworkService] signalWithType:@"get" url:NEW_STATUS_URL
+                                            parameter:@{
+                                                        @"access_token" : self.account.access_token
+                                                        }]
+     subscribeNext:^(id response) {
+         @strongify(self);
+         self.statuses = [StatusResult objectWithKeyValues:response];
+         [self.tempStatus addObjectsFromArray:self.statuses.statuses];
+     }];
+}
+
 - (void)loadNewStatus
 {
+    Status *status = self.statuses.statuses.firstObject;
+    if (!status.idstr){
+        self.isLoadFinished = YES;
+        return;
+    }
+    @weakify(self);
     [[[self.service getNetworkService] signalWithType:@"get" url:NEW_STATUS_URL
-                                           parameter:@{
-                                                       @"access_token" : self.account.access_token
-                                                       }]
-    subscribeNext:^(id response) {
-        self.statuses = [StatusResult objectWithKeyValues:response];
-    }];
+                                            parameter:@{
+                                                        @"access_token" : self.account.access_token,
+                                                        @"since_id" : status.idstr
+                                                        }]
+     subscribeNext:^(id response) {
+         @strongify(self);
+         StatusResult *newStatuses = [StatusResult objectWithKeyValues:response];
+         NSRange range = NSMakeRange(0, newStatuses.statuses.count);
+         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+         [self.tempStatus insertObjects:newStatuses.statuses atIndexes:indexSet];
+         self.statuses.statuses = [self.tempStatus copy];
+         self.isLoadFinished = YES;
+     }];
+}
+
+- (void)loadMoreStatus
+{
+    @weakify(self);
+    [[[self.service getNetworkService] signalWithType:@"get" url:NEW_STATUS_URL
+                                            parameter:@{
+                                                        @"access_token" : self.account.access_token
+                                                        }]
+     subscribeNext:^(id response) {
+         @strongify(self);
+         self.statuses = [StatusResult objectWithKeyValues:response];
+         [self.tempStatus addObjectsFromArray:self.statuses.statuses];
+     }];
 }
 
 - (MPAccount *)account
@@ -72,6 +117,14 @@
         _account = [MPAccountTool account];
     }
     return _account;
+}
+
+- (NSMutableArray *)tempStatus
+{
+    if (!_tempStatus) {
+        _tempStatus = [NSMutableArray array];
+    }
+    return _tempStatus;
 }
 
 - (void)dealloc
