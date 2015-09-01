@@ -27,6 +27,7 @@
 		60243B9A1B8F00F500FD62A7 /* RVMViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B991B8F00F500FD62A7 /* RVMViewModel.m */; };
 		60243B9F1B8F043C00FD62A7 /* MPOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B9E1B8F043C00FD62A7 /* MPOAuthViewController.m */; };
 		60243BAB1B8F153400FD62A7 /* MPNetworkServicesImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243BAA1B8F153400FD62A7 /* MPNetworkServicesImpl.m */; };
+		602D274C1B95547400DD1B5C /* MPHomeStatusNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 602D274B1B95547400DD1B5C /* MPHomeStatusNoticeView.m */; };
 		602DFA871B8E650C009A1C8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 602DFA861B8E650C009A1C8E /* main.m */; };
 		602DFA901B8E650C009A1C8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602DFA8E1B8E650C009A1C8E /* Main.storyboard */; };
 		602DFA921B8E650C009A1C8E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602DFA911B8E650C009A1C8E /* Images.xcassets */; };
@@ -106,6 +107,8 @@
 		60243BA81B8F12A500FD62A7 /* ModelNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelNetwork.h; sourceTree = "<group>"; };
 		60243BA91B8F153400FD62A7 /* MPNetworkServicesImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPNetworkServicesImpl.h; path = ../ViewModel/MPNetworkServicesImpl.h; sourceTree = "<group>"; };
 		60243BAA1B8F153400FD62A7 /* MPNetworkServicesImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPNetworkServicesImpl.m; path = ../ViewModel/MPNetworkServicesImpl.m; sourceTree = "<group>"; };
+		602D274A1B95547400DD1B5C /* MPHomeStatusNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeStatusNoticeView.h; sourceTree = "<group>"; };
+		602D274B1B95547400DD1B5C /* MPHomeStatusNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeStatusNoticeView.m; sourceTree = "<group>"; };
 		602DFA811B8E650C009A1C8E /* RAC_SinaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RAC_SinaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		602DFA851B8E650C009A1C8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		602DFA861B8E650C009A1C8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -457,6 +460,8 @@
 			children = (
 				6006EC1B1B903A1300DFD4D0 /* MPHomeStatusCell.h */,
 				6006EC1C1B903A1300DFD4D0 /* MPHomeStatusCell.m */,
+				602D274A1B95547400DD1B5C /* MPHomeStatusNoticeView.h */,
+				602D274B1B95547400DD1B5C /* MPHomeStatusNoticeView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -846,6 +851,7 @@
 				60243B5A1B8EDF3300FD62A7 /* MPNewfeatureViewController.m in Sources */,
 				6006EC261B9045B100DFD4D0 /* StatusResult.m in Sources */,
 				6006EC151B902D9800DFD4D0 /* Foundation+Log.m in Sources */,
+				602D274C1B95547400DD1B5C /* MPHomeStatusNoticeView.m in Sources */,
 				6006EC201B903B6000DFD4D0 /* Status.m in Sources */,
 				6006EC051B8FF54E00DFD4D0 /* UIWindow+Extension.m in Sources */,
 				6050F8221B8EAA89006C5F45 /* TestViewController00.m in Sources */,

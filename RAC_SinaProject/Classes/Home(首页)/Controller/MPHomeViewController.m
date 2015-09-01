@@ -17,6 +17,7 @@
 #import "MJRefresh.h"
 #import "Status.h"
 #import "UIView+Extension.h"
+#import "MPHomeStatusNoticeView.h"
 
 @interface MPHomeViewController ()
 
@@ -43,7 +44,7 @@
     [RACObserve(self.viewModel, isLoadFinished) subscribeNext:^(id x) {
         if ([x boolValue]) {
             
-            [self showNewStatusCount:self.viewModel.newStatusCount];
+            [[[MPHomeStatusNoticeView alloc] initWithCount:self.viewModel.newStatusCount aboveView:self.navigationController.view belowView:self.navigationController.navigationBar] show];
             self.viewModel.newStatusCount = 0;
             self.viewModel.isLoadFinished = NO;
             [self.tableView.header endRefreshing];
@@ -95,38 +96,6 @@
     }];
     self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [self.viewModel loadMoreStatus];
-    }];
-}
-
-- (void)showNewStatusCount:(NSUInteger)count
-{
-    UILabel *label = [[UILabel alloc] init];
-    label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
-    label.width = [UIScreen mainScreen].bounds.size.width;
-    label.height = 35;
-    
-    if (count == 0) {
-        label.text = @"没有新的微博数据，稍后再试";
-    } else {
-        label.text = [NSString stringWithFormat:@"共有%zd条新的微博数据", count];
-    }
-    label.textColor = [UIColor whiteColor];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont systemFontOfSize:16];
-    
-    label.y = 64 - label.height;
-    [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
-    
-    CGFloat duration = 1.0;
-    [UIView animateWithDuration:duration animations:^{
-        label.transform = CGAffineTransformMakeTranslation(0, label.height);
-    } completion:^(BOOL finished) {
-        CGFloat delay = 1.0;
-        [UIView animateWithDuration:duration delay:delay options:UIViewAnimationOptionCurveLinear animations:^{
-            label.transform = CGAffineTransformIdentity;
-        } completion:^(BOOL finished) {
-            [label removeFromSuperview];
-        }];
     }];
 }
 
