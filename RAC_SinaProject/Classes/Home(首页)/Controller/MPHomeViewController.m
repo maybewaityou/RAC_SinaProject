@@ -35,6 +35,7 @@
     [self setupTitle];
     [self setupViews];
     [self bindViewModel];
+    
 }
 
 - (void)bindViewModel
