@@ -10,7 +10,7 @@
 
 @interface StatusResult : NSObject
 
-@property (nonatomic, copy)NSArray *statuses;
+@property (nonatomic, copy)NSMutableArray *statuses;
 //"previous_cursor": 0,
 @property (nonatomic, copy)NSString *previous_cursor;
 //"next_cursor": 11488013766,

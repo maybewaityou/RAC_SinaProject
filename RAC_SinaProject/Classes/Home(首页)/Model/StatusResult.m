@@ -11,6 +11,14 @@
 
 @implementation StatusResult
 
+- (NSMutableArray *)statuses
+{
+    if (!_statuses) {
+        _statuses = [NSMutableArray array];
+    }
+    return _statuses;
+}
+
 + (NSDictionary *)objectClassInArray
 {
     return @{

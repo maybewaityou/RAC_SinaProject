@@ -42,18 +42,44 @@
 {
     RAC(self.navigationItem, title) = RACObserve(self.viewModel, title);
     
-    [RACObserve(self.viewModel, isLoadFinished) subscribeNext:^(id x) {
+    @weakify(self);
+    [RACObserve(self.viewModel, isLoadNewFinished) subscribeNext:^(id x) {
+        @strongify(self);
         if ([x boolValue]) {
-            
             [[[MPHomeStatusNoticeView alloc] initWithCount:self.viewModel.newStatusCount aboveView:self.navigationController.view belowView:self.navigationController.navigationBar] show];
             self.viewModel.newStatusCount = 0;
-            self.viewModel.isLoadFinished = NO;
+            self.viewModel.isLoadNewFinished = NO;
             [self.tableView.header endRefreshing];
             [self.tableView reloadData];
             
         }
     }];
     
+    [RACObserve(self.viewModel, isLoadNewError) subscribeNext:^(id x) {
+        @strongify(self);
+        if ([x boolValue]) {
+            self.viewModel.isLoadNewError = NO;
+            [self.tableView.header endRefreshing];
+        }
+    }];
+    
+    [RACObserve(self.viewModel, isLoadMoreFinished) subscribeNext:^(id x) {
+        @strongify(self);
+        if ([x boolValue]) {
+            self.viewModel.isLoadMoreFinished = NO;
+            [self.tableView.footer endRefreshing];
+            [self.tableView reloadData];
+        }
+    }];
+    
+    [RACObserve(self.viewModel, isLoadMoreError) subscribeNext:^(id x) {
+        @strongify(self);
+        if ([x boolValue]) {
+            self.viewModel.isLoadMoreError = NO;
+            [self.tableView.footer endRefreshing];
+        }
+    }];
+
     [MPTableViewBindingHelper bindingHelpWithTableView:self.tableView sourceSignal:RACObserve(self.viewModel, statuses.statuses) selectionCommand:self.viewModel.selectionCommand templateCellClass:[MPHomeStatusCell class]];
 }
 
