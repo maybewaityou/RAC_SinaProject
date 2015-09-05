@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 MeePwn. All rights reserved.
 //
 
-#import "ReactiveCocoa.h"
+@class RACSignal;
 
 @protocol ModelNetwork <NSObject>
 
