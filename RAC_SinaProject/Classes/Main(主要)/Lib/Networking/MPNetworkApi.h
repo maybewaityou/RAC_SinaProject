@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
-#import "ReactiveCocoa.h"
+
+@class RACSignal;
 
 @interface MPNetworkApi : NSObject
 
