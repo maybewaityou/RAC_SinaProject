@@ -79,6 +79,13 @@
             [self.tableView.footer endRefreshing];
         }
     }];
+    
+    [RACObserve(self.viewModel, isNoMoreStatuses) subscribeNext:^(id x) {
+        if ([x boolValue]) {
+            self.viewModel.isNoMoreStatuses = NO;
+            [self.tableView.footer noticeNoMoreData];
+        }
+    }];
 
     [MPTableViewBindingHelper bindingHelpWithTableView:self.tableView sourceSignal:RACObserve(self.viewModel, statuses.statuses) selectionCommand:self.viewModel.selectionCommand templateCellClass:[MPHomeStatusCell class]];
 }

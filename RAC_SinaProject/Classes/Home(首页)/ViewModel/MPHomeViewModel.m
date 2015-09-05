@@ -118,6 +118,10 @@
      doNext:^(id response) {
          @strongify(self);
          StatusResult *newStatuses = [StatusResult objectWithKeyValues:response];
+         if ([newStatuses.statuses count] == 0) {
+             self.isNoMoreStatuses = YES;
+             return;
+         }
          [self.tempStatus addObjectsFromArray:newStatuses.statuses];
          self.statuses.statuses = [self.tempStatus copy];
          self.isLoadMoreFinished = YES;

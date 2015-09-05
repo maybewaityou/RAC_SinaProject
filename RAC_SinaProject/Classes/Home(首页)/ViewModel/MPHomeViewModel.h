@@ -19,6 +19,7 @@
 @property (nonatomic, assign)BOOL isLoadNewError;
 @property (nonatomic, assign)BOOL isLoadMoreFinished;
 @property (nonatomic, assign)BOOL isLoadMoreError;
+@property (nonatomic, assign)BOOL isNoMoreStatuses;
 @property (nonatomic, assign)NSUInteger newStatusCount;
 
 @property (nonatomic, strong)RACCommand *selectionCommand;
