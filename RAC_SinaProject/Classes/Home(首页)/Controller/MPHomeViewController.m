@@ -35,7 +35,6 @@
     [self setupTitle];
     [self setupViews];
     [self bindViewModel];
-    
 }
 
 - (void)bindViewModel
@@ -51,7 +50,6 @@
             self.viewModel.isLoadNewFinished = NO;
             [self.tableView.header endRefreshing];
             [self.tableView reloadData];
-            
         }
     }];
     
