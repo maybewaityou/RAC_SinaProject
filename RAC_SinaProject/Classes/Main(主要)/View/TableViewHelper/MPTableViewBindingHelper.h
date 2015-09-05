@@ -6,9 +6,10 @@
 //  Copyright (c) 2015年 MeePwn. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "ReactiveCocoa.h"
+#import <UIKit/UIKit.h>
 
+@class RACSignal;
+@class RACCommand;
 
 @interface MPTableViewBindingHelper : NSObject
 

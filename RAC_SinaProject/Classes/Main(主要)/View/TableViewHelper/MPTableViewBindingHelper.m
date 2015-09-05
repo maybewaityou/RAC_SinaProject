@@ -7,6 +7,7 @@
 //
 
 #import "MPTableViewBindingHelper.h"
+#import "ReactiveCocoa.h"
 #import "MPReactiveView.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 
