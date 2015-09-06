@@ -41,5 +41,7 @@
 //"annotations": [],
 //"user": {
 @property (nonatomic, strong)User *user;
+/** 微博配图地址。多图时返回多图链接。无配图返回“[]” */
+@property (nonatomic, strong) NSArray *pic_urls;
 
 @end

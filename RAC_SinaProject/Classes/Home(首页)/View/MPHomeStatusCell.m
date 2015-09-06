@@ -81,7 +81,6 @@
     self.statusLabel = statusLabel;
     
     UIImageView *photoImageView = [[UIImageView alloc] init];
-    photoImageView.backgroundColor = [UIColor redColor];
     [self.originalView addSubview:photoImageView];
     self.photoImageView = photoImageView;
 
@@ -160,23 +159,25 @@
     self.timeLabel.text = status.created_at;
     self.sourceLabel.text = status.source;
     [self.userImageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url]];
-//    [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:status]];
     
     if (user.isVip) {
         self.vipImageView.hidden = NO;
         NSString *vipName = [NSString stringWithFormat:@"common_icon_membership_level%d", user.mbrank];
         self.vipImageView.image = [UIImage imageNamed:vipName];
         self.nameLabel.textColor = [UIColor orangeColor];
-        
-        [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@0);
-        }];
     }else {
         self.vipImageView.hidden = YES;
         self.nameLabel.textColor = [UIColor blackColor];
-        
+    }
+    
+    if (status.pic_urls.count) {
+        [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:status.pic_urls[0][@"thumbnail_pic"]]];
         [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@100);
+        }];
+    }else {
+        [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@0);
         }];
     }
     
