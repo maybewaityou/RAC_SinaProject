@@ -15,6 +15,7 @@
 #import "StatusResult.h"
 #import "MJExtension.h"
 #import "Status.h"
+#import "MaterialProgress.h"
 
 @interface MPHomeViewModel ()
 
@@ -47,6 +48,7 @@
 
 - (void)requestUserInfo
 {
+    [[MaterialProgress sharedMaterialProgress] show];
     @weakify(self);
     [[[self.service getNetworkService] signalWithType:@"get" url:USER_INFO_URL
                                            parameter:@{
@@ -54,6 +56,7 @@
                                                        @"uid" : self.account.uid
                                                       }]
      subscribeNext:^(id response) {
+         [[MaterialProgress sharedMaterialProgress] dismiss];
          @strongify(self);
          self.title = response[@"name"];
     }];
@@ -61,12 +64,14 @@
 
 - (void)loadStatus
 {
+    [[MaterialProgress sharedMaterialProgress] show];
     @weakify(self);
     [[[self.service getNetworkService] signalWithType:@"get" url:NEW_STATUS_URL
                                             parameter:@{
                                                         @"access_token" : self.account.access_token
                                                         }]
      subscribeNext:^(id response) {
+         [[MaterialProgress sharedMaterialProgress] dismiss];
          @strongify(self);
          self.statuses = [StatusResult objectWithKeyValues:response];
          [self.tempStatus addObjectsFromArray:self.statuses.statuses];
@@ -82,6 +87,7 @@
         self.isLoadNewFinished = YES;
         return;
     }
+    [[MaterialProgress sharedMaterialProgress] show];
     @weakify(self);
     [[[[self.service getNetworkService] signalWithType:@"get" url:NEW_STATUS_URL
                                             parameter:@{
@@ -89,6 +95,7 @@
                                                         @"since_id" : status.idstr
                                                         }]
      doNext:^(id response) {
+         [[MaterialProgress sharedMaterialProgress] dismiss];
          @strongify(self);
          StatusResult *newStatuses = [StatusResult objectWithKeyValues:response];
          NSRange range = NSMakeRange(0, newStatuses.statuses.count);
@@ -99,6 +106,7 @@
          self.isLoadNewFinished = YES;
          self.isLoadNewError = NO;
      }] subscribeError:^(NSError *error) {
+         [[MaterialProgress sharedMaterialProgress] dismiss];
          @strongify(self);
          self.isLoadNewError = YES;
      }];
@@ -112,6 +120,7 @@
         return;
     }
     long long max_id = status.idstr.longLongValue - 1;
+    [[MaterialProgress sharedMaterialProgress] show];
     @weakify(self);
     [[[[self.service getNetworkService] signalWithType:@"get" url:NEW_STATUS_URL
                                             parameter:@{
@@ -119,6 +128,7 @@
                                                         @"max_id" : @(max_id)
                                                         }]
      doNext:^(id response) {
+         [[MaterialProgress sharedMaterialProgress] dismiss];
          @strongify(self);
          StatusResult *newStatuses = [StatusResult objectWithKeyValues:response];
          if ([newStatuses.statuses count] == 0) {
@@ -130,6 +140,7 @@
          self.isLoadMoreFinished = YES;
          self.isLoadMoreError = NO;
      }] subscribeError:^(NSError *error) {
+         [[MaterialProgress sharedMaterialProgress] dismiss];
          @strongify(self);
          self.isLoadMoreError = YES;
      }];
@@ -138,7 +149,7 @@
 - (void)fetchUnReadStatusCount
 {
     @weakify(self);
-    [[RACSignal interval:UN_READ_STATUS_TIMEINTERVAL onScheduler:[RACScheduler mainThreadScheduler]] subscribeNext:^(id x) {
+    [[RACSignal interval:UN_READ_STATUS_TIMEINTERVAL onScheduler:[RACScheduler scheduler]] subscribeNext:^(id x) {
         @strongify(self);
         [[[[self.service getNetworkService] signalWithType:@"get" url:UN_READ_STATUS_URL
                                                     parameter:@{
