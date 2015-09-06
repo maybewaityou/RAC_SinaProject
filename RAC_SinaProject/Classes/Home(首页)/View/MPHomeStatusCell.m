@@ -12,12 +12,17 @@
 #import "UIImageView+WebCache.h"
 #import "ReactiveCocoa.h"
 #import "MPHomeCellViewModel.h"
+#import "User.h"
 
 @interface MPHomeStatusCell ()
 
 @property (nonatomic, weak)UILabel *nameLabel;
+@property (nonatomic, weak)UILabel *timeLabel;
+@property (nonatomic, weak)UILabel *sourceLabel;
 @property (nonatomic, weak)UILabel *statusLabel;
 @property (nonatomic, weak)UIImageView *userImageView;
+@property (nonatomic, weak)UIImageView *vipImageView;
+@property (nonatomic, weak)UIImageView *photoImageView;
 
 @property (nonatomic, strong)MPHomeCellViewModel *viewModel;
 
@@ -39,6 +44,16 @@
     UILabel *nameLabel = [[UILabel alloc] init];
     [self.contentView addSubview:nameLabel];
     self.nameLabel = nameLabel;
+    
+    UILabel *timeLabel = [[UILabel alloc] init];
+    timeLabel.font = [UIFont systemFontOfSize:14.0];
+    [self.contentView addSubview:timeLabel];
+    self.timeLabel = timeLabel;
+    
+    UILabel *sourceLabel = [[UILabel alloc] init];
+    sourceLabel.font = [UIFont systemFontOfSize:14.0];
+    [self.contentView addSubview:sourceLabel];
+    self.sourceLabel = sourceLabel;
 
     UILabel *statusLabel = [[UILabel alloc] init];
     statusLabel.numberOfLines = 0;
@@ -51,14 +66,19 @@
     [self.contentView addSubview:userImageView];
     self.userImageView = userImageView;
     
+    UIImageView *vipImageView = [[UIImageView alloc] init];
+    vipImageView.contentMode = UIViewContentModeCenter;
+    [self.contentView addSubview:vipImageView];
+    self.vipImageView = vipImageView;
+    
 }
 
 - (void)setupViews
 {
     NSInteger margin5 = 5;
     NSInteger margin10 = 10;
-    NSInteger defaultW = 44;
-    NSInteger defaultH = 44;
+    NSInteger defaultW = 50;
+    NSInteger defaultH = 50;
     
     @weakify(self);
     [self.userImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -72,13 +92,30 @@
         @strongify(self);
         make.top.equalTo(self.userImageView);
         make.left.equalTo(self.userImageView.mas_right).offset(margin10);
-        make.right.equalTo(self.contentView).offset(-margin10);
+//        make.right.equalTo(self.contentView).offset(-margin10);
     }];
-    [self.statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.vipImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self.nameLabel);
+        make.left.equalTo(self.nameLabel.mas_right).offset(margin5);
+        make.bottom.equalTo(self.nameLabel);
+    }];
+    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.equalTo(self.nameLabel.mas_bottom).offset(margin5);
         make.left.equalTo(self.userImageView.mas_right).offset(margin10);
-        make.right.equalTo(self.nameLabel);
+    }];
+    [self.sourceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self.timeLabel);
+        make.left.equalTo(self.timeLabel.mas_right).offset(margin5);
+        make.right.equalTo(self.statusLabel);
+    }];
+    [self.statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self.userImageView.mas_bottom).offset(margin10);
+        make.left.equalTo(self.userImageView);
+        make.right.equalTo(self.contentView).offset(-margin10);
     }];
     [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
@@ -92,14 +129,23 @@
 - (void)bindViewModel:(id)viewModel
 {
     Status *status = (Status *)viewModel;
+    User *user = status.user;
     self.viewModel.status = status;
-    self.nameLabel.text = self.viewModel.status.user.name;
-    self.statusLabel.text = self.viewModel.status.text;
+    self.nameLabel.text = status.user.name;
+    self.statusLabel.text = status.text;
+    self.timeLabel.text = status.created_at;
+    self.sourceLabel.text = status.source;
     [self.userImageView sd_setImageWithURL:[NSURL URLWithString:self.viewModel.status.user.profile_image_url]];
-    
-//    [[RACObserve(self.viewModel, status) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(Status *status) {
-//        NSLog(@"===>>> %@",status.user.name);
-//    }];
+
+    if (user.isVip) {
+        self.vipImageView.hidden = NO;
+        NSString *vipName = [NSString stringWithFormat:@"common_icon_membership_level%d", user.mbrank];
+        self.vipImageView.image = [UIImage imageNamed:vipName];
+        self.nameLabel.textColor = [UIColor orangeColor];
+    }else{
+        self.vipImageView.hidden = YES;
+        self.nameLabel.textColor = [UIColor blackColor];
+    }
     
     [self.rac_prepareForReuseSignal subscribeNext:^(id x) {
         self.viewModel = nil;

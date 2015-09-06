@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "User.h"
+
+@class User;
 
 @interface Status : NSObject
 
@@ -35,6 +36,8 @@
 @property (nonatomic, copy)NSString *reposts_count;
 //"comments_count": 9,
 @property (nonatomic, copy)NSString *comments_count;
+//来源
+@property (nonatomic, copy)NSString *source;
 //"annotations": [],
 //"user": {
 @property (nonatomic, strong)User *user;

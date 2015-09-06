@@ -64,5 +64,11 @@
 @property (nonatomic, copy)NSString *online_status;
 //    "bi_followers_count": 215
 @property (nonatomic, copy)NSString *bi_followers_count;
+/** 会员类型 > 2代表是会员 */
+@property (nonatomic, assign)int mbtype;
+/** 会员等级 */
+@property (nonatomic, assign)int mbrank;
 
+
+@property (nonatomic, assign, getter=isVip)BOOL vip;
 @end
