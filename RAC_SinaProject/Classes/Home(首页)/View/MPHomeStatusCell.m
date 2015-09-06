@@ -217,13 +217,9 @@
     
     if (status.pic_urls.count) {
         [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:status.pic_urls[0][@"thumbnail_pic"]]];
-        [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@100);
-        }];
+        [self photoImageHidden:NO];
     }else {
-        [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@0);
-        }];
+        [self photoImageHidden:YES];
     }
     
     if (status.retweeted_status) {
@@ -240,7 +236,6 @@
         }else{
             [self retweetPhotoViewHidden:YES];
         }
-        
     }else {
         [self retweetPhotoViewHidden:YES];
     }
@@ -256,6 +251,19 @@
         _viewModel = [[MPHomeCellViewModel alloc] init];
     }
     return _viewModel;
+}
+
+- (void)photoImageHidden:(BOOL)hidden
+{
+    if (hidden) {
+        [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@0);
+        }];
+    }else{
+        [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@100);
+        }];
+    }
 }
 
 - (void)retweetViewHidden:(BOOL)hidden
