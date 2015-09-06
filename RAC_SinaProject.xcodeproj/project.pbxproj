@@ -48,6 +48,7 @@
 		6072F93C1B8E730700D47790 /* MPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F9371B8E730700D47790 /* MPHomeViewController.m */; };
 		6072F93D1B8E730700D47790 /* MPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F93B1B8E730700D47790 /* MPAppDelegate.m */; };
 		6072F94D1B8E7ABE00D47790 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F94C1B8E7ABE00D47790 /* UIColor+Extension.m */; };
+		6097A45B1B9BE1EA0023C0C9 /* MPPermissionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097A45A1B9BE1EA0023C0C9 /* MPPermissionUtils.m */; };
 		ED0A10412877A6135D22ADF4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C38D7A5BD1189B3D00AF55A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -148,6 +149,8 @@
 		6072F93B1B8E730700D47790 /* MPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPAppDelegate.m; sourceTree = "<group>"; };
 		6072F94B1B8E7ABE00D47790 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
 		6072F94C1B8E7ABE00D47790 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
+		6097A4591B9BE1EA0023C0C9 /* MPPermissionUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPermissionUtils.h; sourceTree = "<group>"; };
+		6097A45A1B9BE1EA0023C0C9 /* MPPermissionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPPermissionUtils.m; sourceTree = "<group>"; };
 		94A2777195F0056108B20C2E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EDA20434B8364C3915FAAD33 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -620,6 +623,7 @@
 				6072F94A1B8E7A8100D47790 /* Category */,
 				6072F9391B8E730700D47790 /* Other */,
 				6050F8121B8E9A87006C5F45 /* Lib */,
+				6097A4551B9BE1710023C0C9 /* Utils */,
 				60243BAC1B8F155800FD62A7 /* Model */,
 				60243BA01B8F10F500FD62A7 /* ViewModel */,
 				60243B8A1B8EFC0400FD62A7 /* View */,
@@ -687,6 +691,15 @@
 				6006EC041B8FF54E00DFD4D0 /* UIWindow+Extension.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		6097A4551B9BE1710023C0C9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6097A4591B9BE1EA0023C0C9 /* MPPermissionUtils.h */,
+				6097A45A1B9BE1EA0023C0C9 /* MPPermissionUtils.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		9B65F92342EA611443C66882 /* Pods */ = {
@@ -854,6 +867,7 @@
 				602D274C1B95547400DD1B5C /* MPHomeStatusNoticeView.m in Sources */,
 				6006EC201B903B6000DFD4D0 /* Status.m in Sources */,
 				6006EC051B8FF54E00DFD4D0 /* UIWindow+Extension.m in Sources */,
+				6097A45B1B9BE1EA0023C0C9 /* MPPermissionUtils.m in Sources */,
 				6050F8221B8EAA89006C5F45 /* TestViewController00.m in Sources */,
 				60243BAB1B8F153400FD62A7 /* MPNetworkServicesImpl.m in Sources */,
 				6006EC0C1B900C9100DFD4D0 /* MPHomeService.m in Sources */,
