@@ -11,6 +11,7 @@
 #import "MPAccount.h"
 #import "MPAccountTool.h"
 #import "UIWindow+Extension.h"
+#import "MPPermissionUtils.h"
 
 @interface MPAppDelegate ()
 
@@ -21,6 +22,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    [MPPermissionUtils requestUserNotificationPermission];
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     MPAccount *account = [MPAccountTool account];
@@ -34,6 +37,8 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyWindow];
+    
+    
     
     return YES;
 }
