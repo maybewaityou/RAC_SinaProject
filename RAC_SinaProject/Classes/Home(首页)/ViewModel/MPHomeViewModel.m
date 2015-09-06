@@ -71,6 +71,8 @@
          self.statuses = [StatusResult objectWithKeyValues:response];
          [self.tempStatus addObjectsFromArray:self.statuses.statuses];
      }];
+    
+    [self fetchUnReadStatusCount];
 }
 
 - (void)loadNewStatus
@@ -97,6 +99,7 @@
          self.isLoadNewFinished = YES;
          self.isLoadNewError = NO;
      }] subscribeError:^(NSError *error) {
+         @strongify(self);
          self.isLoadNewError = YES;
      }];
 }
@@ -127,8 +130,28 @@
          self.isLoadMoreFinished = YES;
          self.isLoadMoreError = NO;
      }] subscribeError:^(NSError *error) {
+         @strongify(self);
          self.isLoadMoreError = YES;
      }];
+}
+
+- (void)fetchUnReadStatusCount
+{
+    @weakify(self);
+    [[RACSignal interval:UN_READ_STATUS_TIMEINTERVAL onScheduler:[RACScheduler mainThreadScheduler]] subscribeNext:^(id x) {
+        @strongify(self);
+        [[[[self.service getNetworkService] signalWithType:@"get" url:UN_READ_STATUS_URL
+                                                    parameter:@{
+                                                                @"access_token" : self.account.access_token,
+                                                                @"uid" : self.account.uid
+                                                                }]
+        doNext:^(id response) {
+            @strongify(self);
+            self.unReadStatusCount = [response[@"status"] integerValue];
+        }] subscribeError:^(NSError *error) {
+            
+        }];
+    }];
 }
 
 #pragma mark - 懒加载

@@ -21,7 +21,7 @@
 @property (nonatomic, assign)BOOL isLoadMoreError;
 @property (nonatomic, assign)BOOL isNoMoreStatuses;
 @property (nonatomic, assign)NSUInteger newStatusCount;
-
+@property (nonatomic, assign)NSInteger unReadStatusCount;
 @property (nonatomic, strong)RACCommand *selectionCommand;
 
 - (instancetype)initWithNavController:(UIViewController *)controller;

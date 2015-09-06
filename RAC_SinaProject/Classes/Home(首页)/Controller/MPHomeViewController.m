@@ -50,6 +50,9 @@
             self.viewModel.isLoadNewFinished = NO;
             [self.tableView.header endRefreshing];
             [self.tableView reloadData];
+            
+            self.tabBarItem.badgeValue = nil;
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
         }
     }];
     
@@ -82,6 +85,16 @@
         if ([x boolValue]) {
             self.viewModel.isNoMoreStatuses = NO;
             [self.tableView.footer noticeNoMoreData];
+        }
+    }];
+    
+    [RACObserve(self.viewModel, unReadStatusCount) subscribeNext:^(id x) {
+        if ([x integerValue] > 0) {
+            self.tabBarItem.badgeValue = [x description];
+            [UIApplication sharedApplication].applicationIconBadgeNumber = [x integerValue];
+        }else{
+            self.tabBarItem.badgeValue = nil;
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
         }
     }];
 
