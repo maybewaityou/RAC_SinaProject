@@ -28,6 +28,13 @@
 @property (nonatomic, weak)UIImageView *userImageView;
 @property (nonatomic, weak)UIImageView *vipImageView;
 @property (nonatomic, weak)UIImageView *photoImageView;
+/**
+ *  转发微博
+ */
+@property (nonatomic, weak)UIView *retweetView;
+@property (nonatomic, weak)UILabel *retweetContentView;
+@property (nonatomic, weak)UIImageView *retweetPhotoImageView;
+
 
 @property (nonatomic, strong)MPHomeCellViewModel *viewModel;
 
@@ -46,6 +53,7 @@
 
 - (void)initViews
 {
+    // 原创微博
     UIView *originalView = [[UIView alloc] init];
     [self.contentView addSubview:originalView];
     self.originalView = originalView;
@@ -83,8 +91,21 @@
     UIImageView *photoImageView = [[UIImageView alloc] init];
     [self.originalView addSubview:photoImageView];
     self.photoImageView = photoImageView;
-
     
+    // 转发微博
+    UIView *retweetView = [[UIView alloc] init];
+    [self.contentView addSubview:retweetView];
+    self.retweetView = retweetView;
+
+    UILabel *retweetContentView = [[UILabel alloc] init];
+    retweetContentView.font = [UIFont systemFontOfSize:13.0];
+    retweetContentView.numberOfLines = 0;
+    [self.retweetView addSubview:retweetContentView];
+    self.retweetContentView = retweetContentView;
+    
+    UIImageView *retweetPhotoImageView = [[UIImageView alloc] init];
+    [self.retweetView addSubview:retweetPhotoImageView];
+    self.retweetPhotoImageView = retweetPhotoImageView;
 }
 
 - (void)setupViews
@@ -94,6 +115,7 @@
     NSInteger defaultW = 50;
     NSInteger defaultH = 50;
     
+    // 原创微博
     @weakify(self);
     [self.userImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
@@ -144,8 +166,31 @@
         make.bottom.equalTo(self.photoImageView).offset(margin10);
         make.width.equalTo(self.mas_width);
     }];
+    // 转发微博
+    [self.retweetView mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self.originalView.mas_bottom);
+        make.left.right.equalTo(self.originalView);
+        make.bottom.equalTo(self.retweetPhotoImageView).offset(margin10);
+    }];
+    [self.retweetContentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self.retweetView).offset(margin10);
+        make.left.equalTo(self.retweetView).offset(margin10);
+        make.right.equalTo(self.retweetView).offset(-margin10);
+    }];
+    [self.retweetPhotoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self.retweetContentView.mas_bottom).offset(margin5);
+        make.left.equalTo(self.retweetContentView);
+        make.width.equalTo(@100);
+        make.height.equalTo(@100);
+    }];
+    
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.bottom.right.equalTo(self.originalView);
+        @strongify(self);
+        make.top.left.right.equalTo(self.originalView);
+        make.bottom.equalTo(self.retweetView);
     }];
 }
 
@@ -181,6 +226,25 @@
         }];
     }
     
+    if (status.retweeted_status) {
+        Status *retweetStatus = status.retweeted_status;
+        User *retweetStatusUser = retweetStatus.user;
+        
+        /** 被转发的微博正文 */
+        NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@", retweetStatusUser.name, retweetStatus.text];
+        self.retweetContentView.text = retweetContent;
+
+        if (retweetStatus.pic_urls.count) {
+            [self.retweetPhotoImageView sd_setImageWithURL:[NSURL URLWithString:retweetStatus.pic_urls[0][@"thumbnail_pic"]]];
+            [self retweetPhotoViewHidden:NO];
+        }else{
+            [self retweetPhotoViewHidden:YES];
+        }
+        
+    }else {
+        [self retweetPhotoViewHidden:YES];
+    }
+    
     [self.rac_prepareForReuseSignal subscribeNext:^(id x) {
         self.viewModel = nil;
     }];
@@ -192,6 +256,37 @@
         _viewModel = [[MPHomeCellViewModel alloc] init];
     }
     return _viewModel;
+}
+
+- (void)retweetViewHidden:(BOOL)hidden
+{
+    if (hidden) {
+        [self.retweetView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@0);
+        }];
+    }else{
+        @weakify(self);
+        [self.retweetView mas_updateConstraints:^(MASConstraintMaker *make) {
+            @strongify(self);
+            make.top.equalTo(self.originalView.mas_bottom);
+            make.left.right.equalTo(self.originalView);
+            make.bottom.equalTo(self.retweetPhotoImageView).offset(10);
+        }];
+        
+    }
+}
+
+- (void)retweetPhotoViewHidden:(BOOL)hidden
+{
+    if (hidden) {
+        [self.retweetPhotoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@0);
+        }];
+    }else{
+        [self.retweetPhotoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@100);
+        }];
+    }
 }
 
 #if 0

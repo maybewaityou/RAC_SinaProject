@@ -42,6 +42,8 @@
 //"user": {
 @property (nonatomic, strong)User *user;
 /** 微博配图地址。多图时返回多图链接。无配图返回“[]” */
-@property (nonatomic, strong) NSArray *pic_urls;
+@property (nonatomic, strong)NSArray *pic_urls;
+/** 被转发的原微博信息字段，当该微博为转发微博时返回 */
+@property (nonatomic, strong)Status *retweeted_status;
 
 @end
