@@ -13,9 +13,14 @@
 #import "ReactiveCocoa.h"
 #import "MPHomeCellViewModel.h"
 #import "User.h"
+#import "UIView+Extension.h"
 
 @interface MPHomeStatusCell ()
 
+/**
+ *  原创微博
+ */
+@property (nonatomic, weak)UIView *originalView;
 @property (nonatomic, weak)UILabel *nameLabel;
 @property (nonatomic, weak)UILabel *timeLabel;
 @property (nonatomic, weak)UILabel *sourceLabel;
@@ -41,35 +46,45 @@
 
 - (void)initViews
 {
+    UIView *originalView = [[UIView alloc] init];
+    [self.contentView addSubview:originalView];
+    self.originalView = originalView;
+    
+    UIImage *image = [UIImage imageNamed:@"avatar_default"];
+    UIImageView *userImageView = [[UIImageView alloc] initWithImage:image];
+    [self.originalView addSubview:userImageView];
+    self.userImageView = userImageView;
+    
     UILabel *nameLabel = [[UILabel alloc] init];
-    [self.contentView addSubview:nameLabel];
+    [self.originalView addSubview:nameLabel];
     self.nameLabel = nameLabel;
+    
+    UIImageView *vipImageView = [[UIImageView alloc] init];
+    vipImageView.contentMode = UIViewContentModeCenter;
+    [self.originalView addSubview:vipImageView];
+    self.vipImageView = vipImageView;
     
     UILabel *timeLabel = [[UILabel alloc] init];
     timeLabel.font = [UIFont systemFontOfSize:14.0];
-    [self.contentView addSubview:timeLabel];
+    [self.originalView addSubview:timeLabel];
     self.timeLabel = timeLabel;
     
     UILabel *sourceLabel = [[UILabel alloc] init];
     sourceLabel.font = [UIFont systemFontOfSize:14.0];
-    [self.contentView addSubview:sourceLabel];
+    [self.originalView addSubview:sourceLabel];
     self.sourceLabel = sourceLabel;
 
     UILabel *statusLabel = [[UILabel alloc] init];
     statusLabel.numberOfLines = 0;
     statusLabel.font = [UIFont systemFontOfSize:13.0];
-    [self.contentView addSubview:statusLabel];
+    [self.originalView addSubview:statusLabel];
     self.statusLabel = statusLabel;
     
-    UIImage *image = [UIImage imageNamed:@"avatar_default"];
-    UIImageView *userImageView = [[UIImageView alloc] initWithImage:image];
-    [self.contentView addSubview:userImageView];
-    self.userImageView = userImageView;
-    
-    UIImageView *vipImageView = [[UIImageView alloc] init];
-    vipImageView.contentMode = UIViewContentModeCenter;
-    [self.contentView addSubview:vipImageView];
-    self.vipImageView = vipImageView;
+    UIImageView *photoImageView = [[UIImageView alloc] init];
+    photoImageView.backgroundColor = [UIColor redColor];
+    [self.originalView addSubview:photoImageView];
+    self.photoImageView = photoImageView;
+
     
 }
 
@@ -83,8 +98,8 @@
     @weakify(self);
     [self.userImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
-        make.top.equalTo(self.contentView).offset(margin10);
-        make.left.equalTo(self.contentView).offset(margin10);
+        make.top.equalTo(self.originalView).offset(margin10);
+        make.left.equalTo(self.originalView).offset(margin10);
         make.width.equalTo(@(defaultW));
         make.height.equalTo(@(defaultH));
     }];
@@ -92,7 +107,6 @@
         @strongify(self);
         make.top.equalTo(self.userImageView);
         make.left.equalTo(self.userImageView.mas_right).offset(margin10);
-//        make.right.equalTo(self.contentView).offset(-margin10);
     }];
     [self.vipImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
@@ -115,14 +129,24 @@
         @strongify(self);
         make.top.equalTo(self.userImageView.mas_bottom).offset(margin10);
         make.left.equalTo(self.userImageView);
-        make.right.equalTo(self.contentView).offset(-margin10);
+        make.right.equalTo(self.originalView).offset(-margin10);
     }];
-    [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.photoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self.statusLabel.mas_bottom).offset(margin5);
+        make.left.equalTo(self.userImageView);
+        make.width.equalTo(@100);
+        make.height.equalTo(@100);
+    }];
+    [self.originalView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.equalTo(self.userImageView).offset(-margin10);
         make.left.equalTo(self.userImageView).offset(-margin10);
-        make.bottom.equalTo(self.statusLabel).offset(margin10);
+        make.bottom.equalTo(self.photoImageView).offset(margin10);
         make.width.equalTo(self.mas_width);
+    }];
+    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.bottom.right.equalTo(self.originalView);
     }];
 }
 
@@ -135,16 +159,25 @@
     self.statusLabel.text = status.text;
     self.timeLabel.text = status.created_at;
     self.sourceLabel.text = status.source;
-    [self.userImageView sd_setImageWithURL:[NSURL URLWithString:self.viewModel.status.user.profile_image_url]];
-
+    [self.userImageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url]];
+//    [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:status]];
+    
     if (user.isVip) {
         self.vipImageView.hidden = NO;
         NSString *vipName = [NSString stringWithFormat:@"common_icon_membership_level%d", user.mbrank];
         self.vipImageView.image = [UIImage imageNamed:vipName];
         self.nameLabel.textColor = [UIColor orangeColor];
-    }else{
+        
+        [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@0);
+        }];
+    }else {
         self.vipImageView.hidden = YES;
         self.nameLabel.textColor = [UIColor blackColor];
+        
+        [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@100);
+        }];
     }
     
     [self.rac_prepareForReuseSignal subscribeNext:^(id x) {
