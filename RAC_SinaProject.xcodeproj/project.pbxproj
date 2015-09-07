@@ -45,6 +45,7 @@
 		6050F83C1B8EB7E6006C5F45 /* MPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F8381B8EB7E6006C5F45 /* MPProfileViewController.m */; };
 		6050F8401B8EB80C006C5F45 /* MPMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F83F1B8EB80C006C5F45 /* MPMessageCenterViewController.m */; };
 		6050FFCE1B8FCB7D0033733B /* MPAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050FFCD1B8FCB7D0033733B /* MPAccount.m */; };
+		60721C811B9D1F6400691D1B /* MPHomeStatusToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 60721C801B9D1F6400691D1B /* MPHomeStatusToolbar.m */; };
 		6072F93C1B8E730700D47790 /* MPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F9371B8E730700D47790 /* MPHomeViewController.m */; };
 		6072F93D1B8E730700D47790 /* MPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F93B1B8E730700D47790 /* MPAppDelegate.m */; };
 		6072F94D1B8E7ABE00D47790 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F94C1B8E7ABE00D47790 /* UIColor+Extension.m */; };
@@ -144,6 +145,8 @@
 		6050F83F1B8EB80C006C5F45 /* MPMessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMessageCenterViewController.m; sourceTree = "<group>"; };
 		6050FFCC1B8FCB7D0033733B /* MPAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPAccount.h; sourceTree = "<group>"; };
 		6050FFCD1B8FCB7D0033733B /* MPAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPAccount.m; sourceTree = "<group>"; };
+		60721C7F1B9D1F6400691D1B /* MPHomeStatusToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeStatusToolbar.h; sourceTree = "<group>"; };
+		60721C801B9D1F6400691D1B /* MPHomeStatusToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeStatusToolbar.m; sourceTree = "<group>"; };
 		6072F9361B8E730700D47790 /* MPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeViewController.h; sourceTree = "<group>"; };
 		6072F9371B8E730700D47790 /* MPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeViewController.m; sourceTree = "<group>"; };
 		6072F93A1B8E730700D47790 /* MPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPAppDelegate.h; sourceTree = "<group>"; };
@@ -470,6 +473,8 @@
 				6006EC1C1B903A1300DFD4D0 /* MPHomeStatusCell.m */,
 				602D274A1B95547400DD1B5C /* MPHomeStatusNoticeView.h */,
 				602D274B1B95547400DD1B5C /* MPHomeStatusNoticeView.m */,
+				60721C7F1B9D1F6400691D1B /* MPHomeStatusToolbar.h */,
+				60721C801B9D1F6400691D1B /* MPHomeStatusToolbar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -861,6 +866,7 @@
 				6050F8181B8E9F1B006C5F45 /* UIView+Extension.m in Sources */,
 				6050F83C1B8EB7E6006C5F45 /* MPProfileViewController.m in Sources */,
 				6097A45E1B9C094B0023C0C9 /* MPPhoto.m in Sources */,
+				60721C811B9D1F6400691D1B /* MPHomeStatusToolbar.m in Sources */,
 				6072F93C1B8E730700D47790 /* MPHomeViewController.m in Sources */,
 				6050F8351B8EB7B3006C5F45 /* MPDiscoverViewController.m in Sources */,
 				6050F8151B8E9AC5006C5F45 /* MPTabBarViewController.m in Sources */,

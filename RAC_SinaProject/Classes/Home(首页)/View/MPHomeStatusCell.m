@@ -15,6 +15,7 @@
 #import "User.h"
 #import "UIView+Extension.h"
 #import "UIColor+Extension.h"
+#import "MPHomeStatusToolbar.h"
 
 #define margin5 (5)
 #define margin10 (10)
@@ -44,6 +45,10 @@
 @property (nonatomic, weak)UILabel *retweetContentView;
 @property (nonatomic, weak)UIImageView *retweetPhotoImageView;
 
+/**
+ *  转发、评论、赞
+ */
+//@property (nonatomic, weak)MPHomeStatusToolbar *toolbar;
 
 @property (nonatomic, strong)MPHomeCellViewModel *viewModel;
 
@@ -116,6 +121,10 @@
     UIImageView *retweetPhotoImageView = [[UIImageView alloc] init];
     [self.retweetView addSubview:retweetPhotoImageView];
     self.retweetPhotoImageView = retweetPhotoImageView;
+    
+//    MPHomeStatusToolbar *toolbar = [MPHomeStatusToolbar toolbar];
+//    [self.contentView addSubview:toolbar];
+//    self.toolbar = toolbar;
 }
 
 - (void)setupViews
@@ -191,12 +200,24 @@
         make.width.equalTo(@photoViewW);
         make.height.equalTo(@photoViewH);
     }];
+    // 转发、评论、赞
+//    [self.toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
+//        @strongify(self);
+////        make.top.equalTo(self.retweetView.mas_bottom);
+//        make.left.right.equalTo(self.originalView);
+//        make.height.equalTo(@35);
+////        make.centerY.equalTo(self.contentView);
+//        make.bottom.equalTo(self).offset(35);
+////        make.bottom.equalTo(self.contentView);
+//    }];
     
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.left.right.equalTo(self.originalView);
         make.bottom.equalTo(self.retweetView);
     }];
+    
+
 }
 
 - (void)bindViewModel:(id)viewModel
