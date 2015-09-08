@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum : NSUInteger {
+    MPUserVerifiedTypeNone = -1, // 没有任何认证
+    
+    MPUserVerifiedPersonal = 0,  // 个人认证
+    
+    MPUserVerifiedOrgEnterprice = 2, // 企业官方：CSDN、EOE、搜狐新闻客户端
+    MPUserVerifiedOrgMedia = 3, // 媒体官方：程序员杂志、苹果汇
+    MPUserVerifiedOrgWebsite = 5, // 网站官方：猫扑
+    
+    MPUserVerifiedDaren = 220 // 微博达人
+} MPUserVerifiedType;
+
 @interface User : NSObject
 
 //    "id": 1404376560,
@@ -68,7 +80,8 @@
 @property (nonatomic, assign)int mbtype;
 /** 会员等级 */
 @property (nonatomic, assign)int mbrank;
-
+/** 认证类型 */
+@property (nonatomic, assign) MPUserVerifiedType verified_type;
 
 @property (nonatomic, assign, getter=isVip)BOOL vip;
 @end

@@ -25,6 +25,7 @@
 		600802DF1B9EE98E0029F1C2 /* Apply.m in Sources */ = {isa = PBXBuildFile; fileRef = 600802DA1B9EE98E0029F1C2 /* Apply.m */; };
 		600802E01B9EE98E0029F1C2 /* Async.m in Sources */ = {isa = PBXBuildFile; fileRef = 600802DC1B9EE98E0029F1C2 /* Async.m */; };
 		600802E11B9EE98E0029F1C2 /* GCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 600802DE1B9EE98E0029F1C2 /* GCD.m */; };
+		600802E41B9EED650029F1C2 /* MPUserIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 600802E31B9EED650029F1C2 /* MPUserIconView.m */; };
 		602079CA1B930ABE00ECD17E /* MPHomeCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 602079C91B930ABE00ECD17E /* MPHomeCellViewModel.m */; };
 		60243B5A1B8EDF3300FD62A7 /* MPNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B591B8EDF3300FD62A7 /* MPNewfeatureViewController.m */; };
 		60243B5C1B8EE9D000FD62A7 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60243B5B1B8EE9D000FD62A7 /* Reveal.framework */; };
@@ -106,6 +107,8 @@
 		600802DC1B9EE98E0029F1C2 /* Async.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Async.m; sourceTree = "<group>"; };
 		600802DD1B9EE98E0029F1C2 /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
 		600802DE1B9EE98E0029F1C2 /* GCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCD.m; sourceTree = "<group>"; };
+		600802E21B9EED650029F1C2 /* MPUserIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPUserIconView.h; sourceTree = "<group>"; };
+		600802E31B9EED650029F1C2 /* MPUserIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPUserIconView.m; sourceTree = "<group>"; };
 		602079C81B930ABE00ECD17E /* MPHomeCellViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeCellViewModel.h; sourceTree = "<group>"; };
 		602079C91B930ABE00ECD17E /* MPHomeCellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeCellViewModel.m; sourceTree = "<group>"; };
 		60243B581B8EDF3300FD62A7 /* MPNewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNewfeatureViewController.h; sourceTree = "<group>"; };
@@ -309,6 +312,8 @@
 				60243BA31B8F115500FD62A7 /* Protocol */,
 				60243B8B1B8EFC2200FD62A7 /* Progress */,
 				6006EC171B90393900DFD4D0 /* TableViewHelper */,
+				600802E21B9EED650029F1C2 /* MPUserIconView.h */,
+				600802E31B9EED650029F1C2 /* MPUserIconView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -911,6 +916,7 @@
 				60243B5A1B8EDF3300FD62A7 /* MPNewfeatureViewController.m in Sources */,
 				6006EC261B9045B100DFD4D0 /* StatusResult.m in Sources */,
 				6006EC151B902D9800DFD4D0 /* Foundation+Log.m in Sources */,
+				600802E41B9EED650029F1C2 /* MPUserIconView.m in Sources */,
 				600802E11B9EE98E0029F1C2 /* GCD.m in Sources */,
 				602D274C1B95547400DD1B5C /* MPHomeStatusNoticeView.m in Sources */,
 				6006EC201B903B6000DFD4D0 /* Status.m in Sources */,

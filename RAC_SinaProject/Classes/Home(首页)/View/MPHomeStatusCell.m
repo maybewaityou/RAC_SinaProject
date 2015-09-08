@@ -16,6 +16,7 @@
 #import "UIView+Extension.h"
 #import "UIColor+Extension.h"
 #import "MPHomeStatusPhotoViews.h"
+#import "MPUserIconView.h"
 
 #define margin5 (5)
 #define margin10 (10)
@@ -34,7 +35,7 @@
 @property (nonatomic, weak)UILabel *timeLabel;
 @property (nonatomic, weak)UILabel *sourceLabel;
 @property (nonatomic, weak)UILabel *statusLabel;
-@property (nonatomic, weak)UIImageView *userImageView;
+@property (nonatomic, weak)MPUserIconView *userImageView;
 @property (nonatomic, weak)UIImageView *vipImageView;
 @property (nonatomic, weak)MPHomeStatusPhotoViews *photoImageView;
 
@@ -113,7 +114,7 @@
     self.originalView = originalView;
     
     UIImage *image = [UIImage imageNamed:@"avatar_default"];
-    UIImageView *userImageView = [[UIImageView alloc] initWithImage:image];
+    MPUserIconView *userImageView = [[MPUserIconView alloc] initWithImage:image];
     [self.originalView addSubview:userImageView];
     self.userImageView = userImageView;
     
@@ -323,7 +324,8 @@
     self.statusLabel.text = status.text;
     self.timeLabel.text = status.created_at;
     self.sourceLabel.text = status.source;
-    [self.userImageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url]];
+//    [self.userImageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url]];
+    self.userImageView.user = user;
     [self setupStatusToolBarWithStatus:status];
     
     if (user.isVip) {
