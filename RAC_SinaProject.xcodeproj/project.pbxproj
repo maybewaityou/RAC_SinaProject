@@ -22,6 +22,9 @@
 		600802CE1B9E7FB20029F1C2 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 600802CD1B9E7FB20029F1C2 /* NSDate+Extension.m */; };
 		600802D41B9EBA3F0029F1C2 /* MPHomeStatusPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 600802D31B9EBA3F0029F1C2 /* MPHomeStatusPhotoView.m */; };
 		600802D71B9EBC930029F1C2 /* MPHomeStatusPhotoViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 600802D61B9EBC930029F1C2 /* MPHomeStatusPhotoViews.m */; };
+		600802DF1B9EE98E0029F1C2 /* Apply.m in Sources */ = {isa = PBXBuildFile; fileRef = 600802DA1B9EE98E0029F1C2 /* Apply.m */; };
+		600802E01B9EE98E0029F1C2 /* Async.m in Sources */ = {isa = PBXBuildFile; fileRef = 600802DC1B9EE98E0029F1C2 /* Async.m */; };
+		600802E11B9EE98E0029F1C2 /* GCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 600802DE1B9EE98E0029F1C2 /* GCD.m */; };
 		602079CA1B930ABE00ECD17E /* MPHomeCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 602079C91B930ABE00ECD17E /* MPHomeCellViewModel.m */; };
 		60243B5A1B8EDF3300FD62A7 /* MPNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B591B8EDF3300FD62A7 /* MPNewfeatureViewController.m */; };
 		60243B5C1B8EE9D000FD62A7 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60243B5B1B8EE9D000FD62A7 /* Reveal.framework */; };
@@ -97,6 +100,12 @@
 		600802D31B9EBA3F0029F1C2 /* MPHomeStatusPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeStatusPhotoView.m; sourceTree = "<group>"; };
 		600802D51B9EBC930029F1C2 /* MPHomeStatusPhotoViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeStatusPhotoViews.h; sourceTree = "<group>"; };
 		600802D61B9EBC930029F1C2 /* MPHomeStatusPhotoViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeStatusPhotoViews.m; sourceTree = "<group>"; };
+		600802D91B9EE98E0029F1C2 /* Apply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Apply.h; sourceTree = "<group>"; };
+		600802DA1B9EE98E0029F1C2 /* Apply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Apply.m; sourceTree = "<group>"; };
+		600802DB1B9EE98E0029F1C2 /* Async.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Async.h; sourceTree = "<group>"; };
+		600802DC1B9EE98E0029F1C2 /* Async.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Async.m; sourceTree = "<group>"; };
+		600802DD1B9EE98E0029F1C2 /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
+		600802DE1B9EE98E0029F1C2 /* GCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCD.m; sourceTree = "<group>"; };
 		602079C81B930ABE00ECD17E /* MPHomeCellViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeCellViewModel.h; sourceTree = "<group>"; };
 		602079C91B930ABE00ECD17E /* MPHomeCellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeCellViewModel.m; sourceTree = "<group>"; };
 		60243B581B8EDF3300FD62A7 /* MPNewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNewfeatureViewController.h; sourceTree = "<group>"; };
@@ -220,6 +229,19 @@
 				6006EC191B90398000DFD4D0 /* MPTableViewBindingHelper.m */,
 			);
 			path = TableViewHelper;
+			sourceTree = "<group>";
+		};
+		600802D81B9EE98E0029F1C2 /* Async */ = {
+			isa = PBXGroup;
+			children = (
+				600802D91B9EE98E0029F1C2 /* Apply.h */,
+				600802DA1B9EE98E0029F1C2 /* Apply.m */,
+				600802DB1B9EE98E0029F1C2 /* Async.h */,
+				600802DC1B9EE98E0029F1C2 /* Async.m */,
+				600802DD1B9EE98E0029F1C2 /* GCD.h */,
+				600802DE1B9EE98E0029F1C2 /* GCD.m */,
+			);
+			path = Async;
 			sourceTree = "<group>";
 		};
 		60243B531B8EDF0D00FD62A7 /* Newfeature(新特性) */ = {
@@ -436,6 +458,7 @@
 		6050F8121B8E9A87006C5F45 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				600802D81B9EE98E0029F1C2 /* Async */,
 				60243B961B8F00F500FD62A7 /* ReactiveViewModel */,
 				60243B5D1B8EFB0A00FD62A7 /* Networking */,
 			);
@@ -866,6 +889,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				600802E01B9EE98E0029F1C2 /* Async.m in Sources */,
 				600802D71B9EBC930029F1C2 /* MPHomeStatusPhotoViews.m in Sources */,
 				6006EC231B903CF600DFD4D0 /* User.m in Sources */,
 				6050F8251B8EAA9E006C5F45 /* TestViewController01.m in Sources */,
@@ -887,6 +911,7 @@
 				60243B5A1B8EDF3300FD62A7 /* MPNewfeatureViewController.m in Sources */,
 				6006EC261B9045B100DFD4D0 /* StatusResult.m in Sources */,
 				6006EC151B902D9800DFD4D0 /* Foundation+Log.m in Sources */,
+				600802E11B9EE98E0029F1C2 /* GCD.m in Sources */,
 				602D274C1B95547400DD1B5C /* MPHomeStatusNoticeView.m in Sources */,
 				6006EC201B903B6000DFD4D0 /* Status.m in Sources */,
 				6006EC051B8FF54E00DFD4D0 /* UIWindow+Extension.m in Sources */,
@@ -896,6 +921,7 @@
 				6006EC0C1B900C9100DFD4D0 /* MPHomeService.m in Sources */,
 				60243B851B8EFB0A00FD62A7 /* MPNetworkApi.m in Sources */,
 				6050F82B1B8EAEC6006C5F45 /* TestViewController03.m in Sources */,
+				600802DF1B9EE98E0029F1C2 /* Apply.m in Sources */,
 				6006EC021B8FEDED00DFD4D0 /* MPAccountTool.m in Sources */,
 				602DFA871B8E650C009A1C8E /* main.m in Sources */,
 				6050F81B1B8EA24C006C5F45 /* MPNavigationController.m in Sources */,
