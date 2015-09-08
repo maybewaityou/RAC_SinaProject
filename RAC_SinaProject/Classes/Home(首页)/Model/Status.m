@@ -48,7 +48,7 @@
             return [fmt stringFromDate:createdDate];
         }
     }else {
-        fmt.dateFormat = @"yyyy-MM-dd HH:mm";
+        fmt.dateFormat = @"yyyy-MM-dd";
         return [fmt stringFromDate:createdDate];
     }
 }
