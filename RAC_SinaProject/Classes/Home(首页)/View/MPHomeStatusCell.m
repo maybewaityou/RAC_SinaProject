@@ -235,8 +235,6 @@
         make.top.equalTo(self.statusLabel.mas_bottom).offset(margin10);
         make.left.equalTo(self.userImageView);
         make.width.equalTo(@(photoViewW * 3 + margin10 * 2));
-//        make.width.equalTo(@photoViewW);
-//        make.height.equalTo(@photoViewH);
     }];
     [self.originalView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
@@ -265,10 +263,10 @@
     }];
     [self.retweetPhotoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
-        make.top.equalTo(self.retweetContentView.mas_bottom).offset(margin5);
+        make.top.equalTo(self.retweetContentView.mas_bottom).offset(margin10);
         make.left.equalTo(self.retweetContentView);
-        make.width.equalTo(@photoViewW);
-        make.height.equalTo(@photoViewH);
+//        make.width.equalTo(@(photoViewW * 3 + margin10 * 2));
+        make.width.equalTo(@(photoViewW));
     }];
 }
 
@@ -339,13 +337,10 @@
     }
     
     if (status.pic_urls.count) {
-//        [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:status.pic_urls[0][@"thumbnail_pic"]]];
         self.photoImageView.photos = status.pic_urls;
         [self setupPhotoViewHeight:status.pic_urls.count];
-//        [self photoImageHidden:NO];
     }else {
         self.photoImageView.photos = nil;
-//        [self photoImageHidden:YES];
         [self setupPhotoViewHeight:0];
     }
     
@@ -362,16 +357,19 @@
             [self retweetContentViewHiddenTopConstrain:NO];
             [self retweetViewHiddenTopConstrain:NO];
             [self retweetPhotoViewHidden:NO];
+//            [self setupRetweetPhotoViewHeight:status.pic_urls.count];
         }else{
             [self retweetContentViewHiddenTopConstrain:NO];
             [self retweetViewHiddenTopConstrain:NO];
             [self retweetPhotoViewHidden:YES];
+//            [self setupRetweetPhotoViewHeight:0];
         }
     }else {
         self.retweetContentView.text = @"";
         [self retweetContentViewHiddenTopConstrain:YES];
         [self retweetViewHiddenTopConstrain:YES];
         [self retweetPhotoViewHidden:YES];
+//        [self setupRetweetPhotoViewHeight:0];
     }
     
     [self.rac_prepareForReuseSignal subscribeNext:^(id x) {
@@ -415,19 +413,29 @@
     [self updateConstraints];
 }
 
-- (void)photoImageHidden:(BOOL)hidden
+- (void)setupRetweetPhotoViewHeight:(NSUInteger)count
 {
-    if (hidden) {
+    if (count == 0) {
         @weakify(self);
-        [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+        [self.retweetPhotoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
             @strongify(self);
-            make.top.equalTo(self.statusLabel.mas_bottom);
+            make.top.equalTo(self.retweetContentView.mas_bottom);
             make.height.equalTo(@0);
         }];
-    }else{
-        [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.statusLabel.mas_bottom).offset(margin5);
-            make.height.equalTo(@photoViewH);
+    }else if (count <= 3) {
+        [self.retweetPhotoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.retweetContentView.mas_bottom).offset(margin10);
+            make.height.equalTo(@(photoViewH));
+        }];
+    }else if(count <= 6 && count > 3){
+        [self.retweetPhotoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.retweetContentView.mas_bottom).offset(margin10);
+            make.height.equalTo(@(photoViewH * 2 + margin10));
+        }];
+    }else {
+        [self.retweetPhotoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.retweetContentView.mas_bottom).offset(margin10);
+            make.height.equalTo(@(photoViewH * 3 + margin10 * 2));
         }];
     }
     [super updateConstraints];
