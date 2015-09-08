@@ -53,6 +53,15 @@
     }
 }
 
+- (void)setSource:(NSString *)source
+{
+    NSRange range;
+    range.location = [source rangeOfString:@">"].location + 1;
+    range.length = [source rangeOfString:@"</"].location - range.location;
+
+    _source = [NSString stringWithFormat:@"来自%@",[source substringWithRange:range]];
+}
+
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"Status description:%@\n created_at: %@\nidstr: %@\ntext: %@\nfavorited: %@\ntruncated: %@\nin_reply_to_status_id: %@\nin_reply_to_user_id: %@\nin_reply_to_screen_name: %@\ngeo: %@\nmid: %@\nreposts_count: %zd\ncomments_count: %zd\nattitudes_count: %zd\nsource: %@\nuser: %@\npic_urls: %@\nretweeted_status: %@\n",[super description], self.created_at, self.idstr, self.text, self.favorited, self.truncated, self.in_reply_to_status_id, self.in_reply_to_user_id, self.in_reply_to_screen_name, self.geo, self.mid, self.reposts_count, self.comments_count, self.attitudes_count, self.source, self.user, self.pic_urls, self.retweeted_status];

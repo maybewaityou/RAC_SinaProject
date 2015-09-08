@@ -126,18 +126,20 @@
     self.vipImageView = vipImageView;
     
     UILabel *timeLabel = [[UILabel alloc] init];
-    timeLabel.font = [UIFont systemFontOfSize:14.0];
+    timeLabel.textColor = [UIColor lightGrayColor];
+    timeLabel.font = [UIFont systemFontOfSize:13.0];
     [self.originalView addSubview:timeLabel];
     self.timeLabel = timeLabel;
     
     UILabel *sourceLabel = [[UILabel alloc] init];
-    sourceLabel.font = [UIFont systemFontOfSize:14.0];
+    sourceLabel.textColor = [UIColor lightGrayColor];
+    sourceLabel.font = [UIFont systemFontOfSize:13.0];
     [self.originalView addSubview:sourceLabel];
     self.sourceLabel = sourceLabel;
     
     UILabel *statusLabel = [[UILabel alloc] init];
     statusLabel.numberOfLines = 0;
-    statusLabel.font = [UIFont systemFontOfSize:13.0];
+    statusLabel.font = [UIFont systemFontOfSize:14.0];
     [self.originalView addSubview:statusLabel];
     self.statusLabel = statusLabel;
     
@@ -155,7 +157,7 @@
     self.retweetView = retweetView;
     
     UILabel *retweetContentView = [[UILabel alloc] init];
-    retweetContentView.font = [UIFont systemFontOfSize:13.0];
+    retweetContentView.font = [UIFont systemFontOfSize:14.0];
     retweetContentView.numberOfLines = 0;
     [self.retweetView addSubview:retweetContentView];
     self.retweetContentView = retweetContentView;
@@ -213,6 +215,7 @@
         @strongify(self);
         make.top.equalTo(self.nameLabel.mas_bottom).offset(margin5);
         make.left.equalTo(self.userImageView.mas_right).offset(margin10);
+        make.width.equalTo(@(80));
     }];
     [self.sourceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
@@ -455,7 +458,7 @@
 {
     [self setupBtnCount:status.reposts_count btn:self.repostButton title:@"转发"];
     [self setupBtnCount:status.comments_count btn:self.commentButton title:@"评论"];
-    [self setupBtnCount:status.attitudes_count btn:self.commentButton title:@"赞"];
+    [self setupBtnCount:status.attitudes_count btn:self.attitudeButton title:@"赞"];
 }
 
 - (void)setupBtnCount:(int)count btn:(UIButton *)btn title:(NSString *)title
@@ -471,31 +474,6 @@
     }
     [btn setTitle:title forState:UIControlStateNormal];
 }
-
-//{
-//    
-//    // 转发
-//    [self setupBtnCount:status.reposts_count btn:self.repostBtn title:@"转发"];
-//    // 评论
-//    [self setupBtnCount:status.comments_count btn:self.commentBtn title:@"评论"];
-//    // 赞
-//    [self setupBtnCount:status.attitudes_count btn:self.attitudeBtn title:@"赞"];
-//}
-//
-//- (void)setupBtnCount:(int)count btn:(UIButton *)btn title:(NSString *)title
-//{
-//    if (count) { // 数字不为0
-//        if (count < 10000) { // 不足10000：直接显示数字，比如786、7986
-//            title = [NSString stringWithFormat:@"%d", count];
-//        } else { // 达到10000：显示xx.x万，不要有.0的情况
-//            double wan = count / 10000.0;
-//            title = [NSString stringWithFormat:@"%.1f万", wan];
-//            // 将字符串里面的.0去掉
-//            title = [title stringByReplacingOccurrencesOfString:@".0" withString:@""];
-//        }
-//    }
-//    [btn setTitle:title forState:UIControlStateNormal];
-//}
 
 - (UIButton *)setupButtonsWithTitle:(NSString *)title icon:(NSString *)icon
 {
