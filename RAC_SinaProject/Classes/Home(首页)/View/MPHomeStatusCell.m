@@ -15,13 +15,14 @@
 #import "User.h"
 #import "UIView+Extension.h"
 #import "UIColor+Extension.h"
+#import "MPHomeStatusPhotoViews.h"
 
 #define margin5 (5)
 #define margin10 (10)
 #define defaultW (50)
 #define defaultH (50)
-#define photoViewW (100)
-#define photoViewH (100)
+#define photoViewW (70)
+#define photoViewH (70)
 
 @interface MPHomeStatusCell ()
 
@@ -35,7 +36,7 @@
 @property (nonatomic, weak)UILabel *statusLabel;
 @property (nonatomic, weak)UIImageView *userImageView;
 @property (nonatomic, weak)UIImageView *vipImageView;
-@property (nonatomic, weak)UIImageView *photoImageView;
+@property (nonatomic, weak)MPHomeStatusPhotoViews *photoImageView;
 
 /**
  *  转发微博
@@ -143,7 +144,7 @@
     [self.originalView addSubview:statusLabel];
     self.statusLabel = statusLabel;
     
-    UIImageView *photoImageView = [[UIImageView alloc] init];
+    MPHomeStatusPhotoViews *photoImageView = [[MPHomeStatusPhotoViews alloc] init];
     [self.originalView addSubview:photoImageView];
     self.photoImageView = photoImageView;
 }
@@ -231,10 +232,11 @@
     }];
     [self.photoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
-        make.top.equalTo(self.statusLabel.mas_bottom).offset(margin5);
+        make.top.equalTo(self.statusLabel.mas_bottom).offset(margin10);
         make.left.equalTo(self.userImageView);
-        make.width.equalTo(@photoViewW);
-        make.height.equalTo(@photoViewH);
+        make.width.equalTo(@(photoViewW * 3 + margin10 * 2));
+//        make.width.equalTo(@photoViewW);
+//        make.height.equalTo(@photoViewH);
     }];
     [self.originalView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
@@ -337,10 +339,14 @@
     }
     
     if (status.pic_urls.count) {
-        [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:status.pic_urls[0][@"thumbnail_pic"]]];
-        [self photoImageHidden:NO];
+//        [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:status.pic_urls[0][@"thumbnail_pic"]]];
+        self.photoImageView.photos = status.pic_urls;
+        [self setupPhotoViewHeight:status.pic_urls.count];
+//        [self photoImageHidden:NO];
     }else {
-        [self photoImageHidden:YES];
+        self.photoImageView.photos = nil;
+//        [self photoImageHidden:YES];
+        [self setupPhotoViewHeight:0];
     }
     
     if (status.retweeted_status) {
@@ -352,6 +358,7 @@
 
         if (retweetStatus.pic_urls.count) {
             [self.retweetPhotoImageView sd_setImageWithURL:[NSURL URLWithString:retweetStatus.pic_urls[0][@"thumbnail_pic"]]];
+//            self.retweetPhotoImageView.photos = retweetStatus.pic_urls;
             [self retweetContentViewHiddenTopConstrain:NO];
             [self retweetViewHiddenTopConstrain:NO];
             [self retweetPhotoViewHidden:NO];
@@ -378,6 +385,34 @@
         _viewModel = [[MPHomeCellViewModel alloc] init];
     }
     return _viewModel;
+}
+
+- (void)setupPhotoViewHeight:(NSUInteger)count
+{
+    if (count == 0) {
+        @weakify(self);
+        [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            @strongify(self);
+            make.top.equalTo(self.statusLabel.mas_bottom);
+            make.height.equalTo(@0);
+        }];
+    }else if (count <= 3) {
+        [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.statusLabel.mas_bottom).offset(margin10);
+            make.height.equalTo(@(photoViewH));
+        }];
+    }else if(count <= 6 && count > 3){
+        [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.statusLabel.mas_bottom).offset(margin10);
+            make.height.equalTo(@(photoViewH * 2 + margin10));
+        }];
+    }else {
+        [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.statusLabel.mas_bottom).offset(margin10);
+            make.height.equalTo(@(photoViewH * 3 + margin10 * 2));
+        }];
+    }
+    [self updateConstraints];
 }
 
 - (void)photoImageHidden:(BOOL)hidden

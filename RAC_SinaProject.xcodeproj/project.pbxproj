@@ -20,6 +20,8 @@
 		6006EC261B9045B100DFD4D0 /* StatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC251B9045B100DFD4D0 /* StatusResult.m */; };
 		6006EC291B904BB600DFD4D0 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC281B904BB600DFD4D0 /* UITableView+FDTemplateLayoutCell.m */; };
 		600802CE1B9E7FB20029F1C2 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 600802CD1B9E7FB20029F1C2 /* NSDate+Extension.m */; };
+		600802D41B9EBA3F0029F1C2 /* MPHomeStatusPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 600802D31B9EBA3F0029F1C2 /* MPHomeStatusPhotoView.m */; };
+		600802D71B9EBC930029F1C2 /* MPHomeStatusPhotoViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 600802D61B9EBC930029F1C2 /* MPHomeStatusPhotoViews.m */; };
 		602079CA1B930ABE00ECD17E /* MPHomeCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 602079C91B930ABE00ECD17E /* MPHomeCellViewModel.m */; };
 		60243B5A1B8EDF3300FD62A7 /* MPNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B591B8EDF3300FD62A7 /* MPNewfeatureViewController.m */; };
 		60243B5C1B8EE9D000FD62A7 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60243B5B1B8EE9D000FD62A7 /* Reveal.framework */; };
@@ -91,6 +93,10 @@
 		6006EC281B904BB600DFD4D0 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		600802CC1B9E7FB20029F1C2 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
 		600802CD1B9E7FB20029F1C2 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		600802D21B9EBA3F0029F1C2 /* MPHomeStatusPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeStatusPhotoView.h; sourceTree = "<group>"; };
+		600802D31B9EBA3F0029F1C2 /* MPHomeStatusPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeStatusPhotoView.m; sourceTree = "<group>"; };
+		600802D51B9EBC930029F1C2 /* MPHomeStatusPhotoViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeStatusPhotoViews.h; sourceTree = "<group>"; };
+		600802D61B9EBC930029F1C2 /* MPHomeStatusPhotoViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeStatusPhotoViews.m; sourceTree = "<group>"; };
 		602079C81B930ABE00ECD17E /* MPHomeCellViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeCellViewModel.h; sourceTree = "<group>"; };
 		602079C91B930ABE00ECD17E /* MPHomeCellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeCellViewModel.m; sourceTree = "<group>"; };
 		60243B581B8EDF3300FD62A7 /* MPNewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNewfeatureViewController.h; sourceTree = "<group>"; };
@@ -473,6 +479,10 @@
 				6006EC1C1B903A1300DFD4D0 /* MPHomeStatusCell.m */,
 				602D274A1B95547400DD1B5C /* MPHomeStatusNoticeView.h */,
 				602D274B1B95547400DD1B5C /* MPHomeStatusNoticeView.m */,
+				600802D21B9EBA3F0029F1C2 /* MPHomeStatusPhotoView.h */,
+				600802D31B9EBA3F0029F1C2 /* MPHomeStatusPhotoView.m */,
+				600802D51B9EBC930029F1C2 /* MPHomeStatusPhotoViews.h */,
+				600802D61B9EBC930029F1C2 /* MPHomeStatusPhotoViews.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -856,6 +866,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				600802D71B9EBC930029F1C2 /* MPHomeStatusPhotoViews.m in Sources */,
 				6006EC231B903CF600DFD4D0 /* User.m in Sources */,
 				6050F8251B8EAA9E006C5F45 /* TestViewController01.m in Sources */,
 				6006EC161B902D9800DFD4D0 /* NSArray+Log.m in Sources */,
@@ -865,6 +876,7 @@
 				6006EC081B8FFBFA00DFD4D0 /* MPHomeViewModel.m in Sources */,
 				6050F8181B8E9F1B006C5F45 /* UIView+Extension.m in Sources */,
 				6050F83C1B8EB7E6006C5F45 /* MPProfileViewController.m in Sources */,
+				600802D41B9EBA3F0029F1C2 /* MPHomeStatusPhotoView.m in Sources */,
 				6097A45E1B9C094B0023C0C9 /* MPPhoto.m in Sources */,
 				6072F93C1B8E730700D47790 /* MPHomeViewController.m in Sources */,
 				6050F8351B8EB7B3006C5F45 /* MPDiscoverViewController.m in Sources */,
