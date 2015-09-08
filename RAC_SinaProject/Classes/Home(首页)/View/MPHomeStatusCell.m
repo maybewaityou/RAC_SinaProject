@@ -51,6 +51,8 @@
 @property (nonatomic, weak)UIButton *repostButton;
 @property (nonatomic, weak)UIButton *commentButton;
 @property (nonatomic, weak)UIButton *attitudeButton;
+@property (nonatomic, weak)UIImageView *dividerLeft;
+@property (nonatomic, weak)UIImageView *dividerRight;
 
 @property (nonatomic, strong)MPHomeCellViewModel *viewModel;
 
@@ -173,6 +175,16 @@
     self.repostButton = [self setupButtonsWithTitle:@"转发" icon:@"timeline_icon_retweet"];
     self.commentButton = [self setupButtonsWithTitle:@"评论" icon:@"timeline_icon_comment"];
     self.attitudeButton = [self setupButtonsWithTitle:@"赞" icon:@"timeline_icon_unlike"];
+    
+    UIImageView *dividerLeft = [[UIImageView alloc] init];
+    dividerLeft.image = [UIImage imageNamed:@"timeline_card_bottom_line"];
+    [toolBar addSubview:dividerLeft];
+    self.dividerLeft = dividerLeft;
+    
+    UIImageView *dividerRight = [[UIImageView alloc] init];
+    dividerRight.image = [UIImage imageNamed:@"timeline_card_bottom_line"];
+    [toolBar addSubview:dividerRight];
+    self.dividerRight = dividerRight;
 }
 
 - (void)setupOriginalStatusViews
@@ -274,12 +286,20 @@
         make.width.equalTo(@(toolBarDefaultW));
         make.height.equalTo(@(toolBarDefaultH));
     }];
+    [self.dividerLeft mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.repostButton.mas_right).offset(-0.5);
+        make.centerY.equalTo(self.toolBar);
+    }];
     [self.commentButton mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.equalTo(self.repostButton);
         make.left.equalTo(self.repostButton.mas_right);
         make.width.equalTo(@(toolBarDefaultW));
         make.height.equalTo(@(toolBarDefaultH));
+    }];
+    [self.dividerRight mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.commentButton.mas_right).offset(-0.5);
+        make.centerY.equalTo(self.toolBar);
     }];
     [self.attitudeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
@@ -301,6 +321,7 @@
     self.timeLabel.text = status.created_at;
     self.sourceLabel.text = status.source;
     [self.userImageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url]];
+    [self setupStatusToolBarWithStatus:status];
     
     if (user.isVip) {
         self.vipImageView.hidden = NO;
@@ -430,6 +451,51 @@
     [super updateConstraints];
 }
 
+- (void)setupStatusToolBarWithStatus:(Status *)status
+{
+    [self setupBtnCount:status.reposts_count btn:self.repostButton title:@"转发"];
+    [self setupBtnCount:status.comments_count btn:self.commentButton title:@"评论"];
+    [self setupBtnCount:status.attitudes_count btn:self.commentButton title:@"赞"];
+}
+
+- (void)setupBtnCount:(int)count btn:(UIButton *)btn title:(NSString *)title
+{
+    if (count) {
+        if (count < 10000) {
+            title = [NSString stringWithFormat:@"%d",count];
+        }else {
+            double wan = count;
+            title = [NSString stringWithFormat:@"%.1f万",wan];
+            title = [title stringByReplacingOccurrencesOfString:@".0" withString:@""];
+        }
+    }
+    [btn setTitle:title forState:UIControlStateNormal];
+}
+
+//{
+//    
+//    // 转发
+//    [self setupBtnCount:status.reposts_count btn:self.repostBtn title:@"转发"];
+//    // 评论
+//    [self setupBtnCount:status.comments_count btn:self.commentBtn title:@"评论"];
+//    // 赞
+//    [self setupBtnCount:status.attitudes_count btn:self.attitudeBtn title:@"赞"];
+//}
+//
+//- (void)setupBtnCount:(int)count btn:(UIButton *)btn title:(NSString *)title
+//{
+//    if (count) { // 数字不为0
+//        if (count < 10000) { // 不足10000：直接显示数字，比如786、7986
+//            title = [NSString stringWithFormat:@"%d", count];
+//        } else { // 达到10000：显示xx.x万，不要有.0的情况
+//            double wan = count / 10000.0;
+//            title = [NSString stringWithFormat:@"%.1f万", wan];
+//            // 将字符串里面的.0去掉
+//            title = [title stringByReplacingOccurrencesOfString:@".0" withString:@""];
+//        }
+//    }
+//    [btn setTitle:title forState:UIControlStateNormal];
+//}
 
 - (UIButton *)setupButtonsWithTitle:(NSString *)title icon:(NSString *)icon
 {
