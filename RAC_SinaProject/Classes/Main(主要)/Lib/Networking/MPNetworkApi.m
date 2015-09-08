@@ -305,12 +305,14 @@
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         [MPNetworkApi fetchJSONWithType:type url:url parameters:args success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //            [[MaterialProgress sharedMaterialProgress] dismiss];
+            NSLog(@"===>>> %@",responseObject);
             if ([responseObject isKindOfClass:[NSDictionary class]]) {
                 [subscriber sendNext:responseObject];
                 [subscriber sendCompleted];
             }
         } fail:^(AFHTTPRequestOperation *operation, NSError *error) {
 //            [[MaterialProgress sharedMaterialProgress] dismiss];
+            NSLog(@"===>>> %@",error);
             [subscriber sendError:error];
         }];
        return [RACDisposable disposableWithBlock:^{

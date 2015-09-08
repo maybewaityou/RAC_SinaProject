@@ -125,6 +125,8 @@
     UITableView *tableView = [[UITableView alloc] init];
     tableView.showsVerticalScrollIndicator = NO;
     tableView.showsHorizontalScrollIndicator = NO;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     tableView.estimatedRowHeight = 100;
     tableView.rowHeight = UITableViewAutomaticDimension;
     tableView.fd_debugLogEnabled = YES;

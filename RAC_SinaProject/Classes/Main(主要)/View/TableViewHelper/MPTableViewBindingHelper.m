@@ -78,6 +78,7 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
      UITableViewCell *cell = [tableView
                                dequeueReusableCellWithIdentifier:@"cell"];
+    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
     cell.fd_enforceFrameLayout = NO;
     [(id<MPReactiveView>)cell bindViewModel:_data[indexPath.row]];
     return (UITableViewCell *)cell;
@@ -86,7 +87,7 @@
 #pragma mark - UITableViewDelegate implementation
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-   [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [_selection execute:_data[indexPath.row]];
 }
 

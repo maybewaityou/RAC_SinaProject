@@ -15,7 +15,6 @@
 #import "User.h"
 #import "UIView+Extension.h"
 #import "UIColor+Extension.h"
-#import "MPHomeStatusToolbar.h"
 
 #define margin5 (5)
 #define margin10 (10)
@@ -48,7 +47,10 @@
 /**
  *  转发、评论、赞
  */
-//@property (nonatomic, weak)MPHomeStatusToolbar *toolbar;
+@property (nonatomic, weak)UIView *toolBar;
+@property (nonatomic, weak)UIButton *repostButton;
+@property (nonatomic, weak)UIButton *commentButton;
+@property (nonatomic, weak)UIButton *attitudeButton;
 
 @property (nonatomic, strong)MPHomeCellViewModel *viewModel;
 
@@ -68,7 +70,42 @@
 - (void)initViews
 {
     // 原创微博
+    [self initOriginalStatusViews];
+    
+    // 转发微博
+    [self initRepostStatusViews];
+    
+    // 转发、评论、赞
+    [self initStatusToolbar];
+    
+    self.contentView.backgroundColor = [UIColor colorWithHexString:@"#F4F4F4"];
+}
+
+- (void)setupViews
+{
+    // 原创微博
+    [self setupOriginalStatusViews];
+    
+    // 转发微博
+    [self setupRepostStatusViews];
+    
+    // 转发、评论、赞
+    [self setupStatusToolbar];
+
+    @weakify(self);
+    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.left.right.equalTo(self.originalView);
+        make.bottom.equalTo(self.toolBar).offset(margin10);
+    }];
+    
+}
+
+- (void)initOriginalStatusViews
+{
+    // 原创微博
     UIView *originalView = [[UIView alloc] init];
+    originalView.backgroundColor = [UIColor whiteColor];
     [self.contentView addSubview:originalView];
     self.originalView = originalView;
     
@@ -95,7 +132,7 @@
     sourceLabel.font = [UIFont systemFontOfSize:14.0];
     [self.originalView addSubview:sourceLabel];
     self.sourceLabel = sourceLabel;
-
+    
     UILabel *statusLabel = [[UILabel alloc] init];
     statusLabel.numberOfLines = 0;
     statusLabel.font = [UIFont systemFontOfSize:13.0];
@@ -105,13 +142,16 @@
     UIImageView *photoImageView = [[UIImageView alloc] init];
     [self.originalView addSubview:photoImageView];
     self.photoImageView = photoImageView;
-    
+}
+
+- (void)initRepostStatusViews
+{
     // 转发微博
     UIView *retweetView = [[UIView alloc] init];
     retweetView.backgroundColor = [UIColor colorWithHexString:@"#F4F4F4"];
     [self.contentView addSubview:retweetView];
     self.retweetView = retweetView;
-
+    
     UILabel *retweetContentView = [[UILabel alloc] init];
     retweetContentView.font = [UIFont systemFontOfSize:13.0];
     retweetContentView.numberOfLines = 0;
@@ -121,13 +161,21 @@
     UIImageView *retweetPhotoImageView = [[UIImageView alloc] init];
     [self.retweetView addSubview:retweetPhotoImageView];
     self.retweetPhotoImageView = retweetPhotoImageView;
-    
-//    MPHomeStatusToolbar *toolbar = [MPHomeStatusToolbar toolbar];
-//    [self.contentView addSubview:toolbar];
-//    self.toolbar = toolbar;
 }
 
-- (void)setupViews
+- (void)initStatusToolbar
+{
+    UIView *toolBar = [[UIView alloc] init];
+    toolBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_card_bottom_background"]];
+    [self.contentView addSubview:toolBar];
+    self.toolBar = toolBar;
+    
+    self.repostButton = [self setupButtonsWithTitle:@"转发" icon:@"timeline_icon_retweet"];
+    self.commentButton = [self setupButtonsWithTitle:@"评论" icon:@"timeline_icon_comment"];
+    self.attitudeButton = [self setupButtonsWithTitle:@"赞" icon:@"timeline_icon_unlike"];
+}
+
+- (void)setupOriginalStatusViews
 {
     // 原创微博
     @weakify(self);
@@ -180,7 +228,12 @@
         make.bottom.equalTo(self.photoImageView).offset(margin10);
         make.width.equalTo(self.mas_width);
     }];
+}
+
+- (void)setupRepostStatusViews
+{
     // 转发微博
+    @weakify(self);
     [self.retweetView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.equalTo(self.originalView.mas_bottom);
@@ -200,23 +253,41 @@
         make.width.equalTo(@photoViewW);
         make.height.equalTo(@photoViewH);
     }];
-    // 转发、评论、赞
-//    [self.toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
-//        @strongify(self);
-////        make.top.equalTo(self.retweetView.mas_bottom);
-//        make.left.right.equalTo(self.originalView);
-//        make.height.equalTo(@35);
-////        make.centerY.equalTo(self.contentView);
-//        make.bottom.equalTo(self).offset(35);
-////        make.bottom.equalTo(self.contentView);
-//    }];
+}
+
+- (void)setupStatusToolbar
+{
+    CGFloat toolBarDefaultW = [UIScreen mainScreen].bounds.size.width/3;
+    CGFloat toolBarDefaultH = 35;
     
-    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        @strongify(self);
-        make.top.left.right.equalTo(self.originalView);
-        make.bottom.equalTo(self.retweetView);
+    @weakify(self);
+    [self.toolBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.retweetView.mas_bottom);
+        make.left.right.equalTo(self.retweetView);
+        make.height.equalTo(@35);
     }];
     
+    [self.repostButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self.toolBar);
+        make.left.equalTo(self.toolBar);
+        make.width.equalTo(@(toolBarDefaultW));
+        make.height.equalTo(@(toolBarDefaultH));
+    }];
+    [self.commentButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self.repostButton);
+        make.left.equalTo(self.repostButton.mas_right);
+        make.width.equalTo(@(toolBarDefaultW));
+        make.height.equalTo(@(toolBarDefaultH));
+    }];
+    [self.attitudeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self.repostButton);
+        make.left.equalTo(self.commentButton.mas_right);
+        make.width.equalTo(@(toolBarDefaultW));
+        make.height.equalTo(@(toolBarDefaultH));
+    }];
 
 }
 
@@ -257,12 +328,18 @@
 
         if (retweetStatus.pic_urls.count) {
             [self.retweetPhotoImageView sd_setImageWithURL:[NSURL URLWithString:retweetStatus.pic_urls[0][@"thumbnail_pic"]]];
+            [self retweetContentViewHiddenTopConstrain:NO];
+            [self retweetViewHiddenTopConstrain:NO];
             [self retweetPhotoViewHidden:NO];
         }else{
+            [self retweetContentViewHiddenTopConstrain:NO];
+            [self retweetViewHiddenTopConstrain:NO];
             [self retweetPhotoViewHidden:YES];
         }
     }else {
         self.retweetContentView.text = @"";
+        [self retweetContentViewHiddenTopConstrain:YES];
+        [self retweetViewHiddenTopConstrain:YES];
         [self retweetPhotoViewHidden:YES];
     }
     
@@ -301,14 +378,6 @@
 {
     if (hidden) {
         @weakify(self);
-        [self.retweetContentView mas_updateConstraints:^(MASConstraintMaker *make) {
-            @strongify(self);
-            make.top.equalTo(self.retweetView);
-        }];
-        [self.retweetView mas_updateConstraints:^(MASConstraintMaker *make) {
-            @strongify(self);
-            make.bottom.equalTo(self.retweetPhotoImageView);
-        }];
         [self.retweetPhotoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
             @strongify(self);
             make.top.equalTo(self.retweetContentView.mas_bottom);
@@ -316,14 +385,6 @@
         }];
     }else{
         @weakify(self);
-        [self.retweetContentView mas_updateConstraints:^(MASConstraintMaker *make) {
-            @strongify(self);
-            make.top.equalTo(self.retweetView).offset(margin10);
-        }];
-        [self.retweetView mas_updateConstraints:^(MASConstraintMaker *make) {
-            @strongify(self);
-            make.bottom.equalTo(self.retweetPhotoImageView).offset(margin10);
-        }];
         [self.retweetPhotoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
             @strongify(self);
             make.top.equalTo(self.retweetContentView.mas_bottom).offset(margin5);
@@ -331,6 +392,57 @@
         }];
     }
     [super updateConstraints];
+}
+
+- (void)retweetViewHiddenTopConstrain:(BOOL)hidden
+{
+    if (hidden) {
+        @weakify(self);
+        [self.retweetView mas_updateConstraints:^(MASConstraintMaker *make) {
+            @strongify(self);
+            make.bottom.equalTo(self.retweetPhotoImageView);
+        }];
+    }else {
+        @weakify(self);
+        [self.retweetView mas_updateConstraints:^(MASConstraintMaker *make) {
+            @strongify(self);
+            make.bottom.equalTo(self.retweetPhotoImageView).offset(margin10);
+        }];
+    }
+    [super updateConstraints];
+}
+
+- (void)retweetContentViewHiddenTopConstrain:(BOOL)hidden
+{
+    if (hidden) {
+        @weakify(self);
+        [self.retweetContentView mas_updateConstraints:^(MASConstraintMaker *make) {
+            @strongify(self);
+            make.top.equalTo(self.retweetView);
+        }];
+    }else {
+        @weakify(self);
+        [self.retweetContentView mas_updateConstraints:^(MASConstraintMaker *make) {
+            @strongify(self);
+            make.top.equalTo(self.retweetView).offset(margin10);
+        }];
+    }
+    [super updateConstraints];
+}
+
+
+- (UIButton *)setupButtonsWithTitle:(NSString *)title icon:(NSString *)icon
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
+    button.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
+    [button setTitle:title forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:@"timeline_card_bottom_background_highlighted"] forState:UIControlStateHighlighted];
+    button.titleLabel.font = [UIFont systemFontOfSize:13.0];
+    [self.toolBar addSubview:button];
+    
+    return button;
 }
 
 #if 0
