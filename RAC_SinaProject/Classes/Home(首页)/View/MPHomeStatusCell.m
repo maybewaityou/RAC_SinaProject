@@ -19,8 +19,8 @@
 
 #define margin5 (5)
 #define margin10 (10)
-#define defaultW (50)
-#define defaultH (50)
+#define defaultW (44)
+#define defaultH (44)
 #define photoViewW (70)
 #define photoViewH (70)
 
@@ -454,7 +454,7 @@
         @weakify(self);
         [self.retweetPhotoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
             @strongify(self);
-            make.top.equalTo(self.retweetContentView.mas_bottom).offset(margin5);
+            make.top.equalTo(self.retweetContentView.mas_bottom).offset(margin10);
             make.height.equalTo(@photoViewH);
         }];
     }
