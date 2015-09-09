@@ -477,9 +477,9 @@
 
 - (void)setupStatusToolBarWithStatus:(Status *)status
 {
-    [self setupBtnCount:status.reposts_count btn:self.repostButton title:@"转发"];
-    [self setupBtnCount:status.comments_count btn:self.commentButton title:@"评论"];
-    [self setupBtnCount:status.attitudes_count btn:self.attitudeButton title:@"赞"];
+    [self setupBtnCount:[status.reposts_count intValue] btn:self.repostButton title:@"转发"];
+    [self setupBtnCount:[status.comments_count intValue] btn:self.commentButton title:@"评论"];
+    [self setupBtnCount:[status.attitudes_count intValue] btn:self.attitudeButton title:@"赞"];
 }
 
 - (void)setupBtnCount:(int)count btn:(UIButton *)btn title:(NSString *)title
@@ -488,7 +488,7 @@
         if (count < 10000) {
             title = [NSString stringWithFormat:@"%d",count];
         }else {
-            double wan = count;
+            double wan = count / 10000.0;
             title = [NSString stringWithFormat:@"%.1f万",wan];
             title = [title stringByReplacingOccurrencesOfString:@".0" withString:@""];
         }
