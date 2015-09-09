@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReactiveCocoa.h"
 
 @interface MPComposeToolbar : UIView
+
+@property (nonatomic, strong)RACSignal *buttonSignal;
 
 @end

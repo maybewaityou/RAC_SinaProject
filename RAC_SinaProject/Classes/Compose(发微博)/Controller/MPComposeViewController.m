@@ -13,6 +13,7 @@
 #import "Masonry.h"
 #import "UIView+Toast.h"
 #import "SZTextView.h"
+#import "MPComposeToolbar.h"
 
 #define margin10 (10)
 
@@ -33,7 +34,22 @@
     [self initDatas];
     [self setupTitle];
     [self setupViews];
+    [self setupToolbar];
     [self bindViewModel];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // 判断发送键是否可点击
+    @weakify(self);
+    [[self.textView.rac_textSignal map:^id(NSString *string) {
+        return string.length > 0 ? @(YES) : @(NO);
+    }] subscribeNext:^(NSNumber *boolean) {
+        @strongify(self);
+        self.navigationItem.rightBarButtonItem.enabled = [boolean boolValue];
+    }];
 }
 
 - (void)bindViewModel
@@ -41,7 +57,6 @@
     @weakify(self);
     RAC(self.titleView,text) = RACObserve(self.viewModel, name);
     RAC(self.titleView,attributedText) = RACObserve(self.viewModel, attrStr);
-    
     RAC(self.viewModel,textToSend) = self.textView.rac_textSignal;
     
     [RACObserve(self.viewModel, isSendSuccess) subscribeNext:^(id x) {
@@ -61,8 +76,8 @@
 
 - (void)setupTitle
 {
-    UIBarButtonItem *leftBar = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(onLeftClick:)];
-    UIBarButtonItem *rightBar = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(onRightClick:)];
+    UIBarButtonItem *leftBar = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(onLeftClick:)];
+    UIBarButtonItem *rightBar = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleDone target:self action:@selector(onRightClick:)];
     UILabel *titleView = [[UILabel alloc] init];
     titleView.width = 200;
     titleView.height = 100;
@@ -81,6 +96,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
  
     SZTextView *textView = [SZTextView new];
+    textView.alwaysBounceVertical = YES;
     textView.font = [UIFont systemFontOfSize:15.0];
     textView.placeholder = @"分享新鲜事...";
     textView.placeholderTextColor = [UIColor lightGrayColor];
@@ -99,8 +115,26 @@
     }];
 }
 
+- (void)setupToolbar
+{
+    MPComposeToolbar *toolbar = [[MPComposeToolbar alloc] init];
+//    toolbar.width = self.view.width;
+//    toolbar.height = 44;
+    [self.view addSubview:toolbar];
+//    self.textView.inputAccessoryView = toolbar;
+    @weakify(self);
+    [toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.centerY.equalTo(self.textView);
+        make.width.equalTo(self.view);
+        make.height.equalTo(@44);
+    }];
+    
+}
+
 - (void)onLeftClick:(UIBarButtonItem *)leftBar
 {
+    [self.textView resignFirstResponder];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
