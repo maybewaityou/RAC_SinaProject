@@ -24,6 +24,8 @@
 
 @property (nonatomic, strong)NSDate *created_date;
 
+@property (nonatomic, copy)NSString *name;
+
 + (MPAccount *)accountWithDictionary:(NSDictionary *)dictionary;
 
 @end

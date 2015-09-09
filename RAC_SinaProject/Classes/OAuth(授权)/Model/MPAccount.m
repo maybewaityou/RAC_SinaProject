@@ -16,6 +16,7 @@
     account.uid = dictionary[@"uid"];
     account.expires_in = dictionary[@"expires_in"];
     account.access_token = dictionary[@"access_token"];
+    account.name = dictionary[@"name"];
     return account;
 }
 
@@ -25,6 +26,7 @@
     [encoder encodeObject:self.uid forKey:@"uid"];
     [encoder encodeObject:self.expires_in forKey:@"expires_in"];
     [encoder encodeObject:self.created_date forKey:@"created_date"];
+    [encoder encodeObject:self.name forKey:@"name"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
@@ -34,6 +36,7 @@
         self.expires_in = [decoder decodeObjectForKey:@"expires_in"];
         self.access_token = [decoder decodeObjectForKey:@"access_token"];
         self.created_date = [decoder decodeObjectForKey:@"created_date"];
+        self.name = [decoder decodeObjectForKey:@"name"];
     }
     return self;
 }
