@@ -14,4 +14,12 @@
 @property (nonatomic, copy)NSString *name;
 @property (nonatomic, copy)NSMutableAttributedString *attrStr;
 
+@property (nonatomic, copy)NSString *textToSend;
+
+@property (nonatomic, assign)BOOL isSendSuccess;
+
+- (instancetype)initWithNavController:(UINavigationController *)controller;
+
+- (void)sendStatus;
+
 @end

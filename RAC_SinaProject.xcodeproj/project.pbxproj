@@ -43,6 +43,7 @@
 		604F57FA1B9FDE0200A50972 /* MPTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 604F57F91B9FDE0200A50972 /* MPTabBar.m */; };
 		604F58371BA0097D00A50972 /* MPComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 604F58321BA0097D00A50972 /* MPComposeViewController.m */; };
 		604F583A1BA009C500A50972 /* MPComposeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 604F58391BA009C500A50972 /* MPComposeViewModel.m */; };
+		604F583D1BA0154A00A50972 /* MPComposeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 604F583C1BA0154A00A50972 /* MPComposeService.m */; };
 		6050F8151B8E9AC5006C5F45 /* MPTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F8141B8E9AC5006C5F45 /* MPTabBarViewController.m */; };
 		6050F8181B8E9F1B006C5F45 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F8171B8E9F1B006C5F45 /* UIView+Extension.m */; };
 		6050F81B1B8EA24C006C5F45 /* MPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F81A1B8EA24C006C5F45 /* MPNavigationController.m */; };
@@ -150,6 +151,8 @@
 		604F58321BA0097D00A50972 /* MPComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPComposeViewController.m; sourceTree = "<group>"; };
 		604F58381BA009C500A50972 /* MPComposeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPComposeViewModel.h; sourceTree = "<group>"; };
 		604F58391BA009C500A50972 /* MPComposeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPComposeViewModel.m; sourceTree = "<group>"; };
+		604F583B1BA0154A00A50972 /* MPComposeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPComposeService.h; sourceTree = "<group>"; };
+		604F583C1BA0154A00A50972 /* MPComposeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPComposeService.m; sourceTree = "<group>"; };
 		6050F8131B8E9AC5006C5F45 /* MPTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTabBarViewController.h; sourceTree = "<group>"; };
 		6050F8141B8E9AC5006C5F45 /* MPTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTabBarViewController.m; sourceTree = "<group>"; };
 		6050F8161B8E9F1B006C5F45 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -463,10 +466,10 @@
 		604F582C1BA008E300A50972 /* Compose(发微博) */ = {
 			isa = PBXGroup;
 			children = (
-				604F58301BA0097D00A50972 /* Controller */,
 				604F58331BA0097D00A50972 /* Model */,
 				604F58341BA0097D00A50972 /* View */,
 				604F58351BA0097D00A50972 /* ViewModel */,
+				604F58301BA0097D00A50972 /* Controller */,
 			);
 			path = "Compose(发微博)";
 			sourceTree = "<group>";
@@ -507,6 +510,8 @@
 		604F58361BA0097D00A50972 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				604F583B1BA0154A00A50972 /* MPComposeService.h */,
+				604F583C1BA0154A00A50972 /* MPComposeService.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -958,6 +963,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				600802E01B9EE98E0029F1C2 /* Async.m in Sources */,
+				604F583D1BA0154A00A50972 /* MPComposeService.m in Sources */,
 				600802D71B9EBC930029F1C2 /* MPHomeStatusPhotoViews.m in Sources */,
 				6006EC231B903CF600DFD4D0 /* User.m in Sources */,
 				6050F8251B8EAA9E006C5F45 /* TestViewController01.m in Sources */,

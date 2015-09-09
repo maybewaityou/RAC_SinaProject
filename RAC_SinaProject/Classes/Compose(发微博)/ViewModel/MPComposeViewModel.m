@@ -9,17 +9,24 @@
 #import "MPComposeViewModel.h"
 #import "MPAccountTool.h"
 #import "MPAccount.h"
+#import "MPComposeService.h"
+#import "ModelNetwork.h"
+#import "ReactiveCocoa.h"
+#import "Constant.h"
 
 @interface MPComposeViewModel ()
+
+@property (nonatomic, strong)MPComposeService *service;
 
 @end
 
 @implementation MPComposeViewModel
 
-- (instancetype)init
+- (instancetype)initWithNavController:(UINavigationController *)controller
 {
     self = [super init];
     if (self) {
+        _service = [[MPComposeService alloc] initWithNavController:controller];
         [self initialize];
     }
     return self;
@@ -39,6 +46,29 @@
     }else{
         _name = prefix;
     }
+}
+
+- (void)sendStatus
+{
+    MPAccount *account = [MPAccountTool account];
+    @weakify(self);
+    [[[[self.service getNetworkService] signalWithType:@"post" url:SEND_STATUS_URL
+                                           parameter:@{
+                                                       @"access_token" : account.access_token,
+                                                       @"status" : self.textToSend
+                                                       }]
+    doNext:^(id x) {
+        @strongify(self);
+        self.isSendSuccess = YES;
+    }] subscribeError:^(NSError *error) {
+        @strongify(self);
+        self.isSendSuccess = NO;
+    }];
+}
+
+- (void)dealloc
+{
+    NSLog(@"===>>> %@ dealloc",self);
 }
 
 @end

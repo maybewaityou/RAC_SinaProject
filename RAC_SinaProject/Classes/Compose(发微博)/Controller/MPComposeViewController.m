@@ -10,6 +10,7 @@
 #import "MPComposeViewModel.h"
 #import "ReactiveCocoa.h"
 #import "UIView+Extension.h"
+#import "Masonry.h"
 #import "UIView+Toast.h"
 
 @interface MPComposeViewController ()
@@ -17,6 +18,7 @@
 @property (nonatomic, strong)MPComposeViewModel *viewModel;
 
 @property (nonatomic, weak)UILabel *titleView;
+@property (nonatomic, weak)UITextField *textField;
 
 @end
 
@@ -33,13 +35,24 @@
 
 - (void)bindViewModel
 {
+    @weakify(self);
     RAC(self.titleView,text) = RACObserve(self.viewModel, name);
     RAC(self.titleView,attributedText) = RACObserve(self.viewModel, attrStr);
+    
+    RAC(self.viewModel,textToSend) = self.textField.rac_textSignal;
+    
+    [RACObserve(self.viewModel, isSendSuccess) subscribeNext:^(id x) {
+        if ([x boolValue]) {
+            @strongify(self);
+            [self.view makeToast:@"发送成功！" duration:3 position:CSToastPositionCenter];
+            self.textField.text = @"";
+        }
+    }];
 }
 
 - (void)initDatas
 {
-    self.viewModel = [[MPComposeViewModel alloc] init];
+    self.viewModel = [[MPComposeViewModel alloc] initWithNavController:self.navigationController];
     
 }
 
@@ -59,13 +72,24 @@
     self.navigationItem.rightBarButtonItem = rightBar;
     self.navigationItem.titleView = titleView;
     self.titleView = titleView;
-
-
 }
 
 - (void)setupViews
 {
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    UITextField *textField = [[UITextField alloc] init];
+    textField.borderStyle = UITextBorderStyleNone;
+    textField.font = [UIFont systemFontOfSize:15.0];
+    textField.placeholder = @"分享新鲜事...";
+    [self.view addSubview:textField];
+    self.textField = textField;
+    UIEdgeInsets margins = UIEdgeInsetsMake(10, 10, -10, -10);
+    @weakify(self);
+    [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.edges.equalTo(self.view).insets(margins);
+    }];
     
 }
 
@@ -76,6 +100,12 @@
 
 - (void)onRightClick:(UIBarButtonItem *)rightBar
 {
-    [self.view makeToast:@"发送成功！" duration:3 position:CSToastPositionCenter];
+    [self.viewModel sendStatus];
 }
+
+- (void)dealloc
+{
+    NSLog(@"===>>> %@ dealloc",self);
+}
+
 @end
