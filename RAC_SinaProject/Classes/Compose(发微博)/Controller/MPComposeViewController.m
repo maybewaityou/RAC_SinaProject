@@ -49,6 +49,7 @@
             @strongify(self);
             [self.view makeToast:@"发送成功！" duration:3 position:CSToastPositionCenter];
             self.textView.text = @"";
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];
 }
