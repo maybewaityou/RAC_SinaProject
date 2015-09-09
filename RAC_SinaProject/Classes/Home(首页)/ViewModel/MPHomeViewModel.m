@@ -59,6 +59,8 @@
          [[MaterialProgress sharedMaterialProgress] dismiss];
          @strongify(self);
          self.title = response[@"name"];
+         self.account.name = response[@"name"];
+         [MPAccountTool saveAccount:self.account];
     }];
 }
 

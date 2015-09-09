@@ -41,6 +41,8 @@
 		602DFA951B8E650C009A1C8E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602DFA931B8E650C009A1C8E /* LaunchScreen.xib */; };
 		602DFAA11B8E650C009A1C8E /* RAC_SinaProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 602DFAA01B8E650C009A1C8E /* RAC_SinaProjectTests.m */; };
 		604F57FA1B9FDE0200A50972 /* MPTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 604F57F91B9FDE0200A50972 /* MPTabBar.m */; };
+		604F58371BA0097D00A50972 /* MPComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 604F58321BA0097D00A50972 /* MPComposeViewController.m */; };
+		604F583A1BA009C500A50972 /* MPComposeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 604F58391BA009C500A50972 /* MPComposeViewModel.m */; };
 		6050F8151B8E9AC5006C5F45 /* MPTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F8141B8E9AC5006C5F45 /* MPTabBarViewController.m */; };
 		6050F8181B8E9F1B006C5F45 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F8171B8E9F1B006C5F45 /* UIView+Extension.m */; };
 		6050F81B1B8EA24C006C5F45 /* MPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F81A1B8EA24C006C5F45 /* MPNavigationController.m */; };
@@ -144,6 +146,10 @@
 		602DFAA01B8E650C009A1C8E /* RAC_SinaProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RAC_SinaProjectTests.m; sourceTree = "<group>"; };
 		604F57F81B9FDE0200A50972 /* MPTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTabBar.h; sourceTree = "<group>"; };
 		604F57F91B9FDE0200A50972 /* MPTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTabBar.m; sourceTree = "<group>"; };
+		604F58311BA0097D00A50972 /* MPComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPComposeViewController.h; sourceTree = "<group>"; };
+		604F58321BA0097D00A50972 /* MPComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPComposeViewController.m; sourceTree = "<group>"; };
+		604F58381BA009C500A50972 /* MPComposeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPComposeViewModel.h; sourceTree = "<group>"; };
+		604F58391BA009C500A50972 /* MPComposeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPComposeViewModel.m; sourceTree = "<group>"; };
 		6050F8131B8E9AC5006C5F45 /* MPTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTabBarViewController.h; sourceTree = "<group>"; };
 		6050F8141B8E9AC5006C5F45 /* MPTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTabBarViewController.m; sourceTree = "<group>"; };
 		6050F8161B8E9F1B006C5F45 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -454,6 +460,57 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		604F582C1BA008E300A50972 /* Compose(发微博) */ = {
+			isa = PBXGroup;
+			children = (
+				604F58301BA0097D00A50972 /* Controller */,
+				604F58331BA0097D00A50972 /* Model */,
+				604F58341BA0097D00A50972 /* View */,
+				604F58351BA0097D00A50972 /* ViewModel */,
+			);
+			path = "Compose(发微博)";
+			sourceTree = "<group>";
+		};
+		604F58301BA0097D00A50972 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				604F58311BA0097D00A50972 /* MPComposeViewController.h */,
+				604F58321BA0097D00A50972 /* MPComposeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		604F58331BA0097D00A50972 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		604F58341BA0097D00A50972 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		604F58351BA0097D00A50972 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				604F58361BA0097D00A50972 /* Service */,
+				604F58381BA009C500A50972 /* MPComposeViewModel.h */,
+				604F58391BA009C500A50972 /* MPComposeViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		604F58361BA0097D00A50972 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		6050F8111B8E9A7F006C5F45 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -633,6 +690,7 @@
 		6072F9331B8E730700D47790 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				604F582C1BA008E300A50972 /* Compose(发微博) */,
 				60243B9B1B8F041B00FD62A7 /* OAuth(授权) */,
 				60243B531B8EDF0D00FD62A7 /* Newfeature(新特性) */,
 				6072F9341B8E730700D47790 /* Home(首页) */,
@@ -945,6 +1003,8 @@
 				6006EC1D1B903A1300DFD4D0 /* MPHomeStatusCell.m in Sources */,
 				602079CA1B930ABE00ECD17E /* MPHomeCellViewModel.m in Sources */,
 				6006EC291B904BB600DFD4D0 /* UITableView+FDTemplateLayoutCell.m in Sources */,
+				604F583A1BA009C500A50972 /* MPComposeViewModel.m in Sources */,
+				604F58371BA0097D00A50972 /* MPComposeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,8 @@
 #import "MPProfileViewController.h"
 #import "MPNavigationController.h"
 #import "MPTabBar.h"
+#import "UIView+Toast.h"
+#import "MPComposeViewController.h"
 
 @interface MPTabBarViewController ()
 
@@ -43,6 +45,9 @@
     [self setValue:tabBar forKey:@"tabBar"];
     [tabBar.onPlusClickSignal subscribeNext:^(id x) {
         // TODO 发表微博
+        MPComposeViewController *controller = [[MPComposeViewController alloc] init];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+        [self presentViewController:navController animated:YES completion:nil];
         
     }];
 }
