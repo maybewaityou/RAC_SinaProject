@@ -12,7 +12,7 @@
 @interface MPHomeService ()
 
 @property (nonatomic, strong)MPNetworkServicesImpl *service;
-@property (nonatomic, strong)UIViewController *controller;
+@property (nonatomic, weak)UIViewController *controller;
 
 @end
 

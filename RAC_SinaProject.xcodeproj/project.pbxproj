@@ -11,8 +11,6 @@
 		6006EC051B8FF54E00DFD4D0 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC041B8FF54E00DFD4D0 /* UIWindow+Extension.m */; };
 		6006EC081B8FFBFA00DFD4D0 /* MPHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC071B8FFBFA00DFD4D0 /* MPHomeViewModel.m */; };
 		6006EC0C1B900C9100DFD4D0 /* MPHomeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC0B1B900C9100DFD4D0 /* MPHomeService.m */; };
-		6006EC151B902D9800DFD4D0 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC121B902D9800DFD4D0 /* Foundation+Log.m */; };
-		6006EC161B902D9800DFD4D0 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC141B902D9800DFD4D0 /* NSArray+Log.m */; };
 		6006EC1A1B90398000DFD4D0 /* MPTableViewBindingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC191B90398000DFD4D0 /* MPTableViewBindingHelper.m */; };
 		6006EC1D1B903A1300DFD4D0 /* MPHomeStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC1C1B903A1300DFD4D0 /* MPHomeStatusCell.m */; };
 		6006EC201B903B6000DFD4D0 /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC1F1B903B6000DFD4D0 /* Status.m */; };
@@ -84,9 +82,6 @@
 		6006EC071B8FFBFA00DFD4D0 /* MPHomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeViewModel.m; sourceTree = "<group>"; };
 		6006EC0A1B900C9100DFD4D0 /* MPHomeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeService.h; sourceTree = "<group>"; };
 		6006EC0B1B900C9100DFD4D0 /* MPHomeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeService.m; sourceTree = "<group>"; };
-		6006EC121B902D9800DFD4D0 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
-		6006EC131B902D9800DFD4D0 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
-		6006EC141B902D9800DFD4D0 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		6006EC181B90398000DFD4D0 /* MPTableViewBindingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTableViewBindingHelper.h; sourceTree = "<group>"; };
 		6006EC191B90398000DFD4D0 /* MPTableViewBindingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTableViewBindingHelper.m; sourceTree = "<group>"; };
 		6006EC1B1B903A1300DFD4D0 /* MPHomeStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeStatusCell.h; sourceTree = "<group>"; };
@@ -790,9 +785,6 @@
 		6072F94A1B8E7A8100D47790 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				6006EC121B902D9800DFD4D0 /* Foundation+Log.m */,
-				6006EC131B902D9800DFD4D0 /* NSArray+Log.h */,
-				6006EC141B902D9800DFD4D0 /* NSArray+Log.m */,
 				6072F94B1B8E7ABE00D47790 /* UIColor+Extension.h */,
 				6072F94C1B8E7ABE00D47790 /* UIColor+Extension.m */,
 				6050F8161B8E9F1B006C5F45 /* UIView+Extension.h */,
@@ -967,7 +959,6 @@
 				600802D71B9EBC930029F1C2 /* MPHomeStatusPhotoViews.m in Sources */,
 				6006EC231B903CF600DFD4D0 /* User.m in Sources */,
 				6050F8251B8EAA9E006C5F45 /* TestViewController01.m in Sources */,
-				6006EC161B902D9800DFD4D0 /* NSArray+Log.m in Sources */,
 				60243B8E1B8EFC2200FD62A7 /* MaterialProgress.m in Sources */,
 				6050FFCE1B8FCB7D0033733B /* MPAccount.m in Sources */,
 				60243B9A1B8F00F500FD62A7 /* RVMViewModel.m in Sources */,
@@ -984,7 +975,6 @@
 				6050F8281B8EAAAF006C5F45 /* TestViewController02.m in Sources */,
 				60243B5A1B8EDF3300FD62A7 /* MPNewfeatureViewController.m in Sources */,
 				6006EC261B9045B100DFD4D0 /* StatusResult.m in Sources */,
-				6006EC151B902D9800DFD4D0 /* Foundation+Log.m in Sources */,
 				600802E41B9EED650029F1C2 /* MPUserIconView.m in Sources */,
 				600802E11B9EE98E0029F1C2 /* GCD.m in Sources */,
 				602D274C1B95547400DD1B5C /* MPHomeStatusNoticeView.m in Sources */,

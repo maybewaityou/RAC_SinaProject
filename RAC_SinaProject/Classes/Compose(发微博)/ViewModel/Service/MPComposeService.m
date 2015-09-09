@@ -12,7 +12,7 @@
 @interface MPComposeService ()
 
 @property (nonatomic, strong)MPNetworkServicesImpl *service;
-@property (nonatomic, strong)UIViewController *controller;
+@property (nonatomic, weak)UIViewController *controller;
 
 @end
 
@@ -40,7 +40,7 @@
 
 - (void)pushViewModel:(id)viewModel
 {
-    
+    NSLog(@"==controller=>>> %@",_controller);
 }
 
 - (void)dealloc
