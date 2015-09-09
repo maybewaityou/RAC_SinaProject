@@ -92,6 +92,11 @@
         @strongify(self);
         make.edges.equalTo(self.view).insets(margins);
     }];
+    [textView becomeFirstResponder];
+
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIKeyboardWillChangeFrameNotification object:nil] subscribeNext:^(id x) {
+
+    }];
 }
 
 - (void)onLeftClick:(UIBarButtonItem *)leftBar
