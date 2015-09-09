@@ -13,7 +13,7 @@
 #import "MPMessageCenterViewController.h"
 #import "MPProfileViewController.h"
 #import "MPNavigationController.h"
-
+#import "MPTabBar.h"
 
 @interface MPTabBarViewController ()
 
@@ -38,6 +38,13 @@
     [self setupController:messageController title:@"消息" image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected"];
     [self setupController:discoverController title:@"发现" image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected"];
     [self setupController:profileController title:@"我" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
+    
+    MPTabBar *tabBar = [[MPTabBar alloc] init];
+    [self setValue:tabBar forKey:@"tabBar"];
+    [tabBar.onPlusClickSignal subscribeNext:^(id x) {
+        // TODO 发表微博
+        
+    }];
 }
 
 - (void)setupController:(UIViewController *)controller title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
