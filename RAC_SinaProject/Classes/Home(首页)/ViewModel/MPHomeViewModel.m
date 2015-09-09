@@ -75,7 +75,6 @@
          @strongify(self);
          self.statuses = [StatusResult objectWithKeyValues:response];
          [self.tempStatus addObjectsFromArray:self.statuses.statuses];
-         NSLog(@"===>>> %@",self.statuses.statuses);
      }];
     
     [self fetchUnReadStatusCount];
