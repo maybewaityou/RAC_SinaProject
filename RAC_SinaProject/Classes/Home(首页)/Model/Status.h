@@ -33,11 +33,11 @@
 //"mid": "5612814510546515491",
 @property (nonatomic, copy)NSString *mid;
 /**	int	转发数*/
-@property (nonatomic, assign) int reposts_count;
+@property (nonatomic, copy)NSString *reposts_count;
 /**	int	评论数*/
-@property (nonatomic, assign) int comments_count;
+@property (nonatomic, copy)NSString *comments_count;
 /**	int	表态数*/
-@property (nonatomic, assign) int attitudes_count;
+@property (nonatomic, copy)NSString *attitudes_count;
 //来源
 @property (nonatomic, copy)NSString *source;
 //"annotations": [],
