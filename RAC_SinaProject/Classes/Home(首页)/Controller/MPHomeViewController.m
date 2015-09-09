@@ -106,8 +106,8 @@
     MPHomeViewModel *viewModel = [[MPHomeViewModel alloc] initWithNavController:self.navigationController];
     self.viewModel = viewModel;
     
-//    [viewModel requestUserInfo];
-//    [viewModel loadStatus];
+    [viewModel requestUserInfo];
+    [viewModel loadStatus];
 }
 
 - (void)setupTitle

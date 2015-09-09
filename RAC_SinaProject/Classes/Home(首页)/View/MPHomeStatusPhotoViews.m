@@ -13,7 +13,6 @@
 
 #define MPHomeStatusPhotoWH 70
 #define margin10 10
-#define MPHomeStatusPhotoCols(count) ((count == 4)?2:3)
 
 @interface MPHomeStatusPhotoViews ()
 
@@ -147,11 +146,6 @@
         make.width.equalTo(@MPHomeStatusPhotoWH);
         make.height.equalTo(@MPHomeStatusPhotoWH);
     }];
-    
-//    [self mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.photoView00).offset(-margin10);
-//        make.bottom.equalTo(self.photoView06);
-//    }];
 }
 
 - (void)setPhotos:(NSArray *)photos

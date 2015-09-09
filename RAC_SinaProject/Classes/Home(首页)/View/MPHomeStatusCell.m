@@ -44,7 +44,7 @@
  */
 @property (nonatomic, weak)UIView *retweetView;
 @property (nonatomic, weak)UILabel *retweetContentView;
-@property (nonatomic, weak)UIImageView *retweetPhotoImageView;
+@property (nonatomic, weak)MPHomeStatusPhotoViews *retweetPhotoImageView;
 
 /**
  *  转发、评论、赞
@@ -164,7 +164,7 @@
     [self.retweetView addSubview:retweetContentView];
     self.retweetContentView = retweetContentView;
     
-    UIImageView *retweetPhotoImageView = [[UIImageView alloc] init];
+    MPHomeStatusPhotoViews *retweetPhotoImageView = [[MPHomeStatusPhotoViews alloc] init];
     [self.retweetView addSubview:retweetPhotoImageView];
     self.retweetPhotoImageView = retweetPhotoImageView;
 }
@@ -197,8 +197,8 @@
     @weakify(self);
     [self.userImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
-        make.top.equalTo(self.originalView).offset(margin10);
-        make.left.equalTo(self.originalView).offset(margin10);
+        make.top.equalTo(self).offset(margin10);
+        make.left.equalTo(self).offset(margin10);
         make.width.equalTo(@(defaultW));
         make.height.equalTo(@(defaultH));
     }];
@@ -266,8 +266,7 @@
         @strongify(self);
         make.top.equalTo(self.retweetContentView.mas_bottom).offset(margin10);
         make.left.equalTo(self.retweetContentView);
-//        make.width.equalTo(@(photoViewW * 3 + margin10 * 2));
-        make.width.equalTo(@(photoViewW));
+        make.width.equalTo(@(photoViewW * 3 + margin10 * 2));
     }];
 }
 
@@ -324,7 +323,6 @@
     self.statusLabel.text = status.text;
     self.timeLabel.text = status.created_at;
     self.sourceLabel.text = status.source;
-//    [self.userImageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url]];
     self.userImageView.user = user;
     [self setupStatusToolBarWithStatus:status];
     
@@ -354,24 +352,22 @@
         self.retweetContentView.text = retweetContent;
 
         if (retweetStatus.pic_urls.count) {
-            [self.retweetPhotoImageView sd_setImageWithURL:[NSURL URLWithString:retweetStatus.pic_urls[0][@"thumbnail_pic"]]];
-//            self.retweetPhotoImageView.photos = retweetStatus.pic_urls;
+            self.retweetPhotoImageView.photos = retweetStatus.pic_urls;
             [self retweetContentViewHiddenTopConstrain:NO];
+            [self setupRetweetPhotoViewHeight:retweetStatus.pic_urls.count];
             [self retweetViewHiddenTopConstrain:NO];
-            [self retweetPhotoViewHidden:NO];
-//            [self setupRetweetPhotoViewHeight:status.pic_urls.count];
         }else{
+            self.retweetPhotoImageView.photos = nil;
             [self retweetContentViewHiddenTopConstrain:NO];
+            [self setupRetweetPhotoViewHeight:0];
             [self retweetViewHiddenTopConstrain:NO];
-            [self retweetPhotoViewHidden:YES];
-//            [self setupRetweetPhotoViewHeight:0];
         }
     }else {
         self.retweetContentView.text = @"";
+        self.retweetPhotoImageView.photos = nil;
         [self retweetContentViewHiddenTopConstrain:YES];
+        [self setupRetweetPhotoViewHeight:0];
         [self retweetViewHiddenTopConstrain:YES];
-        [self retweetPhotoViewHidden:YES];
-//        [self setupRetweetPhotoViewHeight:0];
     }
     
     [self.rac_prepareForReuseSignal subscribeNext:^(id x) {
@@ -438,26 +434,6 @@
         [self.retweetPhotoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.retweetContentView.mas_bottom).offset(margin10);
             make.height.equalTo(@(photoViewH * 3 + margin10 * 2));
-        }];
-    }
-    [super updateConstraints];
-}
-
-- (void)retweetPhotoViewHidden:(BOOL)hidden
-{
-    if (hidden) {
-        @weakify(self);
-        [self.retweetPhotoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
-            @strongify(self);
-            make.top.equalTo(self.retweetContentView.mas_bottom);
-            make.height.equalTo(@0);
-        }];
-    }else{
-        @weakify(self);
-        [self.retweetPhotoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
-            @strongify(self);
-            make.top.equalTo(self.retweetContentView.mas_bottom).offset(margin10);
-            make.height.equalTo(@photoViewH);
         }];
     }
     [super updateConstraints];
