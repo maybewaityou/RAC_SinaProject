@@ -14,6 +14,8 @@
 #import "UIView+Toast.h"
 #import "SZTextView.h"
 
+#define margin10 (10)
+
 @interface MPComposeViewController ()
 
 @property (nonatomic, strong)MPComposeViewModel *viewModel;
@@ -84,7 +86,7 @@
     textView.placeholderTextColor = [UIColor lightGrayColor];
     [self.view addSubview:textView];
     self.textView = textView;
-    UIEdgeInsets margins = UIEdgeInsetsMake(10, 10, -10, -10);
+    UIEdgeInsets margins = UIEdgeInsetsMake(margin10, margin10, -margin10, -margin10);
     @weakify(self);
     [textView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
