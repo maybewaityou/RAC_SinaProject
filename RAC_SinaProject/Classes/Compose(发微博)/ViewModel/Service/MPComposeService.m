@@ -40,7 +40,7 @@
 
 - (void)pushViewModel:(id)viewModel
 {
-    NSLog(@"==controller=>>> %@",_controller);
+
 }
 
 - (void)dealloc
