@@ -44,6 +44,7 @@
 {
     [super viewWillAppear:animated];
     
+    [self.textView becomeFirstResponder];
     // 判断发送键是否可点击
     @weakify(self);
     [[self.textView.rac_textSignal map:^id(NSString *string) {
@@ -118,7 +119,6 @@
         @strongify(self);
         make.edges.equalTo(self.view).insets(margins);
     }];
-    [textView becomeFirstResponder];
     
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIKeyboardWillChangeFrameNotification object:nil] subscribeNext:^(NSNotification *notification) {
         
