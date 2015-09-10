@@ -24,6 +24,7 @@
 		600802E01B9EE98E0029F1C2 /* Async.m in Sources */ = {isa = PBXBuildFile; fileRef = 600802DC1B9EE98E0029F1C2 /* Async.m */; };
 		600802E11B9EE98E0029F1C2 /* GCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 600802DE1B9EE98E0029F1C2 /* GCD.m */; };
 		600802E41B9EED650029F1C2 /* MPUserIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 600802E31B9EED650029F1C2 /* MPUserIconView.m */; };
+		600E55801BA0E43A009B8C13 /* MPComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 600E557F1BA0E43A009B8C13 /* MPComposeToolbar.m */; };
 		602079CA1B930ABE00ECD17E /* MPHomeCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 602079C91B930ABE00ECD17E /* MPHomeCellViewModel.m */; };
 		60243B5A1B8EDF3300FD62A7 /* MPNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B591B8EDF3300FD62A7 /* MPNewfeatureViewController.m */; };
 		60243B5C1B8EE9D000FD62A7 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60243B5B1B8EE9D000FD62A7 /* Reveal.framework */; };
@@ -108,6 +109,8 @@
 		600802DE1B9EE98E0029F1C2 /* GCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCD.m; sourceTree = "<group>"; };
 		600802E21B9EED650029F1C2 /* MPUserIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPUserIconView.h; sourceTree = "<group>"; };
 		600802E31B9EED650029F1C2 /* MPUserIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPUserIconView.m; sourceTree = "<group>"; };
+		600E557E1BA0E43A009B8C13 /* MPComposeToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPComposeToolbar.h; sourceTree = "<group>"; };
+		600E557F1BA0E43A009B8C13 /* MPComposeToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPComposeToolbar.m; sourceTree = "<group>"; };
 		602079C81B930ABE00ECD17E /* MPHomeCellViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeCellViewModel.h; sourceTree = "<group>"; };
 		602079C91B930ABE00ECD17E /* MPHomeCellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeCellViewModel.m; sourceTree = "<group>"; };
 		60243B581B8EDF3300FD62A7 /* MPNewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNewfeatureViewController.h; sourceTree = "<group>"; };
@@ -488,6 +491,8 @@
 		604F58341BA0097D00A50972 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				600E557E1BA0E43A009B8C13 /* MPComposeToolbar.h */,
+				600E557F1BA0E43A009B8C13 /* MPComposeToolbar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -989,6 +994,7 @@
 				6050F82B1B8EAEC6006C5F45 /* TestViewController03.m in Sources */,
 				600802DF1B9EE98E0029F1C2 /* Apply.m in Sources */,
 				6006EC021B8FEDED00DFD4D0 /* MPAccountTool.m in Sources */,
+				600E55801BA0E43A009B8C13 /* MPComposeToolbar.m in Sources */,
 				602DFA871B8E650C009A1C8E /* main.m in Sources */,
 				6050F81B1B8EA24C006C5F45 /* MPNavigationController.m in Sources */,
 				6072F93D1B8E730700D47790 /* MPAppDelegate.m in Sources */,
