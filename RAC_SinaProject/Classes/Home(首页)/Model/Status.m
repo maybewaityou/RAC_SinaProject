@@ -55,10 +55,12 @@
 
 - (void)setSource:(NSString *)source
 {
+    if (!source || [source isEqualToString:@""]) {
+        return;
+    }
     NSRange range;
     range.location = [source rangeOfString:@">"].location + 1;
     range.length = [source rangeOfString:@"</"].location - range.location;
-
     _source = [NSString stringWithFormat:@"来自%@",[source substringWithRange:range]];
 }
 
