@@ -21,5 +21,6 @@
 - (instancetype)initWithNavController:(UINavigationController *)controller;
 
 - (void)sendStatus;
+- (void)sendStatusWithPhotos:(NSArray *)photos;
 
 @end

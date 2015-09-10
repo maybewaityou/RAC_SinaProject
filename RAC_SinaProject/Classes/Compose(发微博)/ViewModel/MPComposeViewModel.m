@@ -66,6 +66,24 @@
     }];
 }
 
+- (void)sendStatusWithPhotos:(NSArray *)photos
+{
+    MPAccount *account = [MPAccountTool account];
+    @weakify(self);
+    [[[[self.service getNetworkService] signalWithType:@"post" url:SEND_STATUS_URL
+                                             parameter:@{
+                                                         @"access_token" : account.access_token,
+                                                         @"status" : self.textToSend
+                                                         }]
+      doNext:^(id x) {
+          @strongify(self);
+          self.isSendSuccess = YES;
+      }] subscribeError:^(NSError *error) {
+          @strongify(self);
+          self.isSendSuccess = NO;
+      }];
+}
+
 - (void)dealloc
 {
     NSLog(@"===>>> %@ dealloc",self);
