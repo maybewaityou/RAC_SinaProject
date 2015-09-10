@@ -17,12 +17,13 @@
 
 #define margin10 (10)
 
-@interface MPComposeViewController ()
+@interface MPComposeViewController () <UITextViewDelegate>
 
 @property (nonatomic, strong)MPComposeViewModel *viewModel;
 
 @property (nonatomic, weak)UILabel *titleView;
 @property (nonatomic, weak)SZTextView *textView;
+@property (nonatomic, weak)MPComposeToolbar *toolbar;
 
 @end
 
@@ -100,6 +101,7 @@
     textView.font = [UIFont systemFontOfSize:15.0];
     textView.placeholder = @"分享新鲜事...";
     textView.placeholderTextColor = [UIColor lightGrayColor];
+    textView.delegate = self;
     [self.view addSubview:textView];
     self.textView = textView;
     UIEdgeInsets margins = UIEdgeInsetsMake(margin10, margin10, -margin10, -margin10);
@@ -110,25 +112,38 @@
     }];
     [textView becomeFirstResponder];
 
-    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIKeyboardWillChangeFrameNotification object:nil] subscribeNext:^(id x) {
-
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIKeyboardWillChangeFrameNotification object:nil] subscribeNext:^(NSNotification *notification) {
+        
+        NSDictionary *userInfo = notification.userInfo;
+        double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+        CGRect keyboardFrame = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        [UIView animateWithDuration:duration animations:^{
+            if (keyboardFrame.origin.y > self.view.height) {
+                self.toolbar.y = self.view.height - self.toolbar.height;
+            }else{
+                self.toolbar.y = keyboardFrame.origin.y - self.toolbar.height;
+            }
+        }];
     }];
 }
 
 - (void)setupToolbar
 {
     MPComposeToolbar *toolbar = [[MPComposeToolbar alloc] init];
-//    toolbar.width = self.view.width;
-//    toolbar.height = 44;
+    toolbar.width = self.view.width;
+    toolbar.height = 44;
+    toolbar.y = self.view.height - toolbar.height;
     [self.view addSubview:toolbar];
 //    self.textView.inputAccessoryView = toolbar;
-    @weakify(self);
-    [toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
-        @strongify(self);
-        make.centerY.equalTo(self.textView);
-        make.width.equalTo(self.view);
-        make.height.equalTo(@44);
-    }];
+    self.toolbar = toolbar;
+//    @weakify(self);
+//    [toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
+//        @strongify(self);
+//        make.centerY.equalTo(self.textView);
+//        make.bottom.equalTo(self.textView);
+//        make.width.equalTo(self.view);
+//        make.height.equalTo(@44);
+//    }];
     [RACObserve(toolbar, buttonSignal) subscribeNext:^(RACSignal *buttonSignal) {
         [buttonSignal subscribeNext:^(id value) {
             NSInteger type = [value integerValue];
@@ -154,8 +169,9 @@
             }
         }];
     }];
-    
 }
+
+
 
 - (void)onLeftClick:(UIBarButtonItem *)leftBar
 {
@@ -166,6 +182,12 @@
 - (void)onRightClick:(UIBarButtonItem *)rightBar
 {
     [self.viewModel sendStatus];
+}
+
+#pragma mark - UITextViewDelegate方法
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.textView resignFirstResponder];
 }
 
 - (void)dealloc
