@@ -129,6 +129,31 @@
         make.width.equalTo(self.view);
         make.height.equalTo(@44);
     }];
+    [RACObserve(toolbar, buttonSignal) subscribeNext:^(RACSignal *buttonSignal) {
+        [buttonSignal subscribeNext:^(id value) {
+            NSInteger type = [value integerValue];
+            switch (type) {
+                case MPComposeToolbarButtonCamera:
+                    NSLog(@"===>>> Camera");
+                    break;
+                case MPComposeToolbarButtonPicture:
+                    NSLog(@"===>>> Picture");
+                    break;
+                case MPComposeToolbarButtonMention:
+                    NSLog(@"===>>> Mention");
+                    break;
+                case MPComposeToolbarButtonTrend:
+                    NSLog(@"===>>> Trend");
+                    break;
+                case MPComposeToolbarButtonEmoticon:
+                    NSLog(@"===>>> Emoticon");
+                    break;
+                    
+                default:
+                    break;
+            }
+        }];
+    }];
     
 }
 

@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "ReactiveCocoa.h"
 
+typedef enum : NSUInteger {
+    MPComposeToolbarButtonCamera,
+    MPComposeToolbarButtonPicture,
+    MPComposeToolbarButtonMention,
+    MPComposeToolbarButtonTrend,
+    MPComposeToolbarButtonEmoticon
+} MPComposeToolbarButtonType;
+
 @interface MPComposeToolbar : UIView
 
 @property (nonatomic, strong)RACSignal *buttonSignal;
