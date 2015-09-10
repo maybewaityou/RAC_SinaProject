@@ -11,17 +11,27 @@
 
 @interface MPComposePhotoViews ()
 
-
+@property (nonatomic, copy)NSMutableArray *photosM;
 
 @end
 
 @implementation MPComposePhotoViews
+
+- (NSMutableArray *)photosM
+{
+    if (!_photosM) {
+        _photosM = [NSMutableArray array];
+    }
+    return _photosM;
+}
 
 - (void)addImage:(UIImage *)image
 {
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.image = image;
     [self addSubview:imageView];
+    
+    [self.photosM addObject:image];
 }
 
 - (void)layoutSubviews
@@ -41,6 +51,11 @@
         photoView.width = photoViewWH;
         photoView.height = photoViewWH;
     }
+}
+
+- (NSArray *)photos
+{
+    return [self.photosM copy];
 }
 
 @end

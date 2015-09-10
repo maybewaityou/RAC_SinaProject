@@ -139,7 +139,6 @@
 - (void)setupPhotoViews
 {
     MPComposePhotoViews *photoViews = [[MPComposePhotoViews alloc] init];
-    photoViews.backgroundColor = [UIColor blueColor];
     [self.textView addSubview:photoViews];
     self.photoViews = photoViews;
     @weakify(self);
