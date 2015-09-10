@@ -14,16 +14,18 @@
 #import "UIView+Toast.h"
 #import "SZTextView.h"
 #import "MPComposeToolbar.h"
+#import "MPComposePhotoViews.h"
 
 #define margin10 (10)
 
-@interface MPComposeViewController () <UITextViewDelegate>
+@interface MPComposeViewController () <UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong)MPComposeViewModel *viewModel;
 
 @property (nonatomic, weak)UILabel *titleView;
 @property (nonatomic, weak)SZTextView *textView;
 @property (nonatomic, weak)MPComposeToolbar *toolbar;
+@property (nonatomic, weak)MPComposePhotoViews *photoViews;
 
 @end
 
@@ -35,7 +37,6 @@
     [self initDatas];
     [self setupTitle];
     [self setupViews];
-    [self setupToolbar];
     [self bindViewModel];
 }
 
@@ -96,6 +97,13 @@
 {
     self.view.backgroundColor = [UIColor whiteColor];
  
+    [self setupTextView];
+    [self setupPhotoViews];
+    [self setupToolbar];
+}
+
+- (void)setupTextView
+{
     SZTextView *textView = [SZTextView new];
     textView.alwaysBounceVertical = YES;
     textView.font = [UIFont systemFontOfSize:15.0];
@@ -104,26 +112,43 @@
     textView.delegate = self;
     [self.view addSubview:textView];
     self.textView = textView;
-    UIEdgeInsets margins = UIEdgeInsetsMake(margin10, margin10, -margin10, -margin10);
+    UIEdgeInsets margins = UIEdgeInsetsMake(margin10, margin10, margin10, margin10);
     @weakify(self);
     [textView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.edges.equalTo(self.view).insets(margins);
     }];
     [textView becomeFirstResponder];
-
+    
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIKeyboardWillChangeFrameNotification object:nil] subscribeNext:^(NSNotification *notification) {
         
         NSDictionary *userInfo = notification.userInfo;
         double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
         CGRect keyboardFrame = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
         [UIView animateWithDuration:duration animations:^{
+            @strongify(self);
             if (keyboardFrame.origin.y > self.view.height) {
                 self.toolbar.y = self.view.height - self.toolbar.height;
             }else{
                 self.toolbar.y = keyboardFrame.origin.y - self.toolbar.height;
             }
         }];
+    }];
+}
+
+- (void)setupPhotoViews
+{
+    MPComposePhotoViews *photoViews = [[MPComposePhotoViews alloc] init];
+    photoViews.backgroundColor = [UIColor blueColor];
+    [self.textView addSubview:photoViews];
+    self.photoViews = photoViews;
+    @weakify(self);
+    [photoViews mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self.textView).offset(100);
+        make.left.right.equalTo(self.textView);
+        make.bottom.equalTo(self.view);
+        make.width.equalTo(self.textView);
     }];
 }
 
@@ -144,15 +169,17 @@
 //        make.width.equalTo(self.view);
 //        make.height.equalTo(@44);
 //    }];
+    @weakify(self);
     [RACObserve(toolbar, buttonSignal) subscribeNext:^(RACSignal *buttonSignal) {
         [buttonSignal subscribeNext:^(id value) {
+            @strongify(self);
             NSInteger type = [value integerValue];
             switch (type) {
                 case MPComposeToolbarButtonCamera:
-                    NSLog(@"===>>> Camera");
+                    [self openCamera];
                     break;
                 case MPComposeToolbarButtonPicture:
-                    NSLog(@"===>>> Picture");
+                    [self openAblum];
                     break;
                 case MPComposeToolbarButtonMention:
                     NSLog(@"===>>> Mention");
@@ -171,23 +198,57 @@
     }];
 }
 
+#pragma mark - Toolbar方法
+- (void)openCamera
+{
+    [self openImagePicker:UIImagePickerControllerSourceTypeCamera];
+}
 
+- (void)openAblum
+{
+    [self openImagePicker:UIImagePickerControllerSourceTypePhotoLibrary];
+}
 
+- (void)openImagePicker:(UIImagePickerControllerSourceType)sourceType
+{
+    if (![UIImagePickerController isSourceTypeAvailable:sourceType]) return;
+    
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.sourceType = sourceType;
+    imagePickerController.delegate = self;
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+}
+
+#pragma mark - 左键
 - (void)onLeftClick:(UIBarButtonItem *)leftBar
 {
     [self.textView resignFirstResponder];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
+#pragma mark - 右键
 - (void)onRightClick:(UIBarButtonItem *)rightBar
 {
     [self.viewModel sendStatus];
 }
 
-#pragma mark - UITextViewDelegate方法
+#pragma mark - UITextView代理方法
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     [self.textView resignFirstResponder];
+}
+
+#pragma mark - ImagePickerController代理方法
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    [self.photoViews addImage:image];
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)dealloc
