@@ -227,7 +227,11 @@
 #pragma mark - 右键
 - (void)onRightClick:(UIBarButtonItem *)rightBar
 {
-    [self.viewModel sendStatus];
+    if (self.photoViews.photos.count > 0) {
+        [self.viewModel sendStatusWithPhotos:self.photoViews.photos];
+    }else{
+        [self.viewModel sendStatus];
+    }
 }
 
 #pragma mark - UITextView代理方法
