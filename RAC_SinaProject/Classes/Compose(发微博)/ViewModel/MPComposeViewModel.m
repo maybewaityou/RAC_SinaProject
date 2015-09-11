@@ -13,6 +13,7 @@
 #import "ModelNetwork.h"
 #import "ReactiveCocoa.h"
 #import "Constant.h"
+#import "AFHTTPRequestOperationManager.h"
 
 @interface MPComposeViewModel ()
 
@@ -69,19 +70,24 @@
 - (void)sendStatusWithPhotos:(NSArray *)photos
 {
     MPAccount *account = [MPAccountTool account];
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = account.access_token;
+    params[@"status"] = self.textToSend;
+
     @weakify(self);
-    [[[[self.service getNetworkService] signalWithType:@"post" url:SEND_STATUS_URL
-                                             parameter:@{
-                                                         @"access_token" : account.access_token,
-                                                         @"status" : self.textToSend
-                                                         }]
-      doNext:^(id x) {
-          @strongify(self);
-          self.isSendSuccess = YES;
-      }] subscribeError:^(NSError *error) {
-          @strongify(self);
-          self.isSendSuccess = NO;
-      }];
+    [mgr POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        UIImage *image = [photos firstObject];
+        NSData *data = UIImageJPEGRepresentation(image, 1.0);
+        [formData appendPartWithFileData:data name:@"pic" fileName:@"test.jpg" mimeType:@"image/jpeg"];
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        @strongify(self);
+        self.isSendSuccess = YES;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        @strongify(self);
+        self.isSendSuccess = NO;
+    }];
 }
 
 - (void)dealloc
