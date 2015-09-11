@@ -27,7 +27,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     MPAccount *account = [MPAccountTool account];
-    
+
     if (account) {
         [self.window switchRootController];
     } else {
