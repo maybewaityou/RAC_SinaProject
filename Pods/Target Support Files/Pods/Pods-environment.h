@@ -96,6 +96,12 @@
 #define COCOAPODS_VERSION_MINOR_BlocksKit_UIKit 2
 #define COCOAPODS_VERSION_PATCH_BlocksKit_UIKit 5
 
+// DateTools
+#define COCOAPODS_POD_AVAILABLE_DateTools
+#define COCOAPODS_VERSION_MAJOR_DateTools 1
+#define COCOAPODS_VERSION_MINOR_DateTools 7
+#define COCOAPODS_VERSION_PATCH_DateTools 0
+
 // FDFullscreenPopGesture
 #define COCOAPODS_POD_AVAILABLE_FDFullscreenPopGesture
 #define COCOAPODS_VERSION_MAJOR_FDFullscreenPopGesture 1
