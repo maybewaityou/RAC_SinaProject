@@ -15,6 +15,8 @@
 #import "SZTextView.h"
 #import "MPComposeToolbar.h"
 #import "MPComposePhotoViews.h"
+#import "MPEmotionKeyboard.h"
+#import "Async.h"
 
 #define margin10 (10)
 
@@ -26,6 +28,8 @@
 @property (nonatomic, weak)SZTextView *textView;
 @property (nonatomic, weak)MPComposeToolbar *toolbar;
 @property (nonatomic, weak)MPComposePhotoViews *photoViews;
+
+@property (nonatomic, assign)BOOL switchingKeybaord;
 
 @end
 
@@ -122,6 +126,8 @@
     
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIKeyboardWillChangeFrameNotification object:nil] subscribeNext:^(NSNotification *notification) {
         
+        if (self.switchingKeybaord) return;
+        
         NSDictionary *userInfo = notification.userInfo;
         double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
         CGRect keyboardFrame = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
@@ -187,7 +193,7 @@
                     NSLog(@"===>>> Trend");
                     break;
                 case MPComposeToolbarButtonEmoticon:
-                    NSLog(@"===>>> Emoticon");
+                    [self swichKeyboard];
                     break;
                     
                 default:
@@ -206,6 +212,28 @@
 - (void)openAblum
 {
     [self openImagePicker:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+- (void)swichKeyboard
+{
+    if (self.textView.inputView == nil) {
+        MPEmotionKeyboard *keyboard = [[MPEmotionKeyboard alloc] init];
+        keyboard.width = self.view.width;
+        keyboard.height = 216;
+        self.textView.inputView = keyboard;
+    }else {
+        self.textView.inputView = nil;
+    }
+    
+    self.switchingKeybaord = YES;
+    
+    [self.textView endEditing:YES];
+    
+    [Async mainAfter:0.1 block:^{
+        [self.textView becomeFirstResponder];
+        self.switchingKeybaord = NO;
+    }];
+    
 }
 
 - (void)openImagePicker:(UIImagePickerControllerSourceType)sourceType
