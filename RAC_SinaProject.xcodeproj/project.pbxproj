@@ -33,6 +33,9 @@
 		60243B9A1B8F00F500FD62A7 /* RVMViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B991B8F00F500FD62A7 /* RVMViewModel.m */; };
 		60243B9F1B8F043C00FD62A7 /* MPOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B9E1B8F043C00FD62A7 /* MPOAuthViewController.m */; };
 		60243BAB1B8F153400FD62A7 /* MPNetworkServicesImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243BAA1B8F153400FD62A7 /* MPNetworkServicesImpl.m */; };
+		6029B0961BA4B3EB004AC1AF /* MPEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 6029B0951BA4B3EB004AC1AF /* MPEmotionKeyboard.m */; };
+		6029B0991BA4B443004AC1AF /* MPEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6029B0981BA4B443004AC1AF /* MPEmotionListView.m */; };
+		6029B09C1BA4B462004AC1AF /* MPEmotionTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6029B09B1BA4B462004AC1AF /* MPEmotionTabBar.m */; };
 		602D274C1B95547400DD1B5C /* MPHomeStatusNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 602D274B1B95547400DD1B5C /* MPHomeStatusNoticeView.m */; };
 		602DFA871B8E650C009A1C8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 602DFA861B8E650C009A1C8E /* main.m */; };
 		602DFA901B8E650C009A1C8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602DFA8E1B8E650C009A1C8E /* Main.storyboard */; };
@@ -133,6 +136,12 @@
 		60243BA81B8F12A500FD62A7 /* ModelNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelNetwork.h; sourceTree = "<group>"; };
 		60243BA91B8F153400FD62A7 /* MPNetworkServicesImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPNetworkServicesImpl.h; path = ../ViewModel/MPNetworkServicesImpl.h; sourceTree = "<group>"; };
 		60243BAA1B8F153400FD62A7 /* MPNetworkServicesImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPNetworkServicesImpl.m; path = ../ViewModel/MPNetworkServicesImpl.m; sourceTree = "<group>"; };
+		6029B0941BA4B3EB004AC1AF /* MPEmotionKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEmotionKeyboard.h; sourceTree = "<group>"; };
+		6029B0951BA4B3EB004AC1AF /* MPEmotionKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPEmotionKeyboard.m; sourceTree = "<group>"; };
+		6029B0971BA4B443004AC1AF /* MPEmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEmotionListView.h; sourceTree = "<group>"; };
+		6029B0981BA4B443004AC1AF /* MPEmotionListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPEmotionListView.m; sourceTree = "<group>"; };
+		6029B09A1BA4B462004AC1AF /* MPEmotionTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEmotionTabBar.h; sourceTree = "<group>"; };
+		6029B09B1BA4B462004AC1AF /* MPEmotionTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPEmotionTabBar.m; sourceTree = "<group>"; };
 		602D274A1B95547400DD1B5C /* MPHomeStatusNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeStatusNoticeView.h; sourceTree = "<group>"; };
 		602D274B1B95547400DD1B5C /* MPHomeStatusNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeStatusNoticeView.m; sourceTree = "<group>"; };
 		602DFA811B8E650C009A1C8E /* RAC_SinaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RAC_SinaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -498,6 +507,12 @@
 				600E557F1BA0E43A009B8C13 /* MPComposeToolbar.m */,
 				60F1362C1BA239AB0004AB9A /* MPComposePhotoViews.h */,
 				60F1362D1BA239AB0004AB9A /* MPComposePhotoViews.m */,
+				6029B0941BA4B3EB004AC1AF /* MPEmotionKeyboard.h */,
+				6029B0951BA4B3EB004AC1AF /* MPEmotionKeyboard.m */,
+				6029B0971BA4B443004AC1AF /* MPEmotionListView.h */,
+				6029B0981BA4B443004AC1AF /* MPEmotionListView.m */,
+				6029B09A1BA4B462004AC1AF /* MPEmotionTabBar.h */,
+				6029B09B1BA4B462004AC1AF /* MPEmotionTabBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -964,6 +979,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6029B09C1BA4B462004AC1AF /* MPEmotionTabBar.m in Sources */,
 				600802E01B9EE98E0029F1C2 /* Async.m in Sources */,
 				604F583D1BA0154A00A50972 /* MPComposeService.m in Sources */,
 				600802D71B9EBC930029F1C2 /* MPHomeStatusPhotoViews.m in Sources */,
@@ -993,6 +1009,7 @@
 				6097A45B1B9BE1EA0023C0C9 /* MPPermissionUtils.m in Sources */,
 				604F57FA1B9FDE0200A50972 /* MPTabBar.m in Sources */,
 				6050F8221B8EAA89006C5F45 /* TestViewController00.m in Sources */,
+				6029B0961BA4B3EB004AC1AF /* MPEmotionKeyboard.m in Sources */,
 				60243BAB1B8F153400FD62A7 /* MPNetworkServicesImpl.m in Sources */,
 				6006EC0C1B900C9100DFD4D0 /* MPHomeService.m in Sources */,
 				60243B851B8EFB0A00FD62A7 /* MPNetworkApi.m in Sources */,
@@ -1003,6 +1020,7 @@
 				600E55801BA0E43A009B8C13 /* MPComposeToolbar.m in Sources */,
 				602DFA871B8E650C009A1C8E /* main.m in Sources */,
 				6050F81B1B8EA24C006C5F45 /* MPNavigationController.m in Sources */,
+				6029B0991BA4B443004AC1AF /* MPEmotionListView.m in Sources */,
 				6072F93D1B8E730700D47790 /* MPAppDelegate.m in Sources */,
 				6050F8401B8EB80C006C5F45 /* MPMessageCenterViewController.m in Sources */,
 				6006EC1A1B90398000DFD4D0 /* MPTableViewBindingHelper.m in Sources */,
