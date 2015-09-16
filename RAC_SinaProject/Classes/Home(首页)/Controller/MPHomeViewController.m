@@ -138,7 +138,7 @@
         @strongify(self);
         make.edges.equalTo(self.view);
     }];
-    self.tableView.header = [MJRefreshHeader headerWithRefreshingBlock:^{
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.viewModel loadNewStatus];
     }];
     self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
