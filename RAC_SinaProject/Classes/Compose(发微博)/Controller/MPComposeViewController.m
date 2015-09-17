@@ -41,7 +41,7 @@
     [self initDatas];
     [self setupTitle];
     [self setupViews];
-    [self bindViewModel];
+//    [self bindViewModel];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -125,6 +125,7 @@
     }];
     
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIKeyboardWillChangeFrameNotification object:nil] subscribeNext:^(NSNotification *notification) {
+        @strongify(self);
         
         if (self.switchingKeybaord) return;
         
