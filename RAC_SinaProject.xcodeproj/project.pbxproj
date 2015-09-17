@@ -66,6 +66,8 @@
 		609941691BAA5A0C00C81F60 /* MPEmotionTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 609941681BAA5A0C00C81F60 /* MPEmotionTabBarButton.m */; };
 		609941701BAA92A500C81F60 /* MPEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6099416F1BAA92A500C81F60 /* MPEmotion.m */; };
 		60ABF63F1BAA984800C23321 /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = 60ABF63E1BAA984800C23321 /* EmotionIcons */; };
+		60ABF6421BAAB52400C23321 /* MPEmotionPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ABF6411BAAB52400C23321 /* MPEmotionPageView.m */; };
+		60ABF6451BAAB8B700C23321 /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ABF6441BAAB8B700C23321 /* NSString+Emoji.m */; };
 		60F1362E1BA239AB0004AB9A /* MPComposePhotoViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F1362D1BA239AB0004AB9A /* MPComposePhotoViews.m */; };
 		ED0A10412877A6135D22ADF4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C38D7A5BD1189B3D00AF55A /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -203,6 +205,10 @@
 		6099416E1BAA92A500C81F60 /* MPEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEmotion.h; sourceTree = "<group>"; };
 		6099416F1BAA92A500C81F60 /* MPEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPEmotion.m; sourceTree = "<group>"; };
 		60ABF63E1BAA984800C23321 /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
+		60ABF6401BAAB52400C23321 /* MPEmotionPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEmotionPageView.h; sourceTree = "<group>"; };
+		60ABF6411BAAB52400C23321 /* MPEmotionPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPEmotionPageView.m; sourceTree = "<group>"; };
+		60ABF6431BAAB8B700C23321 /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
+		60ABF6441BAAB8B700C23321 /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
 		60F1362C1BA239AB0004AB9A /* MPComposePhotoViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPComposePhotoViews.h; sourceTree = "<group>"; };
 		60F1362D1BA239AB0004AB9A /* MPComposePhotoViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPComposePhotoViews.m; sourceTree = "<group>"; };
 		94A2777195F0056108B20C2E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -517,6 +523,8 @@
 				6029B09B1BA4B462004AC1AF /* MPEmotionTabBar.m */,
 				609941671BAA5A0C00C81F60 /* MPEmotionTabBarButton.h */,
 				609941681BAA5A0C00C81F60 /* MPEmotionTabBarButton.m */,
+				60ABF6401BAAB52400C23321 /* MPEmotionPageView.h */,
+				60ABF6411BAAB52400C23321 /* MPEmotionPageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -824,6 +832,8 @@
 				6006EC281B904BB600DFD4D0 /* UITableView+FDTemplateLayoutCell.m */,
 				6006EC031B8FF54E00DFD4D0 /* UIWindow+Extension.h */,
 				6006EC041B8FF54E00DFD4D0 /* UIWindow+Extension.m */,
+				60ABF6431BAAB8B700C23321 /* NSString+Emoji.h */,
+				60ABF6441BAAB8B700C23321 /* NSString+Emoji.m */,
 				600802CC1B9E7FB20029F1C2 /* NSDate+Extension.h */,
 				600802CD1B9E7FB20029F1C2 /* NSDate+Extension.m */,
 			);
@@ -995,6 +1005,7 @@
 			files = (
 				6029B09C1BA4B462004AC1AF /* MPEmotionTabBar.m in Sources */,
 				600802E01B9EE98E0029F1C2 /* Async.m in Sources */,
+				60ABF6451BAAB8B700C23321 /* NSString+Emoji.m in Sources */,
 				604F583D1BA0154A00A50972 /* MPComposeService.m in Sources */,
 				600802D71B9EBC930029F1C2 /* MPHomeStatusPhotoViews.m in Sources */,
 				6006EC231B903CF600DFD4D0 /* User.m in Sources */,
@@ -1031,6 +1042,7 @@
 				6050F82B1B8EAEC6006C5F45 /* TestViewController03.m in Sources */,
 				600802DF1B9EE98E0029F1C2 /* Apply.m in Sources */,
 				6006EC021B8FEDED00DFD4D0 /* MPAccountTool.m in Sources */,
+				60ABF6421BAAB52400C23321 /* MPEmotionPageView.m in Sources */,
 				60F1362E1BA239AB0004AB9A /* MPComposePhotoViews.m in Sources */,
 				600E55801BA0E43A009B8C13 /* MPComposeToolbar.m in Sources */,
 				602DFA871B8E650C009A1C8E /* main.m in Sources */,
