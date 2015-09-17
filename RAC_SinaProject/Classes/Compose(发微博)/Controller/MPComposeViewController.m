@@ -165,16 +165,8 @@
     toolbar.height = 44;
     toolbar.y = self.view.height - toolbar.height;
     [self.view addSubview:toolbar];
-//    self.textView.inputAccessoryView = toolbar;
     self.toolbar = toolbar;
-//    @weakify(self);
-//    [toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
-//        @strongify(self);
-//        make.centerY.equalTo(self.textView);
-//        make.bottom.equalTo(self.textView);
-//        make.width.equalTo(self.view);
-//        make.height.equalTo(@44);
-//    }];
+
     @weakify(self);
     [RACObserve(toolbar, buttonSignal) subscribeNext:^(RACSignal *buttonSignal) {
         [buttonSignal subscribeNext:^(id value) {
