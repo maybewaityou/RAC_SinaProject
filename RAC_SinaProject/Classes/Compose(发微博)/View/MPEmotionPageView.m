@@ -8,8 +8,8 @@
 
 #import "MPEmotionPageView.h"
 #import "MPEmotion.h"
-#import "NSString+Emoji.h"
 #import "UIView+Extension.h"
+#import "MPEmotionButton.h"
 
 @interface MPEmotionPageView ()
 
@@ -24,15 +24,8 @@
     NSUInteger count = emotions.count;
     for (NSUInteger i = 0; i < count; i++) {
         MPEmotion *emotion = emotions[i];
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        
-        if (emotion.png) {
-            [button setImage:[UIImage imageNamed:emotion.png] forState:UIControlStateNormal];
-        }else{
-            [button setTitle:emotion.code.emoji forState:UIControlStateNormal];
-            button.titleLabel.font = [UIFont systemFontOfSize:32];
-        }
-        
+        MPEmotionButton *button = [[MPEmotionButton alloc] init];
+        button.emotion = emotion;
         [self addSubview:button];
     }
 }
@@ -47,7 +40,7 @@
     CGFloat btnW = (self.width - 2 * inset) / MPEmotionMaxCols;
     CGFloat btnH = (self.height - inset) / MPEmotionMaxRows;
     for (int i = 0; i<count; i++) {
-        UIButton *btn = self.subviews[i];
+        MPEmotionButton *btn = self.subviews[i];
         btn.width = btnW;
         btn.height = btnH;
         btn.x = inset + (i % MPEmotionMaxCols) * btnW;
