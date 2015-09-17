@@ -33,12 +33,10 @@
 - (void)initialize
 {
     MPEmotionListView *listView = [[MPEmotionListView alloc] init];
-    listView.backgroundColor = [UIColor redColor];
     [self addSubview:listView];
     self.listView = listView;
     
     MPEmotionTabBar *tabBar = [[MPEmotionTabBar alloc] init];
-    tabBar.backgroundColor = [UIColor blueColor];
     [self addSubview:tabBar];
     self.tabBar = tabBar;
 }
