@@ -221,8 +221,12 @@
         keyboard.width = self.view.width;
         keyboard.height = 216;
         self.textView.inputView = keyboard;
+        
+        self.toolbar.showKeyboardButton = YES;
     }else {
         self.textView.inputView = nil;
+        
+        self.toolbar.showKeyboardButton = NO;
     }
     
     self.switchingKeybaord = YES;

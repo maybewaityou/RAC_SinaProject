@@ -19,6 +19,7 @@ typedef enum : NSUInteger {
 
 @interface MPComposeToolbar : UIView
 
+@property (nonatomic, assign)BOOL showKeyboardButton;
 @property (nonatomic, strong)RACSignal *buttonSignal;
 
 @end
