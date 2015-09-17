@@ -56,10 +56,10 @@
     NSUInteger count = (emotions.count + MPEmotionPageSize - 1) / MPEmotionPageSize;
     
     self.pageControl.numberOfPages = count;
-    NSLog(@"==pageControl=>>> %@",self.pageControl);
+    
     for (NSUInteger i = 0; i < count; i++) {
         UIView *pageView = [[UIView alloc] init];
-        pageView.backgroundColor = [UIColor MPRandomColor];
+//        pageView.backgroundColor = [UIColor MPRandomColor];
         [self.scrollView addSubview:pageView];
     }
 }

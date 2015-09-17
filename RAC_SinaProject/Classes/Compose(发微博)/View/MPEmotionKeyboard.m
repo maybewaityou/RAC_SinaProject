@@ -16,13 +16,13 @@
 
 @interface MPEmotionKeyboard ()
 
-@property (nonatomic, weak)UIView *contentView;
-@property (nonatomic, weak)MPEmotionTabBar *tabBar;
-
+@property (nonatomic, weak)MPEmotionListView *showingListView;
 @property (nonatomic, strong)MPEmotionListView *recentListView;
 @property (nonatomic, strong)MPEmotionListView *defaultListView;
 @property (nonatomic, strong)MPEmotionListView *emojiListView;
 @property (nonatomic, strong)MPEmotionListView *lxhListView;
+
+@property (nonatomic, weak)MPEmotionTabBar *tabBar;
 
 @end
 
@@ -39,10 +39,6 @@
 
 - (void)initialize
 {
-    UIView *contentView = [[MPEmotionListView alloc] init];
-    [self addSubview:contentView];
-    self.contentView = contentView;
-    
     MPEmotionTabBar *tabBar = [[MPEmotionTabBar alloc] init];
     [self addSubview:tabBar];
     self.tabBar = tabBar;
@@ -52,30 +48,31 @@
         @strongify(self);
         [buttonSignal subscribeNext:^(id value) {
             @strongify(self);
-            [self.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+            
+            [self.showingListView removeFromSuperview];
             
             MPEmotionTabBarButtonType type = [value integerValue];
             switch (type) {
                 case MPEmotionTabBarButtonTypeRecent:
                     NSLog(@"===>>> 最近");
-                    [self.contentView addSubview:self.recentListView];
+                    [self addSubview:self.recentListView];
                     break;
                 case MPEmotionTabBarButtonTypeDefault:
                     NSLog(@"===>>> 默认");
-                    [self.contentView addSubview:self.defaultListView];
+                    [self addSubview:self.defaultListView];
                     break;
                 case MPEmotionTabBarButtonTypeEmoji:
                     NSLog(@"===>>> 表情");
-                    [self.contentView addSubview:self.emojiListView];
+                    [self addSubview:self.emojiListView];
                     break;
                 case MPEmotionTabBarButtonTypeLxh:
                     NSLog(@"===>>> 浪小花");
-                    [self.contentView addSubview:self.lxhListView];
+                    [self addSubview:self.lxhListView];
                     break;
                 default:
                     break;
             }
-            
+            self.showingListView = self.subviews.lastObject;
             [self setNeedsLayout];
         }];
     }];
@@ -90,12 +87,9 @@
     self.tabBar.x = 0;
     self.tabBar.y = self.height - self.tabBar.height;
     
-    self.contentView.x = self.contentView.y = 0;
-    self.contentView.width = self.width;
-    self.contentView.height = self.height - self.tabBar.height;
-    
-    UIView *child = self.contentView.subviews.lastObject;
-    child.frame = self.contentView.bounds;
+    self.showingListView.x = self.showingListView.y = 0;
+    self.showingListView.width = self.width;
+    self.showingListView.height = self.height - self.tabBar.height;
 }
 
 #pragma mark - 懒加载
@@ -103,7 +97,6 @@
 {
     if (!_recentListView) {
         _recentListView = [[MPEmotionListView alloc] init];
-        _recentListView.backgroundColor = [UIColor redColor];
     }
     return _recentListView;
 }
