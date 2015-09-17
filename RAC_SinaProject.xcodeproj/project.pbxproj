@@ -63,6 +63,7 @@
 		6072F94D1B8E7ABE00D47790 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F94C1B8E7ABE00D47790 /* UIColor+Extension.m */; };
 		6097A45B1B9BE1EA0023C0C9 /* MPPermissionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097A45A1B9BE1EA0023C0C9 /* MPPermissionUtils.m */; };
 		6097A45E1B9C094B0023C0C9 /* MPPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097A45D1B9C094B0023C0C9 /* MPPhoto.m */; };
+		609941691BAA5A0C00C81F60 /* MPEmotionTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 609941681BAA5A0C00C81F60 /* MPEmotionTabBarButton.m */; };
 		60F1362E1BA239AB0004AB9A /* MPComposePhotoViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F1362D1BA239AB0004AB9A /* MPComposePhotoViews.m */; };
 		ED0A10412877A6135D22ADF4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C38D7A5BD1189B3D00AF55A /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -195,6 +196,8 @@
 		6097A45A1B9BE1EA0023C0C9 /* MPPermissionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPPermissionUtils.m; sourceTree = "<group>"; };
 		6097A45C1B9C094B0023C0C9 /* MPPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPhoto.h; sourceTree = "<group>"; };
 		6097A45D1B9C094B0023C0C9 /* MPPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPPhoto.m; sourceTree = "<group>"; };
+		609941671BAA5A0C00C81F60 /* MPEmotionTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEmotionTabBarButton.h; sourceTree = "<group>"; };
+		609941681BAA5A0C00C81F60 /* MPEmotionTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPEmotionTabBarButton.m; sourceTree = "<group>"; };
 		60F1362C1BA239AB0004AB9A /* MPComposePhotoViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPComposePhotoViews.h; sourceTree = "<group>"; };
 		60F1362D1BA239AB0004AB9A /* MPComposePhotoViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPComposePhotoViews.m; sourceTree = "<group>"; };
 		94A2777195F0056108B20C2E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -513,6 +516,8 @@
 				6029B0981BA4B443004AC1AF /* MPEmotionListView.m */,
 				6029B09A1BA4B462004AC1AF /* MPEmotionTabBar.h */,
 				6029B09B1BA4B462004AC1AF /* MPEmotionTabBar.m */,
+				609941671BAA5A0C00C81F60 /* MPEmotionTabBarButton.h */,
+				609941681BAA5A0C00C81F60 /* MPEmotionTabBarButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1012,6 +1017,7 @@
 				6029B0961BA4B3EB004AC1AF /* MPEmotionKeyboard.m in Sources */,
 				60243BAB1B8F153400FD62A7 /* MPNetworkServicesImpl.m in Sources */,
 				6006EC0C1B900C9100DFD4D0 /* MPHomeService.m in Sources */,
+				609941691BAA5A0C00C81F60 /* MPEmotionTabBarButton.m in Sources */,
 				60243B851B8EFB0A00FD62A7 /* MPNetworkApi.m in Sources */,
 				6050F82B1B8EAEC6006C5F45 /* TestViewController03.m in Sources */,
 				600802DF1B9EE98E0029F1C2 /* Apply.m in Sources */,

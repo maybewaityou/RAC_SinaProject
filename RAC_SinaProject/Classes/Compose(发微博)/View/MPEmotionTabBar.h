@@ -15,6 +15,10 @@ typedef enum : NSUInteger {
     MPEmotionTabBarButtonTypeLxh,
 } MPEmotionTabBarButtonType;
 
+@class RACSignal;
+
 @interface MPEmotionTabBar : UIView
+
+@property (nonatomic, strong)RACSignal *selectedSignal;
 
 @end

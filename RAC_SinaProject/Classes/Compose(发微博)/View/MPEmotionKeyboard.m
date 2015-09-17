@@ -10,6 +10,7 @@
 #import "MPEmotionListView.h"
 #import "MPEmotionTabBar.h"
 #import "UIView+Extension.h"
+#import "ReactiveCocoa.h"
 
 @interface MPEmotionKeyboard ()
 
@@ -39,6 +40,30 @@
     MPEmotionTabBar *tabBar = [[MPEmotionTabBar alloc] init];
     [self addSubview:tabBar];
     self.tabBar = tabBar;
+    
+//    @weakify(self);
+    [RACObserve(self.tabBar, selectedSignal) subscribeNext:^(RACSignal *buttonSignal) {
+//        @strongify(self);
+        [buttonSignal subscribeNext:^(id value) {
+            MPEmotionTabBarButtonType type = [value integerValue];
+            switch (type) {
+                case MPEmotionTabBarButtonTypeRecent:
+                    NSLog(@"===>>> 最近");
+                    break;
+                case MPEmotionTabBarButtonTypeDefault:
+                    NSLog(@"===>>> 默认");
+                    break;
+                case MPEmotionTabBarButtonTypeEmoji:
+                    NSLog(@"===>>> 表情");
+                    break;
+                case MPEmotionTabBarButtonTypeLxh:
+                    NSLog(@"===>>> 浪小花");
+                    break;
+                default:
+                    break;
+            }
+        }];
+    }];
 }
 
 - (void)layoutSubviews
