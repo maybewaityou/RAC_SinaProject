@@ -64,6 +64,8 @@
 		6097A45B1B9BE1EA0023C0C9 /* MPPermissionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097A45A1B9BE1EA0023C0C9 /* MPPermissionUtils.m */; };
 		6097A45E1B9C094B0023C0C9 /* MPPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097A45D1B9C094B0023C0C9 /* MPPhoto.m */; };
 		609941691BAA5A0C00C81F60 /* MPEmotionTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 609941681BAA5A0C00C81F60 /* MPEmotionTabBarButton.m */; };
+		609941701BAA92A500C81F60 /* MPEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6099416F1BAA92A500C81F60 /* MPEmotion.m */; };
+		60ABF63F1BAA984800C23321 /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = 60ABF63E1BAA984800C23321 /* EmotionIcons */; };
 		60F1362E1BA239AB0004AB9A /* MPComposePhotoViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F1362D1BA239AB0004AB9A /* MPComposePhotoViews.m */; };
 		ED0A10412877A6135D22ADF4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C38D7A5BD1189B3D00AF55A /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -198,6 +200,9 @@
 		6097A45D1B9C094B0023C0C9 /* MPPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPPhoto.m; sourceTree = "<group>"; };
 		609941671BAA5A0C00C81F60 /* MPEmotionTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEmotionTabBarButton.h; sourceTree = "<group>"; };
 		609941681BAA5A0C00C81F60 /* MPEmotionTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPEmotionTabBarButton.m; sourceTree = "<group>"; };
+		6099416E1BAA92A500C81F60 /* MPEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEmotion.h; sourceTree = "<group>"; };
+		6099416F1BAA92A500C81F60 /* MPEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPEmotion.m; sourceTree = "<group>"; };
+		60ABF63E1BAA984800C23321 /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
 		60F1362C1BA239AB0004AB9A /* MPComposePhotoViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPComposePhotoViews.h; sourceTree = "<group>"; };
 		60F1362D1BA239AB0004AB9A /* MPComposePhotoViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPComposePhotoViews.m; sourceTree = "<group>"; };
 		94A2777195F0056108B20C2E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -453,6 +458,7 @@
 		602DFA841B8E650C009A1C8E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				60ABF63E1BAA984800C23321 /* EmotionIcons */,
 				602DFA851B8E650C009A1C8E /* Info.plist */,
 				602DFA861B8E650C009A1C8E /* main.m */,
 			);
@@ -479,7 +485,7 @@
 		604F582C1BA008E300A50972 /* Compose(发微博) */ = {
 			isa = PBXGroup;
 			children = (
-				604F58331BA0097D00A50972 /* Model */,
+				6099416D1BAA929D00C81F60 /* Model */,
 				604F58341BA0097D00A50972 /* View */,
 				604F58351BA0097D00A50972 /* ViewModel */,
 				604F58301BA0097D00A50972 /* Controller */,
@@ -494,13 +500,6 @@
 				604F58321BA0097D00A50972 /* MPComposeViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		604F58331BA0097D00A50972 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		604F58341BA0097D00A50972 /* View */ = {
@@ -840,6 +839,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		6099416D1BAA929D00C81F60 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6099416E1BAA92A500C81F60 /* MPEmotion.h */,
+				6099416F1BAA92A500C81F60 /* MPEmotion.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9B65F92342EA611443C66882 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -934,6 +942,7 @@
 				602DFA901B8E650C009A1C8E /* Main.storyboard in Resources */,
 				602DFA951B8E650C009A1C8E /* LaunchScreen.xib in Resources */,
 				602DFA921B8E650C009A1C8E /* Images.xcassets in Resources */,
+				60ABF63F1BAA984800C23321 /* EmotionIcons in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1036,6 +1045,7 @@
 				602079CA1B930ABE00ECD17E /* MPHomeCellViewModel.m in Sources */,
 				6006EC291B904BB600DFD4D0 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				604F583A1BA009C500A50972 /* MPComposeViewModel.m in Sources */,
+				609941701BAA92A500C81F60 /* MPEmotion.m in Sources */,
 				604F58371BA0097D00A50972 /* MPComposeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
