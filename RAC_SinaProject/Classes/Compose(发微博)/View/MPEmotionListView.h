@@ -10,4 +10,6 @@
 
 @interface MPEmotionListView : UIView
 
+@property (nonatomic, copy)NSArray *emotions;
+
 @end

@@ -63,13 +63,6 @@
     [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
         [self setButtonClicked:button];
-        
-        self.selectedSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            [subscriber sendNext:@(button.tag)];
-            [subscriber sendCompleted];
-            return [RACDisposable disposableWithBlock:^{
-            }];
-        }];
     }];
 }
 
@@ -78,6 +71,13 @@
     self.selectedButton.enabled = YES;
     button.enabled = NO;
     self.selectedButton = button;
+    
+    self.selectedSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@(button.tag)];
+        [subscriber sendCompleted];
+        return [RACDisposable disposableWithBlock:^{
+        }];
+    }];
 }
 
 - (void)layoutSubviews
