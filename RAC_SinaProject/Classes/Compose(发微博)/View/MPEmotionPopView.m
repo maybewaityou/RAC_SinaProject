@@ -10,11 +10,13 @@
 #import "MPEmotionButton.h"
 #import "Masonry.h"
 #import "RACEXTScope.h"
+#import "UIView+Extension.h"
 
 @interface MPEmotionPopView ()
 
-@property (nonatomic, weak)MPEmotionButton *emotionButton;
 
+@property (nonatomic, weak)UIImageView *backgroundImageView;
+@property (nonatomic, weak)MPEmotionButton *emotionButton;
 @end
 
 @implementation MPEmotionPopView
@@ -33,12 +35,19 @@
     UIImageView *backgroundImageView = [[UIImageView alloc] init];
     backgroundImageView.image = [UIImage imageNamed:@"emoticon_keyboard_magnifier"];
     [self addSubview:backgroundImageView];
+    self.backgroundImageView = backgroundImageView;
+    @weakify(self);
+    [backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.left.right.bottom.equalTo(self);
+    }];
     
-    MPEmotionButton *emtionButton = [[MPEmotionButton alloc] init];
-    [self addSubview:emtionButton];
-    self.emotionButton = emtionButton;
-    [emtionButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@64);
+    MPEmotionButton *emotionButton = [[MPEmotionButton alloc] init];
+    [self addSubview:emotionButton];
+    self.emotionButton = emotionButton;
+    [emotionButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.left.right.equalTo(self);
         make.height.equalTo(@64);
     }];
 }
