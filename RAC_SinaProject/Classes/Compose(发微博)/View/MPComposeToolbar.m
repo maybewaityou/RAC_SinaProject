@@ -102,4 +102,9 @@
     [self.emoticonButton setImage:[UIImage imageNamed:highImage] forState:UIControlStateHighlighted];
 }
 
+- (void)dealloc
+{
+    NSLog(@"===>>> %@ dealloc",self);
+}
+
 @end

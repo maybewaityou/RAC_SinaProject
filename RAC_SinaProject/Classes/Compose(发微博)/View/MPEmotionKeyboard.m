@@ -131,4 +131,9 @@
     return _lxhListView;
 }
 
+- (void)dealloc
+{
+    NSLog(@"===>>> %@ dealloc",self);
+}
+
 @end

@@ -106,4 +106,9 @@
     self.pageControl.currentPage = (int)(pageNo + 0.5);
 }
 
+- (void)dealloc
+{
+    NSLog(@"===>>> %@ dealloc",self);
+}
+
 @end

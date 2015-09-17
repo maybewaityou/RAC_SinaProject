@@ -84,5 +84,9 @@
     return _popView;
 }
 
+- (void)dealloc
+{
+    NSLog(@"===>>> %@ dealloc",self);
+}
 
 @end

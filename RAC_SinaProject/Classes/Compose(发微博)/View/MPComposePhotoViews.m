@@ -11,7 +11,7 @@
 
 @interface MPComposePhotoViews ()
 
-@property (nonatomic, copy)NSMutableArray *photosM;
+@property (nonatomic, strong)NSMutableArray *photosM;
 
 @end
 
@@ -56,6 +56,11 @@
 - (NSArray *)photos
 {
     return [self.photosM copy];
+}
+
+- (void)dealloc
+{
+    NSLog(@"===>>> %@ dealloc",self);
 }
 
 @end

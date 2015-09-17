@@ -59,4 +59,9 @@
     self.emotionButton.emotion = emotion;
 }
 
+- (void)dealloc
+{
+    NSLog(@"===>>> %@ dealloc",self);
+}
+
 @end
