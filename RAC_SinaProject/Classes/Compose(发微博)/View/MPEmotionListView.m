@@ -9,8 +9,7 @@
 #import "MPEmotionListView.h"
 #import "UIColor+Extension.h"
 #import "UIView+Extension.h"
-
-#define MPEmotionPageSize (20)
+#import "MPEmotionPageView.h"
 
 @interface MPEmotionListView () <UIScrollViewDelegate>
 
@@ -58,8 +57,19 @@
     self.pageControl.numberOfPages = count;
     
     for (NSUInteger i = 0; i < count; i++) {
-        UIView *pageView = [[UIView alloc] init];
-//        pageView.backgroundColor = [UIColor MPRandomColor];
+        MPEmotionPageView *pageView = [[MPEmotionPageView alloc] init];
+
+        NSRange range;
+        range.location = i * MPEmotionPageSize;
+
+        NSUInteger left = emotions.count - range.location;
+        if (left >= MPEmotionPageSize) {
+            range.length = MPEmotionPageSize;
+        } else {
+            range.length = left;
+        }
+
+        pageView.emotions = [emotions subarrayWithRange:range];
         [self.scrollView addSubview:pageView];
     }
 }
@@ -79,7 +89,7 @@
     
     NSUInteger count = self.scrollView.subviews.count;
     for (NSUInteger i = 0; i < count; i++) {
-        UIView *pageView = self.scrollView.subviews[i];
+        MPEmotionPageView *pageView = self.scrollView.subviews[i];
         pageView.width = self.scrollView.width;
         pageView.height = self.scrollView.height;
         pageView.x = i * pageView.width;
