@@ -26,7 +26,6 @@
 
 @end
 
-
 @implementation MPEmotionKeyboard
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -52,7 +51,7 @@
     [RACObserve(self.tabBar, selectedSignal) subscribeNext:^(RACSignal *buttonSignal) {
         @strongify(self);
         [buttonSignal subscribeNext:^(id value) {
-            
+            @strongify(self);
             [self.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
             
             MPEmotionTabBarButtonType type = [value integerValue];
@@ -86,14 +85,14 @@
 {
     [super layoutSubviews];
     
-    self.contentView.x = self.contentView.y = 0;
-    self.contentView.width = self.width;
-    self.contentView.height = self.height;
-    
     self.tabBar.height = 44;
     self.tabBar.width = self.width;
     self.tabBar.x = 0;
     self.tabBar.y = self.height - self.tabBar.height;
+    
+    self.contentView.x = self.contentView.y = 0;
+    self.contentView.width = self.width;
+    self.contentView.height = self.height - self.tabBar.height;
     
     UIView *child = self.contentView.subviews.lastObject;
     child.frame = self.contentView.bounds;

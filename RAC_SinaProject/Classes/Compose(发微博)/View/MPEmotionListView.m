@@ -33,6 +33,7 @@
 - (void)initialize
 {
     UIScrollView *scrollView = [[UIScrollView alloc] init];
+    scrollView.backgroundColor = [UIColor whiteColor];
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.pagingEnabled = YES;
@@ -55,6 +56,7 @@
     NSUInteger count = (emotions.count + MPEmotionPageSize - 1) / MPEmotionPageSize;
     
     self.pageControl.numberOfPages = count;
+    NSLog(@"==pageControl=>>> %@",self.pageControl);
     for (NSUInteger i = 0; i < count; i++) {
         UIView *pageView = [[UIView alloc] init];
         pageView.backgroundColor = [UIColor MPRandomColor];
@@ -70,7 +72,7 @@
     self.pageControl.height = 35;
     self.pageControl.x = 0;
     self.pageControl.y = self.height - self.pageControl.height;
-    
+
     self.scrollView.width = self.width;
     self.scrollView.height = self.height - self.pageControl.height;
     self.scrollView.x = self.scrollView.y = 0;
@@ -90,7 +92,8 @@
 #pragma mark - UIScrollView 代理方法
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    
+    double pageNo = scrollView.contentOffset.x / scrollView.width;
+    self.pageControl.currentPage = (int)(pageNo + 0.5);
 }
 
 @end
