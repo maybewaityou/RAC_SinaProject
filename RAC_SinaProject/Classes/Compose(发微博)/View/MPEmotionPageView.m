@@ -97,7 +97,7 @@
     CGFloat btnW = (self.width - 2 * inset) / MPEmotionMaxCols;
     CGFloat btnH = (self.height - inset) / MPEmotionMaxRows;
     for (int i = 0; i<count; i++) {
-        MPEmotionButton *btn = self.subviews[i];
+        MPEmotionButton *btn = self.subviews[i + 1];
         btn.width = btnW;
         btn.height = btnH;
         btn.x = inset + (i % MPEmotionMaxCols) * btnW;
