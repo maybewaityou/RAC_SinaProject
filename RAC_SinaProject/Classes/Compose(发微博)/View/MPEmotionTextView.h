@@ -14,5 +14,6 @@
 @interface MPEmotionTextView : SZTextView
 
 - (void)insertEmotion:(MPEmotion *)emotion;
+- (NSString *)allText;
 
 @end
