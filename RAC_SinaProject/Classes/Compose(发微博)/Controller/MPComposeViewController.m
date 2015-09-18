@@ -43,7 +43,7 @@
     [self initDatas];
     [self setupTitle];
     [self setupViews];
-//    [self bindViewModel];
+    [self bindViewModel];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -150,6 +150,12 @@
         @strongify(self);
         MPEmotion *emotion = notification.userInfo[MPSelectEmotionKey];
         [self.textView insertEmotion:emotion];
+    }];
+    
+    // 监听删除表情
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:MPEmotionDeleteNotification object:nil] subscribeNext:^(id x) {
+        @strongify(self);
+        [self.textView deleteBackward];
     }];
 }
 

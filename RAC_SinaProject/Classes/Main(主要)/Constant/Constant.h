@@ -17,3 +17,4 @@
 
 #define MPEmotionDidSelectNotification @"MPEmotionDidSelectNotification"
 #define MPSelectEmotionKey @"MPSelectEmotionKey"
+#define MPEmotionDeleteNotification @"MPEmotionDeleteNotification"

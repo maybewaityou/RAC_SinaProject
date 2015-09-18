@@ -18,10 +18,35 @@
 @interface MPEmotionPageView ()
 
 @property (nonatomic, strong)MPEmotionPopView *popView;
+@property (nonatomic, weak)UIButton *deleteButton;
 
 @end
 
 @implementation MPEmotionPageView
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initialize];
+    }
+    return self;
+}
+
+- (void)initialize
+{
+    UIButton *deleteButton = [[UIButton alloc] init];
+    [deleteButton setImage:[UIImage imageNamed:@"compose_emotion_delete_highlighted"] forState:UIControlStateHighlighted];
+    [deleteButton setImage:[UIImage imageNamed:@"compose_emotion_delete"] forState:UIControlStateNormal];
+    [self addSubview:deleteButton];
+    self.deleteButton = deleteButton;
+    [[deleteButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:MPEmotionDeleteNotification object:nil];
+    }];
+    
+    // 添加长点击
+    [self addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressPageView:)]];
+}
 
 - (void)setEmotions:(NSArray *)emotions
 {
@@ -79,6 +104,18 @@
         btn.y = inset + (i / MPEmotionMaxCols) * btnH;
     }
 
+    // 删除按钮
+    self.deleteButton.width = btnW;
+    self.deleteButton.height = btnH;
+    self.deleteButton.y = self.height - btnH;
+    self.deleteButton.x = self.width - inset - btnW;
+}
+
+#pragma mark - 长点击事件
+- (void)longPressPageView:(UILongPressGestureRecognizer *)recognizer
+{
+    // TODO
+    
 }
 
 #pragma mark - 懒加载
