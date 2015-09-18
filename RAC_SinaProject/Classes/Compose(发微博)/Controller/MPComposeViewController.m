@@ -64,9 +64,8 @@
 - (void)bindViewModel
 {
     @weakify(self);
-    RAC(self.titleView,text) = RACObserve(self.viewModel, name);
-    RAC(self.titleView,attributedText) = RACObserve(self.viewModel, attrStr);
-    RAC(self.viewModel,textToSend) = self.textView.rac_textSignal;
+    RAC(self.titleView, text) = RACObserve(self.viewModel, name);
+    RAC(self.titleView, attributedText) = RACObserve(self.viewModel, attrStr);
     
     [RACObserve(self.viewModel, isSendSuccess) subscribeNext:^(id x) {
         if ([x boolValue]) {
@@ -268,6 +267,7 @@
 #pragma mark - 右键
 - (void)onRightClick:(UIBarButtonItem *)rightBar
 {
+    self.viewModel.textToSend = self.textView.allText;
     if (self.photoViews.photos.count > 0) {
         [self.viewModel sendStatusWithPhotos:self.photoViews.photos];
     }else{
