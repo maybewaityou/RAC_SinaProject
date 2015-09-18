@@ -14,3 +14,6 @@
 #define SEND_STATUS_URL @"https://api.weibo.com/2/statuses/update.json"
 #define UN_READ_STATUS_URL @"https://rm.api.weibo.com/2/remind/unread_count.json"
 #define UN_READ_STATUS_TIMEINTERVAL (60)
+
+#define MPEmotionDidSelectNotification @"MPEmotionDidSelectNotification"
+#define MPSelectEmotionKey @"MPSelectEmotionKey"

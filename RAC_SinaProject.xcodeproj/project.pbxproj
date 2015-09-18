@@ -71,6 +71,8 @@
 		609941701BAA92A500C81F60 /* MPEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6099416F1BAA92A500C81F60 /* MPEmotion.m */; };
 		60ABF63F1BAA984800C23321 /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = 60ABF63E1BAA984800C23321 /* EmotionIcons */; };
 		60ABF6451BAAB8B700C23321 /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ABF6441BAAB8B700C23321 /* NSString+Emoji.m */; };
+		60AEB7151BABA9A90069A7F8 /* MPEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AEB7141BABA9A90069A7F8 /* MPEmotionTextView.m */; };
+		60AEB7181BABACC40069A7F8 /* UITextView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AEB7171BABACC40069A7F8 /* UITextView+Extension.m */; };
 		ED0A10412877A6135D22ADF4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C38D7A5BD1189B3D00AF55A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -217,6 +219,10 @@
 		60ABF63E1BAA984800C23321 /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
 		60ABF6431BAAB8B700C23321 /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
 		60ABF6441BAAB8B700C23321 /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
+		60AEB7131BABA9A90069A7F8 /* MPEmotionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEmotionTextView.h; sourceTree = "<group>"; };
+		60AEB7141BABA9A90069A7F8 /* MPEmotionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPEmotionTextView.m; sourceTree = "<group>"; };
+		60AEB7161BABACC40069A7F8 /* UITextView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Extension.h"; sourceTree = "<group>"; };
+		60AEB7171BABACC40069A7F8 /* UITextView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Extension.m"; sourceTree = "<group>"; };
 		94A2777195F0056108B20C2E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EDA20434B8364C3915FAAD33 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -310,6 +316,8 @@
 				60113C9C1BAB7A5B001EF84C /* MPEmotionTabBar.m */,
 				60113C9D1BAB7A5B001EF84C /* MPEmotionTabBarButton.h */,
 				60113C9E1BAB7A5B001EF84C /* MPEmotionTabBarButton.m */,
+				60AEB7131BABA9A90069A7F8 /* MPEmotionTextView.h */,
+				60AEB7141BABA9A90069A7F8 /* MPEmotionTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -846,6 +854,8 @@
 				60ABF6441BAAB8B700C23321 /* NSString+Emoji.m */,
 				600802CC1B9E7FB20029F1C2 /* NSDate+Extension.h */,
 				600802CD1B9E7FB20029F1C2 /* NSDate+Extension.m */,
+				60AEB7161BABACC40069A7F8 /* UITextView+Extension.h */,
+				60AEB7171BABACC40069A7F8 /* UITextView+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1020,6 +1030,7 @@
 				600802D71B9EBC930029F1C2 /* MPHomeStatusPhotoViews.m in Sources */,
 				6006EC231B903CF600DFD4D0 /* User.m in Sources */,
 				6050F8251B8EAA9E006C5F45 /* TestViewController01.m in Sources */,
+				60AEB7181BABACC40069A7F8 /* UITextView+Extension.m in Sources */,
 				60113CA51BAB7A5B001EF84C /* MPEmotionPopView.m in Sources */,
 				60243B8E1B8EFC2200FD62A7 /* MaterialProgress.m in Sources */,
 				6050FFCE1B8FCB7D0033733B /* MPAccount.m in Sources */,
@@ -1046,6 +1057,7 @@
 				602D274C1B95547400DD1B5C /* MPHomeStatusNoticeView.m in Sources */,
 				6006EC201B903B6000DFD4D0 /* Status.m in Sources */,
 				6006EC051B8FF54E00DFD4D0 /* UIWindow+Extension.m in Sources */,
+				60AEB7151BABA9A90069A7F8 /* MPEmotionTextView.m in Sources */,
 				6097A45B1B9BE1EA0023C0C9 /* MPPermissionUtils.m in Sources */,
 				604F57FA1B9FDE0200A50972 /* MPTabBar.m in Sources */,
 				6050F8221B8EAA89006C5F45 /* TestViewController00.m in Sources */,

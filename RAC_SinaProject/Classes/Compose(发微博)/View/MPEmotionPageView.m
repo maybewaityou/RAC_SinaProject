@@ -13,6 +13,7 @@
 #import "MPEmotionPopView.h"
 #import "ReactiveCocoa.h"
 #import "Async.h"
+#import "Constant.h"
 
 @interface MPEmotionPageView ()
 
@@ -50,6 +51,13 @@
                  @strongify(self);
                  [self.popView removeFromSuperview];
              }];
+             
+             [[NSNotificationCenter defaultCenter]
+              postNotificationName:MPEmotionDidSelectNotification
+                            object:nil
+                          userInfo:@{
+                                     MPSelectEmotionKey:button.emotion
+                                    }];
         }];
     }
 }

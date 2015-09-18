@@ -12,11 +12,13 @@
 #import "UIView+Extension.h"
 #import "Masonry.h"
 #import "UIView+Toast.h"
-#import "SZTextView.h"
 #import "MPComposeToolbar.h"
 #import "MPComposePhotoViews.h"
 #import "MPEmotionKeyboard.h"
 #import "Async.h"
+#import "Constant.h"
+#import "MPEmotion.h"
+#import "MPEmotionTextView.h"
 
 #define margin10 (10)
 
@@ -25,7 +27,7 @@
 @property (nonatomic, strong)MPComposeViewModel *viewModel;
 
 @property (nonatomic, weak)UILabel *titleView;
-@property (nonatomic, weak)SZTextView *textView;
+@property (nonatomic, weak)MPEmotionTextView *textView;
 @property (nonatomic, weak)MPComposeToolbar *toolbar;
 @property (nonatomic, weak)MPComposePhotoViews *photoViews;
 
@@ -109,9 +111,9 @@
 
 - (void)setupTextView
 {
-    SZTextView *textView = [SZTextView new];
-    textView.alwaysBounceVertical = YES;
+    MPEmotionTextView *textView = [[MPEmotionTextView alloc] init];
     textView.font = [UIFont systemFontOfSize:15.0];
+    textView.alwaysBounceVertical = YES;
     textView.placeholder = @"分享新鲜事...";
     textView.placeholderTextColor = [UIColor lightGrayColor];
     textView.delegate = self;
@@ -124,6 +126,7 @@
         make.edges.equalTo(self.view).insets(margins);
     }];
     
+    // 监听键盘弹出
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIKeyboardWillChangeFrameNotification object:nil] subscribeNext:^(NSNotification *notification) {
         @strongify(self);
         
@@ -140,6 +143,13 @@
                 self.toolbar.y = keyboardFrame.origin.y - self.toolbar.height;
             }
         }];
+    }];
+    
+    // 监听选中表情
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:MPEmotionDidSelectNotification object:nil] subscribeNext:^(NSNotification *notification) {
+        @strongify(self);
+        MPEmotion *emotion = notification.userInfo[MPSelectEmotionKey];
+        [self.textView insertEmotion:emotion];
     }];
 }
 
