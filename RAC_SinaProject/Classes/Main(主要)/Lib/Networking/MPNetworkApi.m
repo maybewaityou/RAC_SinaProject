@@ -32,7 +32,7 @@
     
     // 检测网络连接的单例,网络变化时的回调方法
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        NSLog(@"%ld", status);
+        NSLog(@"%ld", (long)status);
     }];
 }
 
