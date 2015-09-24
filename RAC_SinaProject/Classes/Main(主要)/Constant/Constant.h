@@ -12,6 +12,7 @@
 #define NEW_STATUS_URL @"https://api.weibo.com/2/statuses/friends_timeline.json"
 #define USER_INFO_URL @"https://api.weibo.com/2/users/show.json"
 #define SEND_STATUS_URL @"https://api.weibo.com/2/statuses/update.json"
+#define SEND_STATUS_WITH_IMAGE_URL @"https://upload.api.weibo.com/2/statuses/upload.json"
 #define UN_READ_STATUS_URL @"https://rm.api.weibo.com/2/remind/unread_count.json"
 #define UN_READ_STATUS_TIMEINTERVAL (60)
 
