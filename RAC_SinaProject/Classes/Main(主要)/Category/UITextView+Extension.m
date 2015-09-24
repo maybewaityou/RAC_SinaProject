@@ -23,7 +23,7 @@
     
     // 拼接其他文字
     NSUInteger loc = self.selectedRange.location;
-    [attributedText insertAttributedString:text atIndex:loc];
+    [attributedText replaceCharactersInRange:self.selectedRange withAttributedString:text];
     
     // 调用外面传进来的代码
     if (settingBlock) {
