@@ -77,7 +77,7 @@
     params[@"status"] = self.textToSend;
 
     @weakify(self);
-    [mgr POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [mgr POST:SEND_STATUS_WITH_IMAGE_URL parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         UIImage *image = [photos firstObject];
         NSData *data = UIImageJPEGRepresentation(image, 1.0);
         [formData appendPartWithFileData:data name:@"pic" fileName:@"test.jpg" mimeType:@"image/jpeg"];
