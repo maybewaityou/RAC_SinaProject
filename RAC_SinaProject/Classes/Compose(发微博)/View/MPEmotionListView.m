@@ -42,6 +42,7 @@
     
     UIPageControl *pageControl = [[UIPageControl alloc] init];
     pageControl.userInteractionEnabled = NO;
+    pageControl.hidesForSinglePage = YES;
     [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_normal"] forKeyPath:@"pageImage"];
     [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_selected"] forKeyPath:@"currentPageImage"];
     [self addSubview:pageControl];
