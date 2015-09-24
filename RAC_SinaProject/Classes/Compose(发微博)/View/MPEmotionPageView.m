@@ -63,26 +63,7 @@
         [[button rac_signalForControlEvents:UIControlEventTouchUpInside]
          subscribeNext:^(id x) {
              @strongify(self);
-             self.popView.emotion = button.emotion;
-             
-             UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
-             [window addSubview:self.popView];
-             
-             CGRect btnFrame = [button convertRect:button.bounds toView:nil];
-             self.popView.y = CGRectGetMidY(btnFrame) - self.popView.height; // 100
-             self.popView.centerX = CGRectGetMidX(btnFrame);
-             
-             [Async mainAfter:0.25 block:^{
-                 @strongify(self);
-                 [self.popView removeFromSuperview];
-             }];
-             
-             [[NSNotificationCenter defaultCenter]
-              postNotificationName:MPEmotionDidSelectNotification
-                            object:nil
-                          userInfo:@{
-                                     MPSelectEmotionKey:button.emotion
-                                    }];
+             [self buttonClick:button];
         }];
     }
 }
@@ -114,8 +95,62 @@
 #pragma mark - 长点击事件
 - (void)longPressPageView:(UILongPressGestureRecognizer *)recognizer
 {
-    // TODO
+    CGPoint location = [recognizer locationInView:recognizer.view];
+    MPEmotionButton *button = [self buttonFromLocation:location];
     
+    switch (recognizer.state) {
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateEnded:
+            [self.popView removeFromSuperview];
+            if (button) {
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:MPEmotionDidSelectNotification
+                 object:nil
+                 userInfo:@{
+                            MPSelectEmotionKey:button.emotion
+                            }];
+            }
+            break;
+        case UIGestureRecognizerStateBegan:
+        case UIGestureRecognizerStateChanged:
+            [self.popView showFromButton:button];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)buttonClick:(MPEmotionButton *)button
+{
+    [self.popView showFromButton:button];
+    
+    @weakify(self);
+    [Async mainAfter:0.25 block:^{
+        @strongify(self);
+        [self.popView removeFromSuperview];
+    }];
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:MPEmotionDidSelectNotification
+     object:nil
+     userInfo:@{
+                MPSelectEmotionKey:button.emotion
+                }];
+}
+
+/**
+ * 长点击事件，查找相应的button
+ */
+- (MPEmotionButton *)buttonFromLocation:(CGPoint)location
+{
+    NSUInteger count = self.emotions.count;
+    for (int i = 0; i<count; i++) {
+        MPEmotionButton *btn = self.subviews[i + 1];
+        if (CGRectContainsPoint(btn.frame, location)) {
+            return btn;
+        }
+    }
+    return nil;
 }
 
 #pragma mark - 懒加载

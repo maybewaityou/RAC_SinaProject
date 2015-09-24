@@ -52,11 +52,18 @@
     }];
 }
 
-- (void)setEmotion:(MPEmotion *)emotion
+- (void)showFromButton:(MPEmotionButton *)button
 {
-    _emotion = emotion;
+    if (!button) return;
     
-    self.emotionButton.emotion = emotion;
+    self.emotionButton.emotion = button.emotion;
+    
+    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+    [window addSubview:self];
+    
+    CGRect btnFrame = [button convertRect:button.bounds toView:nil];
+    self.y = CGRectGetMidY(btnFrame) - self.height; // 100
+    self.centerX = CGRectGetMidX(btnFrame);
 }
 
 - (void)dealloc

@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @class MPEmotion;
+@class MPEmotionButton;
 
 @interface MPEmotionPopView : UIView
 
-@property (nonatomic, strong)MPEmotion *emotion;
+- (void)showFromButton:(MPEmotionButton *)button;
 
 @end
