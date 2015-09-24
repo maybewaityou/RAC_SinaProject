@@ -53,6 +53,8 @@
 {
     _emotions = [emotions copy];
     
+    [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
     NSUInteger count = (emotions.count + MPEmotionPageSize - 1) / MPEmotionPageSize;
     
     self.pageControl.numberOfPages = count;
@@ -73,6 +75,8 @@
         pageView.emotions = [emotions subarrayWithRange:range];
         [self.scrollView addSubview:pageView];
     }
+    
+    [self setNeedsLayout];
 }
 
 - (void)layoutSubviews
