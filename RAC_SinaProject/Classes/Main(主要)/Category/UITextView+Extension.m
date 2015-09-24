@@ -10,18 +10,6 @@
 
 @implementation UITextView (Extension)
 
-//- (void)insertAttributeText:(NSAttributedString *)text
-//{
-//    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] init];
-//    [attributedText appendAttributedString:self.attributedText];
-//    NSUInteger loc = self.selectedRange.location;
-//    [attributedText insertAttributedString:text atIndex:loc];
-//    
-//    self.attributedText = attributedText;
-//    
-//    self.selectedRange = NSMakeRange(loc + 1, 0);
-//}
-
 - (void)insertAttributedText:(NSAttributedString *)text
 {
     [self insertAttributedText:text settingBlock:nil];
