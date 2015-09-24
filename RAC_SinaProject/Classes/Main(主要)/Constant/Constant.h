@@ -6,16 +6,18 @@
 //  Copyright (c) 2015年 MeePwn. All rights reserved.
 //
 
+extern NSString *const MPAppKey;
+extern NSString *const MPAppSecret;
+extern NSString *const MPRedirectURL;
 
-#define BASE_URL @"http://oostest.lan149.com:88/OOS/AppAPI.do"
-#define OAUTH_URL @"https://api.weibo.com/oauth2/authorize?client_id=2287771596&redirect_uri=http://"
-#define NEW_STATUS_URL @"https://api.weibo.com/2/statuses/friends_timeline.json"
-#define USER_INFO_URL @"https://api.weibo.com/2/users/show.json"
-#define SEND_STATUS_URL @"https://api.weibo.com/2/statuses/update.json"
-#define SEND_STATUS_WITH_IMAGE_URL @"https://upload.api.weibo.com/2/statuses/upload.json"
-#define UN_READ_STATUS_URL @"https://rm.api.weibo.com/2/remind/unread_count.json"
-#define UN_READ_STATUS_TIMEINTERVAL (60)
+extern NSString *const BASE_URL;
+extern NSString *const NEW_STATUS_URL;
+extern NSString *const USER_INFO_URL;
+extern NSString *const SEND_STATUS_URL;
+extern NSString *const SEND_STATUS_WITH_IMAGE_URL;
+extern NSString *const UN_READ_STATUS_URL;
+extern const NSTimeInterval UN_READ_STATUS_TIMEINTERVAL;
 
-#define MPEmotionDidSelectNotification @"MPEmotionDidSelectNotification"
-#define MPSelectEmotionKey @"MPSelectEmotionKey"
-#define MPEmotionDeleteNotification @"MPEmotionDeleteNotification"
+extern NSString *const MPEmotionDidSelectNotification;
+extern NSString *const MPSelectEmotionKey;
+extern NSString *const MPEmotionDeleteNotification;
