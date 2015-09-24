@@ -32,4 +32,9 @@
     [encoder encodeObject:self.code forKey:@"code"];
 }
 
+- (BOOL)isEqual:(MPEmotion *)other
+{
+    return [self.chs isEqualToString:other.chs] || [self.code isEqualToString:other.code];
+}
+
 @end
