@@ -14,6 +14,7 @@
 #import "MPEmotion.h"
 #import "MJExtension.h"
 #import "MPEmotionTool.h"
+#import "Constant.h"
 
 @interface MPEmotionKeyboard ()
 
@@ -76,6 +77,12 @@
             self.showingListView = self.subviews.lastObject;
             [self setNeedsLayout];
         }];
+    }];
+    
+    // 监听选中表情
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:MPEmotionDidSelectNotification object:nil] subscribeNext:^(NSNotification *notification) {
+        @strongify(self);
+        self.recentListView.emotions = [MPEmotionTool recentEmotions];
     }];
 }
 
