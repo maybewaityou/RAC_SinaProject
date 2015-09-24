@@ -13,6 +13,7 @@
 #import "ReactiveCocoa.h"
 #import "MPEmotion.h"
 #import "MJExtension.h"
+#import "MPEmotionTool.h"
 
 @interface MPEmotionKeyboard ()
 
@@ -97,6 +98,8 @@
 {
     if (!_recentListView) {
         _recentListView = [[MPEmotionListView alloc] init];
+        //TODO 加载沙盒中的表情数据
+        _recentListView.emotions = [MPEmotionTool recentEmotions];
     }
     return _recentListView;
 }

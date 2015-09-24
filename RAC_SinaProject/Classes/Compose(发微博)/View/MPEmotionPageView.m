@@ -14,6 +14,7 @@
 #import "ReactiveCocoa.h"
 #import "Async.h"
 #import "Constant.h"
+#import "MPEmotionTool.h"
 
 @interface MPEmotionPageView ()
 
@@ -103,12 +104,7 @@
         case UIGestureRecognizerStateEnded:
             [self.popView removeFromSuperview];
             if (button) {
-                [[NSNotificationCenter defaultCenter]
-                 postNotificationName:MPEmotionDidSelectNotification
-                 object:nil
-                 userInfo:@{
-                            MPSelectEmotionKey:button.emotion
-                            }];
+                [self postNotificationWithEmotion:button.emotion];
             }
             break;
         case UIGestureRecognizerStateBegan:
@@ -130,12 +126,7 @@
         [self.popView removeFromSuperview];
     }];
     
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:MPEmotionDidSelectNotification
-     object:nil
-     userInfo:@{
-                MPSelectEmotionKey:button.emotion
-                }];
+    [self postNotificationWithEmotion:button.emotion];
 }
 
 /**
@@ -151,6 +142,22 @@
         }
     }
     return nil;
+}
+
+/**
+ * 发出通知
+ */
+- (void)postNotificationWithEmotion:(MPEmotion *)emotion
+{
+    //TODO 将发送的表情存入沙盒（最近使用）
+    [MPEmotionTool saveRecentEmotion:emotion];
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:MPEmotionDidSelectNotification
+     object:nil
+     userInfo:@{
+                MPSelectEmotionKey:emotion
+                }];
 }
 
 #pragma mark - 懒加载
