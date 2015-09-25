@@ -10,7 +10,12 @@ extern NSString *const MPAppKey;
 extern NSString *const MPAppSecret;
 extern NSString *const MPRedirectURL;
 
+extern NSString *const POST;
+extern NSString *const GET;
+
 extern NSString *const BASE_URL;
+extern NSString *const OAUTH_URL;
+extern NSString *const OAUTH_ACCESS_TOKEN_URL;
 extern NSString *const NEW_STATUS_URL;
 extern NSString *const USER_INFO_URL;
 extern NSString *const SEND_STATUS_URL;
