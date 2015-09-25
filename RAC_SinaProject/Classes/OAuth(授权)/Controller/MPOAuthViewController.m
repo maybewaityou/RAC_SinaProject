@@ -41,6 +41,7 @@
     [webView loadRequest:request];
 }
 
+#pragma mark - webView代理方法
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     [[MaterialProgress sharedMaterialProgress] show];
@@ -72,17 +73,18 @@
 
 - (void)fetchAccessToken:(NSString *)code
 {
-    [[MPNetworkApi signalFromNetworkWithType:POST url:OAUTH_ACCESS_TOKEN_URL arguments:@{
-            @"client_id" : MPAppKey,
-            @"client_secret" : MPAppSecret,
-            @"grant_type" : @"authorization_code",
-            @"redirect_uri" : MPRedirectURL,
-            @"code" : code
-        }
+    [[MPNetworkApi signalFromNetworkWithType:POST url:OAUTH_ACCESS_TOKEN_URL
+                                   arguments:@{
+                                               @"client_id" : MPAppKey,
+                                               @"client_secret" : MPAppSecret,
+                                               @"grant_type" : @"authorization_code",
+                                               @"redirect_uri" : MPRedirectURL,
+                                               @"code" : code
+                                               }
       ] subscribeNext:^(id responseObject) {
         MPAccount *account = [MPAccount accountWithDictionary:responseObject];
         [MPAccountTool saveAccount:account];
-
+        
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
         [window switchRootController];
     }];
