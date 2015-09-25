@@ -35,8 +35,8 @@
         make.left.bottom.right.equalTo(self.view);
     }];
     
-    NSString *oauthUrl = [NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&redirect_uri=%@", MPAppKey, MPRedirectURL];
-    NSURL *url = [NSURL URLWithString:oauthUrl];
+    NSString *OAuthUrl = [NSString stringWithFormat:OAUTH_URL, MPAppKey, MPRedirectURL];
+    NSURL *url = [NSURL URLWithString:OAuthUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
 }
@@ -72,7 +72,7 @@
 
 - (void)fetchAccessToken:(NSString *)code
 {
-    [[MPNetworkApi signalFromNetworkWithType:@"" url:@"https://api.weibo.com/oauth2/access_token" arguments:@{
+    [[MPNetworkApi signalFromNetworkWithType:POST url:OAUTH_ACCESS_TOKEN_URL arguments:@{
             @"client_id" : MPAppKey,
             @"client_secret" : MPAppSecret,
             @"grant_type" : @"authorization_code",
