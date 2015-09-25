@@ -293,7 +293,7 @@
 //    [[MaterialProgress sharedMaterialProgress] show];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    if ([requestType isEqualToString:@"get"]) {
+    if ([requestType isEqualToString:GET]) {
         [manager GET:urlStr parameters:parameters success:success failure:fail];
     }else{
         [manager POST:urlStr parameters:parameters success:success failure:fail];
