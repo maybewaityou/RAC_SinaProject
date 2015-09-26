@@ -13,6 +13,7 @@
 #import "RegexKitLite.h"
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "MPTextPart.h"
 
 @interface Status ()
 
@@ -92,15 +93,58 @@
  */
 - (NSAttributedString *)attributedTextWithText:(NSString *)text
 {
-    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] init];
     
     NSString *emotionPattern = @"\\[[0-9a-zA-Z\\u4e00-\\u9fa5]+\\]";
     NSString *atPattern = @"@[0-9a-zA-Z\\u4e00-\\u9fa5]+";
     NSString *topicPattern = @"#[0-9a-zA-Z\\u4e00-\\u9fa5]+#";
     NSString *urlPattern = @"\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^[:punct:]\\s]|/)))";
     NSString *pattern = [NSString stringWithFormat:@"%@|%@|%@|%@",emotionPattern, atPattern, topicPattern, urlPattern];
+    
+    NSMutableArray *parts = [NSMutableArray array];
     [text enumerateStringsMatchedByRegex:pattern usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
-        [attributedText addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:*capturedRanges];
+        if ((*capturedRanges).length == 0) return;
+        
+        MPTextPart *part = [[MPTextPart alloc] init];
+        part.text = *capturedStrings;
+        part.range = *capturedRanges;
+        part.special = YES;
+        part.emotion = [part.text hasPrefix:@"["] && [part.text hasSuffix:@"]"];
+        [parts addObject:part];
+    }];
+    
+    [text enumerateStringsSeparatedByRegex:pattern usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
+        if ((*capturedRanges).length == 0) return;
+        
+        MPTextPart *part = [[MPTextPart alloc] init];
+        part.text = *capturedStrings;
+        part.range = *capturedRanges;
+        [parts addObject:part];
+    }];
+    
+    [parts sortUsingComparator:^NSComparisonResult(MPTextPart *part1, MPTextPart *part2) {
+        if (part1.range.location > part2.range.location) {
+            return NSOrderedDescending;
+        }
+        return NSOrderedAscending;
+    }];
+    
+    [parts enumerateObjectsUsingBlock:^(MPTextPart *part, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSAttributedString *subStr = nil;
+        if (part.isEmotion) {
+            NSTextAttachment *attach = [[NSTextAttachment alloc] init];
+            attach.image = [UIImage imageNamed:@"d_aini"];
+            attach.bounds = CGRectMake(0, -3, 17, 17);
+            subStr = [NSAttributedString attributedStringWithAttachment:attach];
+        }else if(part.isSpecial){
+            subStr = [[NSAttributedString alloc] initWithString:part.text
+                                                     attributes:@{
+                                                                NSForegroundColorAttributeName : [UIColor blueColor]
+                                                                }];
+        }else{
+            subStr = [[NSAttributedString alloc] initWithString:part.text];
+        }
+        [attributedText appendAttributedString:subStr];
     }];
     
     return attributedText;
