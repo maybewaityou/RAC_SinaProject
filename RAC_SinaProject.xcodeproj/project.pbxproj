@@ -67,6 +67,7 @@
 		6050F83C1B8EB7E6006C5F45 /* MPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F8381B8EB7E6006C5F45 /* MPProfileViewController.m */; };
 		6050F8401B8EB80C006C5F45 /* MPMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F83F1B8EB80C006C5F45 /* MPMessageCenterViewController.m */; };
 		6050FFCE1B8FCB7D0033733B /* MPAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050FFCD1B8FCB7D0033733B /* MPAccount.m */; };
+		605FD7F01BB74E81000EF32E /* MPTextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 605FD7EF1BB74E81000EF32E /* MPTextPart.m */; settings = {ASSET_TAGS = (); }; };
 		606632F41BB39D4B0080F601 /* MPEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 606632F31BB39D4B0080F601 /* MPEmotionTool.m */; settings = {ASSET_TAGS = (); }; };
 		6072F93C1B8E730700D47790 /* MPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F9371B8E730700D47790 /* MPHomeViewController.m */; };
 		6072F93D1B8E730700D47790 /* MPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F93B1B8E730700D47790 /* MPAppDelegate.m */; };
@@ -215,6 +216,8 @@
 		6050F83F1B8EB80C006C5F45 /* MPMessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMessageCenterViewController.m; sourceTree = "<group>"; };
 		6050FFCC1B8FCB7D0033733B /* MPAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPAccount.h; sourceTree = "<group>"; };
 		6050FFCD1B8FCB7D0033733B /* MPAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPAccount.m; sourceTree = "<group>"; };
+		605FD7EE1BB74E81000EF32E /* MPTextPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTextPart.h; sourceTree = "<group>"; };
+		605FD7EF1BB74E81000EF32E /* MPTextPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTextPart.m; sourceTree = "<group>"; };
 		606632F21BB39D4B0080F601 /* MPEmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEmotionTool.h; sourceTree = "<group>"; };
 		606632F31BB39D4B0080F601 /* MPEmotionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPEmotionTool.m; sourceTree = "<group>"; };
 		6072F9361B8E730700D47790 /* MPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeViewController.h; sourceTree = "<group>"; };
@@ -640,6 +643,8 @@
 				6006EC251B9045B100DFD4D0 /* StatusResult.m */,
 				6097A45C1B9C094B0023C0C9 /* MPPhoto.h */,
 				6097A45D1B9C094B0023C0C9 /* MPPhoto.m */,
+				605FD7EE1BB74E81000EF32E /* MPTextPart.h */,
+				605FD7EF1BB74E81000EF32E /* MPTextPart.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1097,6 +1102,7 @@
 				602D274C1B95547400DD1B5C /* MPHomeStatusNoticeView.m in Sources */,
 				6006EC201B903B6000DFD4D0 /* Status.m in Sources */,
 				6006EC051B8FF54E00DFD4D0 /* UIWindow+Extension.m in Sources */,
+				605FD7F01BB74E81000EF32E /* MPTextPart.m in Sources */,
 				60AEB7151BABA9A90069A7F8 /* MPEmotionTextView.m in Sources */,
 				6097A45B1B9BE1EA0023C0C9 /* MPPermissionUtils.m in Sources */,
 				606632F41BB39D4B0080F601 /* MPEmotionTool.m in Sources */,
