@@ -10,9 +10,4 @@
 
 @implementation MPTextPart
 
-- (NSString *)description
-{
-    return [NSString stringWithFormat:@"%@ - %@", self.text, NSStringFromRange(self.range)];
-}
-
 @end

@@ -139,8 +139,8 @@
         }else if(part.isSpecial){
             subStr = [[NSAttributedString alloc] initWithString:part.text
                                                      attributes:@{
-                                                                NSForegroundColorAttributeName : [UIColor blueColor]
-                                                                }];
+                                                                  NSForegroundColorAttributeName : [UIColor blueColor]
+                                                                  }];
         }else{
             subStr = [[NSAttributedString alloc] initWithString:part.text];
         }
