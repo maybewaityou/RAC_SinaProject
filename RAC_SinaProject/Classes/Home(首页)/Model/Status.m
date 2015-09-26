@@ -10,6 +10,13 @@
 #import "MJExtension.h"
 #import "MPPhoto.h"
 #import "NSDate+Extension.h"
+#import "RegexKitLite.h"
+#import <UIKit/UIKit.h>
+#import "User.h"
+
+@interface Status ()
+
+@end
 
 @implementation Status
 
@@ -62,6 +69,40 @@
     range.location = [source rangeOfString:@">"].location + 1;
     range.length = [source rangeOfString:@"</"].location - range.location;
     _source = [NSString stringWithFormat:@"来自%@",[source substringWithRange:range]];
+}
+
+- (void)setText:(NSString *)text
+{
+    _text = [text copy];
+    
+    _attributedText = [self attributedTextWithText:text];
+}
+
+- (void)setRetweeted_status:(Status *)retweeted_status
+{
+    _retweeted_status = retweeted_status;
+    
+    User *retweetStatusUser = retweeted_status.user;
+    NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@", retweetStatusUser.name, retweeted_status.text];
+    _retweetedAttributedText = [self attributedTextWithText:retweetContent];
+}
+
+/**
+ * 普通文字转为属性文字
+ */
+- (NSAttributedString *)attributedTextWithText:(NSString *)text
+{
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
+    
+    NSString *emotionPattern = @"\\[[0-9a-zA-Z\\u4e00-\\u9fa5]+\\]";
+    NSString *atPattern = @"@[0-9a-zA-Z\\u4e00-\\u9fa5]+";
+    NSString *topicPattern = @"#[0-9a-zA-Z\\u4e00-\\u9fa5]+#";
+    NSString *urlPattern = @"\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^[:punct:]\\s]|/)))";
+    NSString *pattern = [NSString stringWithFormat:@"%@|%@|%@|%@",emotionPattern, atPattern, topicPattern, urlPattern];
+    [text enumerateStringsMatchedByRegex:pattern usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
+        [attributedText addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:*capturedRanges];
+    }];
+    return attributedText;
 }
 
 - (NSString *)description

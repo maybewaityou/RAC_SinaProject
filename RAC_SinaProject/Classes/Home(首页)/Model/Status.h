@@ -18,6 +18,7 @@
 @property (nonatomic, copy)NSString *idstr;
 //"text": "求关注。",
 @property (nonatomic, copy)NSString *text;
+@property (nonatomic, copy)NSAttributedString *attributedText;
 //"favorited": false,
 @property (nonatomic, copy)NSString *favorited;
 //"truncated": false,
@@ -47,5 +48,6 @@
 @property (nonatomic, strong)NSArray *pic_urls;
 /** 被转发的原微博信息字段，当该微博为转发微博时返回 */
 @property (nonatomic, strong)Status *retweeted_status;
+@property (nonatomic, copy)NSAttributedString *retweetedAttributedText;
 
 @end

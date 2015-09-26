@@ -320,7 +320,7 @@
     User *user = status.user;
     self.viewModel.status = status;
     self.nameLabel.text = status.user.name;
-    self.statusLabel.text = status.text;
+    self.statusLabel.attributedText = status.attributedText;
     self.timeLabel.text = status.created_at;
     self.sourceLabel.text = status.source;
     self.userImageView.user = user;
@@ -346,11 +346,9 @@
     
     if (status.retweeted_status) {
         Status *retweetStatus = status.retweeted_status;
-        User *retweetStatusUser = retweetStatus.user;
         /** 被转发的微博正文 */
-        NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@", retweetStatusUser.name, retweetStatus.text];
-        self.retweetContentView.text = retweetContent;
-
+        self.retweetContentView.attributedText = status.retweetedAttributedText;
+        
         if (retweetStatus.pic_urls.count) {
             self.retweetPhotoImageView.photos = retweetStatus.pic_urls;
             [self retweetContentViewHiddenTopConstrain:NO];
