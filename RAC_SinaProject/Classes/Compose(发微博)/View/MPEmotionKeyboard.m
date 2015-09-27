@@ -12,7 +12,6 @@
 #import "UIView+Extension.h"
 #import "ReactiveCocoa.h"
 #import "MPEmotion.h"
-#import "MJExtension.h"
 #import "MPEmotionTool.h"
 #import "Constant.h"
 
@@ -115,8 +114,7 @@
 {
     if (!_defaultListView) {
         _defaultListView = [[MPEmotionListView alloc] init];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/default/info.plist" ofType:nil];
-        _defaultListView.emotions = [MPEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
+        _defaultListView.emotions = [MPEmotionTool defaultEmotions];
     }
     return _defaultListView;
 }
@@ -125,8 +123,7 @@
 {
     if (!_emojiListView) {
         _emojiListView = [[MPEmotionListView alloc] init];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/info.plist" ofType:nil];
-        _emojiListView.emotions = [MPEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
+        _emojiListView.emotions = [MPEmotionTool emojiEmotions];
     }
     return _emojiListView;
 }
@@ -135,8 +132,7 @@
 {
     if (!_lxhListView) {
         _lxhListView = [[MPEmotionListView alloc] init];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/lxh/info.plist" ofType:nil];
-        _lxhListView.emotions = [MPEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
+        _lxhListView.emotions = [MPEmotionTool lxhEmotions];
     }
     return _lxhListView;
 }
