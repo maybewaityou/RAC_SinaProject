@@ -14,6 +14,8 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 #import "MPTextPart.h"
+#import "MPEmotionTool.h"
+#import "MPEmotion.h"
 
 @interface Status ()
 
@@ -133,9 +135,14 @@
         NSAttributedString *subStr = nil;
         if (part.isEmotion) {
             NSTextAttachment *attach = [[NSTextAttachment alloc] init];
-            attach.image = [UIImage imageNamed:@"d_aini"];
-            attach.bounds = CGRectMake(0, -3, 17, 17);
-            subStr = [NSAttributedString attributedStringWithAttachment:attach];
+            NSString *name = [MPEmotionTool emotionWithChs:part.text].png;
+            if (name) {
+                attach.image = [UIImage imageNamed:name];
+                attach.bounds = CGRectMake(0, -3, 17, 17);
+                subStr = [NSAttributedString attributedStringWithAttachment:attach];
+            }else{
+                subStr = [[NSAttributedString alloc] initWithString:part.text];
+            }
         }else if(part.isSpecial){
             subStr = [[NSAttributedString alloc] initWithString:part.text
                                                      attributes:@{
