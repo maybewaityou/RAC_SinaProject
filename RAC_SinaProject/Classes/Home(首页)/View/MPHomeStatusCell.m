@@ -9,7 +9,6 @@
 #import "MPHomeStatusCell.h"
 #import "Status.h"
 #import "Masonry.h"
-#import "UIImageView+WebCache.h"
 #import "ReactiveCocoa.h"
 #import "MPHomeCellViewModel.h"
 #import "User.h"
@@ -56,6 +55,7 @@
 
 @implementation MPHomeStatusCell
 
+#pragma mark - 初始化方法
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -99,6 +99,7 @@
     
 }
 
+#pragma mark - 初始化控件
 - (void)initOriginalStatusViews
 {
     // 原创微博
@@ -185,6 +186,7 @@
     self.dividerRight = dividerRight;
 }
 
+#pragma mark - 设置控件
 - (void)setupOriginalStatusViews
 {
     // 原创微博
@@ -308,6 +310,7 @@
 
 }
 
+#pragma mark - 绑定控件
 - (void)bindViewModel:(id)viewModel
 {
     Status *status = (Status *)viewModel;
@@ -375,6 +378,7 @@
     return _viewModel;
 }
 
+#pragma mark - 判断是否显示，更新约束
 - (void)setupPhotoViewHeight:(NSUInteger)count
 {
     if (count == 0) {
@@ -467,6 +471,7 @@
     [super updateConstraints];
 }
 
+#pragma mark - 设置底部工具条
 - (void)setupStatusToolBarWithStatus:(Status *)status
 {
     [self setupBtnCount:[status.reposts_count intValue] btn:self.repostButton title:@"转发"];

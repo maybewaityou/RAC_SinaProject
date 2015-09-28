@@ -33,8 +33,8 @@
 {
     _photo = photo;
     NSString *thumbnail_pic = photo[@"thumbnail_pic"];
-    [self sd_setImageWithURL:[NSURL URLWithString:thumbnail_pic]];
-    
+    [self sd_setImageWithURL:[NSURL URLWithString:thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+
     self.gifImageView.hidden = ![thumbnail_pic.lowercaseString hasSuffix:@"gif"];
 }
 
