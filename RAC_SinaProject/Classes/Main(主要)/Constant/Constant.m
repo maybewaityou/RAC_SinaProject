@@ -28,4 +28,3 @@ const NSTimeInterval UN_READ_STATUS_TIMEINTERVAL = 60;
 NSString *const MPEmotionDidSelectNotification = @"MPEmotionDidSelectNotification";
 NSString *const MPSelectEmotionKey = @"MPSelectEmotionKey";
 NSString *const MPEmotionDeleteNotification = @"MPEmotionDeleteNotification";
-
