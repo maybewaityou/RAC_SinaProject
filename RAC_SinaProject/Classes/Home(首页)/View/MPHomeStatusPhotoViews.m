@@ -10,9 +10,7 @@
 #import "MPHomeStatusPhotoView.h"
 #import "Masonry.h"
 #import "RACEXTScope.h"
-
-#define MPHomeStatusPhotoWH 70
-#define margin10 10
+#import "MPNMacros.h"
 
 @interface MPHomeStatusPhotoViews ()
 
@@ -87,64 +85,64 @@
         @strongify(self);
         make.top.equalTo(self);
         make.left.equalTo(self);
-        make.width.equalTo(@MPHomeStatusPhotoWH);
-        make.height.equalTo(@MPHomeStatusPhotoWH);
+        make.width.equalTo(@MPStatusPhotoWH);
+        make.height.equalTo(@MPStatusPhotoWH);
     }];
     [self.photoView01 mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.equalTo(self.photoView00);
         make.left.equalTo(self.photoView00.mas_right).offset(margin10);
-        make.width.equalTo(@MPHomeStatusPhotoWH);
-        make.height.equalTo(@MPHomeStatusPhotoWH);
+        make.width.equalTo(@MPStatusPhotoWH);
+        make.height.equalTo(@MPStatusPhotoWH);
     }];
     [self.photoView02 mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.equalTo(self.photoView00);
         make.left.equalTo(self.photoView01.mas_right).offset(margin10);
-        make.width.equalTo(@MPHomeStatusPhotoWH);
-        make.height.equalTo(@MPHomeStatusPhotoWH);
+        make.width.equalTo(@MPStatusPhotoWH);
+        make.height.equalTo(@MPStatusPhotoWH);
     }];
     [self.photoView03 mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.equalTo(self.photoView00.mas_bottom).offset(margin10);
         make.left.equalTo(self.photoView00);
-        make.width.equalTo(@MPHomeStatusPhotoWH);
-        make.height.equalTo(@MPHomeStatusPhotoWH);
+        make.width.equalTo(@MPStatusPhotoWH);
+        make.height.equalTo(@MPStatusPhotoWH);
     }];
     [self.photoView04 mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.equalTo(self.photoView03);
         make.left.equalTo(self.photoView03.mas_right).offset(margin10);
-        make.width.equalTo(@MPHomeStatusPhotoWH);
-        make.height.equalTo(@MPHomeStatusPhotoWH);
+        make.width.equalTo(@MPStatusPhotoWH);
+        make.height.equalTo(@MPStatusPhotoWH);
     }];
     [self.photoView05 mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.equalTo(self.photoView03);
         make.left.equalTo(self.photoView04.mas_right).offset(margin10);
-        make.width.equalTo(@MPHomeStatusPhotoWH);
-        make.height.equalTo(@MPHomeStatusPhotoWH);
+        make.width.equalTo(@MPStatusPhotoWH);
+        make.height.equalTo(@MPStatusPhotoWH);
     }];
     [self.photoView06 mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.equalTo(self.photoView03.mas_bottom).offset(margin10);
         make.left.equalTo(self.photoView00);
-        make.width.equalTo(@MPHomeStatusPhotoWH);
-        make.height.equalTo(@MPHomeStatusPhotoWH);
+        make.width.equalTo(@MPStatusPhotoWH);
+        make.height.equalTo(@MPStatusPhotoWH);
     }];
     [self.photoView07 mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.equalTo(self.photoView06);
         make.left.equalTo(self.photoView06.mas_right).offset(margin10);
-        make.width.equalTo(@MPHomeStatusPhotoWH);
-        make.height.equalTo(@MPHomeStatusPhotoWH);
+        make.width.equalTo(@MPStatusPhotoWH);
+        make.height.equalTo(@MPStatusPhotoWH);
     }];
     [self.photoView08 mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.equalTo(self.photoView06);
         make.left.equalTo(self.photoView07.mas_right).offset(margin10);
-        make.width.equalTo(@MPHomeStatusPhotoWH);
-        make.height.equalTo(@MPHomeStatusPhotoWH);
+        make.width.equalTo(@MPStatusPhotoWH);
+        make.height.equalTo(@MPStatusPhotoWH);
     }];
 }
 
