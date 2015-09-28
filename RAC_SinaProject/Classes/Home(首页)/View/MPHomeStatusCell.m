@@ -17,13 +17,7 @@
 #import "UIColor+Extension.h"
 #import "MPHomeStatusPhotoViews.h"
 #import "MPUserIconView.h"
-
-#define margin5 (5)
-#define margin10 (10)
-#define defaultW (44)
-#define defaultH (44)
-#define photoViewW (70)
-#define photoViewH (70)
+#import "MPNMacros.h"
 
 @interface MPHomeStatusCell ()
 
@@ -75,7 +69,7 @@
 {
     // 原创微博
     [self initOriginalStatusViews];
-    
+
     // 转发微博
     [self initRepostStatusViews];
     
@@ -235,7 +229,7 @@
         @strongify(self);
         make.top.equalTo(self.statusLabel.mas_bottom).offset(margin10);
         make.left.equalTo(self.userImageView);
-        make.width.equalTo(@(photoViewW * 3 + margin10 * 2));
+        make.width.equalTo(@(MPStatusPhotoWH * 3 + margin10 * 2));
     }];
     [self.originalView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
@@ -266,7 +260,7 @@
         @strongify(self);
         make.top.equalTo(self.retweetContentView.mas_bottom).offset(margin10);
         make.left.equalTo(self.retweetContentView);
-        make.width.equalTo(@(photoViewW * 3 + margin10 * 2));
+        make.width.equalTo(@(MPStatusPhotoWH * 3 + margin10 * 2));
     }];
 }
 
@@ -393,17 +387,17 @@
     }else if (count <= 3) {
         [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.statusLabel.mas_bottom).offset(margin10);
-            make.height.equalTo(@(photoViewH));
+            make.height.equalTo(@(MPStatusPhotoWH));
         }];
     }else if(count <= 6 && count > 3){
         [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.statusLabel.mas_bottom).offset(margin10);
-            make.height.equalTo(@(photoViewH * 2 + margin10));
+            make.height.equalTo(@(MPStatusPhotoWH * 2 + margin10));
         }];
     }else {
         [self.photoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.statusLabel.mas_bottom).offset(margin10);
-            make.height.equalTo(@(photoViewH * 3 + margin10 * 2));
+            make.height.equalTo(@(MPStatusPhotoWH * 3 + margin10 * 2));
         }];
     }
     [self updateConstraints];
@@ -421,17 +415,17 @@
     }else if (count <= 3) {
         [self.retweetPhotoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.retweetContentView.mas_bottom).offset(margin10);
-            make.height.equalTo(@(photoViewH));
+            make.height.equalTo(@(MPStatusPhotoWH));
         }];
     }else if(count <= 6 && count > 3){
         [self.retweetPhotoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.retweetContentView.mas_bottom).offset(margin10);
-            make.height.equalTo(@(photoViewH * 2 + margin10));
+            make.height.equalTo(@(MPStatusPhotoWH * 2 + margin10));
         }];
     }else {
         [self.retweetPhotoImageView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.retweetContentView.mas_bottom).offset(margin10);
-            make.height.equalTo(@(photoViewH * 3 + margin10 * 2));
+            make.height.equalTo(@(MPStatusPhotoWH * 3 + margin10 * 2));
         }];
     }
     [super updateConstraints];
