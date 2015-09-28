@@ -43,7 +43,6 @@
 		60243BAB1B8F153400FD62A7 /* MPNetworkServicesImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243BAA1B8F153400FD62A7 /* MPNetworkServicesImpl.m */; };
 		602D274C1B95547400DD1B5C /* MPHomeStatusNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 602D274B1B95547400DD1B5C /* MPHomeStatusNoticeView.m */; };
 		602DFA871B8E650C009A1C8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 602DFA861B8E650C009A1C8E /* main.m */; };
-		602DFA901B8E650C009A1C8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602DFA8E1B8E650C009A1C8E /* Main.storyboard */; };
 		602DFA921B8E650C009A1C8E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602DFA911B8E650C009A1C8E /* Images.xcassets */; };
 		602DFA951B8E650C009A1C8E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602DFA931B8E650C009A1C8E /* LaunchScreen.xib */; };
 		602DFAA11B8E650C009A1C8E /* RAC_SinaProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 602DFAA01B8E650C009A1C8E /* RAC_SinaProjectTests.m */; };
@@ -51,6 +50,7 @@
 		604629B51BB642E80013417D /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 604629B41BB642E80013417D /* libicucore.tbd */; };
 		6049FC731BACC08200A6A11A /* MPEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6049FC721BACC08200A6A11A /* MPEmotionAttachment.m */; };
 		604ADE101BB4ABF400175B4E /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 604ADE0F1BB4ABF400175B4E /* Constant.m */; settings = {ASSET_TAGS = (); }; };
+		604B3B0F1BB9EAA2001A303C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 604B3B0E1BB9EAA2001A303C /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		604F57FA1B9FDE0200A50972 /* MPTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 604F57F91B9FDE0200A50972 /* MPTabBar.m */; };
 		604F58371BA0097D00A50972 /* MPComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 604F58321BA0097D00A50972 /* MPComposeViewController.m */; };
 		604F583A1BA009C500A50972 /* MPComposeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 604F58391BA009C500A50972 /* MPComposeViewModel.m */; };
@@ -172,7 +172,6 @@
 		602DFA811B8E650C009A1C8E /* RAC_SinaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RAC_SinaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		602DFA851B8E650C009A1C8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		602DFA861B8E650C009A1C8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		602DFA8F1B8E650C009A1C8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		602DFA911B8E650C009A1C8E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		602DFA941B8E650C009A1C8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		602DFA9A1B8E650C009A1C8E /* RAC_SinaProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RAC_SinaProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +183,7 @@
 		6049FC711BACC08200A6A11A /* MPEmotionAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEmotionAttachment.h; sourceTree = "<group>"; };
 		6049FC721BACC08200A6A11A /* MPEmotionAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPEmotionAttachment.m; sourceTree = "<group>"; };
 		604ADE0F1BB4ABF400175B4E /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
+		604B3B0E1BB9EAA2001A303C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		604F57F81B9FDE0200A50972 /* MPTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTabBar.h; sourceTree = "<group>"; };
 		604F57F91B9FDE0200A50972 /* MPTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTabBar.m; sourceTree = "<group>"; };
 		604F58311BA0097D00A50972 /* MPComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPComposeViewController.h; sourceTree = "<group>"; };
@@ -511,8 +511,8 @@
 			isa = PBXGroup;
 			children = (
 				6072F9331B8E730700D47790 /* Classes */,
-				602DFA8E1B8E650C009A1C8E /* Main.storyboard */,
 				602DFA931B8E650C009A1C8E /* LaunchScreen.xib */,
+				604B3B0E1BB9EAA2001A303C /* Main.storyboard */,
 				602DFA841B8E650C009A1C8E /* Supporting Files */,
 			);
 			path = RAC_SinaProject;
@@ -1013,10 +1013,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				602DFA901B8E650C009A1C8E /* Main.storyboard in Resources */,
 				602DFA951B8E650C009A1C8E /* LaunchScreen.xib in Resources */,
 				602DFA921B8E650C009A1C8E /* Images.xcassets in Resources */,
 				60ABF63F1BAA984800C23321 /* EmotionIcons in Resources */,
+				604B3B0F1BB9EAA2001A303C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1154,14 +1154,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		602DFA8E1B8E650C009A1C8E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				602DFA8F1B8E650C009A1C8E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		602DFA931B8E650C009A1C8E /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1177,6 +1169,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1220,6 +1213,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
