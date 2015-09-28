@@ -17,7 +17,6 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-    
         [self initialize];
     }
     return self;
