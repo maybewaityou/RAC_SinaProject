@@ -144,7 +144,6 @@
     self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [self.viewModel loadMoreStatus];
     }];
-    
 }
 
 - (void)dealloc
