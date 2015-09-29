@@ -34,6 +34,9 @@
 		60113CA61BAB7A5B001EF84C /* MPEmotionTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 60113C9C1BAB7A5B001EF84C /* MPEmotionTabBar.m */; };
 		60113CA71BAB7A5B001EF84C /* MPEmotionTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 60113C9E1BAB7A5B001EF84C /* MPEmotionTabBarButton.m */; };
 		602079CA1B930ABE00ECD17E /* MPHomeCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 602079C91B930ABE00ECD17E /* MPHomeCellViewModel.m */; };
+		60232D0D1BBA364E00B1884E /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60232D071BBA364E00B1884E /* SDBrowserImageView.m */; settings = {ASSET_TAGS = (); }; };
+		60232D0E1BBA364E00B1884E /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60232D091BBA364E00B1884E /* SDPhotoBrowser.m */; settings = {ASSET_TAGS = (); }; };
+		60232D0F1BBA364E00B1884E /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60232D0C1BBA364E00B1884E /* SDWaitingView.m */; settings = {ASSET_TAGS = (); }; };
 		60243B5A1B8EDF3300FD62A7 /* MPNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B591B8EDF3300FD62A7 /* MPNewfeatureViewController.m */; };
 		60243B5C1B8EE9D000FD62A7 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60243B5B1B8EE9D000FD62A7 /* Reveal.framework */; };
 		60243B851B8EFB0A00FD62A7 /* MPNetworkApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 60243B7A1B8EFB0A00FD62A7 /* MPNetworkApi.m */; };
@@ -148,6 +151,13 @@
 		60113C9E1BAB7A5B001EF84C /* MPEmotionTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPEmotionTabBarButton.m; sourceTree = "<group>"; };
 		602079C81B930ABE00ECD17E /* MPHomeCellViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeCellViewModel.h; sourceTree = "<group>"; };
 		602079C91B930ABE00ECD17E /* MPHomeCellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeCellViewModel.m; sourceTree = "<group>"; };
+		60232D061BBA364E00B1884E /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
+		60232D071BBA364E00B1884E /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
+		60232D081BBA364E00B1884E /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
+		60232D091BBA364E00B1884E /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
+		60232D0A1BBA364E00B1884E /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		60232D0B1BBA364E00B1884E /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
+		60232D0C1BBA364E00B1884E /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
 		60243B581B8EDF3300FD62A7 /* MPNewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNewfeatureViewController.h; sourceTree = "<group>"; };
 		60243B591B8EDF3300FD62A7 /* MPNewfeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNewfeatureViewController.m; sourceTree = "<group>"; };
 		60243B5B1B8EE9D000FD62A7 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
@@ -338,6 +348,20 @@
 				60AEB7141BABA9A90069A7F8 /* MPEmotionTextView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		60232D051BBA364E00B1884E /* SDPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				60232D061BBA364E00B1884E /* SDBrowserImageView.h */,
+				60232D071BBA364E00B1884E /* SDBrowserImageView.m */,
+				60232D081BBA364E00B1884E /* SDPhotoBrowser.h */,
+				60232D091BBA364E00B1884E /* SDPhotoBrowser.m */,
+				60232D0A1BBA364E00B1884E /* SDPhotoBrowserConfig.h */,
+				60232D0B1BBA364E00B1884E /* SDWaitingView.h */,
+				60232D0C1BBA364E00B1884E /* SDWaitingView.m */,
+			);
+			path = SDPhotoBrowser;
 			sourceTree = "<group>";
 		};
 		60243B531B8EDF0D00FD62A7 /* Newfeature(新特性) */ = {
@@ -609,8 +633,9 @@
 		6050F8121B8E9A87006C5F45 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				604629B01BB641E40013417D /* RegexKitLite */,
 				600802D81B9EE98E0029F1C2 /* Async */,
+				60232D051BBA364E00B1884E /* SDPhotoBrowser */,
+				604629B01BB641E40013417D /* RegexKitLite */,
 				60243B961B8F00F500FD62A7 /* ReactiveViewModel */,
 				60243B5D1B8EFB0A00FD62A7 /* Networking */,
 			);
@@ -1073,8 +1098,10 @@
 				604F583D1BA0154A00A50972 /* MPComposeService.m in Sources */,
 				600802D71B9EBC930029F1C2 /* MPHomeStatusPhotoViews.m in Sources */,
 				6006EC231B903CF600DFD4D0 /* User.m in Sources */,
+				60232D0D1BBA364E00B1884E /* SDBrowserImageView.m in Sources */,
 				6050F8251B8EAA9E006C5F45 /* TestViewController01.m in Sources */,
 				60AEB7181BABACC40069A7F8 /* UITextView+Extension.m in Sources */,
+				60232D0E1BBA364E00B1884E /* SDPhotoBrowser.m in Sources */,
 				60113CA51BAB7A5B001EF84C /* MPEmotionPopView.m in Sources */,
 				60243B8E1B8EFC2200FD62A7 /* MaterialProgress.m in Sources */,
 				6050FFCE1B8FCB7D0033733B /* MPAccount.m in Sources */,
@@ -1120,6 +1147,7 @@
 				6050F81B1B8EA24C006C5F45 /* MPNavigationController.m in Sources */,
 				6072F93D1B8E730700D47790 /* MPAppDelegate.m in Sources */,
 				60113CA11BAB7A5B001EF84C /* MPEmotionButton.m in Sources */,
+				60232D0F1BBA364E00B1884E /* SDWaitingView.m in Sources */,
 				6050F8401B8EB80C006C5F45 /* MPMessageCenterViewController.m in Sources */,
 				6006EC1A1B90398000DFD4D0 /* MPTableViewBindingHelper.m in Sources */,
 				60243B9F1B8F043C00FD62A7 /* MPOAuthViewController.m in Sources */,
