@@ -22,22 +22,31 @@
 {
     self = [super init];
     if (self) {
-        
-        self.contentMode = UIViewContentModeScaleAspectFill;
-        self.clipsToBounds = YES;
+        [self initialize];
     }
     return self;
 }
 
+#pragma mark - 初始化
+- (void)initialize {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onPhotoViewClick:)];
+    [self addGestureRecognizer:tap];
+    self.userInteractionEnabled = YES;
+    self.contentMode = UIViewContentModeScaleAspectFill;
+    self.clipsToBounds = YES;
+}
+
+#pragma mark - 设置图片
 - (void)setPhoto:(NSDictionary *)photo
 {
     _photo = photo;
-    NSString *thumbnail_pic = photo[@"thumbnail_pic"];
-    [self sd_setImageWithURL:[NSURL URLWithString:thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+    _thumbnail_pic = photo[@"thumbnail_pic"];
+    [self sd_setImageWithURL:[NSURL URLWithString:_thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
 
-    self.gifImageView.hidden = ![thumbnail_pic.lowercaseString hasSuffix:@"gif"];
+    self.gifImageView.hidden = ![_thumbnail_pic.lowercaseString hasSuffix:@"gif"];
 }
 
+#pragma mark - 懒加载
 - (UIImageView *)gifImageView
 {
     if (!_gifImageView) {
@@ -50,6 +59,14 @@
         }];
     }
     return _gifImageView;
+}
+
+#pragma mark - 点击事件
+- (void)onPhotoViewClick:(UITapGestureRecognizer *)recognizer
+{
+    if ([_onClickDelegate respondsToSelector:@selector(onClick:)]) {
+        [_onClickDelegate onClick:self];
+    }
 }
 
 @end
