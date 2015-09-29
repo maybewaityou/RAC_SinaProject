@@ -174,6 +174,7 @@
 #pragma mark - 设置图片
 - (void)setPhotos:(NSArray *)photos
 {
+    _photos = photos;
     if (!photos) {
         for (int i=0; i<self.subviews.count; i++) {
             MPHomeStatusPhotoView *photoView = self.subviews[i];
@@ -181,8 +182,6 @@
         }
         return;
     }
-    
-    _photos = photos;
     
     NSUInteger photoCount = photos.count;
     
