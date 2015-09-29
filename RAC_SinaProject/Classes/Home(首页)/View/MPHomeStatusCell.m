@@ -20,6 +20,7 @@
 
 @interface MPHomeStatusCell ()
 
+#pragma mark - 原创微博控件
 /**
  *  原创微博
  */
@@ -32,6 +33,7 @@
 @property (nonatomic, weak)UIImageView *vipImageView;
 @property (nonatomic, weak)MPHomeStatusPhotoViews *photoImageView;
 
+#pragma mark - 转发微博控件
 /**
  *  转发微博
  */
@@ -39,6 +41,7 @@
 @property (nonatomic, weak)UILabel *retweetContentView;
 @property (nonatomic, weak)MPHomeStatusPhotoViews *retweetPhotoImageView;
 
+#pragma mark - 转发、评论、赞控件
 /**
  *  转发、评论、赞
  */
@@ -49,6 +52,10 @@
 @property (nonatomic, weak)UIImageView *dividerLeft;
 @property (nonatomic, weak)UIImageView *dividerRight;
 
+#pragma mark - ViewModel
+/**
+ *  ViewModel
+ */
 @property (nonatomic, strong)MPHomeCellViewModel *viewModel;
 
 @end
