@@ -13,6 +13,6 @@
 
 @interface MPTabBar : UITabBar
 
-@property (nonatomic, strong)RACSignal *onPlusClickSignal;
+@property (nonatomic, strong) RACSignal *onPlusClickSignal;
 
 @end

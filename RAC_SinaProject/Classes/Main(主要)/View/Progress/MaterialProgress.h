@@ -18,7 +18,7 @@
 
 @interface MaterialProgress : UIView
 
-@property (weak, nonatomic)id<MaterialProgressDelete> blurDelete;
+@property (weak, nonatomic) id<MaterialProgressDelete> blurDelete;
 
 + (instancetype) sharedMaterialProgress;
 
