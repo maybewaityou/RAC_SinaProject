@@ -11,6 +11,4 @@
 
 @interface MPHomeCellService : NSObject <ModelServices>
 
-- (instancetype)initWithNavController:(UINavigationController *) controller;
-
 @end

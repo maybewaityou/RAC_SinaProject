@@ -12,20 +12,10 @@
 @interface MPHomeCellService ()
 
 @property (nonatomic, strong) MPNetworkServicesImpl *service;
-@property (nonatomic, weak) UIViewController *controller;
 
 @end
 
 @implementation MPHomeCellService
-
-- (instancetype)initWithNavController:(UINavigationController *) controller
-{
-    if (self = [super init]) {
-        _controller = controller;
-        [self initialize];
-    }
-    return self;
-}
 
 - (instancetype)init
 {
