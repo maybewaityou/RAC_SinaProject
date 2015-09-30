@@ -19,10 +19,10 @@
 
 @interface MPHomeViewModel ()
 
-@property (nonatomic, strong)MPHomeService *service;
-@property (nonatomic, strong)MPAccount *account;
+@property (nonatomic, strong) MPHomeService *service;
+@property (nonatomic, strong) MPAccount *account;
 
-@property (nonatomic, copy)NSMutableArray *tempStatus;
+@property (nonatomic, copy) NSMutableArray *tempStatus;
 
 @end
 

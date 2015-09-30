@@ -12,6 +12,6 @@
 
 @interface MPHomeCellViewModel : RVMViewModel
 
-@property (nonatomic, strong)Status *status;
+@property (nonatomic, strong) Status *status;
 
 @end
