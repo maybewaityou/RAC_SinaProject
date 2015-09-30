@@ -245,7 +245,7 @@
         make.top.equalTo(self.userImageView).offset(-margin10);
         make.left.equalTo(self.userImageView).offset(-margin10);
         make.bottom.equalTo(self.photoImageView).offset(margin10);
-        make.width.equalTo(self.mas_width);
+        make.width.equalTo(@SCREEN_WIDTH);
     }];
 }
 
