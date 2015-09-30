@@ -10,7 +10,6 @@
 		6006EC021B8FEDED00DFD4D0 /* MPAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC011B8FEDED00DFD4D0 /* MPAccountTool.m */; };
 		6006EC051B8FF54E00DFD4D0 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC041B8FF54E00DFD4D0 /* UIWindow+Extension.m */; };
 		6006EC081B8FFBFA00DFD4D0 /* MPHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC071B8FFBFA00DFD4D0 /* MPHomeViewModel.m */; };
-		6006EC0C1B900C9100DFD4D0 /* MPHomeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC0B1B900C9100DFD4D0 /* MPHomeService.m */; };
 		6006EC1A1B90398000DFD4D0 /* MPTableViewBindingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC191B90398000DFD4D0 /* MPTableViewBindingHelper.m */; };
 		6006EC1D1B903A1300DFD4D0 /* MPHomeStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC1C1B903A1300DFD4D0 /* MPHomeStatusCell.m */; };
 		6006EC201B903B6000DFD4D0 /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 6006EC1F1B903B6000DFD4D0 /* Status.m */; };
@@ -70,6 +69,7 @@
 		6050F83C1B8EB7E6006C5F45 /* MPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F8381B8EB7E6006C5F45 /* MPProfileViewController.m */; };
 		6050F8401B8EB80C006C5F45 /* MPMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050F83F1B8EB80C006C5F45 /* MPMessageCenterViewController.m */; };
 		6050FFCE1B8FCB7D0033733B /* MPAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050FFCD1B8FCB7D0033733B /* MPAccount.m */; };
+		605DFEEB1BBC981F005B91EC /* MPHomeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 605DFEEA1BBC981F005B91EC /* MPHomeService.m */; settings = {ASSET_TAGS = (); }; };
 		605FD7F01BB74E81000EF32E /* MPTextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 605FD7EF1BB74E81000EF32E /* MPTextPart.m */; settings = {ASSET_TAGS = (); }; };
 		606632F41BB39D4B0080F601 /* MPEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 606632F31BB39D4B0080F601 /* MPEmotionTool.m */; settings = {ASSET_TAGS = (); }; };
 		6072F93C1B8E730700D47790 /* MPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F9371B8E730700D47790 /* MPHomeViewController.m */; };
@@ -103,8 +103,6 @@
 		6006EC041B8FF54E00DFD4D0 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
 		6006EC061B8FFBFA00DFD4D0 /* MPHomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeViewModel.h; sourceTree = "<group>"; };
 		6006EC071B8FFBFA00DFD4D0 /* MPHomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeViewModel.m; sourceTree = "<group>"; };
-		6006EC0A1B900C9100DFD4D0 /* MPHomeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeService.h; sourceTree = "<group>"; };
-		6006EC0B1B900C9100DFD4D0 /* MPHomeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeService.m; sourceTree = "<group>"; };
 		6006EC181B90398000DFD4D0 /* MPTableViewBindingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTableViewBindingHelper.h; sourceTree = "<group>"; };
 		6006EC191B90398000DFD4D0 /* MPTableViewBindingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTableViewBindingHelper.m; sourceTree = "<group>"; };
 		6006EC1B1B903A1300DFD4D0 /* MPHomeStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeStatusCell.h; sourceTree = "<group>"; };
@@ -226,6 +224,8 @@
 		6050F83F1B8EB80C006C5F45 /* MPMessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMessageCenterViewController.m; sourceTree = "<group>"; };
 		6050FFCC1B8FCB7D0033733B /* MPAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPAccount.h; sourceTree = "<group>"; };
 		6050FFCD1B8FCB7D0033733B /* MPAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPAccount.m; sourceTree = "<group>"; };
+		605DFEE91BBC981F005B91EC /* MPHomeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHomeService.h; sourceTree = "<group>"; };
+		605DFEEA1BBC981F005B91EC /* MPHomeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHomeService.m; sourceTree = "<group>"; };
 		605FD7EE1BB74E81000EF32E /* MPTextPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTextPart.h; sourceTree = "<group>"; };
 		605FD7EF1BB74E81000EF32E /* MPTextPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTextPart.m; sourceTree = "<group>"; };
 		606632F21BB39D4B0080F601 /* MPEmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEmotionTool.h; sourceTree = "<group>"; };
@@ -290,15 +290,6 @@
 				6006EC011B8FEDED00DFD4D0 /* MPAccountTool.m */,
 			);
 			path = Tools;
-			sourceTree = "<group>";
-		};
-		6006EC091B900C5500DFD4D0 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				6006EC0A1B900C9100DFD4D0 /* MPHomeService.h */,
-				6006EC0B1B900C9100DFD4D0 /* MPHomeService.m */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		6006EC171B90393900DFD4D0 /* TableViewHelper */ = {
@@ -692,6 +683,7 @@
 		6050F82E1B8EB77E006C5F45 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				605DFEE81BBC981F005B91EC /* Service */,
 				6006EC061B8FFBFA00DFD4D0 /* MPHomeViewModel.h */,
 				6006EC071B8FFBFA00DFD4D0 /* MPHomeViewModel.m */,
 				602079C81B930ABE00ECD17E /* MPHomeCellViewModel.h */,
@@ -799,6 +791,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		605DFEE81BBC981F005B91EC /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				605DFEE91BBC981F005B91EC /* MPHomeService.h */,
+				605DFEEA1BBC981F005B91EC /* MPHomeService.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		606632F11BB39CE70080F601 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -829,7 +830,6 @@
 			children = (
 				6050F82C1B8EB77E006C5F45 /* Model */,
 				6050F82D1B8EB77E006C5F45 /* View */,
-				6006EC091B900C5500DFD4D0 /* Service */,
 				6050F82E1B8EB77E006C5F45 /* ViewModel */,
 				6072F9351B8E730700D47790 /* Controller */,
 			);
@@ -1125,6 +1125,7 @@
 				60113CA71BAB7A5B001EF84C /* MPEmotionTabBarButton.m in Sources */,
 				600802E41B9EED650029F1C2 /* MPUserIconView.m in Sources */,
 				60113CA61BAB7A5B001EF84C /* MPEmotionTabBar.m in Sources */,
+				605DFEEB1BBC981F005B91EC /* MPHomeService.m in Sources */,
 				600802E11B9EE98E0029F1C2 /* GCD.m in Sources */,
 				602D274C1B95547400DD1B5C /* MPHomeStatusNoticeView.m in Sources */,
 				6006EC201B903B6000DFD4D0 /* Status.m in Sources */,
@@ -1137,7 +1138,6 @@
 				604F57FA1B9FDE0200A50972 /* MPTabBar.m in Sources */,
 				6050F8221B8EAA89006C5F45 /* TestViewController00.m in Sources */,
 				60243BAB1B8F153400FD62A7 /* MPNetworkServicesImpl.m in Sources */,
-				6006EC0C1B900C9100DFD4D0 /* MPHomeService.m in Sources */,
 				60243B851B8EFB0A00FD62A7 /* MPNetworkApi.m in Sources */,
 				6050F82B1B8EAEC6006C5F45 /* TestViewController03.m in Sources */,
 				600802DF1B9EE98E0029F1C2 /* Apply.m in Sources */,
