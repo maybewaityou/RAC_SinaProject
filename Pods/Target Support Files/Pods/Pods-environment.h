@@ -180,3 +180,9 @@
 #define COCOAPODS_VERSION_MINOR_Toast 4
 #define COCOAPODS_VERSION_PATCH_Toast 0
 
+// UIViewController+Swizzled
+#define COCOAPODS_POD_AVAILABLE_UIViewController_Swizzled
+#define COCOAPODS_VERSION_MAJOR_UIViewController_Swizzled 1
+#define COCOAPODS_VERSION_MINOR_UIViewController_Swizzled 4
+#define COCOAPODS_VERSION_PATCH_UIViewController_Swizzled 0
+
