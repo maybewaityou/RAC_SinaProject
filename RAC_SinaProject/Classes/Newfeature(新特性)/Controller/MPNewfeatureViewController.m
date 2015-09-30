@@ -17,8 +17,8 @@
 
 @interface MPNewfeatureViewController () <UIScrollViewDelegate>
 
-@property (nonatomic, weak)UIPageControl *pageControl;
-@property (nonatomic, weak)UIScrollView *scrollView;
+@property (nonatomic, weak) UIPageControl *pageControl;
+@property (nonatomic, weak) UIScrollView *scrollView;
 
 @end
 
