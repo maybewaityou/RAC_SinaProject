@@ -11,7 +11,7 @@
 
 @interface MPComposePhotoViews ()
 
-@property (nonatomic, strong)NSMutableArray *photosM;
+@property (nonatomic, strong) NSMutableArray *photosM;
 
 @end
 

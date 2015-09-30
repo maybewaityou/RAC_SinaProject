@@ -13,8 +13,8 @@
 
 @interface MPEmotionListView () <UIScrollViewDelegate>
 
-@property (nonatomic, weak)UIScrollView *scrollView;
-@property (nonatomic, weak)UIPageControl *pageControl;
+@property (nonatomic, weak) UIScrollView *scrollView;
+@property (nonatomic, weak) UIPageControl *pageControl;
 
 @end
 

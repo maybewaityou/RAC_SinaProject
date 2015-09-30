@@ -12,6 +12,6 @@
 
 @interface MPEmotionButton : UIButton
 
-@property (nonatomic, strong)MPEmotion *emotion;
+@property (nonatomic, strong) MPEmotion *emotion;
 
 @end

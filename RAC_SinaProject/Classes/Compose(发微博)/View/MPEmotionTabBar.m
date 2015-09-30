@@ -13,7 +13,7 @@
 
 @interface MPEmotionTabBar ()
 
-@property (nonatomic, weak)MPEmotionTabBarButton *selectedButton;
+@property (nonatomic, weak) MPEmotionTabBarButton *selectedButton;
 
 @end
 

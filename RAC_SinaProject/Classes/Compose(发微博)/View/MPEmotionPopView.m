@@ -15,8 +15,8 @@
 @interface MPEmotionPopView ()
 
 
-@property (nonatomic, weak)UIImageView *backgroundImageView;
-@property (nonatomic, weak)MPEmotionButton *emotionButton;
+@property (nonatomic, weak) UIImageView *backgroundImageView;
+@property (nonatomic, weak) MPEmotionButton *emotionButton;
 @end
 
 @implementation MPEmotionPopView

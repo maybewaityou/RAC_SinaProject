@@ -19,6 +19,6 @@ typedef enum : NSUInteger {
 
 @interface MPEmotionTabBar : UIView
 
-@property (nonatomic, strong)RACSignal *selectedSignal;
+@property (nonatomic, strong) RACSignal *selectedSignal;
 
 @end

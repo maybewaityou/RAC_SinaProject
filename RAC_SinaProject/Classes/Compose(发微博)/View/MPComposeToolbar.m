@@ -12,11 +12,11 @@
 
 @interface MPComposeToolbar ()
 
-@property (nonatomic, weak)UIButton *cameraButton;
-@property (nonatomic, weak)UIButton *pictureButton;
-@property (nonatomic, weak)UIButton *mentionButton;
-@property (nonatomic, weak)UIButton *trendButton;
-@property (nonatomic, weak)UIButton *emoticonButton;
+@property (nonatomic, weak) UIButton *cameraButton;
+@property (nonatomic, weak) UIButton *pictureButton;
+@property (nonatomic, weak) UIButton *mentionButton;
+@property (nonatomic, weak) UIButton *trendButton;
+@property (nonatomic, weak) UIButton *emoticonButton;
 
 @end
 

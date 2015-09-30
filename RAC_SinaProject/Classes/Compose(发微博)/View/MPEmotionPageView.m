@@ -18,8 +18,8 @@
 
 @interface MPEmotionPageView ()
 
-@property (nonatomic, strong)MPEmotionPopView *popView;
-@property (nonatomic, weak)UIButton *deleteButton;
+@property (nonatomic, strong) MPEmotionPopView *popView;
+@property (nonatomic, weak) UIButton *deleteButton;
 
 @end
 

@@ -17,13 +17,13 @@
 
 @interface MPEmotionKeyboard ()
 
-@property (nonatomic, weak)MPEmotionListView *showingListView;
-@property (nonatomic, strong)MPEmotionListView *recentListView;
-@property (nonatomic, strong)MPEmotionListView *defaultListView;
-@property (nonatomic, strong)MPEmotionListView *emojiListView;
-@property (nonatomic, strong)MPEmotionListView *lxhListView;
+@property (nonatomic, weak) MPEmotionListView *showingListView;
+@property (nonatomic, strong) MPEmotionListView *recentListView;
+@property (nonatomic, strong) MPEmotionListView *defaultListView;
+@property (nonatomic, strong) MPEmotionListView *emojiListView;
+@property (nonatomic, strong) MPEmotionListView *lxhListView;
 
-@property (nonatomic, weak)MPEmotionTabBar *tabBar;
+@property (nonatomic, weak) MPEmotionTabBar *tabBar;
 
 @end
 

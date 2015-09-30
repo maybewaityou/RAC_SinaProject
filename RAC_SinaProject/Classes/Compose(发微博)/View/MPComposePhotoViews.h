@@ -10,7 +10,7 @@
 
 @interface MPComposePhotoViews : UIView
 
-@property (nonatomic, copy, readonly)NSArray *photos;
+@property (nonatomic, copy, readonly) NSArray *photos;
 
 - (void)addImage:(UIImage *)image;
 
