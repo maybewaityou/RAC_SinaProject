@@ -13,41 +13,41 @@
 @interface Status : NSObject
 
 //"created_at": "Tue May 31 17:46:55 +0800 2011",
-@property (nonatomic, copy)NSString *created_at;
+@property (nonatomic, copy) NSString *created_at;
 //"id": 11488058246,
-@property (nonatomic, copy)NSString *idstr;
+@property (nonatomic, copy) NSString *idstr;
 //"text": "求关注。",
-@property (nonatomic, copy)NSString *text;
-@property (nonatomic, copy)NSAttributedString *attributedText;
+@property (nonatomic, copy) NSString *text;
+@property (nonatomic, copy) NSAttributedString *attributedText;
 //"favorited": false,
-@property (nonatomic, copy)NSString *favorited;
+@property (nonatomic, copy) NSString *favorited;
 //"truncated": false,
-@property (nonatomic, copy)NSString *truncated;
+@property (nonatomic, copy) NSString *truncated;
 //"in_reply_to_status_id": "",
-@property (nonatomic, copy)NSString *in_reply_to_status_id;
+@property (nonatomic, copy) NSString *in_reply_to_status_id;
 //"in_reply_to_user_id": "",
-@property (nonatomic, copy)NSString *in_reply_to_user_id;
+@property (nonatomic, copy) NSString *in_reply_to_user_id;
 //"in_reply_to_screen_name": "",
-@property (nonatomic, copy)NSString *in_reply_to_screen_name;
+@property (nonatomic, copy) NSString *in_reply_to_screen_name;
 //"geo": null,
-@property (nonatomic, copy)NSString *geo;
+@property (nonatomic, copy) NSString *geo;
 //"mid": "5612814510546515491",
-@property (nonatomic, copy)NSString *mid;
+@property (nonatomic, copy) NSString *mid;
 /**	int	转发数*/
-@property (nonatomic, copy)NSString *reposts_count;
+@property (nonatomic, copy) NSString *reposts_count;
 /**	int	评论数*/
-@property (nonatomic, copy)NSString *comments_count;
+@property (nonatomic, copy) NSString *comments_count;
 /**	int	表态数*/
-@property (nonatomic, copy)NSString *attitudes_count;
+@property (nonatomic, copy) NSString *attitudes_count;
 //来源
-@property (nonatomic, copy)NSString *source;
+@property (nonatomic, copy) NSString *source;
 //"annotations": [],
 //"user": {
-@property (nonatomic, strong)User *user;
+@property (nonatomic, strong) User *user;
 /** 微博配图地址。多图时返回多图链接。无配图返回“[]” */
-@property (nonatomic, strong)NSArray *pic_urls;
+@property (nonatomic, strong) NSArray *pic_urls;
 /** 被转发的原微博信息字段，当该微博为转发微博时返回 */
-@property (nonatomic, strong)Status *retweeted_status;
-@property (nonatomic, copy)NSAttributedString *retweetedAttributedText;
+@property (nonatomic, strong) Status *retweeted_status;
+@property (nonatomic, copy) NSAttributedString *retweetedAttributedText;
 
 @end

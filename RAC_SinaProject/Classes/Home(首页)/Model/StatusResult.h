@@ -10,12 +10,12 @@
 
 @interface StatusResult : NSObject
 
-@property (nonatomic, copy)NSMutableArray *statuses;
+@property (nonatomic, copy) NSMutableArray *statuses;
 //"previous_cursor": 0,
-@property (nonatomic, copy)NSString *previous_cursor;
+@property (nonatomic, copy) NSString *previous_cursor;
 //"next_cursor": 11488013766,
-@property (nonatomic, copy)NSString *next_cursor;
+@property (nonatomic, copy) NSString *next_cursor;
 //"total_number": 81655
-@property (nonatomic, copy)NSString *total_number;
+@property (nonatomic, copy) NSString *total_number;
 
 @end

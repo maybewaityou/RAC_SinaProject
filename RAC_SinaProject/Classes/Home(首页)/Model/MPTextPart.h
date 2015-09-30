@@ -10,9 +10,9 @@
 
 @interface MPTextPart : NSObject
 
-@property (nonatomic, copy)NSString *text;
-@property (nonatomic, assign)NSRange range;
-@property (nonatomic, assign, getter=isSpecial)BOOL special;
-@property (nonatomic, assign, getter=isEmotion)BOOL emotion;
+@property (nonatomic, copy) NSString *text;
+@property (nonatomic, assign) NSRange range;
+@property (nonatomic, assign, getter=isSpecial) BOOL special;
+@property (nonatomic, assign, getter=isEmotion) BOOL emotion;
 
 @end
