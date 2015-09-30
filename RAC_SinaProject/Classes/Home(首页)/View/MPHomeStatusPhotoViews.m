@@ -15,15 +15,15 @@
 
 @interface MPHomeStatusPhotoViews () <MPHomeStatusPhotoViewDelegate, SDPhotoBrowserDelegate>
 
-@property (nonatomic, weak)MPHomeStatusPhotoView *photoView00;
-@property (nonatomic, weak)MPHomeStatusPhotoView *photoView01;
-@property (nonatomic, weak)MPHomeStatusPhotoView *photoView02;
-@property (nonatomic, weak)MPHomeStatusPhotoView *photoView03;
-@property (nonatomic, weak)MPHomeStatusPhotoView *photoView04;
-@property (nonatomic, weak)MPHomeStatusPhotoView *photoView05;
-@property (nonatomic, weak)MPHomeStatusPhotoView *photoView06;
-@property (nonatomic, weak)MPHomeStatusPhotoView *photoView07;
-@property (nonatomic, weak)MPHomeStatusPhotoView *photoView08;
+@property (nonatomic, weak) MPHomeStatusPhotoView *photoView00;
+@property (nonatomic, weak) MPHomeStatusPhotoView *photoView01;
+@property (nonatomic, weak) MPHomeStatusPhotoView *photoView02;
+@property (nonatomic, weak) MPHomeStatusPhotoView *photoView03;
+@property (nonatomic, weak) MPHomeStatusPhotoView *photoView04;
+@property (nonatomic, weak) MPHomeStatusPhotoView *photoView05;
+@property (nonatomic, weak) MPHomeStatusPhotoView *photoView06;
+@property (nonatomic, weak) MPHomeStatusPhotoView *photoView07;
+@property (nonatomic, weak) MPHomeStatusPhotoView *photoView08;
 
 @end
 

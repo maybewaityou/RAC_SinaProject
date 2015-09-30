@@ -12,6 +12,6 @@
 
 @interface MPHomeStatusPhotoViews : UIView
 
-@property (nonatomic, copy)NSArray *photos;
+@property (nonatomic, copy) NSArray *photos;
 
 @end

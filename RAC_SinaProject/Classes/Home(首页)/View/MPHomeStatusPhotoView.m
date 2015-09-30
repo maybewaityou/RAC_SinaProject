@@ -12,7 +12,7 @@
 
 @interface MPHomeStatusPhotoView ()
 
-@property (nonatomic, weak)UIImageView *gifImageView;
+@property (nonatomic, weak) UIImageView *gifImageView;
 
 @end
 

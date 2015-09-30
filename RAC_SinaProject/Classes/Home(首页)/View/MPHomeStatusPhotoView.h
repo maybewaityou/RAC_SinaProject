@@ -30,9 +30,9 @@ typedef enum : NSInteger {
 
 @interface MPHomeStatusPhotoView : UIImageView
 
-@property (nonatomic, copy)NSDictionary *photo;
-@property (nonatomic, copy)NSString *thumbnail_pic;
-@property (nonatomic, assign)MPHomeStatusPhotoViewType type;
-@property (nonatomic, weak)id<MPHomeStatusPhotoViewDelegate> onClickDelegate;
+@property (nonatomic, copy) NSDictionary *photo;
+@property (nonatomic, copy) NSString *thumbnail_pic;
+@property (nonatomic, assign) MPHomeStatusPhotoViewType type;
+@property (nonatomic, weak) id<MPHomeStatusPhotoViewDelegate> onClickDelegate;
 
 @end

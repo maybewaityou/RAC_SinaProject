@@ -12,11 +12,11 @@
 
 @interface MPHomeStatusNoticeView ()
 
-@property (nonatomic, assign)NSUInteger count;
-@property (nonatomic, strong)UIView *aboveView;
-@property (nonatomic, strong)UIView *belowView;
+@property (nonatomic, assign) NSUInteger count;
+@property (nonatomic, strong) UIView *aboveView;
+@property (nonatomic, strong) UIView *belowView;
 
-@property (nonatomic, weak)UILabel *label;
+@property (nonatomic, weak) UILabel *label;
 
 @end
 

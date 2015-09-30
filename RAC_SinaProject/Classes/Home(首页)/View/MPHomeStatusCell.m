@@ -24,39 +24,39 @@
 /**
  *  原创微博
  */
-@property (nonatomic, weak)UIView *originalView;
-@property (nonatomic, weak)UILabel *nameLabel;
-@property (nonatomic, weak)UILabel *timeLabel;
-@property (nonatomic, weak)UILabel *sourceLabel;
-@property (nonatomic, weak)UILabel *statusLabel;
-@property (nonatomic, weak)MPUserIconView *userImageView;
-@property (nonatomic, weak)UIImageView *vipImageView;
-@property (nonatomic, weak)MPHomeStatusPhotoViews *photoImageView;
+@property (nonatomic, weak) UIView *originalView;
+@property (nonatomic, weak) UILabel *nameLabel;
+@property (nonatomic, weak) UILabel *timeLabel;
+@property (nonatomic, weak) UILabel *sourceLabel;
+@property (nonatomic, weak) UILabel *statusLabel;
+@property (nonatomic, weak) MPUserIconView *userImageView;
+@property (nonatomic, weak) UIImageView *vipImageView;
+@property (nonatomic, weak) MPHomeStatusPhotoViews *photoImageView;
 
 #pragma mark - 转发微博控件
 /**
  *  转发微博
  */
-@property (nonatomic, weak)UIView *retweetView;
-@property (nonatomic, weak)UILabel *retweetContentView;
-@property (nonatomic, weak)MPHomeStatusPhotoViews *retweetPhotoImageView;
+@property (nonatomic, weak) UIView *retweetView;
+@property (nonatomic, weak) UILabel *retweetContentView;
+@property (nonatomic, weak) MPHomeStatusPhotoViews *retweetPhotoImageView;
 
 #pragma mark - 转发、评论、赞控件
 /**
  *  转发、评论、赞
  */
-@property (nonatomic, weak)UIView *toolBar;
-@property (nonatomic, weak)UIButton *repostButton;
-@property (nonatomic, weak)UIButton *commentButton;
-@property (nonatomic, weak)UIButton *attitudeButton;
-@property (nonatomic, weak)UIImageView *dividerLeft;
-@property (nonatomic, weak)UIImageView *dividerRight;
+@property (nonatomic, weak) UIView *toolBar;
+@property (nonatomic, weak) UIButton *repostButton;
+@property (nonatomic, weak) UIButton *commentButton;
+@property (nonatomic, weak) UIButton *attitudeButton;
+@property (nonatomic, weak) UIImageView *dividerLeft;
+@property (nonatomic, weak) UIImageView *dividerRight;
 
 #pragma mark - ViewModel
 /**
  *  ViewModel
  */
-@property (nonatomic, strong)MPHomeCellViewModel *viewModel;
+@property (nonatomic, strong) MPHomeCellViewModel *viewModel;
 
 @end
 
