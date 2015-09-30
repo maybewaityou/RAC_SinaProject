@@ -16,7 +16,8 @@
 
 @implementation TestViewController02
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
     self.view.backgroundColor = [UIColor whiteColor];
