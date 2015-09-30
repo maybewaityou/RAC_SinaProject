@@ -7,8 +7,11 @@
 //
 
 #import "MPHomeCellViewModel.h"
+#import "MPHomeCellService.h"
 
 @interface MPHomeCellViewModel ()
+
+@property (nonatomic, strong) MPHomeCellService *service;
 
 @end
 
@@ -17,6 +20,7 @@
 - (instancetype)init
 {
     if (self = [super init]) {
+        _service = [[MPHomeCellService alloc] init];
         [self initialize];
     }
     return self;
