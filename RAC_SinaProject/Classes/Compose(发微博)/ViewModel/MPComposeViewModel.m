@@ -17,7 +17,7 @@
 
 @interface MPComposeViewModel ()
 
-@property (nonatomic, strong)MPComposeService *service;
+@property (nonatomic, strong) MPComposeService *service;
 
 @end
 

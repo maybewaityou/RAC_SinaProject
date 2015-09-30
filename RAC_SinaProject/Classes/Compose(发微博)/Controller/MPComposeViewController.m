@@ -24,14 +24,14 @@
 
 @interface MPComposeViewController () <UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property (nonatomic, strong)MPComposeViewModel *viewModel;
+@property (nonatomic, strong) MPComposeViewModel *viewModel;
 
-@property (nonatomic, weak)UILabel *titleView;
-@property (nonatomic, weak)MPEmotionTextView *textView;
-@property (nonatomic, weak)MPComposeToolbar *toolbar;
-@property (nonatomic, weak)MPComposePhotoViews *photoViews;
+@property (nonatomic, weak) UILabel *titleView;
+@property (nonatomic, weak) MPEmotionTextView *textView;
+@property (nonatomic, weak) MPComposeToolbar *toolbar;
+@property (nonatomic, weak) MPComposePhotoViews *photoViews;
 
-@property (nonatomic, assign)BOOL switchingKeybaord;
+@property (nonatomic, assign) BOOL switchingKeybaord;
 
 @end
 
