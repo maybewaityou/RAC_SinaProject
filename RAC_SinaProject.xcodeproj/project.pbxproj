@@ -367,10 +367,10 @@
 		60243B531B8EDF0D00FD62A7 /* Newfeature(新特性) */ = {
 			isa = PBXGroup;
 			children = (
-				60243B541B8EDF0D00FD62A7 /* Controller */,
 				60243B551B8EDF0D00FD62A7 /* Model */,
 				60243B561B8EDF0D00FD62A7 /* VIew */,
 				60243B571B8EDF0D00FD62A7 /* ViewModel */,
+				60243B541B8EDF0D00FD62A7 /* Controller */,
 			);
 			path = "Newfeature(新特性)";
 			sourceTree = "<group>";
