@@ -21,8 +21,8 @@
 
 @interface MPHomeViewController ()
 
-@property (nonatomic, weak)UITableView *tableView;
-@property (nonatomic, strong)MPHomeViewModel *viewModel;
+@property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, strong) MPHomeViewModel *viewModel;
 
 @end
 
