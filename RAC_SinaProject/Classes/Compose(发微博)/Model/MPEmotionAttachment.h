@@ -12,6 +12,6 @@
 
 @interface MPEmotionAttachment : NSTextAttachment
 
-@property (nonatomic, strong)MPEmotion *emotion;
+@property (nonatomic, strong) MPEmotion *emotion;
 
 @end
