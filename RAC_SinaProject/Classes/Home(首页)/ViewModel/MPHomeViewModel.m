@@ -53,7 +53,7 @@
     [[MaterialProgress sharedMaterialProgress] show];
     @weakify(self);
     [[[self.service getNetworkService] signalWithType:@"get" url:USER_INFO_URL
-                                           parameter:@{
+                                            parameter:@{
                                                        @"access_token" : self.account.access_token,
                                                        @"uid" : self.account.uid
                                                       }]
