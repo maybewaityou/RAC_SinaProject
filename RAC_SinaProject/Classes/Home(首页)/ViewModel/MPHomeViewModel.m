@@ -47,6 +47,7 @@
     }];
 }
 
+#pragma mark - 获取数据
 - (void)requestUserInfo
 {
     [[MaterialProgress sharedMaterialProgress] show];
@@ -67,89 +68,19 @@
 
 - (void)loadStatus
 {
-    [[MaterialProgress sharedMaterialProgress] show];
-    @weakify(self);
-    [[[self.service getNetworkService] signalWithType:@"get" url:NEW_STATUS_URL
-                                            parameter:@{
-                                                        @"access_token" : self.account.access_token
-                                                        }]
-     subscribeNext:^(id response) {
-         [[MaterialProgress sharedMaterialProgress] dismiss];
-         @strongify(self);
-         self.statuses = [StatusResult objectWithKeyValues:response];
-         [self.tempStatus addObjectsFromArray:self.statuses.statuses];
-     }];
+    [self loadStatusFromInternet];
     
     [self fetchUnReadStatusCount];
 }
 
 - (void)loadNewStatus
 {
-    [[MaterialProgress sharedMaterialProgress] show];
-    
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-
-    Status *status = self.statuses.statuses.firstObject;
-    if (status.idstr){
-        self.isLoadNewFinished = YES;
-        [params setValue:status.idstr forKey:@"since_id"];
-    }
-    [params setValue:self.account.access_token forKey:@"access_token"];
-    
-    @weakify(self);
-    [[[[self.service getNetworkService] signalWithType:@"get" url:NEW_STATUS_URL
-                                            parameter:params]
-     doNext:^(id response) {
-         [[MaterialProgress sharedMaterialProgress] dismiss];
-         @strongify(self);
-         StatusResult *newStatuses = [StatusResult objectWithKeyValues:response];
-         NSRange range = NSMakeRange(0, newStatuses.statuses.count);
-         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
-         [self.tempStatus insertObjects:newStatuses.statuses atIndexes:indexSet];
-         self.statuses.statuses = [self.tempStatus copy];
-         self.newStatusCount = newStatuses.statuses.count;
-         self.isLoadNewFinished = YES;
-         self.isLoadNewError = NO;
-     }] subscribeError:^(NSError *error) {
-         [[MaterialProgress sharedMaterialProgress] dismiss];
-         @strongify(self);
-         self.isLoadNewError = YES;
-     }];
+    [self loadNewStatusFromInternet];
 }
 
 - (void)loadMoreStatus
 {
-    Status *status = self.statuses.statuses.lastObject;
-    if (!status.idstr){
-        self.isLoadMoreFinished = YES;
-        return;
-    }
-
-    long long max_id = status.idstr.longLongValue - 1;
-    [[MaterialProgress sharedMaterialProgress] show];
-    @weakify(self);
-    [[[[self.service getNetworkService] signalWithType:@"get" url:NEW_STATUS_URL
-                                            parameter:@{
-                                                        @"access_token" : self.account.access_token,
-                                                        @"max_id" : @(max_id)
-                                                        }]
-     doNext:^(id response) {
-         [[MaterialProgress sharedMaterialProgress] dismiss];
-         @strongify(self);
-         StatusResult *newStatuses = [StatusResult objectWithKeyValues:response];
-         if ([newStatuses.statuses count] == 0) {
-             self.isNoMoreStatuses = YES;
-             return;
-         }
-         [self.tempStatus addObjectsFromArray:newStatuses.statuses];
-         self.statuses.statuses = [self.tempStatus copy];
-         self.isLoadMoreFinished = YES;
-         self.isLoadMoreError = NO;
-     }] subscribeError:^(NSError *error) {
-         [[MaterialProgress sharedMaterialProgress] dismiss];
-         @strongify(self);
-         self.isLoadMoreError = YES;
-     }];
+    [self loadMoreStatusFromInternet];
 }
 
 - (void)fetchUnReadStatusCount
@@ -169,6 +100,108 @@
             
         }];
     }];
+}
+
+#pragma mark - 从网络获取数据
+- (void)loadStatusFromInternet
+{
+    [[MaterialProgress sharedMaterialProgress] show];
+    @weakify(self);
+    [[[self.service getNetworkService] signalWithType:@"get" url:NEW_STATUS_URL
+                                            parameter:@{
+                                                        @"access_token" : self.account.access_token
+                                                        }]
+     subscribeNext:^(id response) {
+         [[MaterialProgress sharedMaterialProgress] dismiss];
+         @strongify(self);
+         self.statuses = [StatusResult objectWithKeyValues:response];
+         [self.tempStatus addObjectsFromArray:self.statuses.statuses];
+     }];
+}
+
+- (void)loadNewStatusFromInternet
+{
+    [[MaterialProgress sharedMaterialProgress] show];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    Status *status = self.statuses.statuses.firstObject;
+    if (status.idstr){
+        self.isLoadNewFinished = YES;
+        [params setValue:status.idstr forKey:@"since_id"];
+    }
+    [params setValue:self.account.access_token forKey:@"access_token"];
+    
+    @weakify(self);
+    [[[[self.service getNetworkService] signalWithType:@"get" url:NEW_STATUS_URL
+                                             parameter:params]
+      doNext:^(id response) {
+          [[MaterialProgress sharedMaterialProgress] dismiss];
+          @strongify(self);
+          StatusResult *newStatuses = [StatusResult objectWithKeyValues:response];
+          NSRange range = NSMakeRange(0, newStatuses.statuses.count);
+          NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+          [self.tempStatus insertObjects:newStatuses.statuses atIndexes:indexSet];
+          self.statuses.statuses = [self.tempStatus copy];
+          self.newStatusCount = newStatuses.statuses.count;
+          self.isLoadNewFinished = YES;
+          self.isLoadNewError = NO;
+      }] subscribeError:^(NSError *error) {
+          [[MaterialProgress sharedMaterialProgress] dismiss];
+          @strongify(self);
+          self.isLoadNewError = YES;
+      }];
+}
+
+- (void)loadMoreStatusFromInternet
+{
+    Status *status = self.statuses.statuses.lastObject;
+    if (!status.idstr){
+        self.isLoadMoreFinished = YES;
+        return;
+    }
+    
+    long long max_id = status.idstr.longLongValue - 1;
+    [[MaterialProgress sharedMaterialProgress] show];
+    @weakify(self);
+    [[[[self.service getNetworkService] signalWithType:@"get" url:NEW_STATUS_URL
+                                             parameter:@{
+                                                         @"access_token" : self.account.access_token,
+                                                         @"max_id" : @(max_id)
+                                                         }]
+      doNext:^(id response) {
+          [[MaterialProgress sharedMaterialProgress] dismiss];
+          @strongify(self);
+          StatusResult *newStatuses = [StatusResult objectWithKeyValues:response];
+          if ([newStatuses.statuses count] == 0) {
+              self.isNoMoreStatuses = YES;
+              return;
+          }
+          [self.tempStatus addObjectsFromArray:newStatuses.statuses];
+          self.statuses.statuses = [self.tempStatus copy];
+          self.isLoadMoreFinished = YES;
+          self.isLoadMoreError = NO;
+      }] subscribeError:^(NSError *error) {
+          [[MaterialProgress sharedMaterialProgress] dismiss];
+          @strongify(self);
+          self.isLoadMoreError = YES;
+      }];
+}
+
+#pragma mark - 从数据库中获取数据
+- (void)loadStatusFromDB
+{
+    
+}
+
+- (void)loadNewStatusFromDB
+{
+    
+}
+
+- (void)loadMoreStatusFromDB
+{
+    
 }
 
 #pragma mark - 懒加载
