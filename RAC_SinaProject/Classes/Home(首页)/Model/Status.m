@@ -99,7 +99,7 @@
     NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] init];
     
     NSString *emotionPattern = @"\\[[0-9a-zA-Z\\u4e00-\\u9fa5]+\\]";
-    NSString *atPattern = @"@[0-9a-zA-Z\\u4e00-\\u9fa5]+";
+    NSString *atPattern = @"@[0-9a-zA-Z\\u4e00-\\u9fa5-_]+";
     NSString *topicPattern = @"#[0-9a-zA-Z\\u4e00-\\u9fa5]+#";
     NSString *urlPattern = @"\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^[:punct:]\\s]|/)))";
     NSString *pattern = [NSString stringWithFormat:@"%@|%@|%@|%@",emotionPattern, atPattern, topicPattern, urlPattern];
