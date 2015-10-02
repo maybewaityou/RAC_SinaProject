@@ -28,6 +28,7 @@
 
 @implementation MPHomeViewModel
 
+#pragma mark - 初始化
 - (instancetype)initWithNavController:(UINavigationController *)controller
 {
     if (self = [super init]) {
@@ -46,6 +47,7 @@
     }];
 }
 
+#pragma mark - 访问网络获取数据
 - (void)requestUserInfo
 {
     [[MaterialProgress sharedMaterialProgress] show];
@@ -84,18 +86,20 @@
 
 - (void)loadNewStatus
 {
-    Status *status = self.statuses.statuses.firstObject;
-    if (!status.idstr){
-        self.isLoadNewFinished = YES;
-        return;
-    }
     [[MaterialProgress sharedMaterialProgress] show];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+
+    Status *status = self.statuses.statuses.firstObject;
+    if (status.idstr){
+        self.isLoadNewFinished = YES;
+        [params setValue:status.idstr forKey:@"since_id"];
+    }
+    [params setValue:self.account.access_token forKey:@"access_token"];
+    
     @weakify(self);
     [[[[self.service getNetworkService] signalWithType:@"get" url:NEW_STATUS_URL
-                                            parameter:@{
-                                                        @"access_token" : self.account.access_token,
-                                                        @"since_id" : status.idstr
-                                                        }]
+                                            parameter:params]
      doNext:^(id response) {
          [[MaterialProgress sharedMaterialProgress] dismiss];
          @strongify(self);
@@ -121,6 +125,7 @@
         self.isLoadMoreFinished = YES;
         return;
     }
+
     long long max_id = status.idstr.longLongValue - 1;
     [[MaterialProgress sharedMaterialProgress] show];
     @weakify(self);
