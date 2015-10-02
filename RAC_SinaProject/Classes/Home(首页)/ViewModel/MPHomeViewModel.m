@@ -16,6 +16,7 @@
 #import "MJExtension.h"
 #import "Status.h"
 #import "MaterialProgress.h"
+#import "MPStatusTool.h"
 
 @interface MPHomeViewModel ()
 
@@ -47,7 +48,7 @@
     }];
 }
 
-#pragma mark - 获取数据
+#pragma mark - 获取用户数据
 - (void)requestUserInfo
 {
     [[MaterialProgress sharedMaterialProgress] show];
@@ -66,9 +67,15 @@
     }];
 }
 
+#pragma mark - 获取微博数据
 - (void)loadStatus
 {
-    [self loadStatusFromInternet];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setValue:self.account.access_token forKey:@"access_token"];
+    
+    if (![self loadStatusFromDB:params]) {
+        [self loadStatusFromInternet:params];
+    }
     
     //轮询获取未读微博数
     [self fetchUnReadStatusCount];
@@ -76,12 +83,34 @@
 
 - (void)loadNewStatus
 {
-    [self loadNewStatusFromInternet];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    Status *status = self.statuses.statuses.firstObject;
+    if (status.idstr){
+        [params setValue:status.idstr forKey:@"since_id"];
+    }
+    [params setValue:self.account.access_token forKey:@"access_token"];
+    
+    if (![self loadStatusFromDB:params]) {
+        [self loadNewStatusFromInternet:params];
+    }
 }
 
 - (void)loadMoreStatus
 {
-    [self loadMoreStatusFromInternet];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    Status *status = self.statuses.statuses.lastObject;
+    if (!status.idstr){
+        self.isLoadMoreFinished = YES;
+        return;
+    }
+    long long max_id = status.idstr.longLongValue - 1;
+    [params setValue:[NSString stringWithFormat:@"%lld",max_id] forKey:@"max_id"];
+    [params setValue:self.account.access_token forKey:@"access_token"];
+    
+    if (![self loadStatusFromDB:params]) {
+        [self loadMoreStatusFromInternet:params];
+    }
 }
 
 - (void)fetchUnReadStatusCount
@@ -104,33 +133,25 @@
 }
 
 #pragma mark - 从网络获取数据
-- (void)loadStatusFromInternet
+- (void)loadStatusFromInternet:(NSDictionary *)params
 {
     [[MaterialProgress sharedMaterialProgress] show];
     @weakify(self);
     [[[self.service getNetworkService] signalWithType:@"get" url:NEW_STATUS_URL
-                                            parameter:@{
-                                                        @"access_token" : self.account.access_token
-                                                        }]
+                                            parameter:params]
      subscribeNext:^(id response) {
          [[MaterialProgress sharedMaterialProgress] dismiss];
          @strongify(self);
          self.statuses = [StatusResult objectWithKeyValues:response];
          [self.tempStatus addObjectsFromArray:self.statuses.statuses];
+         // 存入数据库
+         [MPStatusTool saveStatuses:self.statuses.statuses];
      }];
 }
 
-- (void)loadNewStatusFromInternet
+- (void)loadNewStatusFromInternet:(NSDictionary *)params
 {
     [[MaterialProgress sharedMaterialProgress] show];
-    
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    
-    Status *status = self.statuses.statuses.firstObject;
-    if (status.idstr){
-        [params setValue:status.idstr forKey:@"since_id"];
-    }
-    [params setValue:self.account.access_token forKey:@"access_token"];
     
     @weakify(self);
     [[[[self.service getNetworkService] signalWithType:@"get" url:NEW_STATUS_URL
@@ -146,6 +167,9 @@
           self.newStatusCount = newStatuses.statuses.count;
           self.isLoadNewFinished = YES;
           self.isLoadNewError = NO;
+          
+          // 存入数据库
+          [MPStatusTool saveStatuses:newStatuses.statuses];
       }] subscribeError:^(NSError *error) {
           [[MaterialProgress sharedMaterialProgress] dismiss];
           @strongify(self);
@@ -153,22 +177,12 @@
       }];
 }
 
-- (void)loadMoreStatusFromInternet
+- (void)loadMoreStatusFromInternet:(NSDictionary *)params
 {
-    Status *status = self.statuses.statuses.lastObject;
-    if (!status.idstr){
-        self.isLoadMoreFinished = YES;
-        return;
-    }
-    
-    long long max_id = status.idstr.longLongValue - 1;
     [[MaterialProgress sharedMaterialProgress] show];
     @weakify(self);
     [[[[self.service getNetworkService] signalWithType:@"get" url:NEW_STATUS_URL
-                                             parameter:@{
-                                                         @"access_token" : self.account.access_token,
-                                                         @"max_id" : @(max_id)
-                                                         }]
+                                             parameter:params]
       doNext:^(id response) {
           [[MaterialProgress sharedMaterialProgress] dismiss];
           @strongify(self);
@@ -181,6 +195,8 @@
           self.statuses.statuses = [self.tempStatus copy];
           self.isLoadMoreFinished = YES;
           self.isLoadMoreError = NO;
+          // 存入数据库
+          [MPStatusTool saveStatuses:newStatuses.statuses];
       }] subscribeError:^(NSError *error) {
           [[MaterialProgress sharedMaterialProgress] dismiss];
           @strongify(self);
@@ -189,19 +205,10 @@
 }
 
 #pragma mark - 从数据库中获取数据
-- (void)loadStatusFromDB
+- (NSUInteger)loadStatusFromDB:(NSDictionary *)params
 {
-    
-}
-
-- (void)loadNewStatusFromDB
-{
-    
-}
-
-- (void)loadMoreStatusFromDB
-{
-    
+    NSArray *statuses = [MPStatusTool statusWithParams:params];
+    return statuses.count;
 }
 
 #pragma mark - 懒加载
