@@ -10,4 +10,14 @@
 
 @implementation MPStatusTool
 
++ (NSArray *)statusWithParams:(NSDictionary *)params;
+{
+    return nil;
+}
+
++ (void)saveStatuses:(NSArray *)statuses
+{
+    
+}
+
 @end

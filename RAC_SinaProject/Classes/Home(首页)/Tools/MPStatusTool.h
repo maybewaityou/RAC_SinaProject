@@ -12,6 +12,7 @@
 
 @interface MPStatusTool : NSObject
 
-
++ (NSArray *)statusWithParams:(NSDictionary *)params;
++ (void)saveStatuses:(NSArray *)statuses;
 
 @end
