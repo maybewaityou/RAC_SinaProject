@@ -47,7 +47,6 @@
     }];
 }
 
-#pragma mark - 访问网络获取数据
 - (void)requestUserInfo
 {
     [[MaterialProgress sharedMaterialProgress] show];
