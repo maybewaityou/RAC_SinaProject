@@ -65,13 +65,14 @@
 
 - (void)setSource:(NSString *)source
 {
-    if (!source || [source isEqualToString:@""]) {
-        return;
+    if (source.length) {
+        NSRange range;
+        range.location = [source rangeOfString:@">"].location + 1;
+        range.length = [source rangeOfString:@"</"].location - range.location;
+        _source = [NSString stringWithFormat:@"来自%@",[source substringWithRange:range]];
+    }else{
+        _source = @"来自新浪微博";
     }
-    NSRange range;
-    range.location = [source rangeOfString:@">"].location + 1;
-    range.length = [source rangeOfString:@"</"].location - range.location;
-    _source = [NSString stringWithFormat:@"来自%@",[source substringWithRange:range]];
 }
 
 - (void)setText:(NSString *)text
