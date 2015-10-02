@@ -83,6 +83,7 @@
 		60ABF6451BAAB8B700C23321 /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ABF6441BAAB8B700C23321 /* NSString+Emoji.m */; };
 		60AEB7151BABA9A90069A7F8 /* MPEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AEB7141BABA9A90069A7F8 /* MPEmotionTextView.m */; };
 		60AEB7181BABACC40069A7F8 /* UITextView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AEB7171BABACC40069A7F8 /* UITextView+Extension.m */; };
+		60C66DF51BBE422E00AB6517 /* MPStatusTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C66DF41BBE422E00AB6517 /* MPStatusTool.m */; settings = {ASSET_TAGS = (); }; };
 		ED0A10412877A6135D22ADF4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C38D7A5BD1189B3D00AF55A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -252,6 +253,8 @@
 		60AEB7141BABA9A90069A7F8 /* MPEmotionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPEmotionTextView.m; sourceTree = "<group>"; };
 		60AEB7161BABACC40069A7F8 /* UITextView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Extension.h"; sourceTree = "<group>"; };
 		60AEB7171BABACC40069A7F8 /* UITextView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Extension.m"; sourceTree = "<group>"; };
+		60C66DF31BBE422E00AB6517 /* MPStatusTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPStatusTool.h; sourceTree = "<group>"; };
+		60C66DF41BBE422E00AB6517 /* MPStatusTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPStatusTool.m; sourceTree = "<group>"; };
 		94A2777195F0056108B20C2E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EDA20434B8364C3915FAAD33 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -833,6 +836,7 @@
 		6072F9341B8E730700D47790 /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
+				60C66DF21BBE420E00AB6517 /* Tools */,
 				6050F82C1B8EB77E006C5F45 /* Model */,
 				6050F82D1B8EB77E006C5F45 /* View */,
 				6050F82E1B8EB77E006C5F45 /* ViewModel */,
@@ -949,6 +953,15 @@
 				6049FC721BACC08200A6A11A /* MPEmotionAttachment.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		60C66DF21BBE420E00AB6517 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				60C66DF31BBE422E00AB6517 /* MPStatusTool.h */,
+				60C66DF41BBE422E00AB6517 /* MPStatusTool.m */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		9B65F92342EA611443C66882 /* Pods */ = {
@@ -1143,6 +1156,7 @@
 				604629B31BB642100013417D /* RegexKitLite.m in Sources */,
 				604F57FA1B9FDE0200A50972 /* MPTabBar.m in Sources */,
 				6050F8221B8EAA89006C5F45 /* TestViewController00.m in Sources */,
+				60C66DF51BBE422E00AB6517 /* MPStatusTool.m in Sources */,
 				60243BAB1B8F153400FD62A7 /* MPNetworkServicesImpl.m in Sources */,
 				60243B851B8EFB0A00FD62A7 /* MPNetworkApi.m in Sources */,
 				6050F82B1B8EAEC6006C5F45 /* TestViewController03.m in Sources */,
