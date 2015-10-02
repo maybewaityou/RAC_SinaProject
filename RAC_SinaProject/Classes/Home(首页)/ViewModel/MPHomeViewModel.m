@@ -70,6 +70,7 @@
 {
     [self loadStatusFromInternet];
     
+    //轮询获取未读微博数
     [self fetchUnReadStatusCount];
 }
 
