@@ -127,7 +127,6 @@
     
     Status *status = self.statuses.statuses.firstObject;
     if (status.idstr){
-        self.isLoadNewFinished = YES;
         [params setValue:status.idstr forKey:@"since_id"];
     }
     [params setValue:self.account.access_token forKey:@"access_token"];
