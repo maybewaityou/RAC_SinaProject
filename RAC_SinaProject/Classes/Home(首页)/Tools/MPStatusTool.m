@@ -7,11 +7,13 @@
 //
 
 #import "MPStatusTool.h"
+#import "Status.h"
 
 @implementation MPStatusTool
 
 + (NSArray *)statusWithParams:(NSDictionary *)params;
 {
+    
     return nil;
 }
 
