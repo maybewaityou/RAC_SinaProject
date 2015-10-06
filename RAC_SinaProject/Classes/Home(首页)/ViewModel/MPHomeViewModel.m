@@ -23,8 +23,6 @@
 @property (nonatomic, strong) MPHomeService *service;
 @property (nonatomic, strong) MPAccount *account;
 
-@property (nonatomic, copy) NSMutableArray *tempStatus;
-
 @end
 
 @implementation MPHomeViewModel
@@ -157,7 +155,7 @@
          [[MaterialProgress sharedMaterialProgress] dismiss];
          @strongify(self);
          self.statuses = [StatusResult objectWithKeyValues:response];
-         [self.tempStatus addObjectsFromArray:self.statuses.statuses];
+
          // 存入数据库
          [MPStatusTool saveStatuses:response[@"statuses"]];
      }];
@@ -176,8 +174,7 @@
           StatusResult *newStatuses = [StatusResult objectWithKeyValues:response];
           NSRange range = NSMakeRange(0, newStatuses.statuses.count);
           NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
-          [self.tempStatus insertObjects:newStatuses.statuses atIndexes:indexSet];
-          self.statuses.statuses = [self.tempStatus copy];
+          [self.statuses.statuses insertObjects:newStatuses.statuses atIndexes:indexSet];
           self.newStatusCount = newStatuses.statuses.count;
           self.isLoadNewFinished = YES;
           self.isLoadNewError = NO;
@@ -205,8 +202,7 @@
               self.isNoMoreStatuses = YES;
               return;
           }
-          [self.tempStatus addObjectsFromArray:newStatuses.statuses];
-          self.statuses.statuses = [self.tempStatus copy];
+          [self.statuses.statuses addObjectsFromArray:newStatuses.statuses];
           self.isLoadMoreFinished = YES;
           self.isLoadMoreError = NO;
           // 存入数据库
@@ -223,8 +219,7 @@
 {
     NSArray *statusesArray = [MPStatusTool statusWithParams:params];
     NSArray *statuses = [Status objectArrayWithKeyValuesArray:statusesArray];
-    [self.tempStatus addObjectsFromArray:statuses];
-    self.statuses.statuses = [self.tempStatus copy];
+    [self.statuses.statuses addObjectsFromArray:statuses];
     
     self.isLoadMoreFinished = YES;
     self.isLoadMoreError = NO;
@@ -237,14 +232,6 @@
         _account = [MPAccountTool account];
     }
     return _account;
-}
-
-- (NSMutableArray *)tempStatus
-{
-    if (!_tempStatus) {
-        _tempStatus = [NSMutableArray array];
-    }
-    return _tempStatus;
 }
 
 - (StatusResult *)statuses
