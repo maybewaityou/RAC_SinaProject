@@ -79,6 +79,12 @@
 		6072F93C1B8E730700D47790 /* MPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F9371B8E730700D47790 /* MPHomeViewController.m */; };
 		6072F93D1B8E730700D47790 /* MPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F93B1B8E730700D47790 /* MPAppDelegate.m */; };
 		6072F94D1B8E7ABE00D47790 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6072F94C1B8E7ABE00D47790 /* UIColor+Extension.m */; };
+		6075EAE61BC3B29100E370C7 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6075EADC1BC3B29100E370C7 /* FMDatabase.m */; settings = {ASSET_TAGS = (); }; };
+		6075EAE71BC3B29100E370C7 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6075EADE1BC3B29100E370C7 /* FMDatabaseAdditions.m */; settings = {ASSET_TAGS = (); }; };
+		6075EAE81BC3B29100E370C7 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6075EAE01BC3B29100E370C7 /* FMDatabasePool.m */; settings = {ASSET_TAGS = (); }; };
+		6075EAE91BC3B29100E370C7 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6075EAE21BC3B29100E370C7 /* FMDatabaseQueue.m */; settings = {ASSET_TAGS = (); }; };
+		6075EAEA1BC3B29100E370C7 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6075EAE51BC3B29100E370C7 /* FMResultSet.m */; settings = {ASSET_TAGS = (); }; };
+		6075EAEC1BC3B29C00E370C7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6075EAEB1BC3B29C00E370C7 /* libsqlite3.tbd */; };
 		6097A45B1B9BE1EA0023C0C9 /* MPPermissionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097A45A1B9BE1EA0023C0C9 /* MPPermissionUtils.m */; };
 		6097A45E1B9C094B0023C0C9 /* MPPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097A45D1B9C094B0023C0C9 /* MPPhoto.m */; };
 		609941701BAA92A500C81F60 /* MPEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6099416F1BAA92A500C81F60 /* MPEmotion.m */; };
@@ -249,6 +255,18 @@
 		6072F93B1B8E730700D47790 /* MPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPAppDelegate.m; sourceTree = "<group>"; };
 		6072F94B1B8E7ABE00D47790 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
 		6072F94C1B8E7ABE00D47790 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
+		6075EADB1BC3B29100E370C7 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		6075EADC1BC3B29100E370C7 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		6075EADD1BC3B29100E370C7 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		6075EADE1BC3B29100E370C7 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		6075EADF1BC3B29100E370C7 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		6075EAE01BC3B29100E370C7 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		6075EAE11BC3B29100E370C7 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		6075EAE21BC3B29100E370C7 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		6075EAE31BC3B29100E370C7 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		6075EAE41BC3B29100E370C7 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		6075EAE51BC3B29100E370C7 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		6075EAEB1BC3B29C00E370C7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		6097A4591B9BE1EA0023C0C9 /* MPPermissionUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPermissionUtils.h; sourceTree = "<group>"; };
 		6097A45A1B9BE1EA0023C0C9 /* MPPermissionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPPermissionUtils.m; sourceTree = "<group>"; };
 		6097A45C1B9C094B0023C0C9 /* MPPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPhoto.h; sourceTree = "<group>"; };
@@ -273,6 +291,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6075EAEC1BC3B29C00E370C7 /* libsqlite3.tbd in Frameworks */,
 				604629B51BB642E80013417D /* libicucore.tbd in Frameworks */,
 				ED0A10412877A6135D22ADF4 /* libPods.a in Frameworks */,
 				60243B5C1B8EE9D000FD62A7 /* Reveal.framework in Frameworks */,
@@ -292,6 +311,7 @@
 		21C54B16C87608FD3973B01D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6075EAEB1BC3B29C00E370C7 /* libsqlite3.tbd */,
 				604629B41BB642E80013417D /* libicucore.tbd */,
 				0C38D7A5BD1189B3D00AF55A /* libPods.a */,
 			);
@@ -652,6 +672,7 @@
 		6050F8121B8E9A87006C5F45 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				6075EADA1BC3B29100E370C7 /* fmdb */,
 				600802D81B9EE98E0029F1C2 /* Async */,
 				60232D051BBA364E00B1884E /* SDPhotoBrowser */,
 				604629B01BB641E40013417D /* RegexKitLite */,
@@ -958,6 +979,24 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		6075EADA1BC3B29100E370C7 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				6075EADB1BC3B29100E370C7 /* FMDatabase.h */,
+				6075EADC1BC3B29100E370C7 /* FMDatabase.m */,
+				6075EADD1BC3B29100E370C7 /* FMDatabaseAdditions.h */,
+				6075EADE1BC3B29100E370C7 /* FMDatabaseAdditions.m */,
+				6075EADF1BC3B29100E370C7 /* FMDatabasePool.h */,
+				6075EAE01BC3B29100E370C7 /* FMDatabasePool.m */,
+				6075EAE11BC3B29100E370C7 /* FMDatabaseQueue.h */,
+				6075EAE21BC3B29100E370C7 /* FMDatabaseQueue.m */,
+				6075EAE31BC3B29100E370C7 /* FMDB.h */,
+				6075EAE41BC3B29100E370C7 /* FMResultSet.h */,
+				6075EAE51BC3B29100E370C7 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
 		6097A4551B9BE1710023C0C9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -1139,6 +1178,7 @@
 				604F583D1BA0154A00A50972 /* MPComposeService.m in Sources */,
 				600802D71B9EBC930029F1C2 /* MPHomeStatusPhotoViews.m in Sources */,
 				6006EC231B903CF600DFD4D0 /* User.m in Sources */,
+				6075EAEA1BC3B29100E370C7 /* FMResultSet.m in Sources */,
 				6011AE8A1BBE55B20083CB28 /* UIGestureRecognizer+ReactiveCocoa.m in Sources */,
 				60232D0D1BBA364E00B1884E /* SDBrowserImageView.m in Sources */,
 				6050F8251B8EAA9E006C5F45 /* TestViewController01.m in Sources */,
@@ -1148,11 +1188,13 @@
 				60243B8E1B8EFC2200FD62A7 /* MaterialProgress.m in Sources */,
 				6011AE8B1BBE55B20083CB28 /* UIGestureRecognizer+ReactiveCocoaProtected.m in Sources */,
 				6050FFCE1B8FCB7D0033733B /* MPAccount.m in Sources */,
+				6075EAE61BC3B29100E370C7 /* FMDatabase.m in Sources */,
 				60243B9A1B8F00F500FD62A7 /* RVMViewModel.m in Sources */,
 				6006EC081B8FFBFA00DFD4D0 /* MPHomeViewModel.m in Sources */,
 				6050F8181B8E9F1B006C5F45 /* UIView+Extension.m in Sources */,
 				6050F83C1B8EB7E6006C5F45 /* MPProfileViewController.m in Sources */,
 				600802D41B9EBA3F0029F1C2 /* MPHomeStatusPhotoView.m in Sources */,
+				6075EAE81BC3B29100E370C7 /* FMDatabasePool.m in Sources */,
 				604ADE101BB4ABF400175B4E /* Constant.m in Sources */,
 				6097A45E1B9C094B0023C0C9 /* MPPhoto.m in Sources */,
 				6072F93C1B8E730700D47790 /* MPHomeViewController.m in Sources */,
@@ -1161,6 +1203,7 @@
 				6011AE891BBE55B20083CB28 /* RACGestureRecognizerActionHandler.m in Sources */,
 				6072F94D1B8E7ABE00D47790 /* UIColor+Extension.m in Sources */,
 				60113CA31BAB7A5B001EF84C /* MPEmotionListView.m in Sources */,
+				6075EAE71BC3B29100E370C7 /* FMDatabaseAdditions.m in Sources */,
 				6050F81E1B8EA71C006C5F45 /* UIBarButtonItem+Extension.m in Sources */,
 				6050F8281B8EAAAF006C5F45 /* TestViewController02.m in Sources */,
 				60243B5A1B8EDF3300FD62A7 /* MPNewfeatureViewController.m in Sources */,
@@ -1182,6 +1225,7 @@
 				604629B31BB642100013417D /* RegexKitLite.m in Sources */,
 				604F57FA1B9FDE0200A50972 /* MPTabBar.m in Sources */,
 				6050F8221B8EAA89006C5F45 /* TestViewController00.m in Sources */,
+				6075EAE91BC3B29100E370C7 /* FMDatabaseQueue.m in Sources */,
 				60C66DF51BBE422E00AB6517 /* MPStatusTool.m in Sources */,
 				60243BAB1B8F153400FD62A7 /* MPNetworkServicesImpl.m in Sources */,
 				60243B851B8EFB0A00FD62A7 /* MPNetworkApi.m in Sources */,

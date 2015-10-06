@@ -73,8 +73,10 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setValue:self.account.access_token forKey:@"access_token"];
     
-    if (![self loadStatusFromDB:params]) {
+    if (![self loadStatusFromInternetOrDB:params]) {
         [self loadStatusFromInternet:params];
+    }else{
+        [self loadStatusFromDB:params];
     }
     
     //轮询获取未读微博数
@@ -91,8 +93,10 @@
     }
     [params setValue:self.account.access_token forKey:@"access_token"];
     
-    if (![self loadStatusFromDB:params]) {
+    if (![self loadStatusFromInternetOrDB:params]) {
         [self loadNewStatusFromInternet:params];
+    }else{
+        [self loadStatusFromDB:params];
     }
 }
 
@@ -108,8 +112,10 @@
     [params setValue:[NSString stringWithFormat:@"%lld",max_id] forKey:@"max_id"];
     [params setValue:self.account.access_token forKey:@"access_token"];
     
-    if (![self loadStatusFromDB:params]) {
+    if (![self loadStatusFromInternetOrDB:params]) {
         [self loadMoreStatusFromInternet:params];
+    }else{
+        [self loadStatusFromDB:params];
     }
 }
 
@@ -132,6 +138,14 @@
     }];
 }
 
+
+#pragma mark - 判断从网络获取还是从数据库中获取数据
+- (NSUInteger)loadStatusFromInternetOrDB:(NSDictionary *)params
+{
+    NSArray *statusesArray = [MPStatusTool statusWithParams:params];
+    return statusesArray.count;
+}
+
 #pragma mark - 从网络获取数据
 - (void)loadStatusFromInternet:(NSDictionary *)params
 {
@@ -145,7 +159,7 @@
          self.statuses = [StatusResult objectWithKeyValues:response];
          [self.tempStatus addObjectsFromArray:self.statuses.statuses];
          // 存入数据库
-         [MPStatusTool saveStatuses:self.statuses.statuses];
+         [MPStatusTool saveStatuses:response[@"statuses"]];
      }];
 }
 
@@ -169,7 +183,7 @@
           self.isLoadNewError = NO;
           
           // 存入数据库
-          [MPStatusTool saveStatuses:newStatuses.statuses];
+          [MPStatusTool saveStatuses:response[@"statuses"]];
       }] subscribeError:^(NSError *error) {
           [[MaterialProgress sharedMaterialProgress] dismiss];
           @strongify(self);
@@ -196,7 +210,7 @@
           self.isLoadMoreFinished = YES;
           self.isLoadMoreError = NO;
           // 存入数据库
-          [MPStatusTool saveStatuses:newStatuses.statuses];
+          [MPStatusTool saveStatuses:response[@"statuses"]];
       }] subscribeError:^(NSError *error) {
           [[MaterialProgress sharedMaterialProgress] dismiss];
           @strongify(self);
@@ -205,10 +219,15 @@
 }
 
 #pragma mark - 从数据库中获取数据
-- (NSUInteger)loadStatusFromDB:(NSDictionary *)params
+- (void)loadStatusFromDB:(NSDictionary *)params
 {
-    NSArray *statuses = [MPStatusTool statusWithParams:params];
-    return statuses.count;
+    NSArray *statusesArray = [MPStatusTool statusWithParams:params];
+    NSArray *statuses = [Status objectArrayWithKeyValuesArray:statusesArray];
+    [self.tempStatus addObjectsFromArray:statuses];
+    self.statuses.statuses = [self.tempStatus copy];
+    
+    self.isLoadMoreFinished = YES;
+    self.isLoadMoreError = NO;
 }
 
 #pragma mark - 懒加载
@@ -226,6 +245,14 @@
         _tempStatus = [NSMutableArray array];
     }
     return _tempStatus;
+}
+
+- (StatusResult *)statuses
+{
+    if (!_statuses) {
+        _statuses = [[StatusResult alloc] init];
+    }
+    return _statuses;
 }
 
 - (void)dealloc
