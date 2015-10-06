@@ -10,6 +10,7 @@
 #import "Status.h"
 #import "FMDB.h"
 #import "Constant.h"
+#import "MPNMacros.h"
 
 @implementation MPStatusTool
 
@@ -29,9 +30,9 @@ static FMDatabase *_db;
 {
     NSString *sql = nil;
     if (params[@"since_id"]) {
-        sql = [NSString stringWithFormat:@"SELECT * FROM t_status WHERE idstr > %@ ORDER BY idstr DESC LIMIT 20;",params[@"since_id"]];
+        sql = MPQueryNewStatusSQL;
     }else if(params[@"max_id"]){
-        sql = [NSString stringWithFormat:@"SELECT * FROM t_status WHERE idstr <= %@ ORDER BY idstr DESC LIMIT 20;",params[@"max_id"]];
+        sql = MPQueryMoreStatUsSQL;
     }else{
         sql = MPQueryStatusSQL;
     }
