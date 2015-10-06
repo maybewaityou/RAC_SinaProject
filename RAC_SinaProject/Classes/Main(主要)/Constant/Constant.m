@@ -28,3 +28,6 @@ const NSTimeInterval UN_READ_STATUS_TIMEINTERVAL = 60;
 NSString *const MPEmotionDidSelectNotification = @"MPEmotionDidSelectNotification";
 NSString *const MPSelectEmotionKey = @"MPSelectEmotionKey";
 NSString *const MPEmotionDeleteNotification = @"MPEmotionDeleteNotification";
+
+NSString *const MPCreateTableSQL = @"CREATE TABLE IF NOT EXISTS t_status (id integer PRIMARY KEY, status blob NOT NULL, idstr text NOT NULL);";
+NSString *const MPQueryStatusSQL = @"SELECT * FROM t_status ORDER BY idstr DESC LIMIT 20;";

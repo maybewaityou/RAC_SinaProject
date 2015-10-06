@@ -26,3 +26,6 @@ extern const NSTimeInterval UN_READ_STATUS_TIMEINTERVAL;
 extern NSString *const MPEmotionDidSelectNotification;
 extern NSString *const MPSelectEmotionKey;
 extern NSString *const MPEmotionDeleteNotification;
+
+extern NSString *const MPCreateTableSQL;
+extern NSString *const MPQueryStatusSQL;
