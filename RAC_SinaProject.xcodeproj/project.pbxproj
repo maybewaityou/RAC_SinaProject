@@ -672,8 +672,8 @@
 		6050F8121B8E9A87006C5F45 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				6075EADA1BC3B29100E370C7 /* fmdb */,
 				600802D81B9EE98E0029F1C2 /* Async */,
+				6075EADA1BC3B29100E370C7 /* fmdb */,
 				60232D051BBA364E00B1884E /* SDPhotoBrowser */,
 				604629B01BB641E40013417D /* RegexKitLite */,
 				60243B961B8F00F500FD62A7 /* ReactiveViewModel */,
@@ -1372,6 +1372,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1427,6 +1428,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
