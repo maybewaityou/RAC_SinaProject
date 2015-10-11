@@ -16,7 +16,7 @@
 
 + (void)requestUserNotificationPermission {
     float sysVersion=[[UIDevice currentDevice]systemVersion].floatValue;
-    if (sysVersion>= 8.0 ) {
+    if (sysVersion >= 8.0 ) {
         UIUserNotificationType type=UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound;
         UIUserNotificationSettings *setting=[UIUserNotificationSettings settingsForTypes:type categories:nil];
         [[UIApplication sharedApplication]registerUserNotificationSettings:setting];
