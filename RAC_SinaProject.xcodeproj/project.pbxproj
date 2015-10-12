@@ -181,7 +181,6 @@
 		60243B871B8EFB9600FD62A7 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		60243B8C1B8EFC2200FD62A7 /* MaterialProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialProgress.h; sourceTree = "<group>"; };
 		60243B8D1B8EFC2200FD62A7 /* MaterialProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialProgress.m; sourceTree = "<group>"; };
-		60243B901B8EFD9F00FD62A7 /* MPNMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNMacros.h; sourceTree = "<group>"; };
 		60243B971B8F00F500FD62A7 /* ReactiveViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactiveViewModel.h; sourceTree = "<group>"; };
 		60243B981B8F00F500FD62A7 /* RVMViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RVMViewModel.h; sourceTree = "<group>"; };
 		60243B991B8F00F500FD62A7 /* RVMViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVMViewModel.m; sourceTree = "<group>"; };
@@ -267,6 +266,7 @@
 		6075EAE41BC3B29100E370C7 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		6075EAE51BC3B29100E370C7 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		6075EAEB1BC3B29C00E370C7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		6089A7521BCB489000715632 /* MPMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMacros.h; sourceTree = "<group>"; };
 		6097A4591B9BE1EA0023C0C9 /* MPPermissionUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPermissionUtils.h; sourceTree = "<group>"; };
 		6097A45A1B9BE1EA0023C0C9 /* MPPermissionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPPermissionUtils.m; sourceTree = "<group>"; };
 		6097A45C1B9C094B0023C0C9 /* MPPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPhoto.h; sourceTree = "<group>"; };
@@ -456,7 +456,7 @@
 		60243B861B8EFB7C00FD62A7 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
-				60243B901B8EFD9F00FD62A7 /* MPNMacros.h */,
+				6089A7511BCB489000715632 /* Macros */,
 				60243B871B8EFB9600FD62A7 /* Constant.h */,
 				604ADE0F1BB4ABF400175B4E /* Constant.m */,
 			);
@@ -995,6 +995,14 @@
 				6075EAE51BC3B29100E370C7 /* FMResultSet.m */,
 			);
 			path = fmdb;
+			sourceTree = "<group>";
+		};
+		6089A7511BCB489000715632 /* Macros */ = {
+			isa = PBXGroup;
+			children = (
+				6089A7521BCB489000715632 /* MPMacros.h */,
+			);
+			path = Macros;
 			sourceTree = "<group>";
 		};
 		6097A4551B9BE1710023C0C9 /* Utils */ = {
