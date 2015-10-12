@@ -10,7 +10,7 @@
 #import "MPHomeStatusPhotoView.h"
 #import "Masonry.h"
 #import "RACEXTScope.h"
-#import "MPNMacros.h"
+#import "MPMacros.h"
 #import "SDPhotoBrowser.h"
 
 @interface MPHomeStatusPhotoViews () <MPHomeStatusPhotoViewDelegate, SDPhotoBrowserDelegate>
