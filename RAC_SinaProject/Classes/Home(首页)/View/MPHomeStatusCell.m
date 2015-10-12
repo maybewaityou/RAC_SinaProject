@@ -16,7 +16,7 @@
 #import "UIColor+Extension.h"
 #import "MPHomeStatusPhotoViews.h"
 #import "MPUserIconView.h"
-#import "MPNMacros.h"
+#import "MPMacros.h"
 
 @interface MPHomeStatusCell ()
 
