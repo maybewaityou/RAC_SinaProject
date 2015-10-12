@@ -267,6 +267,7 @@
 		6075EAE51BC3B29100E370C7 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		6075EAEB1BC3B29C00E370C7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		6089A7521BCB489000715632 /* MPMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMacros.h; sourceTree = "<group>"; };
+		6089A7541BCB4AC100715632 /* MPCodingMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCodingMacros.h; sourceTree = "<group>"; };
 		6097A4591B9BE1EA0023C0C9 /* MPPermissionUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPermissionUtils.h; sourceTree = "<group>"; };
 		6097A45A1B9BE1EA0023C0C9 /* MPPermissionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPPermissionUtils.m; sourceTree = "<group>"; };
 		6097A45C1B9C094B0023C0C9 /* MPPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPhoto.h; sourceTree = "<group>"; };
@@ -1001,6 +1002,7 @@
 			isa = PBXGroup;
 			children = (
 				6089A7521BCB489000715632 /* MPMacros.h */,
+				6089A7541BCB4AC100715632 /* MPCodingMacros.h */,
 			);
 			path = Macros;
 			sourceTree = "<group>";
