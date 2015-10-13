@@ -85,6 +85,7 @@
 		6075EAE91BC3B29100E370C7 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6075EAE21BC3B29100E370C7 /* FMDatabaseQueue.m */; settings = {ASSET_TAGS = (); }; };
 		6075EAEA1BC3B29100E370C7 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6075EAE51BC3B29100E370C7 /* FMResultSet.m */; settings = {ASSET_TAGS = (); }; };
 		6075EAEC1BC3B29C00E370C7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6075EAEB1BC3B29C00E370C7 /* libsqlite3.tbd */; };
+		607984261BCC9DA100059F98 /* MPQRCodeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 607984251BCC9DA100059F98 /* MPQRCodeUtils.m */; settings = {ASSET_TAGS = (); }; };
 		6097A45B1B9BE1EA0023C0C9 /* MPPermissionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097A45A1B9BE1EA0023C0C9 /* MPPermissionUtils.m */; };
 		6097A45E1B9C094B0023C0C9 /* MPPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097A45D1B9C094B0023C0C9 /* MPPhoto.m */; };
 		609941701BAA92A500C81F60 /* MPEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6099416F1BAA92A500C81F60 /* MPEmotion.m */; };
@@ -266,6 +267,8 @@
 		6075EAE41BC3B29100E370C7 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		6075EAE51BC3B29100E370C7 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		6075EAEB1BC3B29C00E370C7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		607984241BCC9DA100059F98 /* MPQRCodeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPQRCodeUtils.h; sourceTree = "<group>"; };
+		607984251BCC9DA100059F98 /* MPQRCodeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPQRCodeUtils.m; sourceTree = "<group>"; };
 		6089A7521BCB489000715632 /* MPMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMacros.h; sourceTree = "<group>"; };
 		6089A7541BCB4AC100715632 /* MPCodingMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCodingMacros.h; sourceTree = "<group>"; };
 		6097A4591B9BE1EA0023C0C9 /* MPPermissionUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPermissionUtils.h; sourceTree = "<group>"; };
@@ -1010,6 +1013,8 @@
 		6097A4551B9BE1710023C0C9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				607984241BCC9DA100059F98 /* MPQRCodeUtils.h */,
+				607984251BCC9DA100059F98 /* MPQRCodeUtils.m */,
 				6097A4591B9BE1EA0023C0C9 /* MPPermissionUtils.h */,
 				6097A45A1B9BE1EA0023C0C9 /* MPPermissionUtils.m */,
 			);
@@ -1224,6 +1229,7 @@
 				60113CA61BAB7A5B001EF84C /* MPEmotionTabBar.m in Sources */,
 				605DFEEB1BBC981F005B91EC /* MPHomeService.m in Sources */,
 				600802E11B9EE98E0029F1C2 /* GCD.m in Sources */,
+				607984261BCC9DA100059F98 /* MPQRCodeUtils.m in Sources */,
 				602D274C1B95547400DD1B5C /* MPHomeStatusNoticeView.m in Sources */,
 				6006EC201B903B6000DFD4D0 /* Status.m in Sources */,
 				6006EC051B8FF54E00DFD4D0 /* UIWindow+Extension.m in Sources */,
